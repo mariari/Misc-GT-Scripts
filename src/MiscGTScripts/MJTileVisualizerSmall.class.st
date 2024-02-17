@@ -12,7 +12,8 @@ MJTileVisualizerSmall class >> convertKind: string [
 	'north' = string ifTrue: [ ^ '4' ].
 	'white' = string ifTrue: [ ^ '5' ].
 	'green' = string ifTrue: [ ^ '6' ].
-	'red' = string ifTrue: [ ^ '7' ]
+	'red' = string ifTrue: [ ^ '7' ].
+	^ 'east'
 ]
 
 { #category : #accessing }
@@ -24,7 +25,7 @@ MJTileVisualizerSmall class >> default [
 { #category : #accessing }
 MJTileVisualizerSmall class >> honor: kind [
 	^ self new
-		initalizePath: self new defaultPath / 'honors' / (self convertKind: kind asString , '.gif')
+		initalizePath: self new defaultPath / 'honors' / ((self convertKind: kind) , '.gif')
 ]
 
 { #category : #accessing }
@@ -53,10 +54,4 @@ MJTileVisualizerSmall >> initalizePath: p [
 	size := self defaultSize.
 	path := p.
 	^ self
-]
-
-{ #category : #accessing }
-MJTileVisualizerSmall >> suit: kind number: num [
-
-^ self
 ]
