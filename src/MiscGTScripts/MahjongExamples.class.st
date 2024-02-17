@@ -28,15 +28,15 @@ pairs := {'honors' -> 1.
 		8 -> 6.
 		8 -> 7}.
 img := Form
-		fromBinaryStream: (FileLocator home / 'Downloads' / 'Tile-1m.png') binaryReadStream.
+		fromBinaryStream: (FileLocator home / 'Downloads' / '1m.gif') binaryReadStream.
 
 background := BlImageBackground image: img.
 view nodes
 	shape: [ :each | 
 		BlElement new
-			border: (BlBorder paint: Color black);
+			"border: (BlBorder paint: Color black);"
 			geometry: BlRoundedRectangleGeometry new;
-			size: 28 @ 39;
+			size: 15 @ 20;
 			background: background ];
 	with: tiles.
 view edges connectAssociations: pairs.
