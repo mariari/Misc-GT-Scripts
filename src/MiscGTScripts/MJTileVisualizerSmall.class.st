@@ -49,6 +49,19 @@ MJTileVisualizerSmall >> defaultSize [
 ]
 
 { #category : #accessing }
+MJTileVisualizerSmall >> form [
+	^ Form fromBinaryStream: path binaryReadStream
+]
+
+{ #category : #accessing }
+MJTileVisualizerSmall >> image: aView [
+	<gtView> 
+	^ aView explicit
+		title: 'Image';
+		stencil: [self form]
+]
+
+{ #category : #accessing }
 MJTileVisualizerSmall >> initalizePath: p [
 	size := self defaultSize.
 	path := p.
