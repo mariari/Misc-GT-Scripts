@@ -1,9 +1,6 @@
 Class {
 	#name : #MJTile,
 	#superclass : #Object,
-	#instVars : [
-		'visualizer'
-	],
 	#category : #MiscGTScripts
 }
 
