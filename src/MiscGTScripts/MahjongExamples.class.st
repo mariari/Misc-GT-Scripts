@@ -57,17 +57,61 @@ MahjongExamples >> mans [
 	^ self allSuits:[ :each | MJNumber man: each ]
 ]
 
+{ #category : #accessing }
+MahjongExamples >> pairGet [
+	<gtExample>
+	| view tiles pairs z234 z456 z41 z42 z1 z7 |
+	view := GtMondrian new.
+
+	z234 := MJHand
+			hand: {MJNumber zhu: 2.
+					MJNumber zhu: 3}.
+	z456 := MJHand
+			hand: {MJNumber zhu: 5.
+					MJNumber zhu: 6}.
+	z41 := MJNumber zhu: 4.
+	z42 := z41 clone.
+	z1 := MJNumber zhu: 1.
+	z7 := MJNumber zhu: 7.
+
+
+	tiles := {z234. z456. z41. z1. z7. z42}.
+
+	pairs := {z234 -> z1.z234 -> z41.z456 -> z42. z456 -> z7. }.
+
+	^ self basicGraph: tiles edges: pairs
+]
+
 { #category : #tiles }
 MahjongExamples >> pins [
 	^ self allSuits:[ :each | MJNumber pin: each ]
 ]
 
 { #category : #accessing }
+MahjongExamples >> runWaits [
+	<gtExample>
+	| tiles pairs five |
+	tiles := self mans asOrderedCollection.
+	five := MJHand hand: (tiles copyFrom: 2 to: 6).
+
+
+
+	pairs := {five -> (tiles at: 1).
+			five -> (tiles at: 4).
+			five -> (tiles at: 7)}.
+
+	^ self
+		basicGraph: {five.
+				tiles at: 1.
+				tiles at: 4.
+				tiles at: 7}
+		edges: pairs
+]
+
+{ #category : #accessing }
 MahjongExamples >> safeTiles [
 	<gtExample>
-	| view tiles pairs |
-	view := GtMondrian new.
-
+	| tiles pairs |
 	tiles := self zhus asOrderedCollection.
 
 	pairs := {(tiles at: 6) -> (tiles at: 3).
@@ -92,9 +136,7 @@ MahjongExamples >> spreadTree: view [
 { #category : #accessing }
 MahjongExamples >> versitility [
 	<gtExample>
-	| view tiles pairs honor |
-	view := GtMondrian new.
-
+	| tiles pairs honor |
 	tiles := self pins asOrderedCollection.
 
 	honor := MJFace 中.
@@ -118,9 +160,7 @@ MahjongExamples >> versitility [
 { #category : #accessing }
 MahjongExamples >> versitilityHand [
 	<gtExample>
-	| view tiles pairs honor second third best |
-	view := GtMondrian new.
-
+	| tiles pairs honor second third best |
 	tiles := self pins asOrderedCollection.
 
 	honor := MJFace 中.
