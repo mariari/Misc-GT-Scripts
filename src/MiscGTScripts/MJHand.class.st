@@ -14,11 +14,16 @@ MJHand class >> hand: aCollection [
 
 { #category : #accessing }
 MJHand >> asBlElement [
-	| view |
+	| view ele |
 	view := GtMondrian new.
-	
-	view nodes shape: [ :each | each asBlElement ]; with: tiles.
-	^ view
+
+	view nodes
+		shape: [ :each | each asBlElement ];
+		with: tiles.
+	ele := view asElement.
+	ele padding: BlInsets empty.
+	ele size: self tileSize.
+	^ ele
 ]
 
 { #category : #accessing }
@@ -28,6 +33,14 @@ MJHand >> image: aView [
 	^ aView explicit
 		title: 'Image';
 		stencil: [self asBlElement]
+]
+
+{ #category : #accessing }
+MJHand >> tileSize [
+	| size |
+	tiles ifEmpty: [ ^ 0 @ 0 ].
+	size := (tiles at: 1) visualize defaultSize.
+	^ (size x * tiles size) @ size y
 ]
 
 { #category : #accessing }
