@@ -1,21 +1,21 @@
 Class {
-	#name : #MJTileVisualizerSmall,
+	#name : #MJTileVisualizerTenhou,
 	#superclass : #MJTileVisualizer,
 	#category : #MiscGTScripts
 }
 
 { #category : #accessing }
-MJTileVisualizerSmall class >> fileType [
-	^ '.gif'
+MJTileVisualizerTenhou class >> fileType [
+	^ '.png'
 ]
 
 { #category : #accessing }
-MJTileVisualizerSmall >> defaultPath [
+MJTileVisualizerTenhou >> defaultPath [
 	^ (GtGitRepository forClass: Mahjong) icebergRepository repositoryDirectory
-		/ 'images' / 'mahjong' / 'small'
+		/ 'images' / 'mahjong' / 'tenhou'
 ]
 
 { #category : #accessing }
-MJTileVisualizerSmall >> defaultSize [
-	^ 15 @ 21
+MJTileVisualizerTenhou >> defaultSize [
+	^ 168 @ 253
 ]

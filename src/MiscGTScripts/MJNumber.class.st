@@ -64,7 +64,7 @@ MJNumber >> suit: su number: num [
 
 { #category : #accessing }
 MJNumber >> visualize [
-	^ MJTileVisualizerSmall suit: suit number: number
+	^ MJTileVisualizerTenhou suit: suit number: number
 ]
 
 { #category : #accessing }

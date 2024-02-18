@@ -100,5 +100,5 @@ MJFace >> new: kind [
 
 { #category : #accessing }
 MJFace >> visualize [
-	^ MJTileVisualizerSmall honor: name
+	^ MJTileVisualizerTenhou honor: name
 ]
