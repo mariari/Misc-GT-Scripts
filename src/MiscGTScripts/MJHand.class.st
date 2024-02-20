@@ -30,10 +30,27 @@ MJHand >> asBlElement [
 { #category : #accessing }
 MJHand >> image: aView [
 	<gtView>
-	
-	^ aView explicit
+	^ aView mondrian
 		title: 'Image';
-		stencil: [self asBlElement]
+		painting: [ :view |  self naturalLayout: view ]
+]
+
+{ #category : #accessing }
+MJHand >> naturalLayout [
+	| view |
+	view := GtMondrian new.
+	view nodes
+		shape: [ :each | each asBlElement ];
+		with: tiles.
+	^ view
+]
+
+{ #category : #accessing }
+MJHand >> naturalLayout: view [
+	view nodes
+		shape: [ :each | each asBlElement ];
+		with: tiles.
+	^ view
 ]
 
 { #category : #accessing }
