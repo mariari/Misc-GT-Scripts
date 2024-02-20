@@ -23,6 +23,7 @@ MJHand >> asBlElement [
 	ele := view asElement.
 	ele padding: BlInsets empty.
 	ele size: self tileSize.
+	ele layout horizontal columnCount: tiles size.
 	^ ele
 ]
 

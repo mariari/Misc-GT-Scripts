@@ -8,6 +8,20 @@ Class {
 }
 
 { #category : #accessing }
+MJFace class >> convertKind: number [
+	"convert into array indexing"
+
+	1 = number ifTrue: [ ^ self east ].
+	2 = number ifTrue: [ ^ self south ].
+	3 = number ifTrue: [ ^ self west ].
+	4 = number ifTrue: [ ^ self north ].
+	5 = number ifTrue: [ ^ self white ].
+	6 = number ifTrue: [ ^ self green ].
+	7 = number ifTrue: [ ^ self red ].
+	^ Error signal: 'invalid conversion'
+]
+
+{ #category : #accessing }
 MJFace class >> default [
 	^ self red
 ]
@@ -30,6 +44,11 @@ MJFace class >> green [
 { #category : #accessing }
 MJFace class >> north [
 	^ self new new: 'north'
+]
+
+{ #category : #accessing }
+MJFace class >> num: anInteger [ 
+	^ self convertKind: anInteger.
 ]
 
 { #category : #accessing }
