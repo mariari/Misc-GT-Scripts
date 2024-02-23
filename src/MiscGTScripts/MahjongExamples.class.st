@@ -150,6 +150,12 @@ MahjongExamples >> simpleGroup [
 ]
 
 { #category : #accessing }
+MahjongExamples >> simpleGroups [
+	<gtExample>
+	^ (MJGroups with: '12246799p' asMJHand tiles)
+]
+
+{ #category : #accessing }
 MahjongExamples >> spreadTree: view [
 	| layout |
 	layout := view layout tree.

@@ -106,6 +106,13 @@ MJNumber >> uniqueHash [
 ]
 
 { #category : #accessing }
+MJNumber >> valueSort [
+	'man' = suit ifTrue: [ ^ 100 + self number ].
+	'pin' = suit ifTrue: [ ^ 200 + self number ].
+	'zhu' = suit ifTrue: [ ^ 300 + self number ]
+]
+
+{ #category : #accessing }
 MJNumber >> visualize [
 	^ MJTileVisualizerTenhou suit: suit number: number
 ]

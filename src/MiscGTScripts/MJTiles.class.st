@@ -62,6 +62,12 @@ MJTiles >> naturalLayout: view [
 ]
 
 { #category : #accessing }
+MJTiles >> sort [
+	tiles := tiles asSortedCollection: [ :a :b | a valueSort < b valueSort ].
+	^ self
+]
+
+{ #category : #accessing }
 MJTiles >> tileSize [
 	| size |
 	tiles ifEmpty: [ ^ 0 @ 0 ].
@@ -72,4 +78,16 @@ MJTiles >> tileSize [
 { #category : #accessing }
 MJTiles >> tiles [
 	^ tiles
+]
+
+{ #category : #accessing }
+MJTiles >> unique [
+	| set |
+	set := PluggableSet new.
+	set equalBlock: [ :a :b | a sameAs: b ].
+	set hashBlock: [ :ele | ele uniqueHash ].
+	tiles do: [ :tile | set add: tile ].
+	tiles := set asSortedCollection: [ :a :b | a valueSort < b valueSort ].
+	self sort.
+	^ self
 ]

@@ -20,11 +20,19 @@ MJGroups class >> with: aCollection [
 { #category : #accessing }
 MJGroups >> accepts [
 	| set |
-	set := PluggableSet new.
-	set equalBlock: [ :a :b | a sameAs: b ].
-	set hashBlock: [:ele | ele uniqueHash].
+	set := OrderedCollection new.
 	tiles do: [ :group | group acceptsTiles tiles do: [ :tile | set add: tile ] ].
-	^ set
+	^ (MJHand with: set) unique
+]
+
+{ #category : #accessing }
+MJGroups >> acceptsComplete [
+	| noComplete |
+	noComplete := tiles reject: [ :group | group tiles size > 2 ].
+	noComplete size > 1 ifTrue: [ ^ MJHand with: OrderedCollection new ].
+	(noComplete reject: [ :group | group tiles size = 2 ]) size ~= 0
+		ifTrue: [ ^ MJHand with: OrderedCollection new ].
+	^ self accepts
 ]
 
 { #category : #accessing }
