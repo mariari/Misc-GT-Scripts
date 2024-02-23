@@ -54,6 +54,7 @@ MahjongExamples >> handExample [
 
 { #category : #tiles }
 MahjongExamples >> mans [
+	<gtExample>
 	^ self allSuits:[ :each | MJNumber man: each ]
 ]
 
@@ -84,7 +85,8 @@ MahjongExamples >> pairGet [
 
 { #category : #tiles }
 MahjongExamples >> pins [
-	^ self allSuits:[ :each | MJNumber pin: each ]
+	<gtExample>
+	^ self allSuits: [ :each | MJNumber pin: each ]
 ]
 
 { #category : #accessing }
@@ -188,5 +190,6 @@ MahjongExamples >> versitilityHand [
 
 { #category : #tiles }
 MahjongExamples >> zhus [
+	<gtExample>
 	^ self allSuits:[ :each | MJNumber zhu: each ]
 ]

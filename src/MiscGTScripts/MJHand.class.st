@@ -1,9 +1,6 @@
 Class {
 	#name : #MJHand,
-	#superclass : #Object,
-	#instVars : [
-		'tiles'
-	],
+	#superclass : #MJTiles,
 	#category : #MiscGTScripts
 }
 
