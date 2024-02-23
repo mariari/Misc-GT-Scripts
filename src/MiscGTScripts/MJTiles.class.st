@@ -91,3 +91,16 @@ MJTiles >> unique [
 	self sort.
 	^ self
 ]
+
+{ #category : #accessing }
+MJTiles >> uniqueHash [
+	^ self valueSort hash
+]
+
+{ #category : #accessing }
+MJTiles >> valueSort [
+	"Fixup we need to shift the values by the index"
+	| index | 
+	index := 0.
+	^ tiles inject: 0 into: [ :sum :b | index := index + 1. sum + (b valueSort * index) ]
+]

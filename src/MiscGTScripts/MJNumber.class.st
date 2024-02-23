@@ -102,14 +102,14 @@ MJNumber >> suit: su number: num [
 
 { #category : #accessing }
 MJNumber >> uniqueHash [
-	^ number hash + suit hash
+	^ self number hash + self valueSort hash
 ]
 
 { #category : #accessing }
 MJNumber >> valueSort [
-	'man' = suit ifTrue: [ ^ 100 + self number ].
-	'pin' = suit ifTrue: [ ^ 200 + self number ].
-	'zhu' = suit ifTrue: [ ^ 300 + self number ]
+	'man' = suit ifTrue: [ ^ 256 * self number ].
+	'pin' = suit ifTrue: [ ^ 65536 * self number ].
+	'zhu' = suit ifTrue: [ ^ 16777216 * self number ]
 ]
 
 { #category : #accessing }

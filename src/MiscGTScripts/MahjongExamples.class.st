@@ -138,6 +138,12 @@ MahjongExamples >> safeTiles [
 ]
 
 { #category : #accessing }
+MahjongExamples >> simpleAcceptance [
+	<gtExample>
+	^ '23456m' asMJHand
+]
+
+{ #category : #accessing }
 MahjongExamples >> simpleAccepting [
 	<gtExample>
 	^ '23m' asMJGroup

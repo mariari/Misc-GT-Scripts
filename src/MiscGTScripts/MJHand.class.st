@@ -16,12 +16,15 @@ MJHand class >> with: aCollection [
 
 { #category : #accessing }
 MJHand >> accepts [
-	| permutations groups acceptHands ordered |
+	| permutations acceptHands ordered set |
 	permutations := Array
 			streamContents: [ :stream | tiles permutationsDo: [ :each | stream nextPut: each copy ] ].
 
-	groups := permutations collect: [ :hand | MJGroups with: hand ].
-	acceptHands := groups collect: [ :group | group accepts ].
+
+	set := self uniqueSet.
+	permutations do: [ :hand | set add: (MJGroups with: hand) ].
+
+	acceptHands := set collect: [ :group | group accepts ].
 	ordered := OrderedCollection new.
 	acceptHands do: [ :hand | ordered addAll: hand tiles ].
 	^ (MJHand with: ordered) unique
@@ -29,15 +32,27 @@ MJHand >> accepts [
 
 { #category : #accessing }
 MJHand >> acceptsComplete [
-	| permutations groups acceptHands ordered |
+	| permutations acceptHands ordered set |
 	permutations := Array
 			streamContents: [ :stream | tiles permutationsDo: [ :each | stream nextPut: each copy ] ].
 
-	groups := permutations collect: [ :hand | MJGroups with: hand ].
-	acceptHands := groups collect: [ :group | group acceptsComplete ].
+
+	set := self uniqueSet.
+	permutations do: [ :hand | set add: (MJGroups with: hand) ].
+
+	acceptHands := set collect: [ :group | group acceptsComplete ].
 	ordered := OrderedCollection new.
 	acceptHands do: [ :hand | ordered addAll: hand tiles ].
 	^ (MJHand with: ordered) unique
+]
+
+{ #category : #accessing }
+MJHand >> uniqueSet [
+	| set |
+	set := PluggableSet new.
+	set equalBlock: [ :a :b | a valueSort = b valueSort ].
+	set hashBlock: [ :ele | ele uniqueHash ].
+	^ set
 ]
 
 { #category : #visualization }
@@ -53,7 +68,7 @@ MJHand >> visualizeAcceptsComplete: view [
 { #category : #accessing }
 MJHand >> visualizeAcceptsView: aView [
 	<gtView>
-	self accepts tiles isEmpty ifTrue: [ ^ aView empty ].
+	"self accepts tiles isEmpty ifTrue: [ ^ aView empty ]."
 	^ aView mondrian
 		title: 'Accepts';
 		painting: [ :view | self visualizeAccepts: view ]
@@ -62,7 +77,7 @@ MJHand >> visualizeAcceptsView: aView [
 { #category : #accessing }
 MJHand >> visualizeAcceptsViewComplete: aView [
 	<gtView>
-	self acceptsComplete tiles  isEmpty ifTrue: [ ^ aView empty ].
+	"self acceptsComplete tiles  isEmpty ifTrue: [ ^ aView empty ]."
 	^ aView mondrian
 		title: 'Accepts Complete';
 		painting: [ :view | self visualizeAcceptsComplete: view ]

@@ -144,13 +144,13 @@ MJFace >> uniqueHash [
 
 { #category : #accessing }
 MJFace >> valueSort [
-	'east' = name ifTrue: [ ^ 401 ].
-	'south' = name ifTrue: [ ^ 402 ].
-	'west' = name ifTrue: [ ^ 403 ].
-	'north' = name ifTrue: [ ^ 404 ].
-	'white' = name ifTrue: [ ^ 405 ].
-	'green' = name ifTrue: [ ^ 406 ].
-	'red' = name ifTrue: [ ^ 407 ].
+	'east' = name ifTrue: [ ^ 4294967296 ].
+	'south' = name ifTrue: [ ^ 4294967296 * 2 ].
+	'west' = name ifTrue: [ ^ 4294967296 * 3 ].
+	'north' = name ifTrue: [ ^ 4294967296 * 4 ].
+	'white' = name ifTrue: [ ^ 4294967296 * 5 ].
+	'green' = name ifTrue: [ ^ 4294967296 * 6 ].
+	'red' = name ifTrue: [ ^ 4294967296 * 7 ].
 ]
 
 { #category : #accessing }
