@@ -79,20 +79,26 @@ MJGroup >> predicate [
 ]
 
 { #category : #views }
-MJGroup >> visualizeAccepts: aView [
-	<gtView>
+MJGroup >> visualizeAccepts: view [
 	| needs nodes |
 	needs := self acceptsTiles.
-	needs tiles isEmpty ifTrue: [ ^ aView empty ].
 	nodes := needs tiles copy.
 	nodes addLast: self.
+
+	tiles isEmpty
+		ifTrue: [ needs naturalLayout: view ]
+		ifFalse: [ MahjongExamples new
+				basicGraph: nodes
+				edges: (needs tiles collect: [ :tile | self -> tile ])
+				withView: view ].
+	^ view
+]
+
+{ #category : #views }
+MJGroup >> visualizeAcceptsView: aView [
+	<gtView>
+	self acceptsTiles tiles isEmpty ifTrue: [ ^ aView empty ].
 	^ aView mondrian
 		title: 'Accepts';
-		painting: [ :view | 
-			tiles isEmpty
-				ifTrue: [ needs naturalLayout: view ]
-				ifFalse: [ MahjongExamples new
-						basicGraph: nodes
-						edges: (needs tiles collect: [ :tile | self -> tile ])
-						withView: view ] ]
+		painting: [ :view | self visualizeAccepts: view ]
 ]

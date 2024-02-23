@@ -138,6 +138,22 @@ MJFace >> sameAs: tile [
 ]
 
 { #category : #accessing }
+MJFace >> uniqueHash [
+	^ name hash
+]
+
+{ #category : #accessing }
+MJFace >> valueSort [
+	'east' = name ifTrue: [ ^ 401 ].
+	'south' = name ifTrue: [ ^ 402 ].
+	'west' = name ifTrue: [ ^ 403 ].
+	'north' = name ifTrue: [ ^ 404 ].
+	'white' = name ifTrue: [ ^ 405 ].
+	'green' = name ifTrue: [ ^ 406 ].
+	'red' = name ifTrue: [ ^ 407 ].
+]
+
+{ #category : #accessing }
 MJFace >> visualize [
 	^ MJTileVisualizerTenhou honor: name
 ]

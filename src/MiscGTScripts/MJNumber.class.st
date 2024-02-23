@@ -101,6 +101,11 @@ MJNumber >> suit: su number: num [
 ]
 
 { #category : #accessing }
+MJNumber >> uniqueHash [
+	^ number hash + suit hash
+]
+
+{ #category : #accessing }
 MJNumber >> visualize [
 	^ MJTileVisualizerTenhou suit: suit number: number
 ]

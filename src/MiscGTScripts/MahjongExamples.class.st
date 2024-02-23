@@ -14,23 +14,41 @@ MahjongExamples >> basicGraph: tiles edges: pairs [
 	^ self
 		basicGraph: tiles
 		edges: pairs
-		withView: GtMondrian new
+		withView: self defaultGraph
 ]
 
 { #category : #accessing }
 MahjongExamples >> basicGraph: tiles edges: pairs withView: view [
 	"Basic Graph view"
 
+	self basicGraphNodes: tiles withView: view.
+	self basicGraphEdges: pairs withView: view.
+	self spreadTree: view.
+	view edges fromCenterBottom.
+	^ view
+]
+
+{ #category : #accessing }
+MahjongExamples >> basicGraphEdges: pairs withView: view [
 	| edgeStyling |
 	edgeStyling := self defaultStyling: (Color blue alpha: 1.0).
-
-	view nodes
-		shape: [ :each | each asBlElement ];
-		with: tiles.
 	view edges
 		stencil: edgeStyling;
-		connectAssociations: pairs.
-	self spreadTree: view.
+		connectAssociations: pairs
+]
+
+{ #category : #accessing }
+MahjongExamples >> basicGraphNodes: tiles withView: view [
+	view nodes
+		shape: [ :each | each asBlElement ];
+		with: tiles
+]
+
+{ #category : #accessing }
+MahjongExamples >> defaultGraph [
+	<gtExample>
+	| view |
+	view := GtMondrian new.
 	view edges fromCenterBottom.
 	^ view
 ]
@@ -67,26 +85,13 @@ MahjongExamples >> mans [
 { #category : #accessing }
 MahjongExamples >> pairGet [
 	<gtExample>
-	| view tiles pairs z234 z456 z41 z42 z1 z7 |
-	view := GtMondrian new.
+	| view z1 z2 |
+	view := self defaultGraph.
+	z1 := '23s' asMJGroup.
+	z2 := '45s' asMJGroup.
+	{ z1 . z2 } do: [:e | e visualizeAccepts: view].
 
-	z234 := MJHand
-			with: {MJNumber zhu: 2.
-					MJNumber zhu: 3}.
-	z456 := MJHand
-			with: {MJNumber zhu: 5.
-					MJNumber zhu: 6}.
-	z41 := MJNumber zhu: 4.
-	z42 := z41 clone.
-	z1 := MJNumber zhu: 1.
-	z7 := MJNumber zhu: 7.
-
-
-	tiles := {z234. z456. z41. z1. z7. z42}.
-
-	pairs := {z234 -> z1.z234 -> z41.z456 -> z42. z456 -> z7. }.
-
-	^ self basicGraph: tiles edges: pairs
+	^ view
 ]
 
 { #category : #tiles }

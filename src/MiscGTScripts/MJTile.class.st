@@ -49,6 +49,16 @@ MJTile >> sameAs: tile [
 ]
 
 { #category : #accessing }
+MJTile >> uniqueHash [
+	^ self subclassResponsibility
+]
+
+{ #category : #accessing }
+MJTile >> valueSort [
+	^ self subclassResponsibility
+]
+
+{ #category : #accessing }
 MJTile >> visualize [
 	^ self subclassResponsibility
 ]
