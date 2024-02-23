@@ -1,6 +1,11 @@
 Extension { #name : #String }
 
 { #category : #'*MiscGTScripts' }
+String >> asMJGroup [
+	^ MJGroup with: self asMJHand tiles
+]
+
+{ #category : #'*MiscGTScripts' }
 String >> asMJHand [
 	| stringArr indicies |
 	stringArr := self asArray.

@@ -23,8 +23,28 @@ MJTile >> asBlElement [
 	^ self visualize asBlElement
 ]
 
+{ #category : #predicates }
+MJTile >> combinesWith: tile [
+	^ (self runsWith: tile) or: [ self sameAs: tile ]
+]
+
 { #category : #accessing }
 MJTile >> image: aView [
+	^ self subclassResponsibility
+]
+
+{ #category : #predicates }
+MJTile >> isSpecial [
+	^ self subclassResponsibility
+]
+
+{ #category : #accessing }
+MJTile >> runsWith: tile [
+	^ self subclassResponsibility
+]
+
+{ #category : #accessing }
+MJTile >> sameAs: tile [
 	^ self subclassResponsibility
 ]
 

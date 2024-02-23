@@ -8,6 +8,11 @@ Class {
 }
 
 { #category : #accessing }
+MJTiles class >> with: aCollection [
+	^ self subclassResponsibility
+]
+
+{ #category : #accessing }
 MJTiles >> asBlElement [
 	| view ele |
 	view := GtMondrian new.

@@ -49,10 +49,48 @@ MJNumber >> image: aView [
 	^ self visualize image: aView
 ]
 
+{ #category : #predicates }
+MJNumber >> isSpecial [
+	^ false
+]
+
 { #category : #accessing }
 MJNumber >> new: num [
 	suit := 'pin'.	"random default"
 	number := num
+]
+
+{ #category : #accessing }
+MJNumber >> number [
+	^ number isZero ifTrue: [ ^ 5 ] ifFalse: [ ^ number ]
+]
+
+{ #category : #creating }
+MJNumber >> number: num [
+	^ self class new suit: self suit number: num
+]
+
+{ #category : #predicates }
+MJNumber >> runsWith: tile [
+	| num |
+	num := self number.
+	^ (self sameSuit: tile)
+		and: [ (self sameAs: tile) not and: [ tile number between: num - 2 and: num + 2 ] ]
+]
+
+{ #category : #predicates }
+MJNumber >> sameAs: tile [
+	^ (self sameSuit: tile) and: [ tile number = self number ]
+]
+
+{ #category : #predicates }
+MJNumber >> sameSuit: tile [
+	^ self class = tile class and: [ self suit = tile suit ]
+]
+
+{ #category : #accessing }
+MJNumber >> suit [
+	^ suit
 ]
 
 { #category : #accessing }
@@ -65,19 +103,4 @@ MJNumber >> suit: su number: num [
 { #category : #accessing }
 MJNumber >> visualize [
 	^ MJTileVisualizerTenhou suit: suit number: number
-]
-
-{ #category : #accessing }
-MJNumber >> wan [
-	^ self man
-]
-
-{ #category : #accessing }
-MJNumber >> 竹 [
-	^ self class new suit: 'zhu' number: number
-]
-
-{ #category : #accessing }
-MJNumber >> 萬 [
-	^ self man
 ]

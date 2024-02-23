@@ -112,9 +112,29 @@ MJFace >> image: aView [
 	^ self visualize image: aView
 ]
 
+{ #category : #predicates }
+MJFace >> isSpecial [
+	^ true
+]
+
+{ #category : #accessing }
+MJFace >> name [
+	^ name
+]
+
 { #category : #accessing }
 MJFace >> new: kind [
 	name := kind
+]
+
+{ #category : #predicates }
+MJFace >> runsWith: tile [
+	^ false
+]
+
+{ #category : #predicates }
+MJFace >> sameAs: tile [
+	^ self class = tile class and: [ name = tile name ]
 ]
 
 { #category : #accessing }

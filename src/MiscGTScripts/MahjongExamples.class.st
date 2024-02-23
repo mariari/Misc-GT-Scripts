@@ -11,12 +11,18 @@ MahjongExamples >> allSuits: ablock [
 
 { #category : #accessing }
 MahjongExamples >> basicGraph: tiles edges: pairs [
+	^ self
+		basicGraph: tiles
+		edges: pairs
+		withView: GtMondrian new
+]
+
+{ #category : #accessing }
+MahjongExamples >> basicGraph: tiles edges: pairs withView: view [
 	"Basic Graph view"
 
-	| view edgeStyling |
+	| edgeStyling |
 	edgeStyling := self defaultStyling: (Color blue alpha: 1.0).
-
-	view := GtMondrian new.
 
 	view nodes
 		shape: [ :each | each asBlElement ];
@@ -43,7 +49,7 @@ MahjongExamples >> handExample [
 	view := GtMondrian new.
 
 	tiles := {MJHand
-				hand: {MJFace 東.
+				with: {MJFace 東.
 						MJFace 中}.
 			MJFace 東}.
 
@@ -65,10 +71,10 @@ MahjongExamples >> pairGet [
 	view := GtMondrian new.
 
 	z234 := MJHand
-			hand: {MJNumber zhu: 2.
+			with: {MJNumber zhu: 2.
 					MJNumber zhu: 3}.
 	z456 := MJHand
-			hand: {MJNumber zhu: 5.
+			with: {MJNumber zhu: 5.
 					MJNumber zhu: 6}.
 	z41 := MJNumber zhu: 4.
 	z42 := z41 clone.
@@ -94,7 +100,7 @@ MahjongExamples >> runWaits [
 	<gtExample>
 	| tiles pairs five |
 	tiles := self mans asOrderedCollection.
-	five := MJHand hand: (tiles copyFrom: 2 to: 6).
+	five := MJHand with: (tiles copyFrom: 2 to: 6).
 
 
 
@@ -124,6 +130,18 @@ MahjongExamples >> safeTiles [
 			(tiles at: 4) -> (tiles at: 7)}.
 
 	^ self basicGraph: tiles edges: pairs
+]
+
+{ #category : #accessing }
+MahjongExamples >> simpleAccepting [
+	<gtExample>
+	^ '23m' asMJGroup
+]
+
+{ #category : #accessing }
+MahjongExamples >> simpleGroup [
+	<gtExample>
+	^ '5s' asMJGroup
 ]
 
 { #category : #accessing }
@@ -167,12 +185,12 @@ MahjongExamples >> versitilityHand [
 
 	honor := MJFace 中.
 	second := MJHand
-			hand: {tiles at: 1.
+			with: {tiles at: 1.
 					tiles at: 9}.
 	third := MJHand
-			hand: {tiles at: 2.
+			with: {tiles at: 2.
 					tiles at: 8}.
-	best := MJHand hand: (tiles copyFrom: 3 to: 7).
+	best := MJHand with: (tiles copyFrom: 3 to: 7).
 
 
 	pairs := {honor -> second.
