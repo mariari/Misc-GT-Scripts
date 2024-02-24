@@ -1,7 +1,7 @@
 Class {
 	#name : #MJGroups,
 	#superclass : #MJTiles,
-	#category : #MiscGTScripts
+	#category : #'MiscGTScripts-Tiles'
 }
 
 { #category : #creating }
@@ -9,7 +9,7 @@ MJGroups class >> new [
 	^ super new new
 ]
 
-{ #category : #accessing }
+{ #category : #creation }
 MJGroups class >> with: aCollection [
 	| instance |
 	instance := self new.
@@ -17,7 +17,7 @@ MJGroups class >> with: aCollection [
 	^ instance
 ]
 
-{ #category : #accessing }
+{ #category : #accepting }
 MJGroups >> accepts [
 	| set |
 	set := OrderedCollection new.
@@ -25,15 +25,7 @@ MJGroups >> accepts [
 	^ (MJHand with: set) unique
 ]
 
-{ #category : #accessing }
-MJGroups >> acceptsArr [
-	| set |
-	set := OrderedCollection new.
-	tiles do: [ :group | group acceptsTiles tiles do: [ :tile | set add: tile ] ].
-	^ (MJHand with: set) unique
-]
-
-{ #category : #accessing }
+{ #category : #accepting }
 MJGroups >> acceptsComplete [
 	| noComplete |
 	noComplete := tiles reject: [ :group | group tiles size > 2 ].
@@ -43,7 +35,7 @@ MJGroups >> acceptsComplete [
 	^ self accepts
 ]
 
-{ #category : #accessing }
+{ #category : #adding }
 MJGroups >> add: tile [
 	^ tiles
 		detect: [ :obj | obj accepts: tile ]
@@ -59,19 +51,19 @@ MJGroups >> naturalLayout: view [
 	^ view
 ]
 
-{ #category : #accessing }
+{ #category : #creating }
 MJGroups >> new [
 	tiles := OrderedCollection new.
 	^ self
 ]
 
-{ #category : #accessing }
+{ #category : #visualization }
 MJGroups >> visualizeAccepts: view [
 	tiles do: [ :group | group visualizeAccepts: view ].
 	^ view
 ]
 
-{ #category : #accessing }
+{ #category : #visualization }
 MJGroups >> visualizeAcceptsView: aView [
 	<gtView>
 	^ aView mondrian

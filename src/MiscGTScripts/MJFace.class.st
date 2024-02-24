@@ -4,10 +4,10 @@ Class {
 	#instVars : [
 		'name'
 	],
-	#category : #MiscGTScripts
+	#category : #'MiscGTScripts-Tiles'
 }
 
-{ #category : #accessing }
+{ #category : #creation }
 MJFace class >> convertKind: number [
 	"convert into array indexing"
 
@@ -21,92 +21,92 @@ MJFace class >> convertKind: number [
 	^ Error signal: 'invalid conversion'
 ]
 
-{ #category : #accessing }
+{ #category : #creation }
 MJFace class >> default [
 	^ self red
 ]
 
-{ #category : #accessing }
+{ #category : #creation }
 MJFace class >> dong [
 	^ self east
 ]
 
-{ #category : #accessing }
+{ #category : #creation }
 MJFace class >> east [
 	^ self new new: #east
 ]
 
-{ #category : #accessing }
+{ #category : #creation }
 MJFace class >> green [
 	^ self new new: #green
 ]
 
-{ #category : #accessing }
+{ #category : #creation }
 MJFace class >> north [
 	^ self new new: #north
 ]
 
-{ #category : #accessing }
+{ #category : #creation }
 MJFace class >> num: anInteger [ 
 	^ self convertKind: anInteger.
 ]
 
-{ #category : #accessing }
+{ #category : #creation }
 MJFace class >> red [
 	^ self new new: #red
 ]
 
-{ #category : #accessing }
+{ #category : #creation }
 MJFace class >> south [
 	^ self new new: 'south'
 ]
 
-{ #category : #accessing }
+{ #category : #creation }
 MJFace class >> west [
 	^ self new new: #west
 ]
 
-{ #category : #accessing }
+{ #category : #creation }
 MJFace class >> white [
 	^ self new new: #white
 ]
 
-{ #category : #accessing }
+{ #category : #creation }
 MJFace class >> 中 [
 	^ self red
 ]
 
-{ #category : #accessing }
+{ #category : #creation }
 MJFace class >> 北 [
 	^ self north
 ]
 
-{ #category : #accessing }
+{ #category : #creation }
 MJFace class >> 南 [
 	^ self south
 ]
 
-{ #category : #accessing }
+{ #category : #creation }
 MJFace class >> 東 [
 	^ self east
 ]
 
-{ #category : #accessing }
+{ #category : #creation }
 MJFace class >> 發 [
 	^ self green
 ]
 
-{ #category : #accessing }
+{ #category : #creation }
 MJFace class >> 白 [
 	^ self white
 ]
 
-{ #category : #accessing }
+{ #category : #creatoin }
 MJFace class >> 西 [
 	^ self west
 ]
 
-{ #category : #accessing }
+{ #category : #visualization }
 MJFace >> image: aView [
 	<gtView>
 	^ self visualize image: aView
@@ -127,7 +127,7 @@ MJFace >> name [
 	^ self kind
 ]
 
-{ #category : #accessing }
+{ #category : #creation }
 MJFace >> new: kind [
 	name := kind
 ]
@@ -142,17 +142,17 @@ MJFace >> sameAs: tile [
 	^ self class = tile class and: [ name = tile name ]
 ]
 
-{ #category : #accessing }
+{ #category : #equality }
 MJFace >> uniqueHash [
 	^ name hash
 ]
 
-{ #category : #accessing }
+{ #category : #equality }
 MJFace >> value [
 	^ name
 ]
 
-{ #category : #accessing }
+{ #category : #equality }
 MJFace >> valueSort [
 	#east = name ifTrue: [ ^ 4294967296 ].
 	#south = name ifTrue: [ ^ 4294967296 * 2 ].
@@ -163,7 +163,7 @@ MJFace >> valueSort [
 	#red = name ifTrue: [ ^ 4294967296 * 7 ]
 ]
 
-{ #category : #accessing }
+{ #category : #visualization }
 MJFace >> visualize [
 	^ MJTileVisualizerTenhou honor: name
 ]

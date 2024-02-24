@@ -4,7 +4,7 @@ Class {
 	#classInstVars : [
 		'cache'
 	],
-	#category : #MiscGTScripts
+	#category : #'MiscGTScripts-Caching'
 }
 
 { #category : #accessing }
@@ -12,17 +12,17 @@ MJGroupCache class >> at: set [
 	^ cache at: set ifAbsent: #()
 ]
 
-{ #category : #accessing }
+{ #category : #predicates }
 MJGroupCache class >> includesKey: set [
 	^ cache includesKey: set
 ]
 
-{ #category : #accessing }
+{ #category : #initalization }
 MJGroupCache class >> initialize [
 	cache := self table
 ]
 
-{ #category : #accessing }
+{ #category : #initalization }
 MJGroupCache class >> table [
 	| arr |
 	arr := {{1} -> #(1 2 3) asSet.

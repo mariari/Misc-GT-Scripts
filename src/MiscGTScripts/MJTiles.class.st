@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'tiles'
 	],
-	#category : #MiscGTScripts
+	#category : #'MiscGTScripts-Tiles'
 }
 
 { #category : #accessing }
@@ -12,7 +12,7 @@ MJTiles class >> with: aCollection [
 	^ self subclassResponsibility
 ]
 
-{ #category : #accessing }
+{ #category : #visualization }
 MJTiles >> asBlElement [
 	| view ele |
 	view := GtMondrian new.
@@ -27,7 +27,7 @@ MJTiles >> asBlElement [
 	^ ele
 ]
 
-{ #category : #accessing }
+{ #category : #visualization }
 MJTiles >> image: aView [
 	<gtView>
 	^ aView mondrian
@@ -35,7 +35,7 @@ MJTiles >> image: aView [
 		painting: [ :view |  self naturalLayout: view ]
 ]
 
-{ #category : #accessing }
+{ #category : #visualization }
 MJTiles >> naturalHandLayout [
 	| view |
 	view := self naturalLayout.
@@ -43,7 +43,7 @@ MJTiles >> naturalHandLayout [
 	^ view
 ]
 
-{ #category : #accessing }
+{ #category : #visualization }
 MJTiles >> naturalLayout [
 	| view |
 	view := GtMondrian new.
@@ -53,7 +53,7 @@ MJTiles >> naturalLayout [
 	^ view
 ]
 
-{ #category : #accessing }
+{ #category : #visualization }
 MJTiles >> naturalLayout: view [
 	view nodes
 		shape: [ :each | each asBlElement ];
@@ -61,13 +61,13 @@ MJTiles >> naturalLayout: view [
 	^ view
 ]
 
-{ #category : #accessing }
+{ #category : #sorting }
 MJTiles >> sort [
 	tiles := (tiles asSortedCollection: [ :a :b | a valueSort < b valueSort ]) asOrderedCollection.
 	^ self
 ]
 
-{ #category : #accessing }
+{ #category : #visualization }
 MJTiles >> tileSize [
 	| size |
 	tiles ifEmpty: [ ^ 0 @ 0 ].
@@ -80,7 +80,7 @@ MJTiles >> tiles [
 	^ tiles
 ]
 
-{ #category : #accessing }
+{ #category : #unique }
 MJTiles >> unique [
 	| set |
 	set := PluggableSet new.
@@ -92,12 +92,12 @@ MJTiles >> unique [
 	^ self
 ]
 
-{ #category : #accessing }
+{ #category : #equality }
 MJTiles >> uniqueHash [
 	^ self valueSort hash
 ]
 
-{ #category : #accessing }
+{ #category : #equality }
 MJTiles >> valueSort [
 	"Fixup we need to shift the values by the index"
 	| index | 

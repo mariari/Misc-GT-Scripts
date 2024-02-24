@@ -9,7 +9,7 @@ MahjongExamples >> allSuits: ablock [
 	^ (1 to: 9) collect: ablock
 ]
 
-{ #category : #accessing }
+{ #category : #visualization }
 MahjongExamples >> basicGraph: tiles edges: pairs [
 	^ self
 		basicGraph: tiles
@@ -17,7 +17,7 @@ MahjongExamples >> basicGraph: tiles edges: pairs [
 		withView: self defaultGraph
 ]
 
-{ #category : #accessing }
+{ #category : #visualization }
 MahjongExamples >> basicGraph: tiles edges: pairs withView: view [
 	"Basic Graph view"
 
@@ -28,7 +28,7 @@ MahjongExamples >> basicGraph: tiles edges: pairs withView: view [
 	^ view
 ]
 
-{ #category : #accessing }
+{ #category : #visualization }
 MahjongExamples >> basicGraphEdges: pairs withView: view [
 	| edgeStyling |
 	edgeStyling := self defaultStyling: (Color blue alpha: 1.0).
@@ -37,14 +37,14 @@ MahjongExamples >> basicGraphEdges: pairs withView: view [
 		connectAssociations: pairs
 ]
 
-{ #category : #accessing }
+{ #category : #visualization }
 MahjongExamples >> basicGraphNodes: tiles withView: view [
 	view nodes
 		shape: [ :each | each asBlElement ];
 		with: tiles
 ]
 
-{ #category : #accessing }
+{ #category : #example }
 MahjongExamples >> defaultGraph [
 	<gtExample>
 	| view |
@@ -53,14 +53,23 @@ MahjongExamples >> defaultGraph [
 	^ view
 ]
 
-{ #category : #accessing }
+{ #category : #visualization }
 MahjongExamples >> defaultStyling: color [
 	^ [ BlBezierElement new
 		border: (BlBorder paint: color width: 5);
 		toHead: (BlArrowheadSimpleArrow new background: color) ]
 ]
 
-{ #category : #accessing }
+{ #category : #example }
+MahjongExamples >> groupExample [
+	<gtExample>
+	| val |
+	val := '23s' asMJGroup.
+	self assert: val acceptsTiles valueSort equals: '14s' asMJHand valueSort.
+	^ val
+]
+
+{ #category : #example }
 MahjongExamples >> handExample [
 	<gtExample>
 	| view tiles pairs |
@@ -82,7 +91,7 @@ MahjongExamples >> mans [
 	^ self allSuits:[ :each | MJNumber man: each ]
 ]
 
-{ #category : #accessing }
+{ #category : #example }
 MahjongExamples >> pairGet [
 	<gtExample>
 	| view z1 z2 |
@@ -100,28 +109,16 @@ MahjongExamples >> pins [
 	^ self allSuits: [ :each | MJNumber pin: each ]
 ]
 
-{ #category : #accessing }
+{ #category : #example }
 MahjongExamples >> runWaits [
 	<gtExample>
-	| tiles pairs five |
-	tiles := self mans asOrderedCollection.
-	five := MJHand with: (tiles copyFrom: 2 to: 6).
-
-
-
-	pairs := {five -> (tiles at: 1).
-			five -> (tiles at: 4).
-			five -> (tiles at: 7)}.
-
-	^ self
-		basicGraph: {five.
-				tiles at: 1.
-				tiles at: 4.
-				tiles at: 7}
-		edges: pairs
+	| run |
+	run := '23456m' asMJHand.
+	self assert: run acceptsComplete tiles size equals: 3.
+	^ run visualizeAcceptsComplete: self defaultGraph
 ]
 
-{ #category : #accessing }
+{ #category : #example }
 MahjongExamples >> safeTiles [
 	<gtExample>
 	| tiles pairs |
@@ -137,31 +134,43 @@ MahjongExamples >> safeTiles [
 	^ self basicGraph: tiles edges: pairs
 ]
 
-{ #category : #accessing }
+{ #category : #example }
 MahjongExamples >> simpleAcceptance [
 	<gtExample>
 	^ '23456m' asMJHand
 ]
 
-{ #category : #accessing }
+{ #category : #example }
 MahjongExamples >> simpleAccepting [
 	<gtExample>
 	^ '23m' asMJGroup
 ]
 
-{ #category : #accessing }
+{ #category : #example }
+MahjongExamples >> simpleAccepts [
+	<gtExample>
+	| tiles |
+	tiles := (MJGroups with: '55567812p' asMJHand tiles) accepts.
+
+	self assert: tiles tiles size equals: 2.
+	self assert: (tiles tiles at: 1) value equals: 3.
+	self assert: (tiles tiles at: 2) value equals: 5.
+	^ tiles
+]
+
+{ #category : #example }
 MahjongExamples >> simpleGroup [
 	<gtExample>
 	^ '5s' asMJGroup
 ]
 
-{ #category : #accessing }
+{ #category : #example }
 MahjongExamples >> simpleGroups [
 	<gtExample>
 	^ (MJGroups with: '12246799p' asMJHand tiles)
 ]
 
-{ #category : #accessing }
+{ #category : #example }
 MahjongExamples >> spreadTree: view [
 	| layout |
 	layout := view layout tree.
@@ -170,7 +179,7 @@ MahjongExamples >> spreadTree: view [
 		nodeDistance: 50
 ]
 
-{ #category : #accessing }
+{ #category : #example }
 MahjongExamples >> versitility [
 	<gtExample>
 	| tiles pairs honor |
@@ -194,7 +203,7 @@ MahjongExamples >> versitility [
 	^ self basicGraph: tiles edges: pairs
 ]
 
-{ #category : #accessing }
+{ #category : #example }
 MahjongExamples >> versitilityHand [
 	<gtExample>
 	| tiles pairs honor second third best |

@@ -5,20 +5,20 @@ Class {
 		'simpleTiles',
 		'kind'
 	],
-	#category : #MiscGTScripts
+	#category : #'MiscGTScripts-Tiles'
 }
 
-{ #category : #accessing }
+{ #category : #creation }
 MJGroup class >> new [
 	^ super new new
 ]
 
-{ #category : #accessing }
+{ #category : #creation }
 MJGroup class >> only: tile [
 	^ self new startWith: tile
 ]
 
-{ #category : #accessing }
+{ #category : #creation }
 MJGroup class >> with: aCollection [
 	| instance |
 	instance := self new.
@@ -26,7 +26,7 @@ MJGroup class >> with: aCollection [
 	^ instance
 ]
 
-{ #category : #accessing }
+{ #category : #predicates }
 MJGroup >> accepts: tile [
 	^ (MJGroupCache at: simpleTiles asArray) includes: tile value
 ]
@@ -51,14 +51,14 @@ MJGroup >> acceptsTripleWith: accepts [
 	accepts addLast: (tiles at: 1) shallowCopy
 ]
 
-{ #category : #accessing }
+{ #category : #adding }
 MJGroup >> add: tile [
 	tiles isEmpty ifTrue: [ ^ self startWith: tile ].
 	(self accepts: tile) ifTrue: [ self addTile: tile].
 	^ self
 ]
 
-{ #category : #accessing }
+{ #category : #adding }
 MJGroup >> addTile: tile [
 	tiles addLast: tile.
 	simpleTiles addLast: tile value
@@ -69,13 +69,13 @@ MJGroup >> kind [
 	^ kind
 ]
 
-{ #category : #accessing }
+{ #category : #creation }
 MJGroup >> new [
 	tiles := OrderedCollection new.
 	simpleTiles := OrderedCollection new
 ]
 
-{ #category : #missing }
+{ #category : #private }
 MJGroup >> rawAccepts [
 	^ (MJGroupCache at: simpleTiles asArray)
 		collect: [ :v | MJTile kind: kind specific: v ]
@@ -88,7 +88,7 @@ MJGroup >> startWith: tile [
 	^ self
 ]
 
-{ #category : #views }
+{ #category : #visualization }
 MJGroup >> visualizeAccepts: view [
 	| needs nodes |
 	needs := self acceptsTiles.
@@ -104,7 +104,7 @@ MJGroup >> visualizeAccepts: view [
 	^ view
 ]
 
-{ #category : #views }
+{ #category : #visualization }
 MJGroup >> visualizeAcceptsView: aView [
 	<gtView>
 	self acceptsTiles tiles isEmpty ifTrue: [ ^ aView empty ].

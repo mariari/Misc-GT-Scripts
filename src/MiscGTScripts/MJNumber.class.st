@@ -5,45 +5,45 @@ Class {
 		'suit',
 		'number'
 	],
-	#category : #MiscGTScripts
+	#category : #'MiscGTScripts-Tiles'
 }
 
-{ #category : #accessing }
+{ #category : #creation }
 MJNumber class >> man: num [
 	^ self new suit: #man number: num
 ]
 
-{ #category : #accessing }
+{ #category : #creation }
 MJNumber class >> new: num [
 	^ self new new: num
 ]
 
-{ #category : #accessing }
+{ #category : #creation }
 MJNumber class >> pin: num [
 	^ self new suit: #pin number: num
 ]
 
-{ #category : #accessing }
+{ #category : #creation }
 MJNumber class >> wan: num [
 	^ self man: num
 ]
 
-{ #category : #accessing }
+{ #category : #creation }
 MJNumber class >> zhu: num [
 	^ self new suit: #zhu number: num
 ]
 
-{ #category : #accessing }
+{ #category : #creation }
 MJNumber class >> 竹: num [
 	^ self zhu: num
 ]
 
-{ #category : #accessing }
+{ #category : #creation }
 MJNumber class >> 萬: num [
 	^ self man: num
 ]
 
-{ #category : #accessing }
+{ #category : #visualization }
 MJNumber >> image: aView [
 	<gtView>
 	^ self visualize image: aView
@@ -59,7 +59,7 @@ MJNumber >> kind [
 	^ suit
 ]
 
-{ #category : #accessing }
+{ #category : #creating }
 MJNumber >> new: num [
 	suit := 'pin'.	"random default"
 	number := num
@@ -98,14 +98,14 @@ MJNumber >> suit [
 	^ self kind
 ]
 
-{ #category : #accessing }
+{ #category : #creation }
 MJNumber >> suit: su number: num [
 	number := num.
 	suit := su.
 	^ self
 ]
 
-{ #category : #accessing }
+{ #category : #equality }
 MJNumber >> uniqueHash [
 	^ self number hash + self valueSort hash
 ]
@@ -115,14 +115,14 @@ MJNumber >> value [
 	^ number
 ]
 
-{ #category : #accessing }
+{ #category : #equality }
 MJNumber >> valueSort [
 	#man = suit ifTrue: [ ^ 256 * self number ].
 	#pin = suit ifTrue: [ ^ 65536 * self number ].
 	#zhu = suit ifTrue: [ ^ 16777216 * self number ]
 ]
 
-{ #category : #accessing }
+{ #category : #visualization }
 MJNumber >> visualize [
 	^ MJTileVisualizerTenhou suit: suit number: number
 ]

@@ -1,7 +1,7 @@
 Class {
 	#name : #MJTileVisualizerSmall,
 	#superclass : #MJTileVisualizer,
-	#category : #MiscGTScripts
+	#category : #'MiscGTScripts-Graphics'
 }
 
 { #category : #accessing }
@@ -11,7 +11,7 @@ MJTileVisualizerSmall class >> fileType [
 
 { #category : #accessing }
 MJTileVisualizerSmall >> defaultPath [
-	^ (GtGitRepository forClass: Mahjong) icebergRepository repositoryDirectory
+	^ (GtGitRepository forClass: MJTile) icebergRepository repositoryDirectory
 		/ 'images' / 'mahjong' / 'small'
 ]
 

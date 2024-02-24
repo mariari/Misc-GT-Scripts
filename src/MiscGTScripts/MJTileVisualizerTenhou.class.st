@@ -1,7 +1,7 @@
 Class {
 	#name : #MJTileVisualizerTenhou,
 	#superclass : #MJTileVisualizer,
-	#category : #MiscGTScripts
+	#category : #'MiscGTScripts-Graphics'
 }
 
 { #category : #accessing }
@@ -11,7 +11,7 @@ MJTileVisualizerTenhou class >> fileType [
 
 { #category : #accessing }
 MJTileVisualizerTenhou >> defaultPath [
-	^ (GtGitRepository forClass: Mahjong) icebergRepository repositoryDirectory
+	^ (GtGitRepository forClass: MJTile) icebergRepository repositoryDirectory
 		/ 'images' / 'mahjong' / 'tenhou'
 ]
 

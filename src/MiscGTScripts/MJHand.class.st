@@ -1,20 +1,20 @@
 Class {
 	#name : #MJHand,
 	#superclass : #MJTiles,
-	#category : #MiscGTScripts
+	#category : #'MiscGTScripts-Tiles'
 }
 
-{ #category : #accessing }
+{ #category : #instance }
 MJHand class >> allTiles [
 	^ '123456789m123456789p123456789s1234567z' asMJHand
 ]
 
-{ #category : #accessing }
+{ #category : #creation }
 MJHand class >> with: aCollection [
 	^ self new withHand: aCollection
 ]
 
-{ #category : #accessing }
+{ #category : #'private - accepting' }
 MJHand >> acceptPermutations [
 	| grouped |
 	grouped := tiles groupedBy: [ :v | v kind ].
@@ -24,22 +24,22 @@ MJHand >> acceptPermutations [
 				do: [ :kind | kind permutationsDo: [ :each | stream nextPut: each copy ] ] ]
 ]
 
-{ #category : #accessing }
+{ #category : #accepting }
 MJHand >> accepts [
 	| predicate |
 	predicate := [ :group | group accepts ].
-	^ self fromPermutations: self acceptPermutations withPredicate: predicate
+	^ self fromPermutations: self acceptPermutations withAcceptance: predicate
 ]
 
-{ #category : #accessing }
+{ #category : #accepting }
 MJHand >> acceptsComplete [
 	| predicate |
 	predicate := [ :group | group acceptsComplete ].
-	^ self fromPermutations: self acceptPermutations withPredicate: predicate
+	^ self fromPermutations: self acceptPermutations withAcceptance: predicate
 ]
 
-{ #category : #accessing }
-MJHand >> fromPermutations: permutations withPredicate: predicate [
+{ #category : #'private - permutations' }
+MJHand >> fromPermutations: permutations withAcceptance: predicate [
 	| set ordered acceptHands |
 	set := self uniqueSet.
 	permutations do: [ :hand | set add: (MJGroups with: hand) ].
@@ -50,7 +50,7 @@ MJHand >> fromPermutations: permutations withPredicate: predicate [
 	^ (MJHand with: ordered) unique
 ]
 
-{ #category : #accessing }
+{ #category : #unique }
 MJHand >> uniqueSet [
 	| set |
 	set := PluggableSet new.
@@ -69,7 +69,7 @@ MJHand >> visualizeAcceptsComplete: view [
 	^ self visualizeHandAccepts: self acceptsComplete withView: view.
 ]
 
-{ #category : #accessing }
+{ #category : #visualization }
 MJHand >> visualizeAcceptsView: aView [
 	<gtView>
 	"self accepts tiles isEmpty ifTrue: [ ^ aView empty ]."
@@ -78,7 +78,7 @@ MJHand >> visualizeAcceptsView: aView [
 		painting: [ :view | self visualizeAccepts: view ]
 ]
 
-{ #category : #accessing }
+{ #category : #visualization }
 MJHand >> visualizeAcceptsViewComplete: aView [
 	<gtView>
 	"self acceptsComplete tiles  isEmpty ifTrue: [ ^ aView empty ]."
@@ -100,7 +100,7 @@ MJHand >> visualizeHandAccepts: needs withView: view [
 	^ view
 ]
 
-{ #category : #accessing }
+{ #category : #creation }
 MJHand >> withHand: aCollection [
 	tiles := aCollection
 ]

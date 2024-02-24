@@ -5,10 +5,10 @@ Class {
 		'size',
 		'path'
 	],
-	#category : #MiscGTScripts
+	#category : #'MiscGTScripts-Graphics'
 }
 
-{ #category : #accessing }
+{ #category : #creation }
 MJTileVisualizer class >> convertKind: string [
 	#east = string ifTrue: [ ^ '1' ].
 	#south = string ifTrue: [ ^ '2' ].
@@ -20,7 +20,7 @@ MJTileVisualizer class >> convertKind: string [
 	^ '7'
 ]
 
-{ #category : #accessing }
+{ #category : #creation }
 MJTileVisualizer class >> default [
 
  ^ self new default
@@ -42,7 +42,7 @@ MJTileVisualizer class >> suit: kind number: num [
 	^ self new initalizePath: self new defaultPath / kind / (num asString , self fileType)
 ]
 
-{ #category : #accessing }
+{ #category : #visual }
 MJTileVisualizer >> asBlElement [
 	| background |
 	background := BlImageBackground image: self form.
