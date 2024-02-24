@@ -17,5 +17,5 @@ MJTileVisualizerTenhou >> defaultPath [
 
 { #category : #accessing }
 MJTileVisualizerTenhou >> defaultSize [
-	^ 168 @ 253
+	^ 168 @ 254
 ]
