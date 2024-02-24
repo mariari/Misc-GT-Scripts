@@ -15,32 +15,36 @@ MJHand class >> with: aCollection [
 ]
 
 { #category : #accessing }
+MJHand >> acceptPermutations [
+	| grouped |
+	grouped := tiles groupedBy: [ :v | v kind ].
+	^ Array
+		streamContents: [ :stream | 
+			grouped values
+				do: [ :kind | kind permutationsDo: [ :each | stream nextPut: each copy ] ] ]
+]
+
+{ #category : #accessing }
 MJHand >> accepts [
-	| permutations acceptHands ordered set |
-	permutations := Array
-			streamContents: [ :stream | tiles permutationsDo: [ :each | stream nextPut: each copy ] ].
-
-
-	set := self uniqueSet.
-	permutations do: [ :hand | set add: (MJGroups with: hand) ].
-
-	acceptHands := set collect: [ :group | group accepts ].
-	ordered := OrderedCollection new.
-	acceptHands do: [ :hand | ordered addAll: hand tiles ].
-	^ (MJHand with: ordered) unique
+	| predicate |
+	predicate := [ :group | group accepts ].
+	^ self fromPermutations: self acceptPermutations withPredicate: predicate
 ]
 
 { #category : #accessing }
 MJHand >> acceptsComplete [
-	| permutations acceptHands ordered set |
-	permutations := Array
-			streamContents: [ :stream | tiles permutationsDo: [ :each | stream nextPut: each copy ] ].
+	| predicate |
+	predicate := [ :group | group acceptsComplete ].
+	^ self fromPermutations: self acceptPermutations withPredicate: predicate
+]
 
-
+{ #category : #accessing }
+MJHand >> fromPermutations: permutations withPredicate: predicate [
+	| set ordered acceptHands |
 	set := self uniqueSet.
 	permutations do: [ :hand | set add: (MJGroups with: hand) ].
 
-	acceptHands := set collect: [ :group | group acceptsComplete ].
+	acceptHands := set collect: predicate.
 	ordered := OrderedCollection new.
 	acceptHands do: [ :hand | ordered addAll: hand tiles ].
 	^ (MJHand with: ordered) unique
