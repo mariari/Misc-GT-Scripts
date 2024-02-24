@@ -33,17 +33,17 @@ MJFace class >> dong [
 
 { #category : #accessing }
 MJFace class >> east [
-	^ self new new: 'east'
+	^ self new new: #east
 ]
 
 { #category : #accessing }
 MJFace class >> green [
-	^ self new new: 'green'
+	^ self new new: #green
 ]
 
 { #category : #accessing }
 MJFace class >> north [
-	^ self new new: 'north'
+	^ self new new: #north
 ]
 
 { #category : #accessing }
@@ -53,7 +53,7 @@ MJFace class >> num: anInteger [
 
 { #category : #accessing }
 MJFace class >> red [
-	^ self new new: 'red'
+	^ self new new: #red
 ]
 
 { #category : #accessing }
@@ -63,12 +63,12 @@ MJFace class >> south [
 
 { #category : #accessing }
 MJFace class >> west [
-	^ self new new: 'west'
+	^ self new new: #west
 ]
 
 { #category : #accessing }
 MJFace class >> white [
-	^ self new new: 'white'
+	^ self new new: #white
 ]
 
 { #category : #accessing }
@@ -118,8 +118,13 @@ MJFace >> isSpecial [
 ]
 
 { #category : #accessing }
-MJFace >> name [
+MJFace >> kind [
 	^ name
+]
+
+{ #category : #accessing }
+MJFace >> name [
+	^ self kind
 ]
 
 { #category : #accessing }
@@ -143,14 +148,19 @@ MJFace >> uniqueHash [
 ]
 
 { #category : #accessing }
+MJFace >> value [
+	^ name
+]
+
+{ #category : #accessing }
 MJFace >> valueSort [
-	'east' = name ifTrue: [ ^ 4294967296 ].
-	'south' = name ifTrue: [ ^ 4294967296 * 2 ].
-	'west' = name ifTrue: [ ^ 4294967296 * 3 ].
-	'north' = name ifTrue: [ ^ 4294967296 * 4 ].
-	'white' = name ifTrue: [ ^ 4294967296 * 5 ].
-	'green' = name ifTrue: [ ^ 4294967296 * 6 ].
-	'red' = name ifTrue: [ ^ 4294967296 * 7 ].
+	#east = name ifTrue: [ ^ 4294967296 ].
+	#south = name ifTrue: [ ^ 4294967296 * 2 ].
+	#west = name ifTrue: [ ^ 4294967296 * 3 ].
+	#north = name ifTrue: [ ^ 4294967296 * 4 ].
+	#white = name ifTrue: [ ^ 4294967296 * 5 ].
+	#green = name ifTrue: [ ^ 4294967296 * 6 ].
+	#red = name ifTrue: [ ^ 4294967296 * 7 ]
 ]
 
 { #category : #accessing }

@@ -10,7 +10,7 @@ Class {
 
 { #category : #accessing }
 MJNumber class >> man: num [
-	^ self new suit: 'man' number: num
+	^ self new suit: #man number: num
 ]
 
 { #category : #accessing }
@@ -20,7 +20,7 @@ MJNumber class >> new: num [
 
 { #category : #accessing }
 MJNumber class >> pin: num [
-	^ self new suit: 'pin' number: num
+	^ self new suit: #pin number: num
 ]
 
 { #category : #accessing }
@@ -30,7 +30,7 @@ MJNumber class >> wan: num [
 
 { #category : #accessing }
 MJNumber class >> zhu: num [
-	^ self new suit: 'zhu' number: num
+	^ self new suit: #zhu number: num
 ]
 
 { #category : #accessing }
@@ -55,6 +55,11 @@ MJNumber >> isSpecial [
 ]
 
 { #category : #accessing }
+MJNumber >> kind [
+	^ suit
+]
+
+{ #category : #accessing }
 MJNumber >> new: num [
 	suit := 'pin'.	"random default"
 	number := num
@@ -62,7 +67,7 @@ MJNumber >> new: num [
 
 { #category : #accessing }
 MJNumber >> number [
-	^ number isZero ifTrue: [ ^ 5 ] ifFalse: [ ^ number ]
+	^ number isZero ifTrue: [ 5 ] ifFalse: [ number ]
 ]
 
 { #category : #creating }
@@ -90,7 +95,7 @@ MJNumber >> sameSuit: tile [
 
 { #category : #accessing }
 MJNumber >> suit [
-	^ suit
+	^ self kind
 ]
 
 { #category : #accessing }
@@ -106,10 +111,15 @@ MJNumber >> uniqueHash [
 ]
 
 { #category : #accessing }
+MJNumber >> value [
+	^ number
+]
+
+{ #category : #accessing }
 MJNumber >> valueSort [
-	'man' = suit ifTrue: [ ^ 256 * self number ].
-	'pin' = suit ifTrue: [ ^ 65536 * self number ].
-	'zhu' = suit ifTrue: [ ^ 16777216 * self number ]
+	#man = suit ifTrue: [ ^ 256 * self number ].
+	#pin = suit ifTrue: [ ^ 65536 * self number ].
+	#zhu = suit ifTrue: [ ^ 16777216 * self number ]
 ]
 
 { #category : #accessing }

@@ -26,6 +26,14 @@ MJGroups >> accepts [
 ]
 
 { #category : #accessing }
+MJGroups >> acceptsArr [
+	| set |
+	set := OrderedCollection new.
+	tiles do: [ :group | group acceptsTiles tiles do: [ :tile | set add: tile ] ].
+	^ (MJHand with: set) unique
+]
+
+{ #category : #accessing }
 MJGroups >> acceptsComplete [
 	| noComplete |
 	noComplete := tiles reject: [ :group | group tiles size > 2 ].
@@ -40,7 +48,7 @@ MJGroups >> add: tile [
 	^ tiles
 		detect: [ :obj | obj accepts: tile ]
 		ifOne: [ :obj | obj add: tile ]
-		ifNone: [ tiles addLast: (MJGroup new add: tile) ]
+		ifNone: [ tiles addLast: (MJGroup only: tile) ]
 ]
 
 { #category : #accessing }

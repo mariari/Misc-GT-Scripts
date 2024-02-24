@@ -10,14 +10,14 @@ Class {
 
 { #category : #accessing }
 MJTileVisualizer class >> convertKind: string [
-	'east' = string ifTrue: [ ^ '1' ].
-	'south' = string ifTrue: [ ^ '2' ].
-	'west' = string ifTrue: [ ^ '3' ].
-	'north' = string ifTrue: [ ^ '4' ].
-	'white' = string ifTrue: [ ^ '5' ].
-	'green' = string ifTrue: [ ^ '6' ].
-	'red' = string ifTrue: [ ^ '7' ].
-	^ 'east'
+	#east = string ifTrue: [ ^ '1' ].
+	#south = string ifTrue: [ ^ '2' ].
+	#west = string ifTrue: [ ^ '3' ].
+	#north = string ifTrue: [ ^ '4' ].
+	#white = string ifTrue: [ ^ '5' ].
+	#green = string ifTrue: [ ^ '6' ].
+	#red = string ifTrue: [ ^ '7' ].
+	^ '7'
 ]
 
 { #category : #accessing }

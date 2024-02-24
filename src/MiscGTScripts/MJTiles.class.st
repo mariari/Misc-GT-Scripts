@@ -19,7 +19,7 @@ MJTiles >> asBlElement [
 
 	view nodes
 		shape: [ :each | each asBlElement ];
-		with: tiles.
+		with: self tiles.
 	ele := view asElement.
 	ele padding: BlInsets empty.
 	ele size: self tileSize.
@@ -39,7 +39,7 @@ MJTiles >> image: aView [
 MJTiles >> naturalHandLayout [
 	| view |
 	view := self naturalLayout.
-	view root layout horizontal columnCount: tiles size.
+	view root layout horizontal columnCount: self tiles size.
 	^ view
 ]
 
@@ -49,7 +49,7 @@ MJTiles >> naturalLayout [
 	view := GtMondrian new.
 	view nodes
 		shape: [ :each | each asBlElement ];
-		with: tiles.
+		with: self tiles.
 	^ view
 ]
 
@@ -57,13 +57,13 @@ MJTiles >> naturalLayout [
 MJTiles >> naturalLayout: view [
 	view nodes
 		shape: [ :each | each asBlElement ];
-		with: tiles.
+		with: self tiles.
 	^ view
 ]
 
 { #category : #accessing }
 MJTiles >> sort [
-	tiles := tiles asSortedCollection: [ :a :b | a valueSort < b valueSort ].
+	tiles := (tiles asSortedCollection: [ :a :b | a valueSort < b valueSort ]) asOrderedCollection.
 	^ self
 ]
 
@@ -71,7 +71,7 @@ MJTiles >> sort [
 MJTiles >> tileSize [
 	| size |
 	tiles ifEmpty: [ ^ 0 @ 0 ].
-	size := (tiles at: 1) visualize defaultSize.
+	size := (self tiles at: 1) visualize defaultSize.
 	^ (size x * tiles size) @ size y
 ]
 
@@ -87,7 +87,7 @@ MJTiles >> unique [
 	set equalBlock: [ :a :b | a sameAs: b ].
 	set hashBlock: [ :ele | ele uniqueHash ].
 	tiles do: [ :tile | set add: tile ].
-	tiles := set asSortedCollection: [ :a :b | a valueSort < b valueSort ].
+	tiles := set.
 	self sort.
 	^ self
 ]

@@ -4,6 +4,13 @@ Class {
 	#category : #MiscGTScripts
 }
 
+{ #category : #accessing }
+MJTile class >> kind: kind specific: value [
+	^ kind = value
+		ifTrue: [ MJFace new new: kind ]
+		ifFalse: [ MJNumber new suit: kind number: value ]
+]
+
 { #category : #'as yet unclassified' }
 MJTile class >> num: aNumber kind: aChar [
 	^ self resolveClass: aChar with: aNumber
@@ -39,6 +46,11 @@ MJTile >> isSpecial [
 ]
 
 { #category : #accessing }
+MJTile >> kind [
+	^ self subclassResponsibility
+]
+
+{ #category : #accessing }
 MJTile >> runsWith: tile [
 	^ self subclassResponsibility
 ]
@@ -50,6 +62,11 @@ MJTile >> sameAs: tile [
 
 { #category : #accessing }
 MJTile >> uniqueHash [
+	^ self subclassResponsibility
+]
+
+{ #category : #accessing }
+MJTile >> value [
 	^ self subclassResponsibility
 ]
 

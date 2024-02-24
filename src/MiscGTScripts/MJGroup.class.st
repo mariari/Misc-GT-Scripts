@@ -2,6 +2,7 @@ Class {
 	#name : #MJGroup,
 	#superclass : #MJTiles,
 	#instVars : [
+		'simpleTiles',
 		'kind'
 	],
 	#category : #MiscGTScripts
@@ -10,6 +11,11 @@ Class {
 { #category : #accessing }
 MJGroup class >> new [
 	^ super new new
+]
+
+{ #category : #accessing }
+MJGroup class >> only: tile [
+	^ self new startWith: tile
 ]
 
 { #category : #accessing }
@@ -22,8 +28,7 @@ MJGroup class >> with: aCollection [
 
 { #category : #accessing }
 MJGroup >> accepts: tile [
-	^ (tiles allSatisfy: [ :aTile | self predicate value: aTile value: tile ])
-		or: [ tiles isEmpty ]
+	^ (MJGroupCache at: simpleTiles asArray) includes: tile value
 ]
 
 { #category : #'private  - missing' }
@@ -38,16 +43,7 @@ MJGroup >> acceptsRunWith: accepts [
 
 { #category : #missing }
 MJGroup >> acceptsTiles [
-	| accepts |
-	tiles isEmpty ifTrue: [ ^ MJHand allTiles ].
-	accepts := OrderedCollection empty.
-
-	kind = 'run' ifTrue: [ self acceptsRunWith: accepts ].
-	kind = 'triples' | (tiles at: 1) isSpecial
-		ifTrue: [ self acceptsTripleWith: accepts ].
-	kind isNil & (tiles at: 1) isSpecial not
-		ifTrue: [ self acceptsRunWith: accepts ].
-	^ MJHand with: accepts
+	^ MJHand with: self rawAccepts asOrderedCollection
 ]
 
 { #category : #'private - missing' }
@@ -57,25 +53,39 @@ MJGroup >> acceptsTripleWith: accepts [
 
 { #category : #accessing }
 MJGroup >> add: tile [
-	(self accepts: tile) ifFalse: [ ^ self ].
-	tiles addLast: tile.
-	tiles size = 2
-		ifTrue: [ ((tiles at: 1) sameAs: (tiles at: 2))
-				ifTrue: [ kind := 'triples' ]
-				ifFalse: [ kind := 'run' ] ].
+	tiles isEmpty ifTrue: [ ^ self startWith: tile ].
+	(self accepts: tile) ifTrue: [ self addTile: tile].
 	^ self
 ]
 
 { #category : #accessing }
-MJGroup >> new [
-	tiles := OrderedCollection new
+MJGroup >> addTile: tile [
+	tiles addLast: tile.
+	simpleTiles addLast: tile value
 ]
 
 { #category : #accessing }
-MJGroup >> predicate [
-	kind = 'run' ifTrue: [ ^ [ :v1 :v2 | v1 runsWith: v2 ] ].
-	kind = 'triples' ifTrue: [ ^ [ :v1 :v2 | v1 sameAs: v2 ] ].
-	^ [ :v1 :v2 | v1 combinesWith: v2 ]
+MJGroup >> kind [
+	^ kind
+]
+
+{ #category : #accessing }
+MJGroup >> new [
+	tiles := OrderedCollection new.
+	simpleTiles := OrderedCollection new
+]
+
+{ #category : #missing }
+MJGroup >> rawAccepts [
+	^ (MJGroupCache at: simpleTiles asArray)
+		collect: [ :v | MJTile kind: kind specific: v ]
+]
+
+{ #category : #accessing }
+MJGroup >> startWith: tile [
+	self addTile: tile.
+	kind := tile kind.
+	^ self
 ]
 
 { #category : #views }
