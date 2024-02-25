@@ -25,6 +25,11 @@ MJGroups >> accepts [
 	^ (MJHand with: set) unique
 ]
 
+{ #category : #predicates }
+MJGroups >> accepts: tile [
+	^ tiles anySatisfy: [ :obj | obj accepts: tile ]
+]
+
 { #category : #accepting }
 MJGroups >> acceptsComplete [
 	| noComplete |
@@ -40,7 +45,24 @@ MJGroups >> add: tile [
 	^ tiles
 		detect: [ :obj | obj accepts: tile ]
 		ifOne: [ :obj | obj add: tile ]
-		ifNone: [ tiles addLast: (MJGroup only: tile) ]
+		ifNone: [ self addIndependently: tile ]
+]
+
+{ #category : #adding }
+MJGroups >> addGroupIndependently: group [
+	^ tiles addLast: group
+]
+
+{ #category : #adding }
+MJGroups >> addIndependently: tile [
+	^ self addGroupIndependently: (MJGroup only: tile)
+]
+
+{ #category : #accessing }
+MJGroups >> find: aBlock [
+	"finds a given block"
+
+	^ tiles detect: aBlock ifOne: [ :obj | obj ]
 ]
 
 { #category : #accessing }
@@ -55,6 +77,52 @@ MJGroups >> naturalLayout: view [
 MJGroups >> new [
 	tiles := OrderedCollection new.
 	^ self
+]
+
+{ #category : #predicates }
+MJGroups >> noRedundantPairs [
+	" can only happen on kans that are split into 2 groups "
+
+	| duos |
+	duos := tiles select: [ :x | 2 = x size ].
+	^ duos
+		allSatisfy: [ :d | duos noneSatisfy: [ :d2 | (d == d2) not & (d accepts: (d2 tiles at: 1)) ] ]
+]
+
+{ #category : #predicates }
+MJGroups >> noRedundantSingles [
+	| singles |
+	singles := tiles select: [ :x | 1 = x size ].
+
+	^ singles
+		allSatisfy: [ :single | 
+			tiles
+				noneSatisfy: [ :obj | (obj == single) not & (obj accepts: (single tiles at: 1)) ] ]
+]
+
+{ #category : #iterating }
+MJGroups >> onAccepting: tile doIndependently: block [
+	| accepts |
+	accepts := tiles select: [ :group | group accepts: tile ].
+	^ accepts
+		collect: [ :group | 
+			| copiedGroups copiedGroup |
+			copiedGroups := self deepCopy.
+			copiedGroup := copiedGroups find: [ :g | g sameAs: group ].
+			block value: copiedGroups value: copiedGroup ]
+]
+
+{ #category : #predicates }
+MJGroups >> valid [
+	^ self noRedundantPairs & self noRedundantSingles
+]
+
+{ #category : #equality }
+MJGroups >> valueSort [
+	"Fixup we need to shift the values by the index"
+	| index | 
+	index := 0.
+	^ tiles inject: 0 into: [ :sum :b | index := index + 1. sum + (b valueSort * index) ]
 ]
 
 { #category : #visualization }
