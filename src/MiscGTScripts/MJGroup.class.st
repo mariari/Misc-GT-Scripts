@@ -81,6 +81,11 @@ MJGroup >> rawAccepts [
 		collect: [ :v | MJTile kind: kind specific: v ]
 ]
 
+{ #category : #predicates }
+MJGroup >> size [
+	^ tiles size
+]
+
 { #category : #accessing }
 MJGroup >> startWith: tile [
 	self addTile: tile.

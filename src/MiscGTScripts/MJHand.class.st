@@ -10,6 +10,11 @@ MJHand class >> allTiles [
 ]
 
 { #category : #creation }
+MJHand class >> empty [
+	^ self new withHand: {}
+]
+
+{ #category : #creation }
 MJHand class >> with: aCollection [
 	^ self new withHand: aCollection
 ]
@@ -38,6 +43,11 @@ MJHand >> acceptsComplete [
 	^ self fromPermutations: self acceptPermutations withAcceptance: predicate
 ]
 
+{ #category : #accepting }
+MJHand >> acceptsFast [
+	^ self groupBackTrack: MJGroups new index: 1.
+]
+
 { #category : #'private - permutations' }
 MJHand >> fromPermutations: permutations withAcceptance: predicate [
 	| set ordered acceptHands |
@@ -48,6 +58,28 @@ MJHand >> fromPermutations: permutations withAcceptance: predicate [
 	ordered := OrderedCollection new.
 	acceptHands do: [ :hand | ordered addAll: hand tiles ].
 	^ (MJHand with: ordered) unique
+]
+
+{ #category : #accepting }
+MJHand >> groupBackTrack: aGroup index: currentTile [
+	| tile accepting |
+	currentTile > tiles size & aGroup valid not ifTrue: [ ^ {} ].
+	currentTile > tiles size ifTrue: [ ^ aGroup accepts tiles ].
+
+	tile := tiles at: currentTile.
+
+	accepting := aGroup
+			onAccepting: tile
+			doIndependently: [ :group :groups | 
+				group add: tile.
+				self groupBackTrack: groups index: currentTile + 1 ].
+
+
+	accepting := accepting flatCollect: [ :each | each ].
+	aGroup addIndependently: currentTile.
+
+	accepting addAll: (self groupBackTrack: aGroup index: currentTile + 1).
+	^ accepting
 ]
 
 { #category : #unique }

@@ -179,6 +179,26 @@ MahjongExamples >> spreadTree: view [
 		nodeDistance: 50
 ]
 
+{ #category : #accessing }
+MahjongExamples >> testGroupInvalid [
+	<gtExample>
+	| group |
+	group := MJGroups with: '2346p' asMJHand tiles.
+	group addIndependently: (MJNumber pin: 4).
+	self assert: group valid not.
+
+
+	group := MJGroups with: '23466p' asMJHand tiles.
+	group addIndependently: (MJNumber pin: 1).
+	self assert: group valid.
+	
+	group := MJGroups with: '23466p' asMJHand tiles.
+	group addGroupIndependently: ('66p' asMJGroup).
+	
+	self assert: group valid not.
+	^ group
+]
+
 { #category : #example }
 MahjongExamples >> versitility [
 	<gtExample>
