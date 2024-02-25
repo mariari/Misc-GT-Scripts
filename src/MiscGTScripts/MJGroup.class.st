@@ -28,7 +28,7 @@ MJGroup class >> with: aCollection [
 
 { #category : #predicates }
 MJGroup >> accepts: tile [
-	^ (MJGroupCache at: simpleTiles asArray) includes: tile value
+	^ kind = tile kind & ((MJGroupCache at: simpleTiles asArray) includes: tile value)
 ]
 
 { #category : #'private  - missing' }
@@ -79,6 +79,11 @@ MJGroup >> new [
 MJGroup >> rawAccepts [
 	^ (MJGroupCache at: simpleTiles asArray)
 		collect: [ :v | MJTile kind: kind specific: v ]
+]
+
+{ #category : #predicates }
+MJGroup >> sameAs: group [
+	^ self valueSort = group valueSort
 ]
 
 { #category : #predicates }

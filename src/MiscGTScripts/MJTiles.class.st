@@ -100,7 +100,6 @@ MJTiles >> uniqueHash [
 { #category : #equality }
 MJTiles >> valueSort [
 	"Fixup we need to shift the values by the index"
-	| index | 
-	index := 0.
-	^ tiles inject: 0 into: [ :sum :b | index := index + 1. sum + (b valueSort * index) ]
+
+	^ tiles inject: 0 into: [ :sum :b | sum + b valueSort ]
 ]

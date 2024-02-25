@@ -19,7 +19,7 @@ MJHand class >> with: aCollection [
 	^ self new withHand: aCollection
 ]
 
-{ #category : #'private - accepting' }
+{ #category : #deprecated }
 MJHand >> acceptPermutations [
 	| grouped |
 	grouped := tiles groupedBy: [ :v | v kind ].
@@ -31,24 +31,47 @@ MJHand >> acceptPermutations [
 
 { #category : #accepting }
 MJHand >> accepts [
+	^ self chunkedGroupBackTrackerwith: #accepts
+]
+
+{ #category : #accepting }
+MJHand >> acceptsComplete [
+	^ self chunkedGroupBackTrackerwith: #acceptsComplete
+]
+
+{ #category : #deprecated }
+MJHand >> acceptsPermutation [
 	| predicate |
 	predicate := [ :group | group accepts ].
 	^ self fromPermutations: self acceptPermutations withAcceptance: predicate
 ]
 
-{ #category : #accepting }
-MJHand >> acceptsComplete [
+{ #category : #deprecated }
+MJHand >> acceptsPermutationComplete [
 	| predicate |
 	predicate := [ :group | group acceptsComplete ].
 	^ self fromPermutations: self acceptPermutations withAcceptance: predicate
 ]
 
-{ #category : #accepting }
-MJHand >> acceptsFast [
-	^ self groupBackTrack: MJGroups new index: 1.
+{ #category : #'private - accepting' }
+MJHand >> chunkedGroupBackTrackerwith: aBlock [
+	"the aBlock should be an acceptor like #accepts or #acceptsComplete"
+
+	| grouped collected |
+	grouped := tiles groupedBy: [ :v | v kind ].
+	collected := grouped values
+			collect: [ :kindArr | 
+				(kindArr at: 1) class = MJFace
+					ifTrue: [ (aBlock value: (MJGroups with: kindArr)) tiles ]
+					ifFalse: [ MJHand new
+							withHand: kindArr;
+							groupBackTrack: MJGroups new
+								index: 1
+								withAcceptor: aBlock ] ].
+	^ (MJHand with: (collected flatCollect: [ :obj | obj ])) unique
 ]
 
-{ #category : #'private - permutations' }
+{ #category : #deprecated }
 MJHand >> fromPermutations: permutations withAcceptance: predicate [
 	| set ordered acceptHands |
 	set := self uniqueSet.
@@ -60,25 +83,47 @@ MJHand >> fromPermutations: permutations withAcceptance: predicate [
 	^ (MJHand with: ordered) unique
 ]
 
-{ #category : #accepting }
+{ #category : #'private - accepting' }
 MJHand >> groupBackTrack: aGroup index: currentTile [
+	"Does backtracking for seeing what tiles the hand accepts.
+	The index is simply where in the array we are cdring down"
+
+	^ self
+		groupBackTrack: aGroup
+		index: currentTile
+		withAcceptor: #accepts
+]
+
+{ #category : #'private - accepting' }
+MJHand >> groupBackTrack: aGroup index: currentTile withAcceptor: anAcceptor [
+	"Does backtracking for seeing what tiles the hand accepts.
+	The index is simply where in the array we are cdring down
+	The acceptor are things like #accepts or #acceptsComplete"
+
 	| tile accepting |
 	currentTile > tiles size & aGroup valid not ifTrue: [ ^ {} ].
-	currentTile > tiles size ifTrue: [ ^ aGroup accepts tiles ].
+	currentTile > tiles size ifTrue: [ ^ (anAcceptor value: aGroup) tiles ].
 
 	tile := tiles at: currentTile.
 
 	accepting := aGroup
 			onAccepting: tile
-			doIndependently: [ :group :groups | 
+			doIndependently: [ :groups :group | 
 				group add: tile.
-				self groupBackTrack: groups index: currentTile + 1 ].
+				self
+					groupBackTrack: groups
+					index: currentTile + 1
+					withAcceptor: anAcceptor ].
 
 
 	accepting := accepting flatCollect: [ :each | each ].
-	aGroup addIndependently: currentTile.
+	aGroup addIndependently: tile.
 
-	accepting addAll: (self groupBackTrack: aGroup index: currentTile + 1).
+	accepting
+		addAll: (self
+				groupBackTrack: aGroup
+				index: currentTile + 1
+				withAcceptor: anAcceptor).
 	^ accepting
 ]
 
@@ -104,7 +149,7 @@ MJHand >> visualizeAcceptsComplete: view [
 { #category : #visualization }
 MJHand >> visualizeAcceptsView: aView [
 	<gtView>
-	"self accepts tiles isEmpty ifTrue: [ ^ aView empty ]."
+	self accepts tiles isEmpty ifTrue: [ ^ aView empty ].
 	^ aView mondrian
 		title: 'Accepts';
 		painting: [ :view | self visualizeAccepts: view ]
@@ -113,7 +158,7 @@ MJHand >> visualizeAcceptsView: aView [
 { #category : #visualization }
 MJHand >> visualizeAcceptsViewComplete: aView [
 	<gtView>
-	"self acceptsComplete tiles  isEmpty ifTrue: [ ^ aView empty ]."
+	self acceptsComplete tiles isEmpty ifTrue: [ ^ aView empty ].
 	^ aView mondrian
 		title: 'Accepts Complete';
 		painting: [ :view | self visualizeAcceptsComplete: view ]

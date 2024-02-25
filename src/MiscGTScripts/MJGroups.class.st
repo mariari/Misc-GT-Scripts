@@ -59,6 +59,13 @@ MJGroups >> addIndependently: tile [
 ]
 
 { #category : #accessing }
+MJGroups >> find: aBlock [
+	"finds a given block"
+
+	^ tiles detect: aBlock ifOne: [ :obj | obj ]
+]
+
+{ #category : #accessing }
 MJGroups >> naturalLayout: view [
 	view nodes
 		shape: [ :each | each asBlElement padding: (BlInsets all: 15) ];
@@ -77,7 +84,7 @@ MJGroups >> noRedundantPairs [
 	" can only happen on kans that are split into 2 groups "
 
 	| duos |
-	duos := tiles reject: [ :x | 2 ~= x size ].
+	duos := tiles select: [ :x | 2 = x size ].
 	^ duos
 		allSatisfy: [ :d | duos noneSatisfy: [ :d2 | (d == d2) not & (d accepts: (d2 tiles at: 1)) ] ]
 ]
@@ -85,7 +92,7 @@ MJGroups >> noRedundantPairs [
 { #category : #predicates }
 MJGroups >> noRedundantSingles [
 	| singles |
-	singles := tiles reject: [ :x | 1 ~= x size ].
+	singles := tiles select: [ :x | 1 = x size ].
 
 	^ singles
 		allSatisfy: [ :single | 
@@ -95,13 +102,27 @@ MJGroups >> noRedundantSingles [
 
 { #category : #iterating }
 MJGroups >> onAccepting: tile doIndependently: block [
-	| accepts|
-	^ self
+	| accepts |
+	accepts := tiles select: [ :group | group accepts: tile ].
+	^ accepts
+		collect: [ :group | 
+			| copiedGroups copiedGroup |
+			copiedGroups := self deepCopy.
+			copiedGroup := copiedGroups find: [ :g | g sameAs: group ].
+			block value: copiedGroups value: copiedGroup ]
 ]
 
 { #category : #predicates }
 MJGroups >> valid [
 	^ self noRedundantPairs & self noRedundantSingles
+]
+
+{ #category : #equality }
+MJGroups >> valueSort [
+	"Fixup we need to shift the values by the index"
+	| index | 
+	index := 0.
+	^ tiles inject: 0 into: [ :sum :b | index := index + 1. sum + (b valueSort * index) ]
 ]
 
 { #category : #visualization }

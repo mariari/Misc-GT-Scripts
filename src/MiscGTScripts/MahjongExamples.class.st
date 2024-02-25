@@ -199,6 +199,17 @@ MahjongExamples >> testGroupInvalid [
 	^ group
 ]
 
+{ #category : #accessing }
+MahjongExamples >> testHandAdd [
+	<gtExample>
+	| groups item |
+	groups := MJGroups with: '12246799m22p33s44z' asMJHand tiles.
+	item := groups find: [ :ob | ob sameAs: '12m' asMJGroup ].
+	item add: (MJNumber man: 3).
+	self assert: (groups find: [ :ob | ob sameAs: '123m' asMJGroup]) notNil.
+	^ groups
+]
+
 { #category : #example }
 MahjongExamples >> versitility [
 	<gtExample>
