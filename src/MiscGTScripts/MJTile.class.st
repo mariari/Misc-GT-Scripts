@@ -10,13 +10,6 @@ Class {
 }
 
 { #category : #creation }
-MJTile class >> kind: kind specific: value [
-	^ kind = value
-		ifTrue: [ MJFace new new: kind ]
-		ifFalse: [ MJNumber new suit: kind number: value ]
-]
-
-{ #category : #creation }
 MJTile class >> num: aNumber kind: aChar [
 	^ self resolveClass: aChar with: aNumber
 ]
@@ -24,9 +17,9 @@ MJTile class >> num: aNumber kind: aChar [
 { #category : #creation }
 MJTile class >> resolveClass: char with: num [
 	char = $z ifTrue: [ ^ MJFace num: num ].
-	char = $s ifTrue: [ ^ MJNumber 竹: num ].
-	char = $p ifTrue: [ ^ MJNumber pin: num ].
-	char = $m ifTrue: [ ^ MJNumber 萬: num ].
+	char = $s ifTrue: [ ^ MJZhu new: num ].
+	char = $p ifTrue: [ ^ MJPin new: num ].
+	char = $m ifTrue: [ ^ MJMan new: num ].
 	^ RegexSyntaxError signal: 'improper syntax'
 ]
 

@@ -118,13 +118,8 @@ MJFace >> isSpecial [
 ]
 
 { #category : #accessing }
-MJFace >> kind [
-	^ name
-]
-
-{ #category : #accessing }
 MJFace >> name [
-	^ self kind
+	^ name
 ]
 
 { #category : #creation }
@@ -140,6 +135,11 @@ MJFace >> runsWith: tile [
 { #category : #predicates }
 MJFace >> sameAs: tile [
 	^ self class = tile class and: [ name = tile name ]
+]
+
+{ #category : #accessing }
+MJFace >> suit [
+	^ self name
 ]
 
 { #category : #equality }

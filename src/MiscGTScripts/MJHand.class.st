@@ -22,7 +22,7 @@ MJHand class >> with: aCollection [
 { #category : #deprecated }
 MJHand >> acceptPermutations [
 	| grouped |
-	grouped := tiles groupedBy: [ :v | v kind ].
+	grouped := tiles groupedBy: [ :v | v suit ].
 	^ Array
 		streamContents: [ :stream | 
 			grouped values
@@ -58,10 +58,10 @@ MJHand >> chunkedGroupBackTrackerwith: aBlock [
 	"the aBlock should be an acceptor like #accepts or #acceptsComplete"
 
 	| grouped collected |
-	grouped := tiles groupedBy: [ :v | v kind ].
+	grouped := tiles groupedBy: [ :v | v suit ].
 	collected := grouped values
 			collect: [ :kindArr | 
-				(kindArr at: 1) class = MJFace
+				(kindArr at: 1) isSpecial
 					ifTrue: [ (aBlock value: (MJGroups with: kindArr)) tiles ]
 					ifFalse: [ MJHand new
 							withHand: kindArr;

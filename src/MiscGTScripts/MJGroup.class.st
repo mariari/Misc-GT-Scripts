@@ -28,7 +28,7 @@ MJGroup class >> with: aCollection [
 
 { #category : #predicates }
 MJGroup >> accepts: tile [
-	^ kind = tile kind & ((MJGroupCache at: simpleTiles asArray) includes: tile value)
+	^ kind = tile suit & ((MJGroupCache at: simpleTiles asArray) includes: tile value)
 ]
 
 { #category : #'private  - missing' }
@@ -78,7 +78,10 @@ MJGroup >> new [
 { #category : #private }
 MJGroup >> rawAccepts [
 	^ (MJGroupCache at: simpleTiles asArray)
-		collect: [ :v | MJTile kind: kind specific: v ]
+		collect: [ :v | 
+			kind = v
+				ifTrue: [ MJFace new new: kind ]
+				ifFalse: [ MJNumber resolveSuit: kind with: v ] ]
 ]
 
 { #category : #predicates }
@@ -94,7 +97,7 @@ MJGroup >> size [
 { #category : #accessing }
 MJGroup >> startWith: tile [
 	self addTile: tile.
-	kind := tile kind.
+	kind := tile suit.
 	^ self
 ]
 
