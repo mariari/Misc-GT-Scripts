@@ -76,9 +76,9 @@ MahjongExamples >> handExample [
 	view := GtMondrian new.
 
 	tiles := {MJHand
-				with: {MJFace 東.
-						MJFace 中}.
-			MJFace 東}.
+				with: {MJEast new.
+						MJRed new}.
+			MJEast new}.
 
 	pairs := {(tiles at: 1) -> (tiles at: 2)}.
 
@@ -216,7 +216,7 @@ MahjongExamples >> versitility [
 	| tiles pairs honor |
 	tiles := self pins asOrderedCollection.
 
-	honor := MJFace 中.
+	honor := MJRed new.
 
 	pairs := {(tiles at: 1) -> (tiles at: 8).
 			(tiles at: 9) -> (tiles at: 2).
@@ -240,7 +240,7 @@ MahjongExamples >> versitilityHand [
 	| tiles pairs honor second third best |
 	tiles := self pins asOrderedCollection.
 
-	honor := MJFace 中.
+	honor := MJRed new.
 	second := MJHand
 			with: {tiles at: 1.
 					tiles at: 9}.

@@ -1,109 +1,34 @@
 Class {
 	#name : #MJFace,
 	#superclass : #MJTile,
-	#instVars : [
-		'name'
-	],
 	#category : #'MiscGTScripts-Tiles'
 }
 
 { #category : #creation }
-MJFace class >> convertKind: number [
-	"convert into array indexing"
-
-	1 = number ifTrue: [ ^ self east ].
-	2 = number ifTrue: [ ^ self south ].
-	3 = number ifTrue: [ ^ self west ].
-	4 = number ifTrue: [ ^ self north ].
-	5 = number ifTrue: [ ^ self white ].
-	6 = number ifTrue: [ ^ self green ].
-	7 = number ifTrue: [ ^ self red ].
-	^ Error signal: 'invalid conversion'
+MJFace class >> convertKind: string [
+	#east = string ifTrue: [ ^ MJEast new ].
+	#south = string ifTrue: [ ^ MJSouth new ].
+	#west = string ifTrue: [ ^ MJWest new ].
+	#north = string ifTrue: [ ^ MJNorth new ].
+	#white = string ifTrue: [ ^ MJWhite new ].
+	#green = string ifTrue: [ ^ MJGreen new ].
+	#red = string ifTrue: [ ^ MJRed new ]
 ]
 
 { #category : #creation }
-MJFace class >> default [
-	^ self red
-]
-
-{ #category : #creation }
-MJFace class >> dong [
-	^ self east
-]
-
-{ #category : #creation }
-MJFace class >> east [
-	^ self new new: #east
-]
-
-{ #category : #creation }
-MJFace class >> green [
-	^ self new new: #green
-]
-
-{ #category : #creation }
-MJFace class >> north [
-	^ self new new: #north
+MJFace class >> fromNumber: anInteger [
+	1 = anInteger ifTrue: [ ^ MJEast new ].
+	2 = anInteger ifTrue: [ ^ MJSouth new ].
+	3 = anInteger ifTrue: [ ^ MJWest new ].
+	4 = anInteger ifTrue: [ ^ MJNorth new ].
+	5 = anInteger ifTrue: [ ^ MJWhite new ].
+	6 = anInteger ifTrue: [ ^ MJGreen new ].
+	7 = anInteger ifTrue: [ ^ MJRed new ]
 ]
 
 { #category : #creation }
 MJFace class >> num: anInteger [ 
-	^ self convertKind: anInteger.
-]
-
-{ #category : #creation }
-MJFace class >> red [
-	^ self new new: #red
-]
-
-{ #category : #creation }
-MJFace class >> south [
-	^ self new new: 'south'
-]
-
-{ #category : #creation }
-MJFace class >> west [
-	^ self new new: #west
-]
-
-{ #category : #creation }
-MJFace class >> white [
-	^ self new new: #white
-]
-
-{ #category : #creation }
-MJFace class >> 中 [
-	^ self red
-]
-
-{ #category : #creation }
-MJFace class >> 北 [
-	^ self north
-]
-
-{ #category : #creation }
-MJFace class >> 南 [
-	^ self south
-]
-
-{ #category : #creation }
-MJFace class >> 東 [
-	^ self east
-]
-
-{ #category : #creation }
-MJFace class >> 發 [
-	^ self green
-]
-
-{ #category : #creation }
-MJFace class >> 白 [
-	^ self white
-]
-
-{ #category : #creatoin }
-MJFace class >> 西 [
-	^ self west
+	^ self fromNumber: anInteger.
 ]
 
 { #category : #visualization }
@@ -119,12 +44,7 @@ MJFace >> isSpecial [
 
 { #category : #accessing }
 MJFace >> name [
-	^ name
-]
-
-{ #category : #creation }
-MJFace >> new: kind [
-	name := kind
+	^ self subclassResponsibility
 ]
 
 { #category : #predicates }
@@ -134,7 +54,7 @@ MJFace >> runsWith: tile [
 
 { #category : #predicates }
 MJFace >> sameAs: tile [
-	^ self class = tile class and: [ name = tile name ]
+	^ self suit = tile suit
 ]
 
 { #category : #accessing }
@@ -144,26 +64,15 @@ MJFace >> suit [
 
 { #category : #equality }
 MJFace >> uniqueHash [
-	^ name hash
+	^ self name hash
 ]
 
 { #category : #equality }
 MJFace >> value [
-	^ name
-]
-
-{ #category : #equality }
-MJFace >> valueSort [
-	#east = name ifTrue: [ ^ 4294967296 ].
-	#south = name ifTrue: [ ^ 4294967296 * 2 ].
-	#west = name ifTrue: [ ^ 4294967296 * 3 ].
-	#north = name ifTrue: [ ^ 4294967296 * 4 ].
-	#white = name ifTrue: [ ^ 4294967296 * 5 ].
-	#green = name ifTrue: [ ^ 4294967296 * 6 ].
-	#red = name ifTrue: [ ^ 4294967296 * 7 ]
+	^ self name
 ]
 
 { #category : #visualization }
 MJFace >> visualize [
-	^ MJTileVisualizerTenhou honor: name
+	^ MJTileVisualizerTenhou honor: self
 ]

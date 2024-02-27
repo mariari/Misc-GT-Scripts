@@ -74,6 +74,11 @@ MJTile >> valueSort [
 ]
 
 { #category : #visualization }
+MJTile >> visualizationNumber [
+	^ self subclassResponsibility
+]
+
+{ #category : #visualization }
 MJTile >> visualize [
 	^ self subclassResponsibility
 ]

@@ -80,7 +80,7 @@ MJGroup >> rawAccepts [
 	^ (MJGroupCache at: simpleTiles asArray)
 		collect: [ :v | 
 			kind = v
-				ifTrue: [ MJFace new new: kind ]
+				ifTrue: [ MJFace convertKind: kind ]
 				ifFalse: [ MJNumber resolveSuit: kind with: v ] ]
 ]
 

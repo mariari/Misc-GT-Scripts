@@ -9,18 +9,6 @@ Class {
 }
 
 { #category : #creation }
-MJTileVisualizer class >> convertKind: string [
-	#east = string ifTrue: [ ^ '1' ].
-	#south = string ifTrue: [ ^ '2' ].
-	#west = string ifTrue: [ ^ '3' ].
-	#north = string ifTrue: [ ^ '4' ].
-	#white = string ifTrue: [ ^ '5' ].
-	#green = string ifTrue: [ ^ '6' ].
-	#red = string ifTrue: [ ^ '7' ].
-	^ '7'
-]
-
-{ #category : #creation }
 MJTileVisualizer class >> default [
 
  ^ self new default
@@ -34,7 +22,8 @@ MJTileVisualizer class >> fileType [
 { #category : #accessing }
 MJTileVisualizer class >> honor: kind [
 	^ self new
-		initalizePath: self new defaultPath / 'honors' / ((self convertKind: kind) , self fileType)
+		initalizePath: self new defaultPath / 'honors'
+				/ (kind visualizationNumber asString , self fileType)
 ]
 
 { #category : #accessing }
