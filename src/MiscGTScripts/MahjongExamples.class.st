@@ -88,7 +88,7 @@ MahjongExamples >> handExample [
 { #category : #tiles }
 MahjongExamples >> mans [
 	<gtExample>
-	^ self allSuits:[ :each | MJNumber man: each ]
+	^ self allSuits:[ :each | MJMan new: each ]
 ]
 
 { #category : #example }
@@ -106,7 +106,7 @@ MahjongExamples >> pairGet [
 { #category : #tiles }
 MahjongExamples >> pins [
 	<gtExample>
-	^ self allSuits: [ :each | MJNumber pin: each ]
+	^ self allSuits: [ :each | MJPin new: each ]
 ]
 
 { #category : #example }
@@ -184,17 +184,17 @@ MahjongExamples >> testGroupInvalid [
 	<gtExample>
 	| group |
 	group := MJGroups with: '2346p' asMJHand tiles.
-	group addIndependently: (MJNumber pin: 4).
+	group addIndependently: (MJPin new: 4).
 	self assert: group valid not.
 
 
 	group := MJGroups with: '23466p' asMJHand tiles.
-	group addIndependently: (MJNumber pin: 1).
+	group addIndependently: (MJPin new: 1).
 	self assert: group valid.
-	
+
 	group := MJGroups with: '23466p' asMJHand tiles.
-	group addGroupIndependently: ('66p' asMJGroup).
-	
+	group addGroupIndependently: '66p' asMJGroup.
+
 	self assert: group valid not.
 	^ group
 ]
@@ -205,7 +205,7 @@ MahjongExamples >> testHandAdd [
 	| groups item |
 	groups := MJGroups with: '12246799m22p33s44z' asMJHand tiles.
 	item := groups find: [ :ob | ob sameAs: '12m' asMJGroup ].
-	item add: (MJNumber man: 3).
+	item add: (MJMan new: 3).
 	self assert: (groups find: [ :ob | ob sameAs: '123m' asMJGroup]) notNil.
 	^ groups
 ]
@@ -266,5 +266,5 @@ MahjongExamples >> versitilityHand [
 { #category : #tiles }
 MahjongExamples >> zhus [
 	<gtExample>
-	^ self allSuits:[ :each | MJNumber zhu: each ]
+	^ self allSuits: [ :each | MJZhu new: each ]
 ]

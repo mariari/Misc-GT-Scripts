@@ -2,45 +2,28 @@ Class {
 	#name : #MJNumber,
 	#superclass : #MJTile,
 	#instVars : [
-		'suit',
 		'number'
 	],
 	#category : #'MiscGTScripts-Tiles'
 }
 
 { #category : #creation }
-MJNumber class >> man: num [
-	^ self new suit: #man number: num
+MJNumber class >> dora [
+	^ self subclassResponsibility
 ]
 
 { #category : #creation }
-MJNumber class >> new: num [
-	^ self new new: num
+MJNumber class >> new: aNumber [
+	^ aNumber isZero
+		ifTrue: [ self dora new ]
+		ifFalse: [ self new number: aNumber ]
 ]
 
-{ #category : #creation }
-MJNumber class >> pin: num [
-	^ self new suit: #pin number: num
-]
-
-{ #category : #creation }
-MJNumber class >> wan: num [
-	^ self man: num
-]
-
-{ #category : #creation }
-MJNumber class >> zhu: num [
-	^ self new suit: #zhu number: num
-]
-
-{ #category : #creation }
-MJNumber class >> 竹: num [
-	^ self zhu: num
-]
-
-{ #category : #creation }
-MJNumber class >> 萬: num [
-	^ self man: num
+{ #category : #private }
+MJNumber class >> resolveSuit: kind with: aNum [
+	#man = kind ifTrue: [ ^ MJMan new: aNum ].
+	#pin = kind ifTrue: [ ^ MJPin new: aNum ].
+	#zhu = kind ifTrue: [ ^ MJZhu new: aNum ]
 ]
 
 { #category : #visualization }
@@ -55,24 +38,14 @@ MJNumber >> isSpecial [
 ]
 
 { #category : #accessing }
-MJNumber >> kind [
-	^ suit
-]
-
-{ #category : #creating }
-MJNumber >> new: num [
-	suit := 'pin'.	"random default"
-	number := num
-]
-
-{ #category : #accessing }
 MJNumber >> number [
-	^ number isZero ifTrue: [ 5 ] ifFalse: [ number ]
+	^ number
 ]
 
 { #category : #creating }
 MJNumber >> number: num [
-	^ self class new suit: self suit number: num
+	number := num.
+	^ self
 ]
 
 { #category : #predicates }
@@ -90,19 +63,12 @@ MJNumber >> sameAs: tile [
 
 { #category : #predicates }
 MJNumber >> sameSuit: tile [
-	^ self class = tile class and: [ self suit = tile suit ]
+	^ self suit = tile suit
 ]
 
 { #category : #accessing }
 MJNumber >> suit [
-	^ self kind
-]
-
-{ #category : #creation }
-MJNumber >> suit: su number: num [
-	number := num.
-	suit := su.
-	^ self
+	^ self subclassResponsibility
 ]
 
 { #category : #equality }
@@ -115,14 +81,12 @@ MJNumber >> value [
 	^ number
 ]
 
-{ #category : #equality }
-MJNumber >> valueSort [
-	#man = suit ifTrue: [ ^ 256 * self number ].
-	#pin = suit ifTrue: [ ^ 65536 * self number ].
-	#zhu = suit ifTrue: [ ^ 16777216 * self number ]
+{ #category : #visualization }
+MJNumber >> visualizationNumber [
+	^ number
 ]
 
 { #category : #visualization }
 MJNumber >> visualize [
-	^ MJTileVisualizerTenhou suit: suit number: number
+	^ MJTileVisualizerTenhou suit: self suit number: self visualizationNumber
 ]
