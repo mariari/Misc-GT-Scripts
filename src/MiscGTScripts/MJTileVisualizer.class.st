@@ -48,6 +48,16 @@ MJTileVisualizer >> default [
 ]
 
 { #category : #accessing }
+MJTileVisualizer >> defaultPath [
+	^ self subclassResponsibility
+]
+
+{ #category : #accessing }
+MJTileVisualizer >> defaultSize [
+	^ self subclassResponsibility
+]
+
+{ #category : #accessing }
 MJTileVisualizer >> form [
 	^ Form fromBinaryStream: path binaryReadStream
 ]
