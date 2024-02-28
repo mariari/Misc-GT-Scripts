@@ -100,30 +100,29 @@ MJHand >> groupBackTrack: aGroup index: currentTile withAcceptor: anAcceptor [
 	The index is simply where in the array we are cdring down
 	The acceptor are things like #accepts or #acceptsComplete"
 
-	| tile accepting |
+	| tile accepting recurse |
 	currentTile > tiles size & aGroup valid not ifTrue: [ ^ {} ].
 	currentTile > tiles size ifTrue: [ ^ (anAcceptor value: aGroup) tiles ].
 
 	tile := tiles at: currentTile.
 
+	recurse := [ :groups | 
+		self
+			groupBackTrack: groups
+			index: currentTile + 1
+			withAcceptor: anAcceptor ].
+
 	accepting := aGroup
 			onAccepting: tile
 			doIndependently: [ :groups :group | 
 				group add: tile.
-				self
-					groupBackTrack: groups
-					index: currentTile + 1
-					withAcceptor: anAcceptor ].
+				recurse value: groups ].
 
 
 	accepting := accepting flatCollect: [ :each | each ].
 	aGroup addIndependently: tile.
 
-	accepting
-		addAll: (self
-				groupBackTrack: aGroup
-				index: currentTile + 1
-				withAcceptor: anAcceptor).
+	accepting addAll: (recurse value: aGroup).
 	^ accepting
 ]
 

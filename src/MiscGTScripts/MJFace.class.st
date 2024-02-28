@@ -4,31 +4,35 @@ Class {
 	#category : #'MiscGTScripts-Tiles'
 }
 
+{ #category : #representations }
+MJFace class >> characterRepresentation [
+	^ $z
+]
+
 { #category : #creation }
-MJFace class >> convertKind: string [
-	#east = string ifTrue: [ ^ MJEast new ].
-	#south = string ifTrue: [ ^ MJSouth new ].
-	#west = string ifTrue: [ ^ MJWest new ].
-	#north = string ifTrue: [ ^ MJNorth new ].
-	#white = string ifTrue: [ ^ MJWhite new ].
-	#green = string ifTrue: [ ^ MJGreen new ].
-	#red = string ifTrue: [ ^ MJRed new ]
+MJFace class >> convertKind: aString [
+	^ self subclasses
+		detect: [ :each | aString = each suit ]
+		ifFound: #new
+		ifNone: [ NotFound error ]
 ]
 
 { #category : #creation }
 MJFace class >> fromNumber: anInteger [
-	1 = anInteger ifTrue: [ ^ MJEast new ].
-	2 = anInteger ifTrue: [ ^ MJSouth new ].
-	3 = anInteger ifTrue: [ ^ MJWest new ].
-	4 = anInteger ifTrue: [ ^ MJNorth new ].
-	5 = anInteger ifTrue: [ ^ MJWhite new ].
-	6 = anInteger ifTrue: [ ^ MJGreen new ].
-	7 = anInteger ifTrue: [ ^ MJRed new ]
+	^ self subclasses
+		detect: [ :each | anInteger = each numericRepresentation ]
+		ifFound: #new
+		ifNone: [ NotFound error ]
 ]
 
 { #category : #creation }
 MJFace class >> num: anInteger [ 
 	^ self fromNumber: anInteger.
+]
+
+{ #category : #representations }
+MJFace class >> numericRepresentation [
+	^ self subclassResponsibility
 ]
 
 { #category : #visualization }
@@ -42,9 +46,9 @@ MJFace >> isSpecial [
 	^ true
 ]
 
-{ #category : #accessing }
-MJFace >> name [
-	^ self subclassResponsibility
+{ #category : #representations }
+MJFace >> numericRepresentation [
+	^ self class numericRepresentation
 ]
 
 { #category : #predicates }
@@ -57,19 +61,14 @@ MJFace >> sameAs: tile [
 	^ self suit = tile suit
 ]
 
-{ #category : #accessing }
-MJFace >> suit [
-	^ self name
-]
-
 { #category : #equality }
 MJFace >> uniqueHash [
-	^ self name hash
+	^ self suit hash
 ]
 
 { #category : #equality }
 MJFace >> value [
-	^ self name
+	^ self suit
 ]
 
 { #category : #visualization }

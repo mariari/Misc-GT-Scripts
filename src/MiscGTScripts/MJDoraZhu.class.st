@@ -10,6 +10,6 @@ MJDoraZhu >> number [
 ]
 
 { #category : #visualization }
-MJDoraZhu >> visualizationNumber [
+MJDoraZhu >> numericRepresentation [
 	^ 0
 ]

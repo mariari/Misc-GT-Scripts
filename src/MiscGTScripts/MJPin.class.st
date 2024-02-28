@@ -4,13 +4,18 @@ Class {
 	#category : #'MiscGTScripts-Tiles'
 }
 
+{ #category : #representations }
+MJPin class >> characterRepresentation [
+	^ $p
+]
+
 { #category : #creation }
 MJPin class >> dora [
 	^ MJDoraPin
 ]
 
 { #category : #accessing }
-MJPin >> suit [
+MJPin class >> suit [
 	^ #pin
 ]
 

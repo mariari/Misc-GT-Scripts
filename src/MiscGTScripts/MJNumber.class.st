@@ -21,9 +21,10 @@ MJNumber class >> new: aNumber [
 
 { #category : #private }
 MJNumber class >> resolveSuit: kind with: aNum [
-	#man = kind ifTrue: [ ^ MJMan new: aNum ].
-	#pin = kind ifTrue: [ ^ MJPin new: aNum ].
-	#zhu = kind ifTrue: [ ^ MJZhu new: aNum ]
+	^ self subclasses
+		detect: [ :each | kind = each suit ]
+		ifFound: [ :aClass | aClass new: aNum ]
+		ifNone: [ NotFound error ]
 ]
 
 { #category : #visualization }
@@ -48,6 +49,11 @@ MJNumber >> number: num [
 	^ self
 ]
 
+{ #category : #visualization }
+MJNumber >> numericRepresentation [
+	^ number
+]
+
 { #category : #predicates }
 MJNumber >> runsWith: tile [
 	| num |
@@ -66,11 +72,6 @@ MJNumber >> sameSuit: tile [
 	^ self suit = tile suit
 ]
 
-{ #category : #accessing }
-MJNumber >> suit [
-	^ self subclassResponsibility
-]
-
 { #category : #equality }
 MJNumber >> uniqueHash [
 	^ self number hash + self valueSort hash
@@ -82,11 +83,6 @@ MJNumber >> value [
 ]
 
 { #category : #visualization }
-MJNumber >> visualizationNumber [
-	^ number
-]
-
-{ #category : #visualization }
 MJNumber >> visualize [
-	^ MJTileVisualizerTenhou suit: self suit number: self visualizationNumber
+	^ MJTileVisualizerTenhou suit: self suit number: self numericRepresentation
 ]

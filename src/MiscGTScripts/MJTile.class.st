@@ -9,6 +9,11 @@ Class {
 	#category : #'MiscGTScripts-Tiles'
 }
 
+{ #category : #representations }
+MJTile class >> characterRepresentation [
+	^ self subclassResponsibility
+]
+
 { #category : #creation }
 MJTile class >> num: aNumber kind: aChar [
 	^ self resolveClass: aChar with: aNumber
@@ -16,11 +21,16 @@ MJTile class >> num: aNumber kind: aChar [
 
 { #category : #creation }
 MJTile class >> resolveClass: char with: num [
-	char = $z ifTrue: [ ^ MJFace num: num ].
+	char = $z ifTrue: [ ^ MJFace fromNumber: num ].
 	char = $s ifTrue: [ ^ MJZhu new: num ].
 	char = $p ifTrue: [ ^ MJPin new: num ].
 	char = $m ifTrue: [ ^ MJMan new: num ].
 	^ RegexSyntaxError signal: 'improper syntax'
+]
+
+{ #category : #accessing }
+MJTile class >> suit [
+	^ self subclassResponsibility
 ]
 
 { #category : #visualization }
@@ -48,6 +58,11 @@ MJTile >> kind [
 	^ self subclassResponsibility
 ]
 
+{ #category : #represenations }
+MJTile >> numericRepresentation [
+	^ self subclassResponsibility
+]
+
 { #category : #predicates }
 MJTile >> runsWith: tile [
 	^ self subclassResponsibility
@@ -56,6 +71,11 @@ MJTile >> runsWith: tile [
 { #category : #predicates }
 MJTile >> sameAs: tile [
 	^ self subclassResponsibility
+]
+
+{ #category : #accessing }
+MJTile >> suit [
+	^ self class suit
 ]
 
 { #category : #equality }
@@ -70,11 +90,6 @@ MJTile >> value [
 
 { #category : #equality }
 MJTile >> valueSort [
-	^ self subclassResponsibility
-]
-
-{ #category : #visualization }
-MJTile >> visualizationNumber [
 	^ self subclassResponsibility
 ]
 

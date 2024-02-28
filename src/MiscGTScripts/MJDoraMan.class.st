@@ -10,6 +10,6 @@ MJDoraMan >> number [
 ]
 
 { #category : #visualization }
-MJDoraMan >> visualizationNumber [
+MJDoraMan >> numericRepresentation [
 	^ 0
 ]

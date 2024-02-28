@@ -23,7 +23,7 @@ MJTileVisualizer class >> fileType [
 MJTileVisualizer class >> honor: kind [
 	^ self new
 		initalizePath: self new defaultPath / 'honors'
-				/ (kind visualizationNumber asString , self fileType)
+				/ (kind numericRepresentation asString , self fileType)
 ]
 
 { #category : #accessing }

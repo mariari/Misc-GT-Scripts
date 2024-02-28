@@ -4,13 +4,18 @@ Class {
 	#category : #'MiscGTScripts-Tiles'
 }
 
+{ #category : #representations }
+MJMan class >> characterRepresentation [
+	^ $m
+]
+
 { #category : #creation }
 MJMan class >> dora [
 	^ MJDoraMan
 ]
 
 { #category : #accessing }
-MJMan >> suit [
+MJMan class >> suit [
 	^ #man
 ]
 

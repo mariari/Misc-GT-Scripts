@@ -4,17 +4,17 @@ Class {
 	#category : #'MiscGTScripts-Tiles'
 }
 
+{ #category : #representations }
+MJRed class >> numericRepresentation [
+	^ 7
+]
+
 { #category : #accessing }
-MJRed >> name [
+MJRed class >> suit [
 	^ #red
 ]
 
 { #category : #equality }
 MJRed >> valueSort [
 	^ 4294967296 * (2 bitShift: 5 * 3)
-]
-
-{ #category : #visualization }
-MJRed >> visualizationNumber [
-	^ 7
 ]

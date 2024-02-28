@@ -10,6 +10,6 @@ MJDoraPin >> number [
 ]
 
 { #category : #visualization }
-MJDoraPin >> visualizationNumber [
+MJDoraPin >> numericRepresentation [
 	^ 0
 ]

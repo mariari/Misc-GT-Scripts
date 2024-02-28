@@ -4,17 +4,17 @@ Class {
 	#category : #'MiscGTScripts-Tiles'
 }
 
+{ #category : #representations }
+MJWest class >> numericRepresentation [
+	^ 3
+]
+
 { #category : #accessing }
-MJWest >> name [
+MJWest class >> suit [
 	^ #west
 ]
 
 { #category : #equality }
 MJWest >> valueSort [
 	^ 4294967296 * (2 bitShift: 5 * 5)
-]
-
-{ #category : #visualization }
-MJWest >> visualizationNumber [
-	^ 3
 ]
