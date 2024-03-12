@@ -113,8 +113,8 @@ MahjongExamples >> pins [
 MahjongExamples >> runWaits [
 	<gtExample>
 	| run |
-	run := '23456m' asMJHand.
-	self assert: run acceptsComplete tiles size equals: 3.
+	run := '23456m' asMJHandNP.
+	self assert: run acceptsShanten tiles size equals: 3.
 	^ run visualizeAcceptsComplete: self defaultGraph
 ]
 

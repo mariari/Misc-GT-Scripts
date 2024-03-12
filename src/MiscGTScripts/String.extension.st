@@ -2,11 +2,30 @@ Extension { #name : #String }
 
 { #category : #'*MiscGTScripts' }
 String >> asMJGroup [
-	^ MJGroup with: self asMJHand tiles
+	^ MJGroup with: self asMJTiles
 ]
 
 { #category : #'*MiscGTScripts' }
 String >> asMJHand [
+	^ MJHandNP with: self asMJTiles
+]
+
+{ #category : #'*MiscGTScripts' }
+String >> asMJHandNP [
+	"Like asMJHand, but assume we don't have a pair we wish finish"
+
+	^ MJHandNP with: self asMJTiles
+]
+
+{ #category : #'*MiscGTScripts' }
+String >> asMJHandP [
+	"Like asMJHand, but assume we have a pair we wish to finish"
+
+	^ MJHandP with: self asMJTiles
+]
+
+{ #category : #'*MiscGTScripts' }
+String >> asMJTiles [
 	| stringArr indicies |
 	stringArr := self asArray.
 	indicies := OrderedCollection new.
@@ -20,5 +39,5 @@ String >> asMJHand [
 								from: start
 								to: end) ] ].
 
-	^ MJHand with: indicies flatten
+	^ indicies flatten
 ]

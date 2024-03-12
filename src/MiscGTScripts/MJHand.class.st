@@ -1,3 +1,6 @@
+"
+I am a generic Mahjong hand. I can serve most needs one may ask for, however
+"
 Class {
 	#name : #MJHand,
 	#superclass : #MJTiles,
@@ -51,6 +54,13 @@ MJHand >> acceptsPermutationComplete [
 	| predicate |
 	predicate := [ :group | group acceptsComplete ].
 	^ self fromPermutations: self acceptPermutations withAcceptance: predicate
+]
+
+{ #category : #accepting }
+MJHand >> acceptsShanten [
+	| arr |
+	arr := (self shantenBackTrack: MJGroups new index: 1) at: 1.
+	^ (self class with: arr) unique
 ]
 
 { #category : #'private - accepting' }
@@ -126,6 +136,68 @@ MJHand >> groupBackTrack: aGroup index: currentTile withAcceptor: anAcceptor [
 	^ accepting
 ]
 
+{ #category : #accessing }
+MJHand >> groups [
+	^ self subclassResponsibility
+]
+
+{ #category : #accessing }
+MJHand >> pair [
+	^ self subclassResponsibility
+]
+
+{ #category : #accepting }
+MJHand >> shanten [
+	^ (self shantenGroups: MJGroups new index: 1) at: 2
+]
+
+{ #category : #'private - accepting' }
+MJHand >> shantenBackTrack: aGroup index: currentTile [
+	"Does backtracking for seeing what tiles the hand accepts.
+	The index is simply where in the array we are cdring down"
+
+	| anArr |
+	anArr := self shantenGroups: aGroup index: currentTile.
+	^ {(anArr at: 1) flatCollect: [ :group | group acceptsShanten tiles].
+		anArr at: 2}
+]
+
+{ #category : #accepting }
+MJHand >> shantenGroups [
+	^ (self shantenGroups: MJGroups new index: 1) at: 1
+]
+
+{ #category : #'private - accepting' }
+MJHand >> shantenGroups: aGroup index: currentTile [
+	"Does backtracking for seeing what tiles the hand accepts.
+	The index is simply where in the array we are cdring down"
+
+	| tile accepting recurse min |
+	currentTile > tiles size
+		ifTrue: [ ^ {aGroup.
+				aGroup shanten: self groups assumePair: self pair not} ].
+
+	tile := tiles at: currentTile.
+
+	recurse := [ :groups | self shantenGroups: groups index: currentTile + 1 ].
+
+	accepting := aGroup
+			onAccepting: tile
+			doIndependently: [ :groups :group | 
+				group add: tile.
+				recurse value: groups ].
+	aGroup addIndependently: tile.
+	accepting add: (recurse value: aGroup).
+
+	min := (accepting collect: [ :each | each at: 2 ]) min.
+
+	accepting := accepting
+			select: [ :ele | (ele at: 2) = min ]
+			thenCollect: [ :each | each at: 1 ].
+	^ {accepting flattened.
+		min}
+]
+
 { #category : #unique }
 MJHand >> uniqueSet [
 	| set |
@@ -146,11 +218,25 @@ MJHand >> visualizeAcceptsComplete: view [
 ]
 
 { #category : #visualization }
+MJHand >> visualizeAcceptsShanten: view [
+	^ self visualizeHandAccepts: self acceptsShanten withView: view.
+]
+
+{ #category : #visualization }
+MJHand >> visualizeAcceptsShantenView: aView [
+	<gtView>
+	self acceptsShanten tiles isEmpty ifTrue: [ ^ aView empty ].
+	^ aView mondrian
+		title: 'Accepts';
+		painting: [ :view | self visualizeAcceptsShanten: view ]
+]
+
+{ #category : #visualization }
 MJHand >> visualizeAcceptsView: aView [
 	<gtView>
 	self accepts tiles isEmpty ifTrue: [ ^ aView empty ].
 	^ aView mondrian
-		title: 'Accepts';
+		title: 'Accepts All';
 		painting: [ :view | self visualizeAccepts: view ]
 ]
 
@@ -161,6 +247,18 @@ MJHand >> visualizeAcceptsViewComplete: aView [
 	^ aView mondrian
 		title: 'Accepts Complete';
 		painting: [ :view | self visualizeAcceptsComplete: view ]
+]
+
+{ #category : #visualization }
+MJHand >> visualizeGroups: aView [
+	<gtView>
+	| groups |
+	groups := self shantenGroups.
+	^ aView columnedList
+		title: 'Groups';
+		items: [ groups ];
+		column: 'Groupings'
+			stencil: [ :group | group asBlElement ].
 ]
 
 { #category : #visualization }

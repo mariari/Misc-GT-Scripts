@@ -1,3 +1,6 @@
+"
+I am the generic groups class. I cover most of the use case of groups one can imagine.
+"
 Class {
 	#name : #MJGroups,
 	#superclass : #MJTiles,
@@ -40,6 +43,14 @@ MJGroups >> acceptsComplete [
 	^ self accepts
 ]
 
+{ #category : #accepting }
+MJGroups >> acceptsShanten [
+	| set |
+	set := OrderedCollection new.
+	tiles do: [ :group | group acceptsTiles tiles do: [ :tile | set add: tile ] ].
+	^ (MJHand with: set) unique
+]
+
 { #category : #adding }
 MJGroups >> add: tile [
 	^ tiles
@@ -56,6 +67,18 @@ MJGroups >> addGroupIndependently: group [
 { #category : #adding }
 MJGroups >> addIndependently: tile [
 	^ self addGroupIndependently: (MJGroup only: tile)
+]
+
+{ #category : #visualization }
+MJGroups >> asBlElement [
+	| ele |
+	ele := self naturalHandLayout asElement.
+	^ ele
+]
+
+{ #category : #shanten }
+MJGroups >> completeSets [
+	^ tiles inject: 0 into: [ :sum :tile | sum + tile isComplete asBit ]
 ]
 
 { #category : #accessing }
@@ -102,14 +125,51 @@ MJGroups >> noRedundantSingles [
 
 { #category : #iterating }
 MJGroups >> onAccepting: tile doIndependently: block [
-	| accepts |
-	accepts := tiles select: [ :group | group accepts: tile ].
-	^ accepts
-		collect: [ :group | 
+	| indexed |
+	indexed := tiles
+			withIndexCollect: [ :each :index | 
+				{each.
+					index} ].
+	^ indexed
+		select: [ :group | (group at: 1) accepts: tile ]
+		thenCollect: [ :indexedGroup | 
 			| copiedGroups copiedGroup |
 			copiedGroups := self deepCopy.
-			copiedGroup := copiedGroups find: [ :g | g sameAs: group ].
+			copiedGroup := copiedGroups tiles at: (indexedGroup at: 2).
 			block value: copiedGroups value: copiedGroup ]
+]
+
+{ #category : #shanten }
+MJGroups >> pairNumber [
+	"we can have at max 1, any more is part of a set"
+
+	tiles do: [ :tile | tile isPair ifTrue: [ ^ 1 ] ].
+	^ 0
+]
+
+{ #category : #shanten }
+MJGroups >> partialSets [
+	^ tiles inject: 0 into: [ :sum :tile | sum + (tile size = 2) asBit ]
+]
+
+{ #category : #shanten }
+MJGroups >> shanten: groups assumePair: aBool [
+	| sets partialSets pairs |
+	pairs := aBool ifTrue: [ 1 ] ifFalse: [ self pairNumber ].
+	sets := self completeSets.
+	partialSets := self partialSets - (aBool ifTrue: [ 0 ] ifFalse: [ pairs ])
+			min: groups - sets.
+	^ groups * 2 - (2 * sets) - (1 * partialSets) - pairs
+]
+
+{ #category : #shanten }
+MJGroups >> shantenNoPair: numGroups [
+	^ self shanten: numGroups assumePair: true
+]
+
+{ #category : #shanten }
+MJGroups >> shantenPair: numGroups [
+	^ self shanten: numGroups assumePair: false
 ]
 
 { #category : #predicates }

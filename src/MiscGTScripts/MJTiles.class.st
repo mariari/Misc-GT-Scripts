@@ -14,13 +14,8 @@ MJTiles class >> with: aCollection [
 
 { #category : #visualization }
 MJTiles >> asBlElement [
-	| view ele |
-	view := GtMondrian new.
-
-	view nodes
-		shape: [ :each | each asBlElement ];
-		with: self tiles.
-	ele := view asElement.
+	| ele |
+	ele := self naturalLayout asElement.
 	ele padding: BlInsets empty.
 	ele size: self tileSize.
 	ele layout horizontal columnCount: tiles size.
@@ -37,8 +32,12 @@ MJTiles >> image: aView [
 
 { #category : #visualization }
 MJTiles >> naturalHandLayout [
-	| view |
-	view := self naturalLayout.
+	^ self naturalHandLayout: GtMondrian new
+]
+
+{ #category : #visualization }
+MJTiles >> naturalHandLayout: view [
+	self naturalLayout: view.
 	view root layout horizontal columnCount: self tiles size.
 	^ view
 ]
@@ -47,10 +46,8 @@ MJTiles >> naturalHandLayout [
 MJTiles >> naturalLayout [
 	| view |
 	view := GtMondrian new.
-	view nodes
-		shape: [ :each | each asBlElement ];
-		with: self tiles.
-	^ view
+
+	^ self naturalLayout: view
 ]
 
 { #category : #visualization }
@@ -101,5 +98,5 @@ MJTiles >> uniqueHash [
 MJTiles >> valueSort [
 	"Fixup we need to shift the values by the index"
 
-	^ tiles inject: 0 into: [ :sum :b | sum + b valueSort ]
+	^ ((tiles inject: 0 into: [ :sum :b | sum + b valueSort ]) bitShift: 2) + self tiles size
 ]

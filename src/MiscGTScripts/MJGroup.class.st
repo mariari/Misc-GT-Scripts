@@ -64,6 +64,16 @@ MJGroup >> addTile: tile [
 	simpleTiles addLast: tile value
 ]
 
+{ #category : #predicates }
+MJGroup >> isComplete [
+	^ 3 <= tiles size
+]
+
+{ #category : #predicates }
+MJGroup >> isPair [
+	^ 2 = tiles size and: [ (tiles at: 1) valueSort = (tiles at: 2) valueSort ]
+]
+
 { #category : #accessing }
 MJGroup >> kind [
 	^ kind
