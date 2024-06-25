@@ -25,7 +25,7 @@ MJGroups >> accepts [
 	| set |
 	set := OrderedCollection new.
 	tiles do: [ :group | group acceptsTiles tiles do: [ :tile | set add: tile ] ].
-	^ (MJHand with: set) unique
+	^ (MJHandNP with: set) unique
 ]
 
 { #category : #predicates }

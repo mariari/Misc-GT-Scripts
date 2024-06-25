@@ -61,15 +61,6 @@ MahjongExamples >> defaultStyling: color [
 ]
 
 { #category : #example }
-MahjongExamples >> groupExample [
-	<gtExample>
-	| val |
-	val := '23s' asMJGroup.
-	self assert: val acceptsTiles valueSort equals: '14s' asMJHand valueSort.
-	^ val
-]
-
-{ #category : #example }
 MahjongExamples >> handExample [
 	<gtExample>
 	| view tiles pairs |
@@ -94,13 +85,18 @@ MahjongExamples >> mans [
 { #category : #example }
 MahjongExamples >> pairGet [
 	<gtExample>
-	| view z1 z2 |
-	view := self defaultGraph.
-	z1 := '23s' asMJGroup.
+	| z1 groups z2 |
+	z1 := self so23.
 	z2 := '45s' asMJGroup.
-	{ z1 . z2 } do: [:e | e visualizeAccepts: view].
 
-	^ view
+	groups := MJGroups new.
+
+	groups
+		addGroupIndependently: z1;
+		addGroupIndependently: z2.
+	groups.
+
+	^ groups
 ]
 
 { #category : #tiles }
@@ -115,7 +111,7 @@ MahjongExamples >> runWaits [
 	| run |
 	run := '23456m' asMJHandNP.
 	self assert: run acceptsShanten tiles size equals: 3.
-	^ run visualizeAcceptsComplete: self defaultGraph
+	^ run
 ]
 
 { #category : #example }
@@ -168,6 +164,15 @@ MahjongExamples >> simpleGroup [
 MahjongExamples >> simpleGroups [
 	<gtExample>
 	^ (MJGroups with: '12246799p' asMJHand tiles)
+]
+
+{ #category : #example }
+MahjongExamples >> so23 [
+	<gtExample>
+	| val |
+	val := '23s' asMJGroup.
+	self assert: val acceptsTiles valueSort equals: '14s' asMJHand valueSort.
+	^ val
 ]
 
 { #category : #example }
