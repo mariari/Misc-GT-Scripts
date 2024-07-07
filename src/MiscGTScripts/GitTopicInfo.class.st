@@ -1,10 +1,8 @@
 Class {
 	#name : #GitTopicInfo,
-	#superclass : #Object,
+	#superclass : #ProjectBoardItem,
 	#instVars : [
 		'topic',
-		'tags',
-		'status',
 		'description'
 	],
 	#category : #'MiscGTScripts-git'
@@ -21,23 +19,8 @@ GitTopicInfo >> gtCommitsFor: aView [
 ]
 
 { #category : #accessing }
-GitTopicInfo >> status [
-	^ status
-]
-
-{ #category : #setting }
-GitTopicInfo >> status: aString [
-	status := aString
-]
-
-{ #category : #accessing }
-GitTopicInfo >> tags [
-	^ tags
-]
-
-{ #category : #setting }
-GitTopicInfo >> tags: atags [
-	tags := atags
+GitTopicInfo >> isTopic [
+	^ true
 ]
 
 { #category : #accessing }

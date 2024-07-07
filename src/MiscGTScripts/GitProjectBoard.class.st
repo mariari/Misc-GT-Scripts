@@ -2,30 +2,52 @@ Class {
 	#name : #GitProjectBoard,
 	#superclass : #Object,
 	#instVars : [
-		'gqlContext',
-		'organization',
-		'board',
 		'repo',
-		'remoteName',
-		'candidate'
+		'statuses',
+		'candidate',
+		'remoteName'
 	],
 	#category : #'MiscGTScripts-git'
 }
 
 { #category : #accessing }
-GitProjectBoard >> board: anInteger [ 
-	board := anInteger
+GitProjectBoard >> candidate [
+	^ candidate
 ]
 
 { #category : #accessing }
-GitProjectBoard >> context [
-	<return: #GtGQLContext>
-	^ gqlContext
+GitProjectBoard >> candidate: aString [
+	candidate := IceGitLocalBranch named: aString inRepository: self repo
 ]
 
-{ #category : #setting }
-GitProjectBoard >> context: aContext [
-	gqlContext := aContext
+{ #category : #accessing }
+GitProjectBoard >> candidateBranch: aBranch [
+	<argument: #aBranch isKindOf: #IceGitLocalBranch>
+	candidate := aBranch
+]
+
+{ #category : #accessing }
+GitProjectBoard >> computeItems [
+	"Computes the project board items"
+	^ self subclassResponsibility
+]
+
+{ #category : #accessing }
+GitProjectBoard >> dropDownStatusFrom: eachTopic [
+	^ BrButton new
+		aptitude: BrGlamorousButtonWithLabelAndIconAptitude
+				+ (BrGlamorousWithDropdownAptitude
+						handle: [ BrButton new
+								aptitude: BrGlamorousButtonRectangularAptitude + BrGlamorousButtonIconAptitude;
+								icon: BrGlamorousIcons menu ]
+						content: [ BrButton new
+								aptitude: BrGlamorousButtonWithLabelAptitude;
+								margin: (BlInsets all: 20);
+								label: 'Close';
+								action: [ :aButton | aButton fireEvent: BrDropdownHideWish new ] ]);
+		label: eachTopic status;
+		icon: BrGlamorousIcons menu;
+		yourself
 ]
 
 { #category : #setting }
@@ -37,122 +59,79 @@ GitProjectBoard >> gitLocation: aPath [
 { #category : #accessing }
 GitProjectBoard >> gtRepositoryProjectBoard: aView [
 	<gtView>
-	^ aView forward
-		title: 'Project Board';
+	| topicName color columned |
+	columned := aView columnedList.
+	columned
+		title: 'Whats Cooking';
+		items: [ [ self items ] value asyncSimilarCopy select: [ :anItem | anItem isTopic ] ];
 		priority: 10;
-		object: [ self releaseStatus ];
-		view: #gtRepositoryProjectBoard:
+		column: 'Index'
+			text: [ :aValue :anIndex | anIndex asRopedText foreground: BrGlamorousColors disabledButtonTextColor ]
+			width: 40;
+		column: 'Topic Name'
+			text: [ :aValue | 
+				color := self isInReleaseColor: aValue.
+				topicName := aValue topicName asRopedText.
+				topicName foreground: color ]
+			width: 300;
+		column: 'State'
+			do: [ :aColumn | 
+				aColumn
+					stencil: [ :eachTopic | self dropDownStatusFrom: eachTopic ];
+					width: 130 ];
+		column: 'Tags'
+			text: [ :aValue | aValue tags asString asRopedText foreground: BrGlamorousColors darkBorderColor ]
+			width: 500.
+	^ columned actionUpdateButton
 ]
 
-{ #category : #predicates }
+{ #category : #accessing }
 GitProjectBoard >> hasReleaseCandidate [
-	^ self releaseCandidate isNotNil
-]
-
-{ #category : #setting }
-GitProjectBoard >> organization: aString [
-	organization := aString
-]
-
-{ #category : #'json - queries' }
-GitProjectBoard >> projectBoardItemRemoteName: projectBoardItem [
-	^ remoteName , '/'
-		, (projectBoardItem atPath: #(node content headRefName)) asJsonString
-		copyWithout: $"
-]
-
-{ #category : #'json - queries' }
-GitProjectBoard >> projectBoardItemStatus: projectBoardItem [
-	^ (projectBoardItem atPath: #(node status name)) jsonObject
-]
-
-{ #category : #'json - queries' }
-GitProjectBoard >> projectBoardItemTag: projectBoardItem [
-	^ (projectBoardItem atPath: #(node labels labels edges))
-		collect: [ :x | x node name jsonObject ]
-]
-
-{ #category : #queries }
-GitProjectBoard >> projectBoardResult [
-	^ self context client
-		operation: 'query WhatsCooking($board: Int!, $organization: String!){
-	organization(login: $organization) {
-		login name url
-		projectV2 (number: $board) {
-			__typename
-			title
-			number
-			id
-			items(first: 99) {
-				totalCount
-				pageInfo { hasNextPage endCursor hasPreviousPage startCursor }
-				edges {
-					cursor
-					node {  
-					id
-					content {
-						#__typename
-						... on PullRequest { headRefName } }
-					labels: fieldValueByName (name: "Labels") {
-						... on ProjectV2ItemFieldLabelValue {
-							#__typename
-							labels(first: 10) {
-								edges { node { color name } } } } }
-					status: fieldValueByName (name: "Status") {
-						#__typename
-						... on ProjectV2ItemFieldSingleSelectValue {
-							name } } } } } } } } 
-'
-		input: (Dictionary new
-				at: #organization put: organization;
-				at: #board put: board;
-				yourself)
+	^ candidate isNotNil
 ]
 
 { #category : #accessing }
-GitProjectBoard >> projectValueStream [
-	| aResult topic tags projectBoardItem status |
-	aResult := self projectBoardResult.
-	^ aResult paginator
-		connectorPath: #(organization projectV2 items);
-		collect: [ :each | 
-			projectBoardItem := each asJson.
-			topic := IceGitRemoteBranch
-					named: (self projectBoardItemRemoteName: projectBoardItem)
-					inRepository: repo.
-			tags := self projectBoardItemTag: projectBoardItem.
-			status := self projectBoardItemStatus: projectBoardItem.
-			GitTopicInfo new
-				topic: topic tags: tags;
-				status: status;
-				yourself ]
+GitProjectBoard >> isInReleaseColor: aValue [
+	<argument: #aValue isKindOf: #GitTopicInfo>
+	^ self hasReleaseCandidate
+		ifTrue: [ (self candidate commit isParentOf: aValue topic commit)
+				ifTrue: [ Color fromHexString: '087D91' ]
+				ifFalse: [ Color fromHexString: '911c08' ] ]
+		ifFalse: [ Color black ]
 ]
 
 { #category : #accessing }
-GitProjectBoard >> releaseCandidate [
-	^ candidate
-]
-
-{ #category : #setting }
-GitProjectBoard >> releaseCandidate: aString [
-	candidate := IceGitLocalBranch named: aString inRepository: self repo
+GitProjectBoard >> items [
+	"Returns a closure of the items"
+	^ self computeItems
 ]
 
 { #category : #accessing }
-GitProjectBoard >> releaseStatus [
-	^ GitReleaseStatus new
-		releaseBranch: self releaseCandidate;
-		topics: self projectValueStream;
-		yourself
+GitProjectBoard >> remoteName [
+	^ remoteName
 ]
 
-{ #category : #setting }
-GitProjectBoard >> remoteName: aString [
-	remoteName := aString
+{ #category : #accessing }
+GitProjectBoard >> remoteName: anObject [
+	remoteName := anObject
 ]
 
 { #category : #accessing }
 GitProjectBoard >> repo [
-	<return: #IceLibgitRepository>
 	^ repo
+]
+
+{ #category : #accessing }
+GitProjectBoard >> repo: anObject [
+	repo := anObject
+]
+
+{ #category : #accessing }
+GitProjectBoard >> statuses [
+	^ statuses
+]
+
+{ #category : #accessing }
+GitProjectBoard >> statuses: anObject [
+	statuses := anObject
 ]

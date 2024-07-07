@@ -7,10 +7,186 @@ Class {
 { #category : #accessing }
 GitToolingExamples >> anomaRepo [
 	"TODO use a branch made just for this"
-
+	<gtExample>
 	| anoma |
 	anoma := FileLocator home / 'Documents' / 'Work' / 'Repo' / 'anoma'.
 	^ IceLibgitRepository new location: anoma
+]
+
+{ #category : #accessing }
+GitToolingExamples >> dumperCounterPR [
+	<gtExample>
+	| item |
+	item := GithubPR new
+		fromJson: (self dumperCounterPRJSON ).
+	self assert: item refName equals: 'mariari/dumper-counter'.
+	^ item
+]
+
+{ #category : #accessing }
+GitToolingExamples >> dumperCounterPRJSON [
+	<gtExample>
+	| json |
+	json := NeoJSONReader
+			fromString: '{
+			"headRefName" : "mariari/dumper-counter",
+			"number" : 626,
+			"repository" : {
+				"labels" : {
+					"edges" : [
+						{
+							"node" : {
+								"color" : "d73a4a",
+								"name" : "bug"
+							}
+						},
+						{
+							"node" : {
+								"color" : "0075ca",
+								"name" : "documentation"
+							}
+						},
+						{
+							"node" : {
+								"color" : "a2eeef",
+								"name" : "enhancement"
+							}
+						},
+						{
+							"node" : {
+								"color" : "7057ff",
+								"name" : "good first issue"
+							}
+						},
+						{
+							"node" : {
+								"color" : "008672",
+								"name" : "help wanted"
+							}
+						},
+						{
+							"node" : {
+								"color" : "e4e669",
+								"name" : "invalid"
+							}
+						},
+						{
+							"node" : {
+								"color" : "d876e3",
+								"name" : "question"
+							}
+						},
+						{
+							"node" : {
+								"color" : "ffffff",
+								"name" : "wontfix"
+							}
+						},
+						{
+							"node" : {
+								"color" : "FECFF0",
+								"name" : "design"
+							}
+						},
+						{
+							"node" : {
+								"color" : "c2e0c6",
+								"name" : "need specs"
+							}
+						},
+						{
+							"node" : {
+								"color" : "FEFC53",
+								"name" : "networking"
+							}
+						},
+						{
+							"node" : {
+								"color" : "3843A3",
+								"name" : "ordering"
+							}
+						},
+						{
+							"node" : {
+								"color" : "A6F19F",
+								"name" : "control"
+							}
+						},
+						{
+							"node" : {
+								"color" : "5CE26B",
+								"name" : "hardware abstraction"
+							}
+						},
+						{
+							"node" : {
+								"color" : "79E6CD",
+								"name" : "nock"
+							}
+						},
+						{
+							"node" : {
+								"color" : "88CFDF",
+								"name" : "identity"
+							}
+						},
+						{
+							"node" : {
+								"color" : "29BD18",
+								"name" : "storage"
+							}
+						},
+						{
+							"node" : {
+								"color" : "c5def5",
+								"name" : "db layout"
+							}
+						},
+						{
+							"node" : {
+								"color" : "d4c5f9",
+								"name" : "rm"
+							}
+						},
+						{
+							"node" : {
+								"color" : "736335",
+								"name" : "refactoring"
+							}
+						},
+						{
+							"node" : {
+								"color" : "bfdadc",
+								"name" : "examples"
+							}
+						},
+						{
+							"node" : {
+								"color" : "087D91",
+								"name" : "attic"
+							}
+						},
+						{
+							"node" : {
+								"color" : "1d76db",
+								"name" : "execution"
+							}
+						},
+						{
+							"node" : {
+								"color" : "bfdadc",
+								"name" : "cli"
+							}
+						}
+					]
+				}
+			}
+		},
+		"labels" : null,
+		"status" : {
+			"name" : "Next"
+		}'.
+	^ json asJson
 ]
 
 { #category : #accessing }
@@ -45,9 +221,9 @@ GitToolingExamples >> exampleNockBranch [
 GitToolingExamples >> exampleReleaseCheck [
 	<gtExample>
 	| release |
-	release := GitReleaseStatus new releaseBranch: self rcBranch.
+	release := GitProjectBoardByHand new candidateBranch: self rcBranch.
 	release
-		topics: {self exampleNockBranch.
+		items: {self exampleNockBranch.
 				self exampleClosedIssue}.
 	^ release
 ]
@@ -77,18 +253,200 @@ GitToolingExamples >> graphQLContext [
 ]
 
 { #category : #accessing }
+GitToolingExamples >> projectBoardDumperCounterPR [
+	<gtExample>
+	| item |
+	item := GithubProjectV2Item new
+		fromJson: (self projectBoardDumperCounterPRJSON at: #node).
+	self assert: item status equals: 'Next'.
+	^ item
+]
+
+{ #category : #accessing }
+GitToolingExamples >> projectBoardDumperCounterPRJSON [
+	<gtExample>
+	| json |
+	json := NeoJSONReader
+			fromString: '{
+	"cursor" : "NDM",
+	"node" : {
+		"id" : "PVTI_lADOBTOAss4AXf0FzgQpyXM",
+		"content" : {
+			"headRefName" : "mariari/dumper-counter",
+			"number" : 626,
+			"repository" : {
+				"labels" : {
+					"edges" : [
+						{
+							"node" : {
+								"color" : "d73a4a",
+								"name" : "bug"
+							}
+						},
+						{
+							"node" : {
+								"color" : "0075ca",
+								"name" : "documentation"
+							}
+						},
+						{
+							"node" : {
+								"color" : "a2eeef",
+								"name" : "enhancement"
+							}
+						},
+						{
+							"node" : {
+								"color" : "7057ff",
+								"name" : "good first issue"
+							}
+						},
+						{
+							"node" : {
+								"color" : "008672",
+								"name" : "help wanted"
+							}
+						},
+						{
+							"node" : {
+								"color" : "e4e669",
+								"name" : "invalid"
+							}
+						},
+						{
+							"node" : {
+								"color" : "d876e3",
+								"name" : "question"
+							}
+						},
+						{
+							"node" : {
+								"color" : "ffffff",
+								"name" : "wontfix"
+							}
+						},
+						{
+							"node" : {
+								"color" : "FECFF0",
+								"name" : "design"
+							}
+						},
+						{
+							"node" : {
+								"color" : "c2e0c6",
+								"name" : "need specs"
+							}
+						},
+						{
+							"node" : {
+								"color" : "FEFC53",
+								"name" : "networking"
+							}
+						},
+						{
+							"node" : {
+								"color" : "3843A3",
+								"name" : "ordering"
+							}
+						},
+						{
+							"node" : {
+								"color" : "A6F19F",
+								"name" : "control"
+							}
+						},
+						{
+							"node" : {
+								"color" : "5CE26B",
+								"name" : "hardware abstraction"
+							}
+						},
+						{
+							"node" : {
+								"color" : "79E6CD",
+								"name" : "nock"
+							}
+						},
+						{
+							"node" : {
+								"color" : "88CFDF",
+								"name" : "identity"
+							}
+						},
+						{
+							"node" : {
+								"color" : "29BD18",
+								"name" : "storage"
+							}
+						},
+						{
+							"node" : {
+								"color" : "c5def5",
+								"name" : "db layout"
+							}
+						},
+						{
+							"node" : {
+								"color" : "d4c5f9",
+								"name" : "rm"
+							}
+						},
+						{
+							"node" : {
+								"color" : "736335",
+								"name" : "refactoring"
+							}
+						},
+						{
+							"node" : {
+								"color" : "bfdadc",
+								"name" : "examples"
+							}
+						},
+						{
+							"node" : {
+								"color" : "087D91",
+								"name" : "attic"
+							}
+						},
+						{
+							"node" : {
+								"color" : "1d76db",
+								"name" : "execution"
+							}
+						},
+						{
+							"node" : {
+								"color" : "bfdadc",
+								"name" : "cli"
+							}
+						}
+					]
+				}
+			}
+		},
+		"labels" : null,
+		"status" : {
+			"name" : "Next"
+		}
+	}
+}'.
+	^ json asJson
+]
+
+{ #category : #accessing }
 GitToolingExamples >> rcBranch [
 	<gtExample>
 	^ IceGitLocalBranch named: 'v0.17.0-rc1' inRepository: self anomaRepo
 ]
 
 { #category : #accessing }
-GitToolingExamples >> skunksProjectBoard [
+GitToolingExamples >> skunksGithubProjectBoard [
 	<gtExample>
-	^ GitProjectBoard new
+	^ GithubGQLProjectBoard new
 		context: self graphQLContext;
 		gitLocation: FileLocator home / 'Documents' / 'Work' / 'Repo' / 'anoma';
-		organization: 'anoma';
+		organisation: 'anoma';
 		board: 20;
 		remoteName: 'anoma';
 		yourself
@@ -97,5 +455,5 @@ GitToolingExamples >> skunksProjectBoard [
 { #category : #accessing }
 GitToolingExamples >> skunksProjectBoardRC17 [
 	<gtExample>
-	^ self skunksProjectBoard releaseCandidate: 'v0.17.0-rc1'
+	^ self skunksGithubProjectBoard candidate: 'v0.17.0-rc1'
 ]
