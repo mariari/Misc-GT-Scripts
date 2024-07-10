@@ -1,24 +1,22 @@
+"
+I am a project board item, which are various `Issues` and `Pull Requests` there may be in a project.
+
+
+The labels in my {{gtClass:name=GitLabelsMixin}} refers to the labels I am applied with. This is different from {{gtClass:name=GitProjectBoard}} in that those are for exclusive status's while my labels are all the tags that have been placed on me.
+"
 Class {
 	#name : #ProjectBoardItem,
 	#superclass : #Object,
+	#traits : 'GitLabelsMixin',
+	#classTraits : 'GitLabelsMixin classTrait',
 	#instVars : [
 		'tags',
 		'status',
-		'allTags',
-		'itemNumber'
+		'itemNumber',
+		'projectInfo'
 	],
 	#category : #'MiscGTScripts-git'
 }
-
-{ #category : #accessing }
-ProjectBoardItem >> allTags [
-	^ allTags
-]
-
-{ #category : #setting }
-ProjectBoardItem >> allTags: anObject [
-	allTags := anObject
-]
 
 { #category : #predicates }
 ProjectBoardItem >> isTopic [
@@ -36,6 +34,22 @@ ProjectBoardItem >> itemNumber: anObject [
 ]
 
 { #category : #accessing }
+ProjectBoardItem >> labelName [
+	^ 'current tags'
+]
+
+{ #category : #accessing }
+ProjectBoardItem >> projectInfo [
+	<return: #GitProjectInfo>
+	^ projectInfo
+]
+
+{ #category : #setting }
+ProjectBoardItem >> projectInfo: anObject [
+	projectInfo := anObject
+]
+
+{ #category : #accessing }
 ProjectBoardItem >> status [
 	^ status
 ]
@@ -43,14 +57,4 @@ ProjectBoardItem >> status [
 { #category : #setting }
 ProjectBoardItem >> status: anObject [
 	status := anObject
-]
-
-{ #category : #accessing }
-ProjectBoardItem >> tags [
-	^ tags
-]
-
-{ #category : #setting }
-ProjectBoardItem >> tags: anObject [
-	tags := anObject
 ]

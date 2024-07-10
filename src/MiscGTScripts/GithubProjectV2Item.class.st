@@ -1,15 +1,16 @@
 "
-I represent a ProjectItemType, namely a pull request variant
+I represent [github's project feature](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects) using the [](https://docs.github.com/en/graphql) github API.
+
+My {{gtClass:name=GitLabelsMixin}} refers to the status's any {{gtClass:name=ProjectBoardItem}} may take.
 "
 Class {
 	#name : #GithubProjectV2Item,
 	#superclass : #GithubGQL,
-	#traits : 'GithubJSON',
-	#classTraits : 'GithubJSON classTrait',
+	#traits : 'GithubJSON + GitLabelsMixin',
+	#classTraits : 'GithubJSON classTrait + GitLabelsMixin classTrait',
 	#instVars : [
 		'itemID',
 		'status',
-		'currentLabels',
 		'contents'
 	],
 	#category : #'MiscGTScripts-git'
@@ -32,16 +33,6 @@ GithubProjectV2Item >> contents: anObject [
 	contents := anObject
 ]
 
-{ #category : #accessing }
-GithubProjectV2Item >> currentLabels [
-	^ currentLabels
-]
-
-{ #category : #accessing }
-GithubProjectV2Item >> currentLabels: anObject [
-	currentLabels := anObject
-]
-
 { #category : #setting }
 GithubProjectV2Item >> fromJson: ajson [
 	^ self
@@ -61,11 +52,16 @@ GithubProjectV2Item >> itemID: anObject [
 	itemID := anObject
 ]
 
+{ #category : #accessing }
+GithubProjectV2Item >> labelName [
+	^ 'current labels'
+]
+
 { #category : #'json  - queries' }
 GithubProjectV2Item >> labelsFromJson: projectBoardItem [
 	self
-		currentLabels: ((projectBoardItem atPath: #(labels labels edges))
-				collect: [ :x | x node name jsonObject ])
+		allLabels: ((projectBoardItem atPath: #(labels labels edges))
+				collect: [ :x | GitLabelInfo new fromJson: (x at: #node) ])
 ]
 
 { #category : #accessing }
@@ -85,6 +81,14 @@ GithubProjectV2Item >> statusFromJSON: projectBoardItem [
 
 { #category : #stream }
 GithubProjectV2Item >> toProjectBoardItemWith: repo andUpstream: upstream [
+	^ self
+		toProjectBoardItemWith: repo
+		andUpstream: upstream
+		andProjectStatus: nil
+]
+
+{ #category : #stream }
+GithubProjectV2Item >> toProjectBoardItemWith: repo andUpstream: upstream andProjectStatus: allStatuses [
 	| content topic |
 	" TODO, try to get issue info as well"
 	content := self contents.
@@ -92,9 +96,12 @@ GithubProjectV2Item >> toProjectBoardItemWith: repo andUpstream: upstream [
 			named: upstream , '/' , content refName
 			inRepository: repo.
 	^ GitTopicInfo new
-		tags: self currentLabels;
+		projectInfo: (GitProjectInfo new
+				allLabels: content repo allLabels;
+				stauses: allStatuses;
+				yourself);
 		status: self status;
-		allTags: content repoLabels;
+		allLabels: self allLabels;
 		itemNumber: content prNumber;
 		topic: topic;
 		yourself

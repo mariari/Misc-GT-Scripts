@@ -23,6 +23,11 @@ GitTopicInfo >> isTopic [
 	^ true
 ]
 
+{ #category : #printing }
+GitTopicInfo >> printOn: stream [
+	^ stream nextPutAll: self topic name
+]
+
 { #category : #accessing }
 GitTopicInfo >> topic [
 	^ topic

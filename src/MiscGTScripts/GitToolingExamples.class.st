@@ -198,7 +198,7 @@ GitToolingExamples >> exampleClosedIssue [
 			inRepository: self anomaRepo.
 
 	^ GitTopicInfo new
-		topic: branch tags: {};
+		topic: branch;
 		status: 'Closed';
 		yourself
 ]
@@ -212,7 +212,8 @@ GitToolingExamples >> exampleNockBranch [
 			inRepository: self anomaRepo.
 
 	^ GitTopicInfo new
-		topic: branch tags: {};
+		topic: branch;
+		allLabels: {self refactoringLabel};
 		status: 'WIP';
 		yourself
 ]
@@ -226,6 +227,19 @@ GitToolingExamples >> exampleReleaseCheck [
 		items: {self exampleNockBranch.
 				self exampleClosedIssue}.
 	^ release
+]
+
+{ #category : #accessing }
+GitToolingExamples >> executionLabel [
+	<gtExample>
+	| label |
+	label := GitLabelInfo new
+			color: (Color fromString: '1D76DB');
+			name: 'execution';
+			description: 'deals with execution';
+			yourself.
+	"Think what to assert"
+	^ label
 ]
 
 { #category : #accessing }
@@ -425,7 +439,26 @@ GitToolingExamples >> projectBoardDumperCounterPRJSON [
 				}
 			}
 		},
-		"labels" : null,
+		"labels" : {
+			"labels" : {
+				"edges" : [
+					{
+						"node" : {
+							"color" : "736335",
+							"name" : "refactoring",
+												"description" : ""
+						}
+					},
+						{
+							"node" : {
+								"color" : "087D91",
+								"name" : "attic",
+								"description" : ""
+								}
+							}
+					]
+				}
+				},
 		"status" : {
 			"name" : "Next"
 		}
@@ -435,9 +468,83 @@ GitToolingExamples >> projectBoardDumperCounterPRJSON [
 ]
 
 { #category : #accessing }
+GitToolingExamples >> projectStatuses [
+	<gtExample>
+	^ self projectStatusesJSON collect: [ :x | GitLabelInfo new fromJson: x ]
+]
+
+{ #category : #accessing }
+GitToolingExamples >> projectStatusesJSON [
+	<gtExample>
+	| json |
+	json := NeoJSONReader
+			fromString: '[
+					{
+						"color" : "RED",
+						"name" : "Closed",
+						"description" : "Topic indefinitely rejected or withdrawn."
+					},
+					{
+						"color" : "ORANGE",
+						"name" : "Problem",
+						"description" : "Topic is unacceptable or malformed beyond merely needing a reroll."
+					},
+					{
+						"color" : "GRAY",
+						"name" : "Blocked",
+						"description" : "Not problematic, but blocked for reasons outside its own scope."
+					},
+					{
+						"color" : "GRAY",
+						"name" : "WIP",
+						"description" : "Topic is advisory/work in progress, and has not been submitted."
+					},
+					{
+						"color" : "PINK",
+						"name" : "Triage",
+						"description" : "Topic is awaiting some form of triage or retriage."
+					},
+					{
+						"color" : "YELLOW",
+						"name" : "Expecting reroll",
+						"description" : "Expecting a reroll on this topic"
+					},
+					{
+						"color" : "GREEN",
+						"name" : "Next",
+						"description" : "Topic is on `next`."
+					},
+					{
+						"color" : "BLUE",
+						"name" : "Master",
+						"description" : "Topic is on `master`."
+					},
+					{
+						"color" : "PURPLE",
+						"name" : "Released",
+						"description" : "Topic is in a (non-maintenance) release."
+					}
+				]'.
+	^ json asJson
+]
+
+{ #category : #accessing }
 GitToolingExamples >> rcBranch [
 	<gtExample>
 	^ IceGitLocalBranch named: 'v0.17.0-rc1' inRepository: self anomaRepo
+]
+
+{ #category : #accessing }
+GitToolingExamples >> refactoringLabel [
+	<gtExample>
+	| label |
+	label := GitLabelInfo new
+			color: (Color fromString: '736335');
+			name: 'refactoring';
+			description: 'refactoring the codebase';
+			yourself.
+	"Think what to assert"
+	^ label
 ]
 
 { #category : #accessing }
@@ -456,4 +563,10 @@ GitToolingExamples >> skunksGithubProjectBoard [
 GitToolingExamples >> skunksProjectBoardRC17 [
 	<gtExample>
 	^ self skunksGithubProjectBoard candidate: 'v0.17.0-rc1'
+]
+
+{ #category : #accessing }
+GitToolingExamples >> skunksProjectBoardRC17WithStatus [
+	<gtExample>
+	^ self skunksProjectBoardRC17 computeStatus; yourself
 ]

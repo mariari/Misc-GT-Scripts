@@ -1,9 +1,16 @@
+"
+I am a project board, which has project relevant information.
+
+
+The labels in my {{gtClass:name=GitLabelsMixin}} refers to the status my {{gtMethod:name=GitProjectBoard>>items}}can have. This is different from {{gtClass:name=GitProjectBoard}} in that those are for exclusive status's while my labels are all the tags that have been placed on me.
+"
 Class {
 	#name : #GitProjectBoard,
 	#superclass : #Object,
+	#traits : 'GitLabelsMixin',
+	#classTraits : 'GitLabelsMixin classTrait',
 	#instVars : [
 		'repo',
-		'statuses',
 		'candidate',
 		'remoteName'
 	],
@@ -56,7 +63,7 @@ GitProjectBoard >> gitLocation: aPath [
 	repo := IceLibgitRepository new location: aPath
 ]
 
-{ #category : #accessing }
+{ #category : #visualization }
 GitProjectBoard >> gtRepositoryProjectBoard: aView [
 	<gtView>
 	| topicName color columned |
@@ -80,8 +87,22 @@ GitProjectBoard >> gtRepositoryProjectBoard: aView [
 					stencil: [ :eachTopic | self dropDownStatusFrom: eachTopic ];
 					width: 130 ];
 		column: 'Tags'
-			text: [ :aValue | aValue tags asString asRopedText foreground: BrGlamorousColors darkBorderColor ]
-			width: 500.
+			do: [ :aColumn | 
+				aColumn
+					stencil: [ :aValue | 
+						BrBreadcrumb new
+							aptitude: (BrGlamorousBreadcrumbAptitude new
+									separator: [ BrLabel new
+											aptitude: (BrGlamorousLabelAptitude new thin foreground: Color gray);
+											text: ',';
+											margin: (BlInsets left: 5 right: 5) ]);
+							addItems: (aValue allLabels
+									collect: [ :label | 
+										BrLabel new
+											text: label name;
+											aptitude: (BrGlamorousLabelAptitude new foreground: label color) ]) ];
+					width: 300 ].
+
 	^ columned actionUpdateButton
 ]
 
@@ -103,7 +124,14 @@ GitProjectBoard >> isInReleaseColor: aValue [
 { #category : #accessing }
 GitProjectBoard >> items [
 	"Returns a closure of the items"
+
+	<return: #Collection of: #ProjectBoardItem>
 	^ self computeItems
+]
+
+{ #category : #accessing }
+GitProjectBoard >> labelName [
+	^ 'Project Statuses'
 ]
 
 { #category : #accessing }
@@ -124,14 +152,4 @@ GitProjectBoard >> repo [
 { #category : #accessing }
 GitProjectBoard >> repo: anObject [
 	repo := anObject
-]
-
-{ #category : #accessing }
-GitProjectBoard >> statuses [
-	^ statuses
-]
-
-{ #category : #accessing }
-GitProjectBoard >> statuses: anObject [
-	statuses := anObject
 ]
