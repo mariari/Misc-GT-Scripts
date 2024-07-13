@@ -76,7 +76,8 @@ GithubProjectV2Item >> status: anObject [
 
 { #category : #'json  - queries' }
 GithubProjectV2Item >> statusFromJSON: projectBoardItem [
-	self status: (projectBoardItem atPath: #(status name)) jsonObject
+	self
+		status: (GitLabelInfo new fromJson: (projectBoardItem atPath: #(status)))
 ]
 
 { #category : #stream }

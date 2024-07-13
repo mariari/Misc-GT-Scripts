@@ -39,24 +39,6 @@ GitProjectBoard >> computeItems [
 	^ self subclassResponsibility
 ]
 
-{ #category : #accessing }
-GitProjectBoard >> dropDownStatusFrom: eachTopic [
-	^ BrButton new
-		aptitude: BrGlamorousButtonWithLabelAndIconAptitude
-				+ (BrGlamorousWithDropdownAptitude
-						handle: [ BrButton new
-								aptitude: BrGlamorousButtonRectangularAptitude + BrGlamorousButtonIconAptitude;
-								icon: BrGlamorousIcons menu ]
-						content: [ BrButton new
-								aptitude: BrGlamorousButtonWithLabelAptitude;
-								margin: (BlInsets all: 20);
-								label: 'Close';
-								action: [ :aButton | aButton fireEvent: BrDropdownHideWish new ] ]);
-		label: eachTopic status;
-		icon: BrGlamorousIcons menu;
-		yourself
-]
-
 { #category : #setting }
 GitProjectBoard >> gitLocation: aPath [
 	<argument: #aPath isKindOf: #FileLocator>
@@ -84,7 +66,7 @@ GitProjectBoard >> gtRepositoryProjectBoard: aView [
 		column: 'State'
 			do: [ :aColumn | 
 				aColumn
-					stencil: [ :eachTopic | self dropDownStatusFrom: eachTopic ];
+					stencil: [ :eachTopic | eachTopic updateStatusButton ];
 					width: 130 ];
 		column: 'Tags'
 			do: [ :aColumn | 

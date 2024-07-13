@@ -5,6 +5,83 @@ Class {
 }
 
 { #category : #accessing }
+GitToolingExamples >> ClosedLabel [
+	<gtExample>
+	^ GitLabelInfo new
+		name: 'Closed';
+		color: (Color fromString: 'red')
+]
+
+{ #category : #accessing }
+GitToolingExamples >> WIPLabel [
+	<gtExample>
+	^ GitLabelInfo new
+		name: 'WIP';
+		color: (Color fromString: 'gray')
+]
+
+{ #category : #accessing }
+GitToolingExamples >> allLabels [
+	<gtExample>
+	^ self projectBoardDumperCounterPR contents repo allLabels
+]
+
+{ #category : #accessing }
+GitToolingExamples >> allStatuses [
+	<gtExample>
+	| json |
+	json := NeoJSONReader
+			fromString: '[
+					{
+						"color" : "RED",
+						"name" : "Closed",
+						"description" : "Topic indefinitely rejected or withdrawn."
+					},
+					{
+						"color" : "ORANGE",
+						"name" : "Problem",
+						"description" : "Topic is unacceptable or malformed beyond merely needing a reroll."
+					},
+					{
+						"color" : "GRAY",
+						"name" : "Blocked",
+						"description" : "Not problematic, but blocked for reasons outside its own scope."
+					},
+					{
+						"color" : "GRAY",
+						"name" : "WIP",
+						"description" : "Topic is advisory/work in progress, and has not been submitted."
+					},
+					{
+						"color" : "PINK",
+						"name" : "Triage",
+						"description" : "Topic is awaiting some form of triage or retriage."
+					},
+					{
+						"color" : "YELLOW",
+						"name" : "Expecting reroll",
+						"description" : "Expecting a reroll on this topic"
+					},
+					{
+						"color" : "GREEN",
+						"name" : "Next",
+						"description" : "Topic is on `next`."
+					},
+					{
+						"color" : "BLUE",
+						"name" : "Master",
+						"description" : "Topic is on `master`."
+					},
+					{
+						"color" : "PURPLE",
+						"name" : "Released",
+						"description" : "Topic is in a (non-maintenance) release."
+					}
+				]'.
+	^ json asJson collect: [ :x | GitLabelInfo new fromJson: x ]
+]
+
+{ #category : #accessing }
 GitToolingExamples >> anomaRepo [
 	"TODO use a branch made just for this"
 	<gtExample>
@@ -17,8 +94,7 @@ GitToolingExamples >> anomaRepo [
 GitToolingExamples >> dumperCounterPR [
 	<gtExample>
 	| item |
-	item := GithubPR new
-		fromJson: (self dumperCounterPRJSON ).
+	item := GithubPR new fromJson: self dumperCounterPRJSON.
 	self assert: item refName equals: 'mariari/dumper-counter'.
 	^ item
 ]
@@ -199,7 +275,9 @@ GitToolingExamples >> exampleClosedIssue [
 
 	^ GitTopicInfo new
 		topic: branch;
-		status: 'Closed';
+		allLabels: {self allLabels at: 7. self allLabels at: 12};
+		projectInfo: self exampleProjectStatus;
+		status: self ClosedLabel;
 		yourself
 ]
 
@@ -213,9 +291,20 @@ GitToolingExamples >> exampleNockBranch [
 
 	^ GitTopicInfo new
 		topic: branch;
-		allLabels: {self refactoringLabel};
-		status: 'WIP';
-		yourself
+		allLabels: {self allLabels at: 2};
+		projectInfo: self exampleProjectStatus;
+		status: self WIPLabel
+]
+
+{ #category : #accessing }
+GitToolingExamples >> exampleProjectStatus [
+	<gtExample>
+	| status |
+	status := GitProjectInfo new
+			stauses: self allStatuses;
+			allLabels: self allLabels.
+
+	^ status
 ]
 
 { #category : #accessing }
@@ -226,6 +315,7 @@ GitToolingExamples >> exampleReleaseCheck [
 	release
 		items: {self exampleNockBranch.
 				self exampleClosedIssue}.
+
 	^ release
 ]
 
@@ -237,8 +327,7 @@ GitToolingExamples >> executionLabel [
 			color: (Color fromString: '1D76DB');
 			name: 'execution';
 			description: 'deals with execution';
-			yourself.
-	"Think what to assert"
+			yourself.	"Think what to assert"
 	^ label
 ]
 
@@ -272,7 +361,7 @@ GitToolingExamples >> projectBoardDumperCounterPR [
 	| item |
 	item := GithubProjectV2Item new
 		fromJson: (self projectBoardDumperCounterPRJSON at: #node).
-	self assert: item status equals: 'Next'.
+	self assert: item status name equals: 'Next'.
 	^ item
 ]
 

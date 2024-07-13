@@ -102,8 +102,8 @@ GithubGQLProjectBoard >> projectBoardResult [
 					status: fieldValueByName (name: "Status") {
 						#__typename
 						... on ProjectV2ItemFieldSingleSelectValue {
-							name } } } } } } } }'
-		input:  self ProjectInfoDictionary
+							color name description } } } } } } } }'
+		input: self ProjectInfoDictionary
 ]
 
 { #category : #stream }
