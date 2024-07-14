@@ -77,27 +77,47 @@ ProjectBoardItem >> status: anObject [
 
 { #category : #accessing }
 ProjectBoardItem >> updateStatusButton [
-	^ BrButton new
-		aptitude: BrGlamorousButtonWithLabelAndIconAptitude + self borderStatusColoredAptitude
-				+ (BrGlamorousWithDropdownAptitude
-						handle: [ BrButton new
-								aptitude: BrGlamorousButtonRectangularAptitude + BrGlamorousToggleWithLabelAptitude;
-								icon: BrGlamorousIcons menu ]
-						content: [ BrSimpleList new
-								items: (self hasProjectInfo ifTrue: [ self projectInfo stauses ] ifFalse: [ {} ]);
-								itemDataBinder: [ :statusWidget :aStatus :anIndex | 
-									BrButton new
-										aptitude: BrGlamorousButtonWithLabelAptitude
-												+ (self borderStatusColoredAptitudeWithStatus: aStatus);
-										margin: (BlInsets all: 5);
-										border: aStatus color;
-										background: aStatus color;
-										label: aStatus name;
-										action: [ :aButton | 
-											self status: aStatus.
+	| aLabelLook theButton rectAptitude compute_look glamDropDownStatuses |
+	aLabelLook := BrLabelAptitude new.
+	aLabelLook
+		fontName: 'Source Sans Pro';
+		fontSize: 15;
+		foreground: Color black;
+		text: 'help'.
 
-											aButton fireEvent: BrDropdownHideWish new.
-											aButton notifyExtentChanged ] ] ]);
-		label: self status name;
+	theButton := BrButton new.
+	rectAptitude := BrGlamorousButtonRectangularAptitude new.
+
+	compute_look := [ :aStatus | 
+		theButton border: self status color.
+		theButton label: aStatus name ].
+
+	compute_look value: self status.
+
+	glamDropDownStatuses := BrGlamorousWithDropdownAptitude
+			handle: [ BrButton new
+					aptitude: BrGlamorousButtonRectangularAptitude + BrGlamorousToggleWithLabelAptitude;
+					icon: BrGlamorousIcons menu ]
+			content: [ BrSimpleList new
+					items: (self hasProjectInfo ifTrue: [ self projectInfo stauses ] ifFalse: [ {} ]);
+					itemDataBinder: [ :statusWidget :aStatus :anIndex | 
+						BrButton new
+							aptitude: BrGlamorousButtonWithLabelAptitude
+									+ (self borderStatusColoredAptitudeWithStatus: aStatus);
+							margin: (BlInsets all: 5);
+							border: aStatus color;
+							background: aStatus color;
+							label: aStatus name;
+							action: [ :aButton | 
+								self status: aStatus.
+								compute_look value: aStatus.
+
+								aButton fireEvent: BrDropdownHideWish new.
+								aButton notifyExtentChanged.
+								theButton viewModel request: BrLabelRequest new ] ] ].
+
+	^ theButton
+		aptitude: aLabelLook + BrIconAptitude + rectAptitude + glamDropDownStatuses;
+		border: self status color;
 		icon: BrGlamorousIcons menu
 ]
