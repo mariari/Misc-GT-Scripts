@@ -125,7 +125,9 @@ MahjongExamples >> safeTiles [
 			(tiles at: 5) -> (tiles at: 2).
 			(tiles at: 5) -> (tiles at: 8).
 			(tiles at: 4) -> (tiles at: 1).
-			(tiles at: 4) -> (tiles at: 7)}.
+			(tiles at: 4) -> (tiles at: 7).
+			(tiles at: 4) -> (tiles at: 5).
+			(tiles at: 4) -> (tiles at: 2)}.
 
 	^ self basicGraph: tiles edges: pairs
 ]

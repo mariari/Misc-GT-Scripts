@@ -46,6 +46,103 @@ GitProjectBoard >> gitLocation: aPath [
 ]
 
 { #category : #visualization }
+GitProjectBoard >> gtRepositoryDependencies: aView [
+	<gtView>
+	| color items itemDeps |
+	^ aView mondrian
+		title: 'Topic Dependency Graph';
+		painting: [ :view | 
+			items := [ [ self items ] value asyncSimilarCopy
+					select: [ :anItem | anItem isTopic ] ] value toArray wait reverse.
+
+			itemDeps := Dictionary new.
+			items
+				do: [ :aTopic | 
+					itemDeps
+						at: aTopic
+						put: (items
+								select: [ :oTopic | 
+									(aTopic topic repository
+										mergeBaseBetween: aTopic topic commit id
+										and: oTopic topic commit id) = oTopic topic commit id
+										& (oTopic ~= aTopic) ]) ].
+			view nodes
+				shape: [ :aValue | 
+					BrButton new
+						fitContent;
+						aptitude: BrGlamorousButtonRectangularAptitude
+								+ (BrLabelAptitude new
+										foreground: Color black;
+										glamorousRegularFont;
+										fontSize: 10);
+						border: aValue status color;
+						label: aValue topicShortName asRopedText ];
+				with: items.
+
+			view edges
+				shape: [ :x | 
+					color := Color blue alpha: 1.0.
+					BlLineElement new
+						border: (BlBorder paint: (Color black alpha: 0.5) width: 1);
+						toHead: (BlArrowheadSimpleArrow new background: color) ];
+				connect: items
+					from: [ :aTopic | aTopic ]
+					toAll: [ :aTopic | 
+						| topics |
+						topics := itemDeps at: aTopic.
+						topics
+							select: [ :oTopic | topics noneSatisfy: [ :ooTopic | (itemDeps at: ooTopic) includes: oTopic ] ] ].
+			view layout custom: (GtGradHorizontalDominanceCenteredTreeLayout new levelDistance: 60; nodeDistance: 5).
+			"view layout custom: (GtGraphHorizontalDominanceTreeLayout new)."
+			"view layout force
+				strength: 1.0;
+				charge: -350;
+				length: 100."
+
+			view ];
+		actionUpdateButton
+]
+
+{ #category : #visualization }
+GitProjectBoard >> gtRepositoryDependenciesInject [
+	| color items view walk |
+	items := [ [ self items ] value asyncSimilarCopy
+			select: [ :anItem | anItem isTopic ] ] value toArray wait.
+	view := GtMondrian new.
+	view nodes
+		shape: [ :aValue | 
+			BrButton new
+				fitContent;
+				aptitude: (BrGlamorousLabelAptitude new
+						foreground: Color black;
+						glamorousRegularFont;
+						fontSize: 5);
+				label: aValue topicName asRopedText ];
+		with: items.
+
+	view edges
+		shape: [ :x | 
+			color := Color blue alpha: 1.0.
+			BlLineElement new
+				border: (BlBorder paint: (Color black alpha: 0.5) width: 1);
+				toHead: (BlArrowheadSimpleArrow new background: color) ];
+		connect: items
+			from: [ :aTopic | aTopic ]
+			toAll: [ :aTopic | 
+				items
+					select: [ :oTopic | 
+						(aTopic topic repository
+							mergeBaseBetween: aTopic topic commit id
+							and: oTopic topic commit id) = oTopic topic commit id
+							& (oTopic ~= aTopic) ] ].
+	view layout force
+		strength: 0.15;
+		charge: -250;
+		length: 70.
+	^ view
+]
+
+{ #category : #visualization }
 GitProjectBoard >> gtRepositoryProjectBoard: aView [
 	<gtView>
 	| topicName color columned |

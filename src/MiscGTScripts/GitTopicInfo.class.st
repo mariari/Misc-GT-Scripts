@@ -49,3 +49,8 @@ GitTopicInfo >> topic: atopic tags: atags [
 GitTopicInfo >> topicName [
 	^ self topic name
 ]
+
+{ #category : #accessing }
+GitTopicInfo >> topicShortName [
+	^ self topic shortName
+]

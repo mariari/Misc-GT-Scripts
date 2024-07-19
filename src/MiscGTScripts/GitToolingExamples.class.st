@@ -649,6 +649,12 @@ GitToolingExamples >> skunksGithubProjectBoard [
 ]
 
 { #category : #accessing }
+GitToolingExamples >> skunksProjectBoardNext [
+	<gtExample>
+	^ self skunksGithubProjectBoard candidate: 'next'; computeStatus; yourself
+]
+
+{ #category : #accessing }
 GitToolingExamples >> skunksProjectBoardRC17 [
 	<gtExample>
 	^ self skunksGithubProjectBoard candidate: 'v0.17.0-rc1'
