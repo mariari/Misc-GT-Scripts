@@ -40,7 +40,7 @@ GithubGQLProjectBoard >> computeItems [
 { #category : #stream }
 GithubGQLProjectBoard >> computeStatus [
 	^ self
-		allLabels: ((self projectBoardStatusesResult data asJson
+		allLabels: ((self projectBoardStatusesResult data asGtJson
 				atPath: #(organization projectV2 status options))
 				collect: [ :x | GitLabelInfo new fromJson: x ])
 ]
@@ -127,7 +127,7 @@ GithubGQLProjectBoard >> projectValueStream [
 		connectorPath: #(organization projectV2 items);
 		collect: [ :item | 
 			GithubProjectV2Item new
-				fromJson: (item asJson at: #node);
+				fromJson: (item asGtJson at: #node);
 				toProjectBoardItemWith: self repo
 					andUpstream: self remoteName
 					andProjectStatus: self allLabels ]

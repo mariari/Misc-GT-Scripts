@@ -78,7 +78,7 @@ GitToolingExamples >> allStatuses [
 						"description" : "Topic is in a (non-maintenance) release."
 					}
 				]'.
-	^ json asJson collect: [ :x | GitLabelInfo new fromJson: x ]
+	^ json asGtJson collect: [ :x | GitLabelInfo new fromJson: x ]
 ]
 
 { #category : #accessing }
@@ -553,7 +553,7 @@ GitToolingExamples >> projectBoardDumperCounterPRJSON [
 		}
 	}
 }'.
-	^ json asJson
+	^ json asGtJson
 ]
 
 { #category : #accessing }
