@@ -76,7 +76,9 @@ GitProjectBoard >> gtRepositoryDependencies: aView [
 										glamorousRegularFont;
 										fontSize: 10);
 						border: aValue status color;
-						label: aValue topicShortName asRopedText ];
+						label: aValue topicShortName asRopedText;
+						background: Color white;
+						zIndex: 10  ];
 				with: items.
 
 			view edges
@@ -84,7 +86,8 @@ GitProjectBoard >> gtRepositoryDependencies: aView [
 					color := Color blue alpha: 1.0.
 					BlLineElement new
 						border: (BlBorder paint: (Color black alpha: 0.5) width: 1);
-						toHead: (BlArrowheadSimpleArrow new background: color) ];
+						toHead: (BlArrowheadSimpleArrow new background: color);
+						zIndex: -10 ];
 				connect: items
 					from: [ :aTopic | aTopic ]
 					toAll: [ :aTopic | 
