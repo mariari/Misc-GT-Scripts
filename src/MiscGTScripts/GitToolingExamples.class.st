@@ -68,10 +68,27 @@ GitToolingExamples >> allStatuses [
 { #category : #dependencies }
 GitToolingExamples >> anomaRepo [
 	"TODO use a branch made just for this"
-	<gtExample>
+
 	| anoma |
 	anoma := FileLocator home / 'Documents' / 'Work' / 'Repo' / 'anoma'.
 	^ IceLibgitRepository new location: anoma
+]
+
+{ #category : #accessing }
+GitToolingExamples >> branchBase [
+	<gtExample>
+	| branch topic |
+	branch := IceGitRemoteBranch
+			named: self remoteName , '/base'
+			inRepository: self anomaRepo.
+	topic := GitTopicInfo new
+			topic: branch;
+			allLabels: {self allLabels at: 2};
+			projectInfo: self exampleProjectStatus;
+			status: self statusMaster.
+	self assert: [ topic isParentOf: self branchV16 ].
+	self assert: [ (topic isParentOf: self branchNifIntegration) not ].
+	^ topic
 ]
 
 { #category : #accessing }
@@ -84,7 +101,8 @@ GitToolingExamples >> branchMerged [
 
 	^ GitTopicInfo new
 		topic: branch;
-		allLabels: {self allLabels at: 7. self allLabels at: 12};
+		allLabels: {self allLabels at: 7.
+				self allLabels at: 12};
 		projectInfo: self exampleProjectStatus;
 		status: self statusMaster;
 		yourself
@@ -637,7 +655,7 @@ GitToolingExamples >> refactoringLabel [
 
 { #category : #dependencies }
 GitToolingExamples >> remoteName [
-		^ 'anoma'
+	^ 'anoma'
 ]
 
 { #category : #accessing }
