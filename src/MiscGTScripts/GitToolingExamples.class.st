@@ -5,22 +5,6 @@ Class {
 }
 
 { #category : #accessing }
-GitToolingExamples >> ClosedLabel [
-	<gtExample>
-	^ GitLabelInfo new
-		name: 'Closed';
-		color: (Color fromString: 'red')
-]
-
-{ #category : #accessing }
-GitToolingExamples >> WIPLabel [
-	<gtExample>
-	^ GitLabelInfo new
-		name: 'WIP';
-		color: (Color fromString: 'gray')
-]
-
-{ #category : #accessing }
 GitToolingExamples >> allLabels [
 	<gtExample>
 	^ self projectBoardDumperCounterPR contents repo allLabels
@@ -81,13 +65,59 @@ GitToolingExamples >> allStatuses [
 	^ json asGtJson collect: [ :x | GitLabelInfo new fromJson: x ]
 ]
 
-{ #category : #accessing }
+{ #category : #dependencies }
 GitToolingExamples >> anomaRepo [
 	"TODO use a branch made just for this"
 	<gtExample>
 	| anoma |
 	anoma := FileLocator home / 'Documents' / 'Work' / 'Repo' / 'anoma'.
 	^ IceLibgitRepository new location: anoma
+]
+
+{ #category : #accessing }
+GitToolingExamples >> branchMerged [
+	<gtExample>
+	| branch |
+	branch := IceGitRemoteBranch
+			named: 'anoma/mariari/node-from-base'
+			inRepository: self anomaRepo.
+
+	^ GitTopicInfo new
+		topic: branch;
+		allLabels: {self allLabels at: 7. self allLabels at: 12};
+		projectInfo: self exampleProjectStatus;
+		status: self statusMaster;
+		yourself
+]
+
+{ #category : #accessing }
+GitToolingExamples >> branchNifIntegration [
+	<gtExample>
+	| branch |
+	branch := IceGitRemoteBranch
+			named: self remoteName , '/attic/mariari/nif-integration'
+			inRepository: self anomaRepo.
+
+	^ GitTopicInfo new
+		topic: branch;
+		allLabels: {self allLabels at: 2};
+		projectInfo: self exampleProjectStatus;
+		status: self statusClosed
+]
+
+{ #category : #accessing }
+GitToolingExamples >> branchV16 [
+	<gtExample>
+	| branch |
+	branch := IceGitRemoteBranch
+			named: self remoteName , '/attic/v0.16.0'
+			inRepository: self anomaRepo.
+
+	^ GitTopicInfo new
+		topic: branch;
+		allLabels: {self allLabels at: 2};
+		projectInfo: self exampleProjectStatus;
+		status: self statusWIP
 ]
 
 { #category : #accessing }
@@ -262,38 +292,7 @@ GitToolingExamples >> dumperCounterPRJSON [
 		"status" : {
 			"name" : "Next"
 		}'.
-	^ json asJson
-]
-
-{ #category : #accessing }
-GitToolingExamples >> exampleClosedIssue [
-	<gtExample>
-	| branch |
-	branch := IceGitRemoteBranch
-			named: 'anoma/mariari/node-from-base'
-			inRepository: self anomaRepo.
-
-	^ GitTopicInfo new
-		topic: branch;
-		allLabels: {self allLabels at: 7. self allLabels at: 12};
-		projectInfo: self exampleProjectStatus;
-		status: self ClosedLabel;
-		yourself
-]
-
-{ #category : #accessing }
-GitToolingExamples >> exampleNockBranch [
-	<gtExample>
-	| branch |
-	branch := IceGitRemoteBranch
-			named: 'anoma/mariari/example-nock'
-			inRepository: self anomaRepo.
-
-	^ GitTopicInfo new
-		topic: branch;
-		allLabels: {self allLabels at: 2};
-		projectInfo: self exampleProjectStatus;
-		status: self WIPLabel
+	^ json asGtJson
 ]
 
 { #category : #accessing }
@@ -313,8 +312,8 @@ GitToolingExamples >> exampleReleaseCheck [
 	| release |
 	release := GitProjectBoardByHand new candidateBranch: self rcBranch.
 	release
-		items: {self exampleNockBranch.
-				self exampleClosedIssue}.
+		items: {self branchNifIntegration.
+				self branchMerged}.
 
 	^ release
 ]
@@ -331,7 +330,7 @@ GitToolingExamples >> executionLabel [
 	^ label
 ]
 
-{ #category : #accessing }
+{ #category : #dependencies }
 GitToolingExamples >> githubAccessKey [
 	"There ought to be better ways to do this"
 
@@ -614,7 +613,7 @@ GitToolingExamples >> projectStatusesJSON [
 						"description" : "Topic is in a (non-maintenance) release."
 					}
 				]'.
-	^ json asJson
+	^ json asGtJson
 ]
 
 { #category : #accessing }
@@ -634,6 +633,11 @@ GitToolingExamples >> refactoringLabel [
 			yourself.
 	"Think what to assert"
 	^ label
+]
+
+{ #category : #dependencies }
+GitToolingExamples >> remoteName [
+		^ 'anoma'
 ]
 
 { #category : #accessing }
@@ -664,4 +668,28 @@ GitToolingExamples >> skunksProjectBoardRC17 [
 GitToolingExamples >> skunksProjectBoardRC17WithStatus [
 	<gtExample>
 	^ self skunksProjectBoardRC17 computeStatus; yourself
+]
+
+{ #category : #accessing }
+GitToolingExamples >> statusClosed [
+	<gtExample>
+	^ GitLabelInfo new
+		name: 'Closed';
+		color: (Color fromString: 'red')
+]
+
+{ #category : #accessing }
+GitToolingExamples >> statusMaster [
+	<gtExample>
+	^ GitLabelInfo new
+		name: 'Master';
+		color: (Color fromString: 'blue')
+]
+
+{ #category : #accessing }
+GitToolingExamples >> statusWIP [
+	<gtExample>
+	^ GitLabelInfo new
+		name: 'WIP';
+		color: (Color fromString: 'gray')
 ]
