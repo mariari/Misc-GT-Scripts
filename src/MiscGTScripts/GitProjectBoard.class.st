@@ -48,9 +48,16 @@ GitProjectBoard >> gitLocation: aPath [
 { #category : #visualization }
 GitProjectBoard >> gtRepositoryDependencies: aView [
 	<gtView>
-	^ aView mondrian
+	| items depGraph |
+	^ aView forward
 		title: 'Topic Dependency Graph';
-		painting: [ :view | self gtTopicDependencyMorph: view ];
+		priority: 10;
+		object: [ [items := [ self items select: [ :anItem | anItem isTopic ] ] value toArray
+					wait reverse.
+			depGraph := GitDepGraph new: items.
+			depGraph nodes do: [ :node | node computeRelationsWith: depGraph ].
+			depGraph] value ];
+		view: #gtRepositoryDependencies:;
 		actionUpdateButton
 ]
 
@@ -95,49 +102,6 @@ GitProjectBoard >> gtRepositoryProjectBoard: aView [
 					width: 300 ].
 
 	^ columned actionUpdateButton
-]
-
-{ #category : #visualization }
-GitProjectBoard >> gtTopicDependencyMorph: view [
-	| color items itemDeps |
-	items := [ [ self items ] value asyncSimilarCopy
-			select: [ :anItem | anItem isTopic ] ] value toArray wait reverse.
-	itemDeps := GitDepGraph new: items.
-	itemDeps nodes do: [ :aTopic | aTopic computeRelationsWith: itemDeps ].
-	view nodes
-		shape: [ :aValue | 
-			BrButton new
-				fitContent;
-				aptitude: BrGlamorousButtonRectangularAptitude
-						+ (BrLabelAptitude new
-								foreground: Color black;
-								glamorousRegularFont;
-								fontSize: 10);
-				border: aValue status color;
-				label: aValue topicShortName asRopedText;
-				background: Color white;
-				zIndex: 10 ];
-		with: items.
-	view edges
-		shape: [ :x | 
-			color := Color blue alpha: 1.0.
-			BlLineElement new
-				border: (BlBorder paint: (Color black alpha: 0.3) width: 1);
-				toHead: (BlArrowheadSimpleArrow new background: color);
-				zIndex: -10 ];
-		connect: items
-			from: [ :aTopic | aTopic ]
-			toAll: [ :aTopic | 
-				| parentNodes |
-				parentNodes := (itemDeps itemNodeIndex at: aTopic) parents.
-				parentNodes
-					select: [ :oNode | parentNodes noneSatisfy: [ :ooNode | ooNode parents includes: oNode ] ]
-					thenCollect: [ :node | node topic ] ].
-	view layout
-		custom: (GtGradHorizontalDominanceCenteredTreeLayout new
-				levelDistance: 60;
-				nodeDistance: 5).
-	^ view
 ]
 
 { #category : #accessing }
