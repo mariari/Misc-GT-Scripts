@@ -79,7 +79,7 @@ GitTopicInfo >> gtCommitsFor: aView [
 GitTopicInfo >> isParentOf: anotherTopic [
 	<argument: #anotherTopic isKindOf: #GitTopicInfo>
 	<return: #Boolean>
-	^ anotherTopic topic commit id
+	^ self topic commit id
 		= (self topic repository
 				mergeBaseBetween: self topic commit id
 				and: anotherTopic topic commit id)
