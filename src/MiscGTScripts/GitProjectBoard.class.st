@@ -102,8 +102,8 @@ GitProjectBoard >> gtTopicDependencyMorph: view [
 	| color items itemDeps |
 	items := [ [ self items ] value asyncSimilarCopy
 			select: [ :anItem | anItem isTopic ] ] value toArray wait reverse.
-	itemDeps := Dictionary new.
-	items do: [ :aTopic | aTopic allChildrenIn: items andCache: itemDeps ].
+	itemDeps := GitDepGraph new: items.
+	itemDeps nodes do: [ :aTopic | aTopic computeRelationsWith: itemDeps ].
 	view nodes
 		shape: [ :aValue | 
 			BrButton new
@@ -128,10 +128,11 @@ GitProjectBoard >> gtTopicDependencyMorph: view [
 		connect: items
 			from: [ :aTopic | aTopic ]
 			toAll: [ :aTopic | 
-				| topics |
-				topics := itemDeps at: aTopic.
-				topics
-					select: [ :oTopic | topics noneSatisfy: [ :ooTopic | (itemDeps at: ooTopic) includes: oTopic ] ] ].
+				| parentNodes |
+				parentNodes := (itemDeps itemNodeIndex at: aTopic) parents.
+				parentNodes
+					select: [ :oNode | parentNodes noneSatisfy: [ :ooNode | ooNode parents includes: oNode ] ]
+					thenCollect: [ :node | node topic ] ].
 	view layout
 		custom: (GtGradHorizontalDominanceCenteredTreeLayout new
 				levelDistance: 60;
