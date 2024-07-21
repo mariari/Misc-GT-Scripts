@@ -103,16 +103,7 @@ GitProjectBoard >> gtTopicDependencyMorph: view [
 	items := [ [ self items ] value asyncSimilarCopy
 			select: [ :anItem | anItem isTopic ] ] value toArray wait reverse.
 	itemDeps := Dictionary new.
-	items
-		do: [ :aTopic | 
-			itemDeps
-				at: aTopic
-				put: (items
-						select: [ :oTopic | 
-							(aTopic topic repository
-								mergeBaseBetween: aTopic topic commit id
-								and: oTopic topic commit id) = oTopic topic commit id
-								& (oTopic ~= aTopic) ]) ].
+	items do: [ :aTopic | aTopic allChildrenIn: items andCache: itemDeps ].
 	view nodes
 		shape: [ :aValue | 
 			BrButton new

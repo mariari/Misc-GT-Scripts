@@ -8,6 +8,63 @@ Class {
 	#category : #'MiscGTScripts-git'
 }
 
+{ #category : #queries }
+GitTopicInfo >> allChildrenIn: topics andCache: aDictionary [
+	"We check what topics in the topics list is our parent .
+	
+	Along the way we call ourselves on any parent of ours to compute their parents, 
+	as their parents are our parents.
+	
+	Along the way we cache all of these results in our Dictionary.
+	If we have already been computed, then we simply return."
+
+	"The childSet represents our set. The ignore set, is a good shorthand for 
+	checking if some branch and their children we can ignore"
+
+	<argument: #topics isKindOf: #Collection>
+	<argument: #itemDeps isKindOf: #Dictionary>
+	<return: #OrderedCollection of: #GitTopicInfo>
+	^ self
+		allChildrenIn: topics
+		andCache: aDictionary
+		andIgnore: Set new
+]
+
+{ #category : #queries }
+GitTopicInfo >> allChildrenIn: topics andCache: aDictionary andIgnore: ignoreSet [
+	"We check what topics in the topics list is our parent .
+	
+	Along the way we call ourselves on any parent of ours to compute their parents, 
+	as their parents are our parents.
+	
+	Along the way we cache all of these results in our Dictionary.
+	If we have already been computed, then we simply return."
+
+	"The childSet represents our set. The ignore set, is a good shorthand for 
+	checking if some branch and their children we can ignore"
+
+	<argument: #topics isKindOf: #Collection>
+	<argument: #itemDeps isKindOf: #Dictionary>
+	<return: #OrderedCollection of: #GitTopicInfo>
+	| childSet |
+	^ (aDictionary includesKey: self)
+		ifTrue: [ aDictionary at: self ]
+		ifFalse: [ childSet := Set new.
+			topics
+				do: [ :oTopic | 
+					(childSet includes: oTopic) | (self = oTopic) | (ignoreSet includes: oTopic)
+						ifFalse: [ (self isParentOf: oTopic)
+								ifTrue: [ childSet
+										add: oTopic;
+										addAll: (oTopic
+												allChildrenIn: topics
+												andCache: aDictionary
+												andIgnore: ignoreSet copy) ]
+								ifFalse: [ ignoreSet add: oTopic ] ] ].
+			aDictionary at: self put: childSet.
+			childSet ]
+]
+
 { #category : #accessing }
 GitTopicInfo >> gtCommitsFor: aView [
 	<gtView>
