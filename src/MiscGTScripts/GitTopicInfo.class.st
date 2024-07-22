@@ -92,7 +92,12 @@ GitTopicInfo >> isTopic [
 
 { #category : #printing }
 GitTopicInfo >> printOn: stream [
-	^ stream nextPutAll: self topic name
+	stream
+		nextPutAll: self topic name;
+		nextPutAll: ' #'.
+
+	itemNumber printOn: stream base: 10.
+	^ stream
 ]
 
 { #category : #accessing }

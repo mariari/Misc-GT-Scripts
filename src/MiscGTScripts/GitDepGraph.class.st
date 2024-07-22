@@ -49,7 +49,8 @@ GitDepGraph >> gtTopicDependencyMorph: view [
 								glamorousRegularFont;
 								fontSize: 10);
 				border: aValue topic status color;
-				label: aValue topic topicShortName asRopedText;
+				label: (aValue topic topicShortName , ' #'
+						, (aValue topic itemNumber printStringBase: 10)) asRopedText;
 				background: Color white;
 				zIndex: 10 ];
 		with: items.
