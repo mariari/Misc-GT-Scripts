@@ -10,16 +10,21 @@ Class {
 }
 
 { #category : #creating }
+GitDepGraph class >> freshNodes: topics [
+	^ topics collect: [ :aTopic | aTopic -> (GitDepTopic new: aTopic) ]
+]
+
+{ #category : #creating }
 GitDepGraph class >> new: topics [
 	"We try to preserve order"
 
 	<argument: #topics isKindOf: #GitTopicInfo>
-	| nodes |
-	nodes := topics collect: [ :aTopic | aTopic -> (GitDepTopic new: aTopic) ].
-	^ self basicNew
-		rawTopics: topics copy;
-		nodes: (nodes collect: [ :node | node value ]);
-		itemNodeIndex: (nodes as: Dictionary)
+	^ self basicNew initalizeWith: (self freshNodes: topics)
+]
+
+{ #category : #accessing }
+GitDepGraph >> computeRelations [
+	nodes do: [ :node | node computeRelationsWith: self ]
 ]
 
 { #category : #visualization }
@@ -67,6 +72,14 @@ GitDepGraph >> gtTopicDependencyMorph: view [
 				levelDistance: 60;
 				nodeDistance: 5).
 	^ view
+]
+
+{ #category : #creating }
+GitDepGraph >> initalizeWith: aNodes [
+	^ self
+		rawTopics: (aNodes collect: [ :node | node key ]);
+		nodes: (aNodes collect: [ :node | node value ]);
+		itemNodeIndex: (aNodes as: Dictionary)
 ]
 
 { #category : #accessing }

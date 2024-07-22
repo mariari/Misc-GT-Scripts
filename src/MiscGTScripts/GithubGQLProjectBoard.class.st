@@ -34,7 +34,8 @@ GithubGQLProjectBoard >> buildStatus [
 
 { #category : #accessing }
 GithubGQLProjectBoard >> computeItems [
-	^ self projectValueStream
+	items := self projectValueStream toArray wait.
+	^ items
 ]
 
 { #category : #stream }

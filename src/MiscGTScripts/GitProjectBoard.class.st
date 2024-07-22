@@ -12,7 +12,8 @@ Class {
 	#instVars : [
 		'repo',
 		'candidate',
-		'remoteName'
+		'remoteName',
+		'items'
 	],
 	#category : #'MiscGTScripts-git'
 }
@@ -48,17 +49,22 @@ GitProjectBoard >> gitLocation: aPath [
 { #category : #visualization }
 GitProjectBoard >> gtRepositoryDependencies: aView [
 	<gtView>
-	| items depGraph |
+	| depGraph itemFunc nodes |
+	itemFunc := [ :itemList | (itemList select: [ :anItem | anItem isTopic ]) reverse ].
+	depGraph := GitDepGraph new: (itemFunc value: self items).
 	^ aView forward
 		title: 'Topic Dependency Graph';
 		priority: 10;
-		object: [ [items := [ self items select: [ :anItem | anItem isTopic ] ] value toArray
-					wait reverse.
-			depGraph := GitDepGraph new: items.
-			depGraph nodes do: [ :node | node computeRelationsWith: depGraph ].
-			depGraph] value ];
+		object: [ depGraph computeRelations.
+			depGraph ];
 		view: #gtRepositoryDependencies:;
-		actionUpdateButton
+		actionButtonIcon: BrGlamorousVectorIcons refresh
+			tooltip: 'Update'
+			action: [ :aButton :aTab | 
+				nodes := GitDepGraph freshNodes: (itemFunc value: self computeItems).
+				depGraph initalizeWith: nodes.
+				depGraph computeRelations.
+				aTab viewContentElement phlow update ]
 ]
 
 { #category : #visualization }
@@ -68,7 +74,7 @@ GitProjectBoard >> gtRepositoryProjectBoard: aView [
 	columned := aView columnedList.
 	columned
 		title: 'Whats Cooking';
-		items: [ [ self items ] value asyncSimilarCopy select: [ :anItem | anItem isTopic ] ];
+		items: [ self computeItems select: [ :anItem | anItem isTopic ] ];
 		priority: 10;
 		column: 'Index'
 			text: [ :aValue :anIndex | anIndex asRopedText foreground: BrGlamorousColors disabledButtonTextColor ]
@@ -101,7 +107,8 @@ GitProjectBoard >> gtRepositoryProjectBoard: aView [
 											aptitude: (BrGlamorousLabelAptitude new foreground: label color) ]) ];
 					width: 300 ].
 
-	^ columned actionUpdateButton
+	^ columned
+		actionUpdateButton
 ]
 
 { #category : #accessing }
@@ -124,7 +131,8 @@ GitProjectBoard >> items [
 	"Returns a closure of the items"
 
 	<return: #Collection of: #ProjectBoardItem>
-	^ self computeItems
+	items isNil ifTrue: [ ^ self computeItems ].
+	^ items
 ]
 
 { #category : #accessing }
