@@ -11,15 +11,15 @@ Class {
 
 { #category : #creating }
 GitDepGraph class >> new: topics [
+	"We try to preserve order"
+
 	<argument: #topics isKindOf: #GitTopicInfo>
 	| nodes |
-	nodes := topics
-			collect: [ :aTopic | aTopic -> (GitDepTopic new: aTopic) ]
-			as: Dictionary.
+	nodes := topics collect: [ :aTopic | aTopic -> (GitDepTopic new: aTopic) ].
 	^ self basicNew
-		rawTopics: nodes keys;
-		nodes: nodes values;
-		itemNodeIndex: nodes
+		rawTopics: topics copy;
+		nodes: (nodes collect: [ :node | node value ]);
+		itemNodeIndex: (nodes as: Dictionary)
 ]
 
 { #category : #visualization }
