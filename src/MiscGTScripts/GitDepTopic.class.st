@@ -88,6 +88,16 @@ GitDepTopic >> finalized: anObject [
 	finalized := anObject
 ]
 
+{ #category : #visualization }
+GitDepTopic >> gtCommitsFor: aView [
+	<gtView>
+	^ aView forward
+		title: 'commits';
+		priority: 10;
+		object: [ self topic ];
+		view: #gtCommitsFor:
+]
+
 { #category : #predicates }
 GitDepTopic >> inPopulatedChildCache: aNode [
 	^ (self childConsider includes: aNode) | self childConsider isEmpty
