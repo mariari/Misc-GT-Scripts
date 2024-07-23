@@ -86,7 +86,7 @@ GitToolingExamples >> branchBase [
 			allLabels: {self allLabels at: 2};
 			projectInfo: self exampleProjectStatus;
 			status: self statusMaster.
-	self assert: [ topic isParentOf: self branchV16 ].
+	self assert: [ self branchV16 isParentOf: topic  ].
 	self assert: [ (topic isParentOf: self branchNifIntegration) not ].
 	^ topic
 ]

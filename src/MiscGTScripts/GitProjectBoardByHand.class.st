@@ -8,3 +8,9 @@ Class {
 GitProjectBoardByHand >> computeItems [
 	^ items
 ]
+
+{ #category : #accessing }
+GitProjectBoardByHand >> items: anItems [
+	items := anItems.
+	^ anItems
+]
