@@ -43,6 +43,11 @@ GithubProjectV2Item >> fromJson: ajson [
 ]
 
 { #category : #accessing }
+GithubProjectV2Item >> isTopic [
+	^ contents isTopic
+]
+
+{ #category : #accessing }
 GithubProjectV2Item >> itemID [
 	^ itemID
 ]
@@ -50,6 +55,13 @@ GithubProjectV2Item >> itemID [
 { #category : #accessing }
 GithubProjectV2Item >> itemID: anObject [
 	itemID := anObject
+]
+
+{ #category : #accessing }
+GithubProjectV2Item >> itemName [
+	^ self isTopic
+		ifTrue: [ contents topicName ]
+		ifFalse: [ self notYetImplemented ]
 ]
 
 { #category : #accessing }

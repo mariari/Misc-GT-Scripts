@@ -27,6 +27,11 @@ GithubPR >> fromJson: ajson [
 ]
 
 { #category : #accessing }
+GithubPR >> isTopic [
+	^ true
+]
+
+{ #category : #accessing }
 GithubPR >> prNumber [
 	^ prNumber
 ]
@@ -71,4 +76,9 @@ GithubPR >> repo: anObject [
 { #category : #setting }
 GithubPR >> repositoryInfoFromJson: ajson [
 	self repo: (GithubRepo new fromJson: (ajson at: #repository))
+]
+
+{ #category : #accessing }
+GithubPR >> topicName [
+	^ self refName
 ]
