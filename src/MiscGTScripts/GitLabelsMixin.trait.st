@@ -35,3 +35,18 @@ GitLabelsMixin >> gtLabelView: aView [
 GitLabelsMixin >> labelName [
 	^ self explicitRequirement
 ]
+
+{ #category : #accessing }
+GitLabelsMixin >> labelsCrumbList [
+	^ BrBreadcrumb new
+		aptitude: (BrGlamorousBreadcrumbAptitude new
+				separator: [ BrLabel new
+						aptitude: (BrGlamorousLabelAptitude new thin foreground: Color gray);
+						text: ',';
+						margin: (BlInsets left: 5 right: 5) ]);
+		addItems: (self allLabels
+				collect: [ :label | 
+					BrLabel new
+						text: label name;
+						aptitude: (BrGlamorousLabelAptitude new foreground: label color) ])
+]
