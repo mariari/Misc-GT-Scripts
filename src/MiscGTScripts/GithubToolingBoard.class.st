@@ -1,6 +1,8 @@
 Class {
 	#name : #GithubToolingBoard,
 	#superclass : #GithubToolingOrg,
+	#traits : 'GitLabelsMixin',
+	#classTraits : 'GitLabelsMixin classTrait',
 	#instVars : [
 		'board'
 	],
@@ -12,12 +14,22 @@ GithubToolingBoard >> board [
 	^ board
 ]
 
-{ #category : #accessing }
+{ #category : #setting }
 GithubToolingBoard >> board: anObject [
 	board := anObject
 ]
 
-{ #category : #accessing }
+{ #category : #building }
+GithubToolingBoard >> build [
+	self computeLabels
+]
+
+{ #category : #building }
+GithubToolingBoard >> computeLabels [
+	^ self allLabels: self projectBoardBasicStatus
+]
+
+{ #category : #visualization }
 GithubToolingBoard >> gtProjectView: aView [
 	<gtView>
 	^ aView columnedList
@@ -45,10 +57,30 @@ GithubToolingBoard >> gtProjectView: aView [
 ]
 
 { #category : #accessing }
+GithubToolingBoard >> labelName [
+	^ 'Statuses'
+]
+
+{ #category : #querying }
+GithubToolingBoard >> projectBoardArguments [
+	^ Dictionary new
+		at: #organization put: self organization;
+		at: #board put: self board;
+		yourself
+]
+
+{ #category : #stream }
 GithubToolingBoard >> projectBoardBasicItems [
 	^ self projectBoardQuery paginator
 		connectorPath: #(organization projectV2 items);
 		collect: [ :item | GithubProjectV2Item new fromJson: (item asGtJson at: #node) ]
+]
+
+{ #category : #stream }
+GithubToolingBoard >> projectBoardBasicStatus [
+	^ (self projectBoardStatus data asGtJson
+		atPath: #(organization projectV2 status options))
+		collect: [ :x | GitLabelInfo new fromJson: x ]
 ]
 
 { #category : #querying }
@@ -87,8 +119,18 @@ GithubToolingBoard >> projectBoardQuery [
 						#__typename
 						... on ProjectV2ItemFieldSingleSelectValue {
 							color name description } } } } } } } }'
-		input: (Dictionary new
-				at: #organization put: self organization;
-				at: #board put: self board;
-				yourself)
+		input: self projectBoardArguments
+]
+
+{ #category : #querying }
+GithubToolingBoard >> projectBoardStatus [
+	^ self context client
+		operation: 'query Status($board: Int!, $organization: String!){
+	organization(login: $organization) {
+		projectV2 (number: $board) {
+			status: field(name: "Status") {
+				__typename
+				... on ProjectV2SingleSelectField {
+					options { color name description }}}}}}'
+		input: self projectBoardArguments
 ]
