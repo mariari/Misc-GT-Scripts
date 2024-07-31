@@ -87,7 +87,6 @@ GithubGQLProjectBoard >> projectBoardResult [
 					node {
 					id
 					content {
-						#__typename
 						... on PullRequest {
 							headRefName 
 							number
@@ -97,11 +96,9 @@ GithubGQLProjectBoard >> projectBoardResult [
 							} } }
 					labels: fieldValueByName (name: "Labels") {
 						... on ProjectV2ItemFieldLabelValue {
-							#__typename
 							labels(first: 10) {
 								edges { node { color name description } } } } }
 					status: fieldValueByName (name: "Status") {
-						#__typename
 						... on ProjectV2ItemFieldSingleSelectValue {
 							color name description } } } } } } } }'
 		input: self ProjectInfoDictionary
