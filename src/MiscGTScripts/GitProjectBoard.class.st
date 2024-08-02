@@ -13,7 +13,8 @@ Class {
 		'repo',
 		'candidate',
 		'remoteName',
-		'items'
+		'items',
+		'depCache'
 	],
 	#category : #'MiscGTScripts-git'
 }
@@ -34,10 +35,23 @@ GitProjectBoard >> candidateBranch: aBranch [
 	candidate := aBranch
 ]
 
+{ #category : #visualization }
+GitProjectBoard >> computeDepCache [
+	| nodes |
+	nodes := GitDepGraph freshNodes: self itemTopics.
+	depCache initalizeWith: nodes.
+	depCache computeRelations
+]
+
 { #category : #accessing }
 GitProjectBoard >> computeItems [
 	"Computes the project board items"
 	^ self subclassResponsibility
+]
+
+{ #category : #accessing }
+GitProjectBoard >> depCache [
+	^ depCache
 ]
 
 { #category : #setting }
@@ -49,21 +63,17 @@ GitProjectBoard >> gitLocation: aPath [
 { #category : #visualization }
 GitProjectBoard >> gtRepositoryDependencies: aView [
 	<gtView>
-	| depGraph itemFunc nodes |
-	itemFunc := [ :itemList | (itemList select: [ :anItem | anItem isTopic ]) reverse ].
-	depGraph := GitDepGraph new: (itemFunc value: self items).
 	^ aView forward
 		title: 'Topic Dependency Graph';
 		priority: 10;
-		object: [ depGraph computeRelations.
-			depGraph ];
+		object: [ self computeDepCache.
+			depCache ];
 		view: #gtRepositoryDependencies:;
 		actionButtonIcon: BrGlamorousVectorIcons refresh
 			tooltip: 'Update'
 			action: [ :aButton :aTab | 
-				nodes := GitDepGraph freshNodes: (itemFunc value: self computeItems).
-				depGraph initalizeWith: nodes.
-				depGraph computeRelations.
+				self computeItems.
+				self computeDepCache.
 				aTab viewContentElement phlow update ]
 ]
 
@@ -105,6 +115,12 @@ GitProjectBoard >> hasReleaseCandidate [
 ]
 
 { #category : #accessing }
+GitProjectBoard >> initialize [
+	super initialize.
+	depCache := GitDepGraph new
+]
+
+{ #category : #accessing }
 GitProjectBoard >> isInReleaseColor: aValue [
 	<argument: #aValue isKindOf: #GitTopicInfo>
 	^ self hasReleaseCandidate
@@ -112,6 +128,11 @@ GitProjectBoard >> isInReleaseColor: aValue [
 				ifTrue: [ Color fromHexString: '087D91' ]
 				ifFalse: [ Color fromHexString: '911c08' ] ]
 		ifFalse: [ Color black ]
+]
+
+{ #category : #visualization }
+GitProjectBoard >> itemTopics [
+	^ self items select: [ :anItem | anItem isTopic ]
 ]
 
 { #category : #accessing }
