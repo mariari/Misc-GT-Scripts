@@ -13,7 +13,7 @@ GithubToolingOrg >> gtReposView: aView [
 	^ aView forward
 		title: 'Repositories';
 		object: [ self organizationQuery report ];
-		priority: 10;
+		priority: 13;
 		view: #gtOrganizationRepositoriesFor:
 ]
 
