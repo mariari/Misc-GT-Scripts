@@ -90,6 +90,11 @@ GitTopicInfo >> isTopic [
 	^ true
 ]
 
+{ #category : #accessing }
+GitTopicInfo >> itemName [
+	^ self topicShortName
+]
+
 { #category : #printing }
 GitTopicInfo >> printOn: stream [
 	stream

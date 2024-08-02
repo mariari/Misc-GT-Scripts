@@ -104,8 +104,18 @@ GithubToolingBoard >> projectBoardQuery [
 					node {
 					id
 					content {
-						
+						... on Issue {
+							id
+							number
+							closed
+							title
+							repository {
+								labels(first: 99) {
+								edges { node { color name description } } }
+							}
+						}
 						... on PullRequest {
+							id
 							headRefName 
 							number
 							repository {

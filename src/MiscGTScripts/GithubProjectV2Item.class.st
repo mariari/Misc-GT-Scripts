@@ -18,9 +18,13 @@ Class {
 
 { #category : #'json  - queries' }
 GithubProjectV2Item >> contentFromJson: projectBoardItem [
-	" update later to handle issues and WIP Issues, need to match off the __typename"
+	" update later to handle WIP Issues, need to match off the __typename"
 
-	self contents: (GithubPR new fromJson: (projectBoardItem at: #content))
+	"__typname is bugged in gt, replace the check with __typename later"
+
+	(projectBoardItem atPath: #(content headRefName)) exists
+		ifTrue: [ ^ self contents: (GithubPR new fromJson: (projectBoardItem at: #content)) ].
+	self contents: (GithubIssue new fromJson: (projectBoardItem at: #content))
 ]
 
 { #category : #accessing }
@@ -102,20 +106,25 @@ GithubProjectV2Item >> toProjectBoardItemWith: repo andUpstream: upstream [
 
 { #category : #stream }
 GithubProjectV2Item >> toProjectBoardItemWith: repo andUpstream: upstream andProjectStatus: allStatuses [
-	| content topic |
-	" TODO, try to get issue info as well"
+	| content topic projectItem |
+	" TODO, try to get WIP issue info as well"
+	"TODO replace boolean check with dispatch to contents to allocate their type"
 	content := self contents.
-	topic := IceGitRemoteBranch
-			named: upstream , '/' , content refName
-			inRepository: repo.
-	^ GitTopicInfo new
-		projectInfo: (GitProjectInfo new
-				allLabels: content repo allLabels;
-				stauses: allStatuses;
-				yourself);
+	projectItem := content isTopic
+			ifTrue: [ topic := IceGitRemoteBranch
+						named: upstream , '/' , content refName
+						inRepository: repo.
+				GitTopicInfo new
+					projectInfo: (GitProjectInfo new
+							allLabels: content repo allLabels;
+							statuses: allStatuses;
+							yourself);
+					topic: topic ]
+			ifFalse: [ GitIssueInfo new title: content title ].
+
+	^ projectItem
 		status: self status;
 		allLabels: self allLabels;
-		itemNumber: content prNumber;
-		topic: topic;
+		itemNumber: content itemNumber;
 		yourself
 ]

@@ -32,18 +32,23 @@ GithubPR >> isTopic [
 ]
 
 { #category : #accessing }
-GithubPR >> prNumber [
+GithubPR >> itemNumber [
 	^ prNumber
 ]
 
 { #category : #accessing }
-GithubPR >> prNumber: anObject [
+GithubPR >> itemNumber: anObject [
 	prNumber := anObject
+]
+
+{ #category : #accessing }
+GithubPR >> name [
+	^ self topicName
 ]
 
 { #category : #setting }
 GithubPR >> prNumberFromJson: ajson [
-	self prNumber: (ajson at: #number) jsonObject
+	self itemNumber: (ajson at: #number) jsonObject
 ]
 
 { #category : #accessing }

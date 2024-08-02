@@ -31,11 +31,11 @@ GitProjectInfo >> labelName [
 ]
 
 { #category : #accessing }
-GitProjectInfo >> stauses [
-	^ stauses
+GitProjectInfo >> statuses: anObject [
+	stauses := anObject
 ]
 
 { #category : #accessing }
-GitProjectInfo >> stauses: anObject [
-	stauses := anObject
+GitProjectInfo >> stauses [
+	^ stauses
 ]

@@ -85,7 +85,7 @@ GitProjectBoard >> gtRepositoryProjectBoard: aView [
 	columned := aView columnedList.
 	columned
 		title: 'Whats Cooking';
-		items: [ self computeItems select: [ :anItem | anItem isTopic ] ];
+		items: [ self computeItems ];
 		priority: 10;
 		column: 'Index'
 			text: [ :aValue :anIndex | anIndex asRopedText foreground: BrGlamorousColors disabledButtonTextColor ]
@@ -93,7 +93,7 @@ GitProjectBoard >> gtRepositoryProjectBoard: aView [
 		column: 'Topic Name'
 			text: [ :aValue | 
 				color := self isInReleaseColor: aValue.
-				topicName := aValue topicName asRopedText.
+				topicName := aValue itemName asRopedText.
 				topicName foreground: color ]
 			width: 300;
 		column: 'State'
@@ -122,13 +122,14 @@ GitProjectBoard >> initialize [
 ]
 
 { #category : #accessing }
-GitProjectBoard >> isInReleaseColor: aValue [
+GitProjectBoard >> isInReleaseColor: anItem [
 	<argument: #aValue isKindOf: #GitTopicInfo>
-	^ self hasReleaseCandidate
-		ifTrue: [ (self candidate commit isParentOf: aValue topic commit)
-				ifTrue: [ Color fromHexString: '087D91' ]
-				ifFalse: [ Color fromHexString: '911c08' ] ]
-		ifFalse: [ Color black ]
+	self hasReleaseCandidate & anItem isTopic
+		ifTrue: [ (self candidate commit isParentOf: anItem topic commit)
+				ifTrue: [ ^ Color fromHexString: '087D91' ]
+				ifFalse: [ ^ Color fromHexString: '911c08' ] ].
+	anItem isTopic not ifTrue: [ ^ Color fromHexString: '65c3a9' ].
+	^ Color black
 ]
 
 { #category : #visualization }

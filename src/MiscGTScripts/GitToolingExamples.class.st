@@ -226,6 +226,254 @@ GitToolingExamples >> executionLabel [
 	^ label
 ]
 
+{ #category : #accessing }
+GitToolingExamples >> genesisFileIssue [
+	<gtExample>
+	| item |
+	item := GithubProjectV2Item new fromJson: self genesisFileIssueJson.
+	self assert: item contents class equals: GithubIssue.
+	self assert: item contents itemNumber isNumber.
+	^ item
+]
+
+{ #category : #accessing }
+GitToolingExamples >> genesisFileIssueJson [
+	<gtExample>
+	| json |
+	json := NeoJSONReader
+			fromString: '{
+	"id" : "PVTI_lADOBTOAss4AXfzfzgLOxko",
+	"content" : {
+		"id" : "I_kwDOJ8kZ3M55QmU7",
+		"number" : 51,
+		"closed" : false,
+		"title" : "Gensis File",
+		"repository" : {
+			"labels" : {
+				"edges" : [
+					{
+						"node" : {
+							"color" : "d73a4a",
+							"name" : "bug",
+							"description" : "Something isnt working"
+						}
+					},
+					{
+						"node" : {
+							"color" : "0075ca",
+							"name" : "documentation",
+							"description" : "Improvements or additions to documentation"
+						}
+					},
+					{
+						"node" : {
+							"color" : "a2eeef",
+							"name" : "enhancement",
+							"description" : "New feature or request"
+						}
+					},
+					{
+						"node" : {
+							"color" : "7057ff",
+							"name" : "good first issue",
+							"description" : "Good for newcomers"
+						}
+					},
+					{
+						"node" : {
+							"color" : "d876e3",
+							"name" : "question",
+							"description" : "Further information is requested"
+						}
+					},
+					{
+						"node" : {
+							"color" : "FECFF0",
+							"name" : "architecture",
+							"description" : "New designs should be drafted for improving the codebase"
+						}
+					},
+					{
+						"node" : {
+							"color" : "c2e0c6",
+							"name" : "need specs",
+							"description" : "Needs Corresponding specs before being able to work"
+						}
+					},
+					{
+						"node" : {
+							"color" : "FEFC53",
+							"name" : "networking",
+							"description" : "Router, Transport, etc."
+						}
+					},
+					{
+						"node" : {
+							"color" : "3843A3",
+							"name" : "ordering",
+							"description" : "Consensus, Execution, Mempool"
+						}
+					},
+					{
+						"node" : {
+							"color" : "A6F19F",
+							"name" : "configuration",
+							"description" : "Deals with System Configuration"
+						}
+					},
+					{
+						"node" : {
+							"color" : "79E6CD",
+							"name" : "nock",
+							"description" : "Deals with the nock VM Environment (interpretation, jam, cue etc.)"
+						}
+					},
+					{
+						"node" : {
+							"color" : "88CFDF",
+							"name" : "identity",
+							"description" : "Deals with the Identity Machine from Specs"
+						}
+					},
+					{
+						"node" : {
+							"color" : "29BD18",
+							"name" : "storage",
+							"description" : "State for our source of truth. We can restore on it etc."
+						}
+					},
+					{
+						"node" : {
+							"color" : "c5def5",
+							"name" : "db layout",
+							"description" : "Deals  with the layout of our database/storage"
+						}
+					},
+					{
+						"node" : {
+							"color" : "d4c5f9",
+							"name" : "shielded rm",
+							"description" : "Deals with Shielded Resource Machine implementation"
+						}
+					},
+					{
+						"node" : {
+							"color" : "736335",
+							"name" : "refactoring",
+							"description" : "Issues and topics dealing with refactoring the codebase"
+						}
+					},
+					{
+						"node" : {
+							"color" : "bfdadc",
+							"name" : "examples",
+							"description" : "Deals with creating examples or retrofitting things into examples."
+						}
+					},
+					{
+						"node" : {
+							"color" : "087D91",
+							"name" : "attic",
+							"description" : "There exists a topic with the prefix attic that we ought not to delete."
+						}
+					},
+					{
+						"node" : {
+							"color" : "1d76db",
+							"name" : "execution",
+							"description" : "Deals with our transaction environment"
+						}
+					},
+					{
+						"node" : {
+							"color" : "bfdadc",
+							"name" : "cli",
+							"description" : "Deals with external shells"
+						}
+					},
+					{
+						"node" : {
+							"color" : "f9d0c4",
+							"name" : "topics",
+							"description" : "Deals with topic related code changes"
+						}
+					},
+					{
+						"node" : {
+							"color" : "fbca04",
+							"name" : "juvix",
+							"description" : "Deals with Juvix integration or anything that is about Juvix."
+						}
+					},
+					{
+						"node" : {
+							"color" : "d93f0b",
+							"name" : "event",
+							"description" : "Deals with problems around event logging"
+						}
+					},
+					{
+						"node" : {
+							"color" : "006b75",
+							"name" : "transparent RM",
+							"description" : "Deals with the transparent resource machine."
+						}
+					},
+					{
+						"node" : {
+							"color" : "b60205",
+							"name" : "external API",
+							"description" : "Deals with trying to setup external APIs or clients etc."
+						}
+					},
+					{
+						"node" : {
+							"color" : "0052cc",
+							"name" : "execution stdlib",
+							"description" : "Deals with the standard library for Nock"
+						}
+					},
+					{
+						"node" : {
+							"color" : "3CDEF0",
+							"name" : "Top Level",
+							"description" : "Contains the dependency graph for major features"
+						}
+					}
+				]
+			}
+		}
+	},
+	"labels" : {
+		"labels" : {
+			"edges" : [
+				{
+					"node" : {
+						"color" : "a2eeef",
+						"name" : "enhancement",
+						"description" : "New feature or request"
+					}
+				},
+				{
+					"node" : {
+						"color" : "A6F19F",
+						"name" : "configuration",
+						"description" : "Deals with System Configuration"
+					}
+				}
+			]
+		}
+	},
+	"status" : {
+		"color" : "RED",
+		"name" : "Pending",
+		"description" : "This isnt assigned yet. Please take it for yourself!"
+	}
+}'.
+
+	^ json asGtJson
+]
+
 { #category : #dependencies }
 GitToolingExamples >> githubAccessKey [
 	"There ought to be better ways to do this"

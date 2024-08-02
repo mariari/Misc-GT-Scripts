@@ -40,6 +40,11 @@ ProjectBoardItem >> isTopic [
 ]
 
 { #category : #accessing }
+ProjectBoardItem >> itemName [
+	^ self subclassResponsibility
+]
+
+{ #category : #accessing }
 ProjectBoardItem >> itemNumber [
 	^ itemNumber
 ]
