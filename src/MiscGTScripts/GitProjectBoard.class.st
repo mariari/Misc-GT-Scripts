@@ -38,6 +38,7 @@ GitProjectBoard >> candidateBranch: aBranch [
 { #category : #visualization }
 GitProjectBoard >> computeDepCache [
 	| nodes |
+	self loadAllItems.
 	nodes := GitDepGraph freshNodes: self itemTopics.
 	depCache initalizeWith: nodes.
 	depCache computeRelations
@@ -147,6 +148,13 @@ GitProjectBoard >> items [
 { #category : #accessing }
 GitProjectBoard >> labelName [
 	^ 'Project Statuses'
+]
+
+{ #category : #initalization }
+GitProjectBoard >> loadAllItems [
+	"Load all items from an asynchronous stream into an array if items is an asynchronous stream."
+
+	self items isAsyncStream ifTrue: [ items := self items toArray wait ]
 ]
 
 { #category : #accessing }

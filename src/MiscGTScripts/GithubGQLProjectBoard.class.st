@@ -19,7 +19,7 @@ GithubGQLProjectBoard >> board: anInteger [
 
 { #category : #accessing }
 GithubGQLProjectBoard >> computeItems [
-	items := self projectValueStream toArray wait.
+	items := self projectValueStream.
 	^ items
 ]
 
