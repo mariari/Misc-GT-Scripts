@@ -66,12 +66,14 @@ GithubToolingBoard >> projectBoardArguments [
 	^ Dictionary new
 		at: #organization put: self organization;
 		at: #board put: self board;
+		at: #after put: nil;
 		yourself
 ]
 
 { #category : #stream }
 GithubToolingBoard >> projectBoardBasicItems [
 	^ self projectBoardQuery paginator
+		cursorInputName: #after;
 		connectorPath: #(organization projectV2 items);
 		collect: [ :item | GithubProjectV2Item new fromJson: (item asGtJson at: #node) ]
 ]
@@ -86,7 +88,7 @@ GithubToolingBoard >> projectBoardBasicStatus [
 { #category : #querying }
 GithubToolingBoard >> projectBoardQuery [
 	^ self context client
-		operation: 'query WhatsCooking($board: Int!, $organization: String!){
+		operation: 'query WhatsCooking($board: Int!, $organization: String!, $after: String){
 	organization(login: $organization) {
 		login name url
 		projectV2 (number: $board) {
@@ -94,7 +96,7 @@ GithubToolingBoard >> projectBoardQuery [
 			title
 			number
 			id
-			items(first: 99) {
+			items(first: 99, after: $after) {
 				totalCount
 				pageInfo { hasNextPage endCursor hasPreviousPage startCursor }
 				edges {
