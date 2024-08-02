@@ -85,8 +85,9 @@ GitToolingExamples >> branchBase [
 			topic: branch;
 			allLabels: {self allLabels at: 2};
 			projectInfo: self exampleProjectStatus;
+			itemNumber: 20;
 			status: self statusMaster.
-	self assert: [ self branchV16 isParentOf: topic  ].
+	self assert: [ self branchV16 isParentOf: topic ].
 	self assert: [ (topic isParentOf: self branchNifIntegration) not ].
 	^ topic
 ]
@@ -105,6 +106,7 @@ GitToolingExamples >> branchMerged [
 				self allLabels at: 12};
 		projectInfo: self exampleProjectStatus;
 		status: self statusMaster;
+		itemNumber: 20;
 		yourself
 ]
 
@@ -135,6 +137,7 @@ GitToolingExamples >> branchV16 [
 		topic: branch;
 		allLabels: {self allLabels at: 2};
 		projectInfo: self exampleProjectStatus;
+		itemNumber: 5;
 		status: self statusWIP
 ]
 
