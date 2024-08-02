@@ -122,6 +122,7 @@ GitToolingExamples >> branchNifIntegration [
 		topic: branch;
 		allLabels: {self allLabels at: 2};
 		projectInfo: self exampleProjectStatus;
+		itemNumber: 19;
 		status: self statusClosed
 ]
 
@@ -163,134 +164,8 @@ GitToolingExamples >> dumperCounterPRJSON [
 					"edges" : [
 						{
 							"node" : {
-								"color" : "d73a4a",
-								"name" : "bug"
-							}
-						},
-						{
-							"node" : {
-								"color" : "0075ca",
-								"name" : "documentation"
-							}
-						},
-						{
-							"node" : {
-								"color" : "a2eeef",
-								"name" : "enhancement"
-							}
-						},
-						{
-							"node" : {
-								"color" : "7057ff",
-								"name" : "good first issue"
-							}
-						},
-						{
-							"node" : {
-								"color" : "008672",
-								"name" : "help wanted"
-							}
-						},
-						{
-							"node" : {
 								"color" : "e4e669",
 								"name" : "invalid"
-							}
-						},
-						{
-							"node" : {
-								"color" : "d876e3",
-								"name" : "question"
-							}
-						},
-						{
-							"node" : {
-								"color" : "ffffff",
-								"name" : "wontfix"
-							}
-						},
-						{
-							"node" : {
-								"color" : "FECFF0",
-								"name" : "design"
-							}
-						},
-						{
-							"node" : {
-								"color" : "c2e0c6",
-								"name" : "need specs"
-							}
-						},
-						{
-							"node" : {
-								"color" : "FEFC53",
-								"name" : "networking"
-							}
-						},
-						{
-							"node" : {
-								"color" : "3843A3",
-								"name" : "ordering"
-							}
-						},
-						{
-							"node" : {
-								"color" : "A6F19F",
-								"name" : "control"
-							}
-						},
-						{
-							"node" : {
-								"color" : "5CE26B",
-								"name" : "hardware abstraction"
-							}
-						},
-						{
-							"node" : {
-								"color" : "79E6CD",
-								"name" : "nock"
-							}
-						},
-						{
-							"node" : {
-								"color" : "88CFDF",
-								"name" : "identity"
-							}
-						},
-						{
-							"node" : {
-								"color" : "29BD18",
-								"name" : "storage"
-							}
-						},
-						{
-							"node" : {
-								"color" : "c5def5",
-								"name" : "db layout"
-							}
-						},
-						{
-							"node" : {
-								"color" : "d4c5f9",
-								"name" : "rm"
-							}
-						},
-						{
-							"node" : {
-								"color" : "736335",
-								"name" : "refactoring"
-							}
-						},
-						{
-							"node" : {
-								"color" : "bfdadc",
-								"name" : "examples"
-							}
-						},
-						{
-							"node" : {
-								"color" : "087D91",
-								"name" : "attic"
 							}
 						},
 						{
@@ -321,7 +196,7 @@ GitToolingExamples >> exampleProjectStatus [
 	<gtExample>
 	| status |
 	status := GitProjectInfo new
-			stauses: self allStatuses;
+			statuses: self allStatuses;
 			allLabels: self allLabels.
 
 	^ status
