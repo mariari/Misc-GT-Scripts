@@ -63,9 +63,7 @@ GithubProjectV2Item >> itemID: anObject [
 
 { #category : #accessing }
 GithubProjectV2Item >> itemName [
-	^ self isTopic
-		ifTrue: [ contents topicName ]
-		ifFalse: [ self notYetImplemented ]
+	^ self contents name
 ]
 
 { #category : #accessing }
