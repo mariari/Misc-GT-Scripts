@@ -7,7 +7,234 @@ Class {
 { #category : #accessing }
 GitToolingExamples >> allLabels [
 	<gtExample>
-	^ self projectBoardDumperCounterPR contents repo allLabels
+	^ self allLabelsJSON
+		collect: [ :item | GitLabelInfo new fromJson: (item asGtJson at: #node) ]
+]
+
+{ #category : #accessing }
+GitToolingExamples >> allLabelsJSON [
+	<gtExample>
+	| json |
+	json := NeoJSONReader
+			fromString: '[
+	{
+		"node" : {
+			"color" : "d73a4a",
+			"name" : "bug",
+			"description" : "Something isnt working",
+			"id" : "LA_kwDOJ8kZ3M8AAAABVm7Dfg"
+		}
+	},
+	{
+		"node" : {
+			"color" : "0075ca",
+			"name" : "documentation",
+			"description" : "Improvements or additions to documentation",
+			"id" : "LA_kwDOJ8kZ3M8AAAABVm7DiA"
+		}
+	},
+	{
+		"node" : {
+			"color" : "a2eeef",
+			"name" : "enhancement",
+			"description" : "New feature or request",
+			"id" : "LA_kwDOJ8kZ3M8AAAABVm7DlA"
+		}
+	},
+	{
+		"node" : {
+			"color" : "7057ff",
+			"name" : "good first issue",
+			"description" : "Good for newcomers",
+			"id" : "LA_kwDOJ8kZ3M8AAAABVm7Dlw"
+		}
+	},
+	{
+		"node" : {
+			"color" : "d876e3",
+			"name" : "question",
+			"description" : "Further information is requested",
+			"id" : "LA_kwDOJ8kZ3M8AAAABVm7Dpg"
+		}
+	},
+	{
+		"node" : {
+			"color" : "FECFF0",
+			"name" : "architecture",
+			"description" : "New designs should be drafted for improving the codebase",
+			"id" : "LA_kwDOJ8kZ3M8AAAABV0WSOg"
+		}
+	},
+	{
+		"node" : {
+			"color" : "c2e0c6",
+			"name" : "need specs",
+			"description" : "Needs Corresponding specs before being able to work",
+			"id" : "LA_kwDOJ8kZ3M8AAAABebi8yw"
+		}
+	},
+	{
+		"node" : {
+			"color" : "FEFC53",
+			"name" : "networking",
+			"description" : "Router, Transport, etc.",
+			"id" : "LA_kwDOJ8kZ3M8AAAABebs1pg"
+		}
+	},
+	{
+		"node" : {
+			"color" : "3843A3",
+			"name" : "ordering",
+			"description" : "Consensus, Execution, Mempool",
+			"id" : "LA_kwDOJ8kZ3M8AAAABebs2qg"
+		}
+	},
+	{
+		"node" : {
+			"color" : "A6F19F",
+			"name" : "configuration",
+			"description" : "Deals with System Configuration",
+			"id" : "LA_kwDOJ8kZ3M8AAAABebs3nw"
+		}
+	},
+	{
+		"node" : {
+			"color" : "79E6CD",
+			"name" : "nock",
+			"description" : "Deals with the nock VM Environment (interpretation, jam, cue etc.)",
+			"id" : "LA_kwDOJ8kZ3M8AAAABebwilw"
+		}
+	},
+	{
+		"node" : {
+			"color" : "88CFDF",
+			"name" : "identity",
+			"description" : "Deals with the Identity Machine from Specs",
+			"id" : "LA_kwDOJ8kZ3M8AAAABebxsbg"
+		}
+	},
+	{
+		"node" : {
+			"color" : "29BD18",
+			"name" : "storage",
+			"description" : "State for our source of truth. We can restore on it etc.",
+			"id" : "LA_kwDOJ8kZ3M8AAAABkocYHQ"
+		}
+	},
+	{
+		"node" : {
+			"color" : "c5def5",
+			"name" : "db layout",
+			"description" : "Deals  with the layout of our database/storage",
+			"id" : "LA_kwDOJ8kZ3M8AAAABn78DqA"
+		}
+	},
+	{
+		"node" : {
+			"color" : "d4c5f9",
+			"name" : "shielded rm",
+			"description" : "Deals with Shielded Resource Machine implementation",
+			"id" : "LA_kwDOJ8kZ3M8AAAABoDkEHA"
+		}
+	},
+	{
+		"node" : {
+			"color" : "736335",
+			"name" : "refactoring",
+			"description" : "Issues and topics dealing with refactoring the codebase",
+			"id" : "LA_kwDOJ8kZ3M8AAAABpzJivg"
+		}
+	},
+	{
+		"node" : {
+			"color" : "bfdadc",
+			"name" : "examples",
+			"description" : "Deals with creating examples or retrofitting things into examples.",
+			"id" : "LA_kwDOJ8kZ3M8AAAABpzJ0AQ"
+		}
+	},
+	{
+		"node" : {
+			"color" : "087D91",
+			"name" : "attic",
+			"description" : "There exists a topic with the prefix attic that we ought not to delete.",
+			"id" : "LA_kwDOJ8kZ3M8AAAABqZz8sg"
+		}
+	},
+	{
+		"node" : {
+			"color" : "1d76db",
+			"name" : "execution",
+			"description" : "Deals with our transaction environment",
+			"id" : "LA_kwDOJ8kZ3M8AAAABqoRPkw"
+		}
+	},
+	{
+		"node" : {
+			"color" : "bfdadc",
+			"name" : "cli",
+			"description" : "Deals with external shells",
+			"id" : "LA_kwDOJ8kZ3M8AAAABqoRboQ"
+		}
+	},
+	{
+		"node" : {
+			"color" : "f9d0c4",
+			"name" : "topics",
+			"description" : "Deals with topic related code changes",
+			"id" : "LA_kwDOJ8kZ3M8AAAABq8Sicw"
+		}
+	},
+	{
+		"node" : {
+			"color" : "fbca04",
+			"name" : "juvix",
+			"description" : "Deals with Juvix integration or anything that is about Juvix.",
+			"id" : "LA_kwDOJ8kZ3M8AAAABrcVMqg"
+		}
+	},
+	{
+		"node" : {
+			"color" : "d93f0b",
+			"name" : "event",
+			"description" : "Deals with problems around event logging",
+			"id" : "LA_kwDOJ8kZ3M8AAAABrd1D0Q"
+		}
+	},
+	{
+		"node" : {
+			"color" : "006b75",
+			"name" : "transparent RM",
+			"description" : "Deals with the transparent resource machine.",
+			"id" : "LA_kwDOJ8kZ3M8AAAABrd3C7A"
+		}
+	},
+	{
+		"node" : {
+			"color" : "b60205",
+			"name" : "external API",
+			"description" : "Deals with trying to setup external APIs or clients etc.",
+			"id" : "LA_kwDOJ8kZ3M8AAAABrd7AqQ"
+		}
+	},
+	{
+		"node" : {
+			"color" : "0052cc",
+			"name" : "execution stdlib",
+			"description" : "Deals with the standard library for Nock",
+			"id" : "LA_kwDOJ8kZ3M8AAAABrd7_Cg"
+		}
+	},
+	{
+		"node" : {
+			"color" : "3CDEF0",
+			"name" : "Top Level",
+			"description" : "Contains the dependency graph for major features",
+			"id" : "LA_kwDOJ8kZ3M8AAAABr4M_ig"
+		}
+	}
+]'.
+	^ json asGtJson
 ]
 
 { #category : #accessing }
@@ -81,12 +308,9 @@ GitToolingExamples >> branchBase [
 	branch := IceGitRemoteBranch
 			named: self remoteName , '/base'
 			inRepository: self anomaRepo.
-	topic := GitTopicInfo new
-			topic: branch;
-			allLabels: {self allLabels at: 2};
-			projectInfo: self exampleProjectStatus;
-			itemNumber: 20;
-			status: self statusMaster.
+	topic := self branchMerged
+			item: self githubProjectV2ItemPubSub;
+			topic: branch.
 	self assert: [ self branchV16 isParentOf: topic ].
 	self assert: [ (topic isParentOf: self branchNifIntegration) not ].
 	^ topic
@@ -95,51 +319,47 @@ GitToolingExamples >> branchBase [
 { #category : #accessing }
 GitToolingExamples >> branchMerged [
 	<gtExample>
-	| branch |
+	| branch topic |
 	branch := IceGitRemoteBranch
 			named: 'anoma/mariari/node-from-base'
 			inRepository: self anomaRepo.
 
-	^ GitTopicInfo new
-		topic: branch;
-		allLabels: {self allLabels at: 7.
-				self allLabels at: 12};
-		projectInfo: self exampleProjectStatus;
-		status: self statusMaster;
-		itemNumber: 20;
-		yourself
+
+	topic := GitTopicInfo new
+			topic: branch;
+			repo: self mockGithubToolingRepoAnoma;
+			projectBoard: self mockGithubToolingBoard;
+			item: self githubProjectV2ItemNodeFromBase.
+	^ topic
 ]
 
 { #category : #accessing }
 GitToolingExamples >> branchNifIntegration [
 	<gtExample>
-	| branch |
+	| branch topic |
 	branch := IceGitRemoteBranch
 			named: self remoteName , '/attic/mariari/nif-integration'
 			inRepository: self anomaRepo.
 
-	^ GitTopicInfo new
-		topic: branch;
-		allLabels: {self allLabels at: 2};
-		projectInfo: self exampleProjectStatus;
-		itemNumber: 19;
-		status: self statusClosed
+	topic := self branchMerged
+			topic: branch;
+			item: self githubProjectV2NIFIntegration.
+	^ topic
 ]
 
 { #category : #accessing }
 GitToolingExamples >> branchV16 [
 	<gtExample>
-	| branch |
+	| branch topic |
 	branch := IceGitRemoteBranch
 			named: self remoteName , '/attic/v0.16.0'
 			inRepository: self anomaRepo.
 
-	^ GitTopicInfo new
-		topic: branch;
-		allLabels: {self allLabels at: 2};
-		projectInfo: self exampleProjectStatus;
-		itemNumber: 5;
-		status: self statusWIP
+	topic := self branchMerged
+			topic: branch;
+			item: self githubPRV16.
+	self assert: [ topic isParentOf: self branchMerged ].
+	^ topic
 ]
 
 { #category : #accessing }
@@ -160,6 +380,7 @@ GitToolingExamples >> dumperCounterPRJSON [
 			"headRefName" : "mariari/dumper-counter",
 			"number" : 626,
 			"repository" : {
+				"name" : "anoma",
 				"labels" : {
 					"edges" : [
 						{
@@ -189,17 +410,6 @@ GitToolingExamples >> dumperCounterPRJSON [
 			"name" : "Next"
 		}'.
 	^ json asGtJson
-]
-
-{ #category : #accessing }
-GitToolingExamples >> exampleProjectStatus [
-	<gtExample>
-	| status |
-	status := GitProjectInfo new
-			statuses: self allStatuses;
-			allLabels: self allLabels.
-
-	^ status
 ]
 
 { #category : #accessing }
@@ -484,6 +694,100 @@ GitToolingExamples >> githubAccessKey [
 ]
 
 { #category : #accessing }
+GitToolingExamples >> githubPRNifIntegration [
+	<gtExample>
+	^ GithubPR new
+		allLabels: {self allLabels at: 18.
+				self allLabels at: 25};
+		refName: 'attic/mariari/nif-integration';
+		itemNumber: 25
+]
+
+{ #category : #accessing }
+GitToolingExamples >> githubPRNodeFromBase [
+	<gtExample>
+	^ GithubPR new
+		allLabels: {self allLabels at: 11.
+				self allLabels at: 8.
+				self allLabels at: 19};
+		refName: 'mariari/node-from-base';
+		itemNumber: 230
+]
+
+{ #category : #accessing }
+GitToolingExamples >> githubPRPubSub [
+	<gtExample>
+	^ GithubPR new
+		allLabels: {self allLabels at: 27.
+				self allLabels at: 6};
+		refName: 'pubsub';
+		itemNumber: 762
+]
+
+{ #category : #accessing }
+GitToolingExamples >> githubPRV16 [
+	<gtExample>
+	^ GithubPR new
+		allLabels: {self allLabels at: 18.
+				self allLabels at: 20.
+				self allLabels at: 5};
+		refName: 'attic/v0.16.0';
+		itemNumber: 200
+]
+
+{ #category : #accessing }
+GitToolingExamples >> githubProjectBoardSkunksNoItems [
+	<gtExample>
+	^ GithubProjectBoard new
+		board: 20;
+		items: {};
+		org: 'anoma';
+		title: 'Skunks Issue overview';
+		allLabels: self allStatuses
+]
+
+{ #category : #accessing }
+GitToolingExamples >> githubProjectV2ItemNodeFromBase [
+	<gtExample>
+	^ GithubProjectV2Item new
+		contents: self githubPRNodeFromBase;
+		status: self statusMaster
+]
+
+{ #category : #accessing }
+GitToolingExamples >> githubProjectV2ItemPubSub [
+	<gtExample>
+	^ GithubProjectV2Item new
+		contents: self githubPRPubSub;
+		status: self statusWIP
+]
+
+{ #category : #accessing }
+GitToolingExamples >> githubProjectV2ItemV016 [
+	<gtExample>
+	^ GithubProjectV2Item new
+		contents: self githubPRV16;
+		status: self statusMaster
+]
+
+{ #category : #accessing }
+GitToolingExamples >> githubProjectV2NIFIntegration [
+	<gtExample>
+	^ GithubProjectV2Item new
+		contents: self githubPRNifIntegration;
+		status: self statusClosed
+]
+
+{ #category : #accessing }
+GitToolingExamples >> githubRepoAnoma [
+	<gtExample>
+	^ GithubRepo new
+		name: 'anoma';
+		owner: 'anoma';
+		allLabels: self allLabels
+]
+
+{ #category : #accessing }
 GitToolingExamples >> graphQLContext [
 	"There ought to be a better way than this"
 
@@ -496,6 +800,19 @@ GitToolingExamples >> graphQLContext [
 
 	aContext reportClass: GhGQLReport.
 	^ aContext
+]
+
+{ #category : #accessing }
+GitToolingExamples >> mockGithubToolingBoard [
+	<gtExample>
+	^ GithubToolingBoard new projectBoard: self githubProjectBoardSkunksNoItems
+]
+
+{ #category : #accessing }
+GitToolingExamples >> mockGithubToolingRepoAnoma [
+	<gtExample>
+	"I represent a mock version of the anoma tooling repo, without the ability to query"
+	^ GithubToolingRepo new repository: self githubRepoAnoma
 ]
 
 { #category : #accessing }
@@ -699,65 +1016,28 @@ GitToolingExamples >> projectBoardDumperCounterPRJSON [
 	^ json asGtJson
 ]
 
-{ #category : #accessing }
-GitToolingExamples >> projectStatuses [
+{ #category : #querying }
+GitToolingExamples >> queryGithubToolingProjectBoardSkunks [
 	<gtExample>
-	^ self projectStatusesJSON collect: [ :x | GitLabelInfo new fromJson: x ]
+	^ GithubToolingBoard new
+		context: self graphQLContext;
+		board: 19;
+		organization: 'anoma'
 ]
 
 { #category : #accessing }
-GitToolingExamples >> projectStatusesJSON [
+GitToolingExamples >> queryGithubToolingProjectBoardWhatsCooking [
 	<gtExample>
-	| json |
-	json := NeoJSONReader
-			fromString: '[
-					{
-						"color" : "RED",
-						"name" : "Closed",
-						"description" : "Topic indefinitely rejected or withdrawn."
-					},
-					{
-						"color" : "ORANGE",
-						"name" : "Problem",
-						"description" : "Topic is unacceptable or malformed beyond merely needing a reroll."
-					},
-					{
-						"color" : "GRAY",
-						"name" : "Blocked",
-						"description" : "Not problematic, but blocked for reasons outside its own scope."
-					},
-					{
-						"color" : "GRAY",
-						"name" : "WIP",
-						"description" : "Topic is advisory/work in progress, and has not been submitted."
-					},
-					{
-						"color" : "PINK",
-						"name" : "Triage",
-						"description" : "Topic is awaiting some form of triage or retriage."
-					},
-					{
-						"color" : "YELLOW",
-						"name" : "Expecting reroll",
-						"description" : "Expecting a reroll on this topic"
-					},
-					{
-						"color" : "GREEN",
-						"name" : "Next",
-						"description" : "Topic is on `next`."
-					},
-					{
-						"color" : "BLUE",
-						"name" : "Master",
-						"description" : "Topic is on `master`."
-					},
-					{
-						"color" : "PURPLE",
-						"name" : "Released",
-						"description" : "Topic is in a (non-maintenance) release."
-					}
-				]'.
-	^ json asGtJson
+	^ self queryGithubToolingProjectBoardSkunks board: 20
+]
+
+{ #category : #accessing }
+GitToolingExamples >> queryRepoAnoma [
+	<gtExample>
+	^ GithubToolingRepo new
+		context: self graphQLContext;
+		organization: 'anoma';
+		repoName: 'anoma'
 ]
 
 { #category : #accessing }

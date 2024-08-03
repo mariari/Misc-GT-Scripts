@@ -6,12 +6,12 @@ My {{gtClass:name=GitLabelsMixin}} refers to the status's any {{gtClass:name=Pro
 Class {
 	#name : #GithubPR,
 	#superclass : #GithubGQL,
-	#traits : 'GithubJSON',
-	#classTraits : 'GithubJSON classTrait',
+	#traits : 'GithubJSON + GitLabelsMixin',
+	#classTraits : 'GithubJSON classTrait + GitLabelsMixin classTrait',
 	#instVars : [
 		'refName',
-		'prNumber',
-		'repo'
+		'repo',
+		'prNumber'
 	],
 	#category : #'MiscGTScripts-git'
 }
@@ -20,10 +20,15 @@ Class {
 GithubPR >> fromJson: ajson [
 	self
 		refNameFromJSON: ajson;
-		prNumberFromJson: ajson.
-	self repositoryInfoFromJson: ajson.	"We probably shouldn't parse a repo here we do as it's technically cheaper"
+		prNumberFromJson: ajson;
+		repositoryInfoFromJson: ajson;
+		labelsFromJson: ajson
+]
 
-	^ self
+{ #category : #initalization }
+GithubPR >> initialize [
+	super initialize.
+	self repo: GithubRepoMinimal new
 ]
 
 { #category : #accessing }
@@ -42,13 +47,35 @@ GithubPR >> itemNumber: anObject [
 ]
 
 { #category : #accessing }
+GithubPR >> labelName [
+	^ 'current labels'
+]
+
+{ #category : #accessing }
+GithubPR >> labelsFromJson: projectBoardItem [
+	self
+		allLabels: ((projectBoardItem atPath: #(labels edges))
+				collect: [ :x | GitLabelInfo new fromJson: (x at: #node) ])
+]
+
+{ #category : #accessing }
 GithubPR >> name [
 	^ self topicName
+]
+
+{ #category : #accessing }
+GithubPR >> owner: aString [
+	self repo owner: aString
 ]
 
 { #category : #setting }
 GithubPR >> prNumberFromJson: ajson [
 	self itemNumber: (ajson at: #number) jsonObject
+]
+
+{ #category : #accessing }
+GithubPR >> projectAwareItem [
+	^ GitTopicInfo new
 ]
 
 { #category : #accessing }
@@ -80,7 +107,7 @@ GithubPR >> repo: anObject [
 
 { #category : #setting }
 GithubPR >> repositoryInfoFromJson: ajson [
-	self repo: (GithubRepo new fromJson: (ajson at: #repository))
+	self repo fromJson: (ajson at: #repository)
 ]
 
 { #category : #accessing }

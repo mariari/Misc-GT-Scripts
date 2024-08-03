@@ -7,13 +7,10 @@ The labels in my {{gtClass:name=GitLabelsMixin}} refers to the labels I am appli
 Class {
 	#name : #ProjectBoardItem,
 	#superclass : #Object,
-	#traits : 'GitLabelsMixin',
-	#classTraits : 'GitLabelsMixin classTrait',
 	#instVars : [
-		'tags',
-		'status',
-		'itemNumber',
-		'projectInfo'
+		'item',
+		'projectBoard',
+		'repo'
 	],
 	#category : #'MiscGTScripts-git'
 }
@@ -30,13 +27,67 @@ ProjectBoardItem >> borderStatusColoredAptitudeWithStatus: aStatus [
 ]
 
 { #category : #accessing }
-ProjectBoardItem >> hasProjectInfo [
-	^ self projectInfo isNotNil
+ProjectBoardItem >> currentLabels [
+	^ item contents allLabels
+]
+
+{ #category : #accessing }
+ProjectBoardItem >> gitRepository: aRepo andRemoteName: aRemoteName [
+	^ self subclassResponsibility
+]
+
+{ #category : #accessing }
+ProjectBoardItem >> gtCurrentLabelsView: aView [
+	<gtView>
+	self item ifNil: [ ^ aView empty ].
+	self currentLabels ifNil: [ ^ aView empty ].
+	^ aView forward
+		object: [ item ];
+		priority: 12;
+		title: 'Current Labels';
+		view: #gtCurrentLbelsView:
+]
+
+{ #category : #accessing }
+ProjectBoardItem >> gtLabelsView: aView [
+	<gtView>
+	self repo ifNil: [ ^ aView empty ].
+	^ aView forward
+		object: [ repo ];
+		priority: 13;
+		title: 'Repository labels';
+		view: #gtLabelView:
+]
+
+{ #category : #accessing }
+ProjectBoardItem >> gtStatusView: aView [
+	<gtView>
+	self projectBoard ifNil: [ ^ aView empty ].
+	^ aView forward
+		object: [ projectBoard ];
+		priority: 13;
+		title: 'Statuses';
+		view: #gtLabelView:
+]
+
+{ #category : #accessing }
+ProjectBoardItem >> hasProjectBoard [
+	^ self projectBoard isNotNil
 ]
 
 { #category : #predicates }
 ProjectBoardItem >> isTopic [
 	^ self subclassResponsibility
+]
+
+{ #category : #accessing }
+ProjectBoardItem >> item [
+	^ item
+]
+
+{ #category : #accessing }
+ProjectBoardItem >> item: anObject [
+	item := anObject
 ]
 
 { #category : #accessing }
@@ -46,12 +97,7 @@ ProjectBoardItem >> itemName [
 
 { #category : #accessing }
 ProjectBoardItem >> itemNumber [
-	^ itemNumber
-]
-
-{ #category : #accessing }
-ProjectBoardItem >> itemNumber: anObject [
-	itemNumber := anObject
+	^ item contents itemNumber
 ]
 
 { #category : #accessing }
@@ -65,29 +111,33 @@ ProjectBoardItem >> printOn: stream [
 		nextPutAll: self itemName;
 		nextPutAll: ' #'.
 
-	itemNumber printOn: stream base: 10.
+	self itemNumber printOn: stream base: 10.
 	^ stream
 ]
 
 { #category : #accessing }
-ProjectBoardItem >> projectInfo [
-	<return: #GitProjectInfo>
-	^ projectInfo
+ProjectBoardItem >> projectBoard [
+	^ projectBoard
 ]
 
-{ #category : #setting }
-ProjectBoardItem >> projectInfo: anObject [
-	projectInfo := anObject
+{ #category : #accessing }
+ProjectBoardItem >> projectBoard: anObject [
+	projectBoard := anObject
+]
+
+{ #category : #accessing }
+ProjectBoardItem >> repo [
+	^ repo
+]
+
+{ #category : #accessing }
+ProjectBoardItem >> repo: anObject [
+	repo := anObject
 ]
 
 { #category : #accessing }
 ProjectBoardItem >> status [
-	^ status
-]
-
-{ #category : #setting }
-ProjectBoardItem >> status: anObject [
-	status := anObject
+	^ item status
 ]
 
 { #category : #accessing }
@@ -114,7 +164,7 @@ ProjectBoardItem >> updateStatusButton [
 					aptitude: BrGlamorousButtonRectangularAptitude + BrGlamorousToggleWithLabelAptitude;
 					icon: BrGlamorousIcons menu ]
 			content: [ BrSimpleList new
-					items: (self hasProjectInfo ifTrue: [ self projectInfo statuses ] ifFalse: [ {} ]);
+					items: (self hasProjectBoard ifTrue: [ self projectBoard statuses ] ifFalse: [ {} ]);
 					itemDataBinder: [ :statusWidget :aStatus :anIndex | 
 						BrButton new
 							aptitude: BrGlamorousButtonWithLabelAptitude
@@ -124,7 +174,7 @@ ProjectBoardItem >> updateStatusButton [
 							background: aStatus color;
 							label: aStatus name;
 							action: [ :aButton | 
-								self status: aStatus.
+								self item status: aStatus.
 								compute_look value: aStatus.
 
 								aButton fireEvent: BrDropdownHideWish new.

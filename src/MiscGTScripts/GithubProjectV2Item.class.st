@@ -6,12 +6,12 @@ My {{gtClass:name=GitLabelsMixin}} refers to the status's any {{gtClass:name=Pro
 Class {
 	#name : #GithubProjectV2Item,
 	#superclass : #GithubGQL,
-	#traits : 'GithubJSON + GitLabelsMixin',
-	#classTraits : 'GithubJSON classTrait + GitLabelsMixin classTrait',
+	#traits : 'GithubJSON',
+	#classTraits : 'GithubJSON classTrait',
 	#instVars : [
-		'itemID',
-		'status',
-		'contents'
+		'id',
+		'contents',
+		'status'
 	],
 	#category : #'MiscGTScripts-git'
 }
@@ -38,12 +38,37 @@ GithubProjectV2Item >> contents: anObject [
 ]
 
 { #category : #setting }
-GithubProjectV2Item >> fromJson: ajson [
+GithubProjectV2Item >> fromJson: jsonData [
 	^ self
-		statusFromJSON: ajson;
-		labelsFromJson: ajson;
-		contentFromJson: ajson;
-		yourself
+		statusFromJson: jsonData;
+		contentFromJson: jsonData;
+		idFromJson: jsonData yourself
+]
+
+{ #category : #accessing }
+GithubProjectV2Item >> gtCurrentLbelsView: aView [
+	<gtView>
+	contents allLabels ifNil: [ ^ aView empty ].
+	^ aView forward
+		object: [ contents ];
+		priority: 11;
+		title: 'current labels';
+		view: #gtLabelView:
+]
+
+{ #category : #accessing }
+GithubProjectV2Item >> id [
+	^ id
+]
+
+{ #category : #accessing }
+GithubProjectV2Item >> id: anObject [
+	id := anObject
+]
+
+{ #category : #setting }
+GithubProjectV2Item >> idFromJson: jsonData [
+	self id: (jsonData at: #id) jsonObject
 ]
 
 { #category : #accessing }
@@ -52,30 +77,28 @@ GithubProjectV2Item >> isTopic [
 ]
 
 { #category : #accessing }
-GithubProjectV2Item >> itemID [
-	^ itemID
-]
-
-{ #category : #accessing }
-GithubProjectV2Item >> itemID: anObject [
-	itemID := anObject
-]
-
-{ #category : #accessing }
 GithubProjectV2Item >> itemName [
 	^ self contents name
 ]
 
-{ #category : #accessing }
-GithubProjectV2Item >> labelName [
-	^ 'current labels'
+{ #category : #stream }
+GithubProjectV2Item >> owner: aString [
+	self contents owner: aString
 ]
 
-{ #category : #'json  - queries' }
-GithubProjectV2Item >> labelsFromJson: projectBoardItem [
-	self
-		allLabels: ((projectBoardItem atPath: #(labels labels edges))
-				collect: [ :x | GitLabelInfo new fromJson: (x at: #node) ])
+{ #category : #printing }
+GithubProjectV2Item >> printOn: aStream [
+	aStream
+		<< 'V2Item(';
+		nextPutAll: self itemName;
+		<< ', ';
+		print: status;
+		<< ')'
+]
+
+{ #category : #accessing }
+GithubProjectV2Item >> repo [
+	^ contents repo
 ]
 
 { #category : #accessing }
@@ -89,38 +112,11 @@ GithubProjectV2Item >> status: anObject [
 ]
 
 { #category : #'json  - queries' }
-GithubProjectV2Item >> statusFromJSON: projectBoardItem [
-	self
-		status: (GitLabelInfo new fromJson: (projectBoardItem atPath: #(status)))
+GithubProjectV2Item >> statusFromJson: projectBoardItem [
+	self status: (GitLabelInfo new fromJson: (projectBoardItem atPath: #(status)))
 ]
 
-{ #category : #stream }
-GithubProjectV2Item >> toProjectBoardItemWith: repo andUpstream: upstream [
-	^ self
-		toProjectBoardItemWith: repo
-		andUpstream: upstream
-		andProjectStatus: nil
-]
-
-{ #category : #stream }
-GithubProjectV2Item >> toProjectBoardItemWith: repo andUpstream: upstream andProjectStatus: allStatuses [
-	| content topic projectItem |
-	"TODO, try to get WIP issue info as well"
-	"TODO replace boolean check with dispatch to contents to allocate their type"
-	content := self contents.
-	projectItem := content isTopic
-			ifTrue: [ topic := IceGitRemoteBranch
-						named: upstream , '/' , content refName
-						inRepository: repo.
-				GitTopicInfo new topic: topic ]
-			ifFalse: [ GitIssueInfo new title: content title ].
-
-	^ projectItem
-		status: self status;
-		allLabels: self allLabels;
-		itemNumber: content itemNumber;
-		projectInfo: (GitProjectInfo new
-				allLabels: content repo allLabels;
-				statuses: allStatuses);
-		yourself
+{ #category : #accessing }
+GithubProjectV2Item >> toProjectAwareItem [
+	^ contents projectAwareItem item: self
 ]

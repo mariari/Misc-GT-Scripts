@@ -1,10 +1,10 @@
 Class {
 	#name : #GithubToolingBoard,
-	#superclass : #GithubToolingOrg,
-	#traits : 'GitLabelsMixin',
-	#classTraits : 'GitLabelsMixin classTrait',
+	#superclass : #GithubToolingOwner,
 	#instVars : [
-		'board'
+		'board',
+		'projectBoard',
+		'itemRepos'
 	],
 	#category : #'MiscGTScripts-git - query'
 }
@@ -19,41 +19,69 @@ GithubToolingBoard >> board: anObject [
 	board := anObject
 ]
 
-{ #category : #building }
-GithubToolingBoard >> build [
-	self computeLabels
+{ #category : #accessing }
+GithubToolingBoard >> githubToolingRepoAt: aRepo [
+	<argument: #aRepo isKindOf: #GithubRepoMinimal>
+	<return: #GithubToolingRepo>
+	^ itemRepos
+		at: aRepo name
+		ifAbsentPut: [ self makeGithubToolingRepoAt: aRepo name ]
 ]
 
-{ #category : #building }
-GithubToolingBoard >> computeLabels [
-	^ self allLabels: self projectBoardBasicStatus
+{ #category : #visualization }
+GithubToolingBoard >> gtLabelView: aView [
+	<gtView>
+	^ aView forward
+		object: [ self statuses.
+			projectBoard ];
+		priority: 11;
+		view: #gtLabelView:;
+		title: 'Statuses'
 ]
 
 { #category : #visualization }
 GithubToolingBoard >> gtProjectView: aView [
 	<gtView>
-	^ aView columnedList
+	^ aView forward
+		object: [ projectBoard ];
+		view: #gtProjectView:;
 		title: 'Project View';
-		items: [ self projectBoardBasicItems ];
-		priority: 10;
-		column: 'Index'
-			text: [ :aValue :anIndex | anIndex asRopedText foreground: BrGlamorousColors disabledButtonTextColor ]
-			width: 40;
-		column: 'Item Name'
-			text: [ :aValue | aValue itemName asRopedText foreground: Color black ];
-		column: 'State'
-			do: [ :aColumn | 
-				aColumn
-					stencil: [ :aValue | 
-						BrButton new
-							aptitude: BrGlamorousButtonRectangularAptitude + BrGlamorousToggleWithLabelAptitude;
-							border: aValue status color;
-							label: aValue status name ] ];
-		column: 'Tags'
-			do: [ :aColumn | 
-				aColumn
-					stencil: [ :aValue | aValue labelsCrumbList ];
-					width: 300 ]
+		priority: 10
+]
+
+{ #category : #initalization }
+GithubToolingBoard >> initialize [
+	super initialize.
+	projectBoard := GithubProjectBoard new.
+	itemRepos := Dictionary new
+]
+
+{ #category : #accessing }
+GithubToolingBoard >> itemRepos [
+	^ itemRepos
+]
+
+{ #category : #accessing }
+GithubToolingBoard >> itemRepos: anObject [
+	itemRepos := anObject
+]
+
+{ #category : #accessing }
+GithubToolingBoard >> items [
+	projectBoard items ifNil: [ self queryItems ].
+	projectBoard items isAsyncStream
+		ifTrue: [ ^ projectBoard items asyncSimilarCopy ].
+	^ projectBoard items
+]
+
+{ #category : #accessing }
+GithubToolingBoard >> itemsWithSurroundingKnowledge [
+	^ self items
+		collect: [ :v2Item | 
+			v2Item id ifNil: [ self queryEssential ].
+			v2Item toProjectAwareItem
+				projectBoard: self;
+				repo: (self githubToolingRepoAt: v2Item repo) ]
 ]
 
 { #category : #accessing }
@@ -61,10 +89,57 @@ GithubToolingBoard >> labelName [
 	^ 'Statuses'
 ]
 
+{ #category : #accessing }
+GithubToolingBoard >> loadAllItemRepos [
+	"Loads all the items and puts their repository into the repository cache"
+
+	"Normally I should not be called, however if one wants to ensure all repos are there now
+	then this method will do"
+
+	(self loadAllItems collectAsSet: [ :item | item contents repo name ])
+		do: [ :name | itemRepos at: name ifAbsentPut: [ self makeGithubToolingRepoAt: name ] ].
+	^ itemRepos
+]
+
+{ #category : #accessing }
+GithubToolingBoard >> loadAllItems [
+	"Forces the async stream of items to be an array"
+
+	| itemList |
+	itemList := self items.
+	itemList isAsyncStream
+		ifTrue: [ itemList := itemList toArray wait.
+			projectBoard items: itemList ].
+	^ itemList
+]
+
+{ #category : #accessing }
+GithubToolingBoard >> loadEverything [
+	"like queryEverything, but we turn the asynchronous values into being concrete"
+
+	self loadAllItems.
+	self loadAllItemRepos
+]
+
+{ #category : #accessing }
+GithubToolingBoard >> makeGithubToolingRepoAt: name [
+	^ GithubToolingRepo new
+		context: context;
+		repoName: name;
+		owner: owner withKind: kind
+]
+
+{ #category : #accessing }
+GithubToolingBoard >> projectBoard: aProjectBoard [
+	"replaces the project board, useful for mocking"
+
+	projectBoard := aProjectBoard
+]
+
 { #category : #querying }
 GithubToolingBoard >> projectBoardArguments [
 	^ Dictionary new
-		at: #organization put: self organization;
+		at: #login put: self owner;
 		at: #board put: self board;
 		at: #after put: nil;
 		yourself
@@ -72,36 +147,90 @@ GithubToolingBoard >> projectBoardArguments [
 
 { #category : #stream }
 GithubToolingBoard >> projectBoardBasicItems [
-	^ self projectBoardQuery paginator
+	^ self rawQueryBoardItems paginator
 		cursorInputName: #after;
 		connectorPath: #(organization projectV2 items);
-		collect: [ :item | GithubProjectV2Item new fromJson: (item asGtJson at: #node) ]
+		collect: [ :item | 
+			GithubProjectV2Item new
+				fromJson: (item asGtJson at: #node);
+				owner: self owner ]
 ]
 
 { #category : #stream }
 GithubToolingBoard >> projectBoardBasicStatus [
-	^ (self projectBoardStatus data asGtJson
+	^ (self rawQueryBoardStatus data asGtJson
 		atPath: #(organization projectV2 status options))
 		collect: [ :x | GitLabelInfo new fromJson: x ]
 ]
 
+{ #category : #building }
+GithubToolingBoard >> queryEssential [
+	^ projectBoard fromJson: (self rawQueryBoardEssentialInfo data atPath: #(organization projectV2))
+]
+
+{ #category : #building }
+GithubToolingBoard >> queryEverything [
+	"Computes all fields that can be queried. Queries for items and repos will be an async stream"
+
+	({[ self queryItems ].
+		[ self queryEssential ].
+		[ self queryStatuses ]} collect: #asAsyncPromise) do: #wait
+]
+
+{ #category : #accessing }
+GithubToolingBoard >> queryItemRepositories [
+	"This can be used for ensuring we have all repositories.
+	However in normal use, the repositories should be built incrementally as needed instead"
+
+	^ ((self loadAllItems collectAsSet: [ :item | item contents repo name ])
+		collect: [ :name | 
+			name
+				-> (GithubToolingRepo new
+						context: context;
+						repoName: name;
+						organization: organization) ]) as: Dictionary
+]
+
+{ #category : #building }
+GithubToolingBoard >> queryItems [
+	^ projectBoard items: self projectBoardBasicItems
+]
+
+{ #category : #building }
+GithubToolingBoard >> queryStatuses [
+	^ projectBoard allLabels: self projectBoardBasicStatus
+]
+
 { #category : #querying }
-GithubToolingBoard >> projectBoardQuery [
+GithubToolingBoard >> rawQueryBoardEssentialInfo [
 	^ self context client
-		operation: 'query WhatsCooking($board: Int!, $organization: String!, $after: String){
-	organization(login: $organization) {
-		login name url
+		operation: 'query ProjectBoardInfo($board: Int!, $login: String!){'
+				, (self
+						ownerQuery: '
 		projectV2 (number: $board) {
 			__typename
 			title
 			number
-			id
+			number
+			owner { 
+				__typename
+				...on Organization { name }
+			}
+			id } }')
+		input: self projectBoardArguments
+]
+
+{ #category : #querying }
+GithubToolingBoard >> rawQueryBoardItems [
+	^ self context client
+		operation: '
+query WhatsCooking($board: Int!, $login: String!, $after: String){'
+				, (self
+						ownerQuery: '
+		projectV2 (number: $board) {
+			__typename
 			items(first: 99, after: $after) {
-				totalCount
-				pageInfo { hasNextPage endCursor hasPreviousPage startCursor }
-				edges {
-					cursor
-					node {
+				edges { node {
 					id
 					content {
 						... on Issue {
@@ -109,40 +238,40 @@ GithubToolingBoard >> projectBoardQuery [
 							number
 							closed
 							title
-							repository {
-								labels(first: 99) {
-								edges { node { color name description } } }
-							}
-						}
+							labels(first: 99) { edges { node { color name description } } }
+							repository { name } }
 						... on PullRequest {
 							id
 							headRefName 
 							number
-							repository {
-								labels(first: 99) {
-								edges { node { color name description } } }
-							} } }
-					labels: fieldValueByName (name: "Labels") {
-						... on ProjectV2ItemFieldLabelValue {
-							
-							labels(first: 10) {
-								edges { node { color name description } } } } }
+							labels(first: 99) { edges { node { color name description } } }
+							repository { name } } }
+
 					status: fieldValueByName (name: "Status") {
-						
+
 						... on ProjectV2ItemFieldSingleSelectValue {
-							color name description } } } } } } } }'
+							color name description } } } } } } }')
 		input: self projectBoardArguments
 ]
 
 { #category : #querying }
-GithubToolingBoard >> projectBoardStatus [
+GithubToolingBoard >> rawQueryBoardStatus [
 	^ self context client
-		operation: 'query Status($board: Int!, $organization: String!){
-	organization(login: $organization) {
+		operation: 'query Status($board: Int!, $login: String!){'
+				, (self
+						ownerQuery: '
 		projectV2 (number: $board) {
 			status: field(name: "Status") {
 				__typename
 				... on ProjectV2SingleSelectField {
-					options { color name description }}}}}}'
+					options { color name description }}}}}')
 		input: self projectBoardArguments
+]
+
+{ #category : #accessing }
+GithubToolingBoard >> statuses [
+	projectBoard allLabels ifNil: [ self queryStatuses ].
+	projectBoard allLabels isAsyncStream
+		ifTrue: [ ^ projectBoard allLabels asyncSimilarCopy ].
+	^ projectBoard allLabels
 ]

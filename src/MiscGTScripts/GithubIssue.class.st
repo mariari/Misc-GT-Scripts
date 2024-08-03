@@ -1,8 +1,8 @@
 Class {
 	#name : #GithubIssue,
 	#superclass : #GithubGQL,
-	#traits : 'GithubJSON',
-	#classTraits : 'GithubJSON classTrait',
+	#traits : 'GithubJSON + GitLabelsMixin',
+	#classTraits : 'GithubJSON classTrait + GitLabelsMixin classTrait',
 	#instVars : [
 		'title',
 		'itemNumber',
@@ -16,8 +16,14 @@ GithubIssue >> fromJson: ajson [
 	self
 		titleFromJSON: ajson;
 		itemNumberFromJson: ajson;
-		repositoryInfoFromJson: ajson.
-	^ self
+		repositoryInfoFromJson: ajson;
+		labelsFromJson: ajson
+]
+
+{ #category : #initalization }
+GithubIssue >> initialize [
+	super initialize.
+	self repo: GithubRepoMinimal new
 ]
 
 { #category : #accessing }
@@ -41,8 +47,30 @@ GithubIssue >> itemNumberFromJson: ajson [
 ]
 
 { #category : #accessing }
+GithubIssue >> labelName [
+	^ 'current labels'
+]
+
+{ #category : #accessing }
+GithubIssue >> labelsFromJson: projectBoardItem [
+	self
+		allLabels: ((projectBoardItem atPath: #(labels edges))
+				collect: [ :x | GitLabelInfo new fromJson: (x at: #node) ])
+]
+
+{ #category : #accessing }
 GithubIssue >> name [
 	^ self title
+]
+
+{ #category : #accessing }
+GithubIssue >> owner: aString [
+	self repo owner: aString
+]
+
+{ #category : #accessing }
+GithubIssue >> projectAwareItem [
+	^ GitIssueInfo new
 ]
 
 { #category : #accessing }
@@ -57,7 +85,7 @@ GithubIssue >> repo: anObject [
 
 { #category : #setting }
 GithubIssue >> repositoryInfoFromJson: ajson [
-	self repo: (GithubRepo new fromJson: (ajson at: #repository))
+	self repo fromJson: (ajson at: #repository)
 ]
 
 { #category : #accessing }

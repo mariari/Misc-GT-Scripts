@@ -2,8 +2,7 @@ Class {
 	#name : #GitTopicInfo,
 	#superclass : #ProjectBoardItem,
 	#instVars : [
-		'topic',
-		'description'
+		'topic'
 	],
 	#category : #'MiscGTScripts-git'
 }
@@ -66,6 +65,14 @@ GitTopicInfo >> allChildrenIn: topics andCache: aDictionary andIgnore: ignoreSet
 ]
 
 { #category : #accessing }
+GitTopicInfo >> gitRepository: aRepo andRemoteName: upstream [
+	self
+		topic: (IceGitRemoteBranch
+				named: upstream , '/' , self item contents refName
+				inRepository: aRepo)
+]
+
+{ #category : #accessing }
 GitTopicInfo >> gtCommitsFor: aView [
 	<gtView>
 	^ aView forward
@@ -101,7 +108,7 @@ GitTopicInfo >> printOn: stream [
 		nextPutAll: self topic name;
 		nextPutAll: ' #'.
 
-	itemNumber printOn: stream base: 10.
+	self itemNumber printOn: stream base: 10.
 	^ stream
 ]
 
@@ -113,13 +120,6 @@ GitTopicInfo >> topic [
 { #category : #setting }
 GitTopicInfo >> topic: atopic [
 	topic := atopic
-]
-
-{ #category : #setting }
-GitTopicInfo >> topic: atopic tags: atags [
-	self topic: atopic.
-	self tags: atags.
-	self
 ]
 
 { #category : #accessing }

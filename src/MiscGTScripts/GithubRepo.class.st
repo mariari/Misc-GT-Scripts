@@ -5,14 +5,15 @@ My {{gtClass:name=GitLabelsMixin}} refers to the labels that {{gtClass:name=GitT
 "
 Class {
 	#name : #GithubRepo,
-	#superclass : #GithubGQL,
-	#traits : 'GithubJSON + GitLabelsMixin',
-	#classTraits : 'GithubJSON classTrait + GitLabelsMixin classTrait',
+	#superclass : #GithubRepoMinimal,
+	#traits : 'GitLabelsMixin',
+	#classTraits : 'GitLabelsMixin classTrait',
 	#category : #'MiscGTScripts-git'
 }
 
 { #category : #setting }
 GithubRepo >> fromJson: ajson [
+	super fromJson: ajson.
 	self
 		allLabels: ((ajson atPath: #(labels edges))
 				collect: [ :node | GitLabelInfo new fromJson: (node at: #node) ]).

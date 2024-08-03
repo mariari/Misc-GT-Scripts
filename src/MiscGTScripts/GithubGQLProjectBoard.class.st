@@ -25,8 +25,8 @@ GithubGQLProjectBoard >> computeItems [
 
 { #category : #stream }
 GithubGQLProjectBoard >> computeStatus [
-	queryContext computeLabels.
-	^ self allLabels: queryContext allLabels
+	queryContext queryStatuses.
+	^ self allLabels: queryContext statuses
 ]
 
 { #category : #accessing }
@@ -57,16 +57,15 @@ GithubGQLProjectBoard >> organisation: anObject [
 	queryContext organization: anObject
 ]
 
+{ #category : #accessing }
+GithubGQLProjectBoard >> populateEverything [
+	queryContext queryEverything
+]
+
 { #category : #stream }
 GithubGQLProjectBoard >> projectValueStream [
-	^ queryContext projectBoardQuery paginator
-		connectorPath: #(organization projectV2 items);
-		collect: [ :item | 
-			GithubProjectV2Item new
-				fromJson: (item asGtJson at: #node);
-				toProjectBoardItemWith: self repo
-					andUpstream: self remoteName
-					andProjectStatus: self allLabels ]
+	^ queryContext itemsWithSurroundingKnowledge
+		collect: [ :v2Item | v2Item gitRepository: self repo andRemoteName: remoteName ]
 ]
 
 { #category : #accessing }
