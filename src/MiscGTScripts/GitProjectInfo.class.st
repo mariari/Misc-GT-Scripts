@@ -11,7 +11,7 @@ Class {
 	#traits : 'GitLabelsMixin',
 	#classTraits : 'GitLabelsMixin classTrait',
 	#instVars : [
-		'stauses'
+		'statuses'
 	],
 	#category : #'MiscGTScripts-git'
 }
@@ -21,7 +21,7 @@ GitProjectInfo >> gtStatusView: aView [
 	<gtView>
 	^ aView forward
 		title: 'Project Board Statuses';
-		object: (GitProjectInfo new allLabels: self stauses);
+		object: (GitProjectInfo new allLabels: self statuses);
 		view: #gtLabelView:
 ]
 
@@ -31,11 +31,11 @@ GitProjectInfo >> labelName [
 ]
 
 { #category : #accessing }
-GitProjectInfo >> statuses: anObject [
-	stauses := anObject
+GitProjectInfo >> statuses [
+	^ statuses
 ]
 
 { #category : #accessing }
-GitProjectInfo >> stauses [
-	^ stauses
+GitProjectInfo >> statuses: anObject [
+	statuses := anObject
 ]

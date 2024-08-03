@@ -104,7 +104,7 @@ ProjectBoardItem >> updateStatusButton [
 					aptitude: BrGlamorousButtonRectangularAptitude + BrGlamorousToggleWithLabelAptitude;
 					icon: BrGlamorousIcons menu ]
 			content: [ BrSimpleList new
-					items: (self hasProjectInfo ifTrue: [ self projectInfo stauses ] ifFalse: [ {} ]);
+					items: (self hasProjectInfo ifTrue: [ self projectInfo statuses ] ifFalse: [ {} ]);
 					itemDataBinder: [ :statusWidget :aStatus :anIndex | 
 						BrButton new
 							aptitude: BrGlamorousButtonWithLabelAptitude
