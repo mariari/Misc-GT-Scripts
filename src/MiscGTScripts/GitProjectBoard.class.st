@@ -128,7 +128,7 @@ GitProjectBoard >> isInReleaseColor: anItem [
 		ifTrue: [ (self candidate commit isParentOf: anItem topic commit)
 				ifTrue: [ ^ Color fromHexString: '087D91' ]
 				ifFalse: [ ^ Color fromHexString: '911c08' ] ].
-	anItem isTopic not ifTrue: [ ^ Color fromHexString: '65c3a9' ].
+	anItem isTopic not ifTrue: [ ^ Color fromHexString: '378b74' ].
 	^ Color black
 ]
 

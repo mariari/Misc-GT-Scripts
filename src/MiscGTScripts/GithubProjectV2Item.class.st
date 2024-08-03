@@ -107,24 +107,22 @@ GithubProjectV2Item >> toProjectBoardItemWith: repo andUpstream: upstream [
 { #category : #stream }
 GithubProjectV2Item >> toProjectBoardItemWith: repo andUpstream: upstream andProjectStatus: allStatuses [
 	| content topic projectItem |
-	" TODO, try to get WIP issue info as well"
+	"TODO, try to get WIP issue info as well"
 	"TODO replace boolean check with dispatch to contents to allocate their type"
 	content := self contents.
 	projectItem := content isTopic
 			ifTrue: [ topic := IceGitRemoteBranch
 						named: upstream , '/' , content refName
 						inRepository: repo.
-				GitTopicInfo new
-					projectInfo: (GitProjectInfo new
-							allLabels: content repo allLabels;
-							statuses: allStatuses;
-							yourself);
-					topic: topic ]
+				GitTopicInfo new topic: topic ]
 			ifFalse: [ GitIssueInfo new title: content title ].
 
 	^ projectItem
 		status: self status;
 		allLabels: self allLabels;
 		itemNumber: content itemNumber;
+		projectInfo: (GitProjectInfo new
+				allLabels: content repo allLabels;
+				statuses: allStatuses);
 		yourself
 ]

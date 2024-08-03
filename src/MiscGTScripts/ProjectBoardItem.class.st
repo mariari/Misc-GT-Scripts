@@ -60,6 +60,16 @@ ProjectBoardItem >> labelName [
 ]
 
 { #category : #accessing }
+ProjectBoardItem >> printOn: stream [
+	stream
+		nextPutAll: self itemName;
+		nextPutAll: ' #'.
+
+	itemNumber printOn: stream base: 10.
+	^ stream
+]
+
+{ #category : #accessing }
 ProjectBoardItem >> projectInfo [
 	<return: #GitProjectInfo>
 	^ projectInfo
