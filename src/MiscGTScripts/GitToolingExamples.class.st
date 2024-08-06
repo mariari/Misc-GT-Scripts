@@ -684,15 +684,6 @@ GitToolingExamples >> genesisFileIssueJson [
 	^ json asGtJson
 ]
 
-{ #category : #dependencies }
-GitToolingExamples >> githubAccessKey [
-	"There ought to be better ways to do this"
-
-	| githubAccessKeyFile |
-	githubAccessKeyFile := FileLocator home / '.emacs.d' / 'gh-key.txt'.
-	^ githubAccessKeyFile contents trimBoth
-]
-
 { #category : #accessing }
 GitToolingExamples >> githubPRNifIntegration [
 	<gtExample>
@@ -791,11 +782,14 @@ GitToolingExamples >> githubRepoAnoma [
 GitToolingExamples >> graphQLContext [
 	"There ought to be a better way than this"
 
+	"Look at GhTokenHolder if the assertion fails"
+
 	<gtExample>
 	| aContext |
+	self assert: GhTokenHolder hasToken.
 	aContext := GtGQLContext new
 			url: 'https://api.github.com/graphql';
-			bearerToken: self githubAccessKey;
+			bearerToken: GhTokenHolder token;
 			buildSchema.
 
 	aContext reportClass: GhGQLReport.
