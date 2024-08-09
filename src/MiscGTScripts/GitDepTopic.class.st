@@ -88,6 +88,17 @@ GitDepTopic >> finalized: anObject [
 	finalized := anObject
 ]
 
+{ #category : #accessing }
+GitDepTopic >> fullGraph [
+	^ GitDepGraph
+		newWithExistingNodes: (Set new
+				addAll: self children;
+				addAll: self parents;
+				addAll: self unrelated;
+				add: self;
+				yourself)
+]
+
 { #category : #visualization }
 GitDepTopic >> gtCommitsFor: aView [
 	<gtView>
@@ -96,6 +107,36 @@ GitDepTopic >> gtCommitsFor: aView [
 		priority: 10;
 		object: [ self topic ];
 		view: #gtCommitsFor:
+]
+
+{ #category : #accessing }
+GitDepTopic >> gtReleventDependencies: aView [
+	<gtView>
+	^ aView forward
+		title: 'Subgraph Dependencies';
+		priority: 9;
+		object: [ self releventSubgraph ];
+		view: #gtRepositoryDependencies:
+]
+
+{ #category : #accessing }
+GitDepTopic >> gtRepositoryDependencies: aView [
+	<gtView>
+	^ aView forward
+		title: 'Topic DependencyGraph';
+		priority: 12;
+		object: [ self fullGraph ];
+		view: #gtRepositoryDependencies:
+]
+
+{ #category : #accessing }
+GitDepTopic >> gtUnrelatedNodes: aView [
+	<gtView>
+	^ aView forward
+		title: 'Unrelated Dependencies';
+		priority: 10;
+		object: [ self unrelatedGraph ];
+		view: #gtRepositoryDependencies:
 ]
 
 { #category : #predicates }
@@ -191,6 +232,16 @@ GitDepTopic >> printOn: stream [
 ]
 
 { #category : #accessing }
+GitDepTopic >> releventSubgraph [
+	^ GitDepGraph
+		newWithExistingNodes: (Set new
+				addAll: self children;
+				addAll: self parents;
+				add: self;
+				yourself)
+]
+
+{ #category : #accessing }
 GitDepTopic >> topic [
 	^ topic
 ]
@@ -208,4 +259,12 @@ GitDepTopic >> unrelated [
 { #category : #accessing }
 GitDepTopic >> unrelated: anObject [
 	unrelated := anObject
+]
+
+{ #category : #accessing }
+GitDepTopic >> unrelatedGraph [
+	^ GitDepGraph
+		newWithExistingNodes: (Set new
+				addAll: self unrelated;
+				yourself)
 ]

@@ -22,6 +22,12 @@ GitDepGraph class >> new: topics [
 	^ self basicNew initalizeWith: (self freshNodes: topics)
 ]
 
+{ #category : #creating }
+GitDepGraph class >> newWithExistingNodes: aNodes [
+	^ self new
+		initalizeWith: (aNodes collect: [ :aDepTopic | aDepTopic topic -> aDepTopic ])
+]
+
 { #category : #accessing }
 GitDepGraph >> computeRelations [
 	nodes do: [ :node | node computeRelationsWith: self ]
