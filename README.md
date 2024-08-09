@@ -11,3 +11,5 @@ Metacello new
   baseline: 'MiscGTScripts';
   load
 ```
+
+### Load LepiterAfter installing with Metacello, you will be able to execute```#BaselineOfMiscGTScripts asClass loadLepiter```

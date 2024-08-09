@@ -4,6 +4,21 @@ Class {
 	#category : #BaselineOfMiscGTScripts
 }
 
+{ #category : #loading }
+BaselineOfMiscGTScripts class >> loadLepiter [
+	IceRepository registry  
+		detect: [ :aRepository |
+			aRepository name = 'Misc-GT-Scripts' ]
+		ifFound: [ :aRepository | 
+			| defaultDatabase currentProperties |
+			defaultDatabase := LeDatabasesRegistry defaultLogicalDatabase.
+			currentProperties := defaultDatabase properties.
+			currentProperties addRegisteredDirectory: aRepository repositoryDirectory / 'lepiter'.
+			defaultDatabase reload ]
+		ifNone: [
+			self inform: 'Repository not found.' ]
+]
+
 { #category : #baseline }
 BaselineOfMiscGTScripts >> baseline: spec [
 	<baseline>
