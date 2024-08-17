@@ -29,7 +29,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-08-09T18:24:08.488483+08:00"
+						"dateAndTimeString" : "2024-08-09T18:24:32.974195+08:00"
 					}
 				},
 				"uid" : {
@@ -39,7 +39,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "[[Using the Git management Tool]]"
+				"string" : "[[Using the Git Management Tool]]"
 			}
 		]
 	},

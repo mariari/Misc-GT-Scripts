@@ -1,0 +1,1293 @@
+{
+	"__schema" : "4.1",
+	"__type" : "page",
+	"children" : {
+		"__type" : "snippets",
+		"items" : [
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-08-17T11:36:50.298501+08:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-08-17T11:37:02.565354+08:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "zCbshTrcDQC6Nl2TA29YrQ=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "This code came about as I was curious on how the FFI and loading system works on Unix."
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-08-17T11:37:10.500382+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-08-17T11:37:34.711258+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "kV8ghzrcDQC8igh/A29YrQ=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "<https://books.pharo.org/booklet-uffi/>"
+						}
+					]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-08-17T11:37:05.987225+08:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-08-17T11:37:10.281192+08:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "4IfbhjrcDQC78FwGA29YrQ=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "Here are the references I used:"
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-08-17T11:38:03.951464+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-08-17T11:38:11.057665+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "4f5PijrcDQC+BIYtA29YrQ=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "<https://github.com/mariari/Misc-c-scripts>"
+						}
+					]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-08-17T11:37:45.350471+08:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-08-17T11:38:02.882176+08:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "zCg0iTrcDQC8rpYpA29YrQ=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "For the later examples I would add a dynamic library to my:"
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-08-17T11:38:13.441463+08:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-08-17T11:38:37.382424+08:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "e8rgijrcDQC+GkUyA29YrQ=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "So we can see that when we add our FFI code, that we can extract out a dynamic lib to then have our smalltalk system find."
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-08-17T11:34:02.560847+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-08-17T11:34:57.866632+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "66jsezrcDQC2MG6QA29YrQ=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Before we begin by playing around with our C code, let us play with some of the FFI system and classes that use it directly"
+						},
+						{
+							"__type" : "pharoSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [
+									{
+										"__type" : "pharoSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-08-16T22:25:40.658315+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-08-17T11:36:00.042737+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "6eqCeC/cDQCQSI99AQTEmw=="
+										},
+										"code" : "LGitId fromByteArray: (ByteArray readHexFrom: '1c48151163e39b875da9c83c72d94e6587a20311')"
+									}
+								]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-08-16T22:16:38.477238+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-08-16T22:28:43.116858+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "R+QxWC/cDQCNCaa7AQTEmw=="
+							},
+							"code" : "LGitId fromHexString: '1c48151163e39b875da9c83c72d94e6587a20311'"
+						},
+						{
+							"__type" : "pharoSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-08-16T22:28:43.507088+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-08-16T22:29:05.001415+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "Gvhogy/cDQCRHW4pAQTEmw=="
+							},
+							"code" : "byte20 := FFITypeArray ofType: 'uint8' size: 20."
+						},
+						{
+							"__type" : "pharoSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-08-16T22:23:10.481883+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-08-16T22:48:39.669348+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "zmSPby/cDQCOsHBgAQTEmw=="
+							},
+							"code" : "external := byte20 externalNew."
+						},
+						{
+							"__type" : "pharoSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-08-16T22:18:57.423338+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-08-16T22:24:52.94413+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "ZAp6YC/cDQCNGJP3AQTEmw=="
+							},
+							"code" : "handle := external getHandle."
+						},
+						{
+							"__type" : "pharoSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-08-16T22:24:53.68128+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-08-16T22:42:33.351842+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "8xq2dS/cDQCP+b1pAQTEmw=="
+							},
+							"code" : "external\r\treplaceFrom: 1\r\tto: external size\r\twith: aByteArray"
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [
+									{
+										"__type" : "pharoSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-08-16T22:43:33.784433+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-08-16T22:43:33.784433+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "pnx5uC/cDQCYpKGVAQTEmw=="
+										},
+										"code" : "external at:1"
+									},
+									{
+										"__type" : "pharoSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-08-16T22:42:45.020051+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-08-16T22:49:22.297097+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "Jm2RtS/cDQCX+HxCAQTEmw=="
+										},
+										"code" : "\"Devolves into\"\rhandle integerAt: 0 + 1 size: 1 signed: false"
+									}
+								]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-08-16T22:42:35.007355+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-08-16T22:42:41.099826+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "dab4tC/cDQCXPuNYAQTEmw=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Fetching from an Address"
+						}
+					]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-08-17T11:33:16.857465+08:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-08-17T11:33:31.933118+08:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "h0HWeDrcDQC0hiXCA29YrQ=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "###Playing around with the system"
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-08-17T11:38:48.25863+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-08-17T11:39:28.050429+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "WFiljDrcDQCAqztLA29YrQ=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "A more advanced way to call c code is to have a callback with the {{gtClass:FFICallback}} class."
+						},
+						{
+							"__type" : "pharoSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-08-16T22:49:49.18542+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-08-16T22:54:00.890705+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "Vq3Zzi/cDQCdQ7jhA29YrQ=="
+							},
+							"code" : "FFICallback exampleCqsort"
+						}
+					]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "mariari@protonmail.ch"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-08-16T22:49:27.812497+08:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "mariari@protonmail.ch"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-08-16T22:49:35.056588+08:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "/a1VzS/cDQCcVAj5A29YrQ=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "###Trying to make sense of FFICalback"
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-08-17T11:39:41.834013+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-08-17T11:40:09.180792+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "wI4lkDrcDQCC77LAA29YrQ=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Now that we have used the system a bit, let us try making custom calls."
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [
+									{
+										"__type" : "pharoSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-08-16T23:09:14.402408+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-08-16T23:17:58.792659+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "cXpNFDDcDQCqnaxKCq8HvA=="
+										},
+										"code" : "LibC uniqueInstance ffiCall: #( uint clock(void) )"
+									},
+									{
+										"__type" : "pharoSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-08-16T23:19:03.92695+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-08-16T23:20:47.912917+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "MuZwNzDcDQCdGYWqA29YrQ=="
+										},
+										"code" : "LibC uniqueInstance ffiCall: #(double sqrt #(double value))"
+									},
+									{
+										"__type" : "pharoSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-08-16T23:21:40.414997+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-08-16T23:21:51.747314+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "srzEQDDcDQCegdV0A29YrQ=="
+										},
+										"code" : "LibC uniqueInstance ffiCall: #(int getpid(void))"
+									},
+									{
+										"__type" : "pharoSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-08-16T23:12:49.008463+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-08-17T11:28:35.382094+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "DB4YITDcDQCcIBT1A29YrQ=="
+										},
+										"code" : "Object new ffiCall: #(clock_t clock #()) library: 'libc.so.6'"
+									}
+								]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-08-16T23:22:52.231029+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-08-17T11:40:41.642994+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "r48MRTDcDQCcK/ryA29YrQ=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "I believe for compilation reasons`ffiCall:` doesn't work in the playground like this:"
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-08-17T11:40:46.204166+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-08-17T11:40:58.023303+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "Q8X7kzrcDQCGwrRSA29YrQ=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "However if we make it into a class then it works."
+						},
+						{
+							"__type" : "pharoSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-08-16T23:23:07.669876+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-08-17T10:39:51.774206+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "LCH4RTDcDQCdv4D3A29YrQ=="
+							},
+							"code" : "MiscFFIExamples sqrt: 5.0.\rMiscFFIExamples clock.\rMiscFFIExamples clockByHand"
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-08-17T11:41:15.31356+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-08-17T11:42:04.698057+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "G/G3lTrcDQCH3CFjA29YrQ=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Note that `clockByHand` and `sqrt:` will fail for those on windows or OSX, as I'm invoking the library name by hand, however there are easy fixes for this, as `clock` should work cross platform."
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [
+									{
+										"__type" : "pharoSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-08-17T10:46:27.620551+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-08-17T11:18:32.500307+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "VrzB0TncDQCjo4xyA29YrQ=="
+										},
+										"code" : "\"We put the path in this method\"\rinstance := MiscFFIDynamicLib uniqueInstance .\r\rinstance unix64LibraryName.\rinstance libraryName"
+									}
+								]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-08-17T11:42:06.972845+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-08-17T11:42:32.390396+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "UDPMmDrcDQCMVoYRA29YrQ=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "With calling LibC out of the way, let us call into the shared library of <https://github.com/mariari/Misc-c-scripts>."
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [
+									{
+										"__type" : "pharoSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-08-17T11:19:33.711687+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-08-17T11:22:02.131225+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "1ggjSDrcDQCu2GzAA29YrQ=="
+										},
+										"code" : "MiscFFIExamples indirectSqrt: 5.0."
+									},
+									{
+										"__type" : "pharoSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-08-17T11:25:46.36799+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-08-17T11:28:41.758997+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "bV1ZXjrcDQCzsS7tA29YrQ=="
+										},
+										"code" : "MiscFFIExamples sayHello"
+									}
+								]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-08-17T11:19:02.742259+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-08-17T11:19:28.352515+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "VkEbRjrcDQCtSmooA29YrQ=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Now that we have it as a library, let us call it"
+						}
+					]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "mariari@protonmail.ch"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-08-16T23:09:06.671666+08:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "mariari@protonmail.ch"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-08-16T23:22:51.988673+08:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "xYXXEzDcDQCqBNkOCq8HvA=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "##Trying our own Functions"
+			}
+		]
+	},
+	"createEmail" : {
+		"__type" : "email",
+		"emailString" : "mariari@protonmail.ch"
+	},
+	"createTime" : {
+		"__type" : "time",
+		"time" : {
+			"__type" : "dateAndTime",
+			"dateAndTimeString" : "2024-08-16T21:58:28.984187+08:00"
+		}
+	},
+	"editEmail" : {
+		"__type" : "email",
+		"emailString" : "mariari@protonmail.ch"
+	},
+	"editTime" : {
+		"__type" : "time",
+		"time" : {
+			"__type" : "dateAndTime",
+			"dateAndTimeString" : "2024-08-17T11:29:33.609022+08:00"
+		}
+	},
+	"pageType" : {
+		"__type" : "namedPage",
+		"title" : "Playing with FFIs"
+	},
+	"uid" : {
+		"__type" : "uuid",
+		"uuid" : "9f671217-2fdc-0d00-89f7-b48a0104c49b"
+	}
+}

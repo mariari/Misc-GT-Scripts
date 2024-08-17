@@ -40,6 +40,43 @@
 					"__type" : "textStyle"
 				},
 				"string" : "[[Using the Git Management Tool]]"
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-08-17T11:32:54.151641+08:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-08-17T11:32:54.15941+08:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "N5q2dzrcDQC0aPf4A29YrQ=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "[[Playing with FFIs]]"
 			}
 		]
 	},
