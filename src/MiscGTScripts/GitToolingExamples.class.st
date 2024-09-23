@@ -722,7 +722,7 @@ GitToolingExamples >> githubPRV16 [
 		allLabels: {self allLabels at: 18.
 				self allLabels at: 20.
 				self allLabels at: 5};
-		refName: 'attic/v0.16.0';
+		refName: 'Attic/v0.16.0';
 		itemNumber: 200
 ]
 
