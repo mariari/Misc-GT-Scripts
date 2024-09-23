@@ -5,6 +5,20 @@ Class {
 }
 
 { #category : #accessing }
+GitToolingExamples >> Atticv021Next [
+	<gtExample>
+	| branch topic |
+	branch := IceGitRemoteBranch
+			named: self remoteName , '/Attic/v0.21.0-next'
+			inRepository: self anomaRepo.
+
+	topic := self branchMerged
+			topic: branch;
+			item: self githubProjectV2NIFIntegration.
+	^ topic
+]
+
+{ #category : #accessing }
 GitToolingExamples >> allLabels [
 	<gtExample>
 	^ self allLabelsJSON
@@ -312,7 +326,7 @@ GitToolingExamples >> branchBase [
 			item: self githubProjectV2ItemPubSub;
 			topic: branch.
 	self assert: [ self branchV16 isParentOf: topic ].
-	self assert: [ (topic isParentOf: self branchNifIntegration) not ].
+	self assert: [ (topic isParentOf: self Atticv021Next) not ].
 	^ topic
 ]
 
@@ -321,7 +335,7 @@ GitToolingExamples >> branchMerged [
 	<gtExample>
 	| branch topic |
 	branch := IceGitRemoteBranch
-			named: 'anoma/mariari/node-from-base'
+			named: 'anoma/Attic/v0.15.0'
 			inRepository: self anomaRepo.
 
 
@@ -334,31 +348,17 @@ GitToolingExamples >> branchMerged [
 ]
 
 { #category : #accessing }
-GitToolingExamples >> branchNifIntegration [
-	<gtExample>
-	| branch topic |
-	branch := IceGitRemoteBranch
-			named: self remoteName , '/attic/mariari/nif-integration'
-			inRepository: self anomaRepo.
-
-	topic := self branchMerged
-			topic: branch;
-			item: self githubProjectV2NIFIntegration.
-	^ topic
-]
-
-{ #category : #accessing }
 GitToolingExamples >> branchV16 [
 	<gtExample>
 	| branch topic |
 	branch := IceGitRemoteBranch
-			named: self remoteName , '/attic/v0.16.0'
+			named: self remoteName , '/Attic/v0.16.0'
 			inRepository: self anomaRepo.
 
 	topic := self branchMerged
 			topic: branch;
 			item: self githubPRV16.
-	self assert: [ topic isParentOf: self branchMerged ].
+	self assert: [ self branchMerged isParentOf: topic ].
 	^ topic
 ]
 
@@ -418,7 +418,7 @@ GitToolingExamples >> exampleReleaseCheck [
 	| release |
 	release := GitProjectBoardByHand new candidateBranch: self rcBranch.
 	release
-		items: {self branchNifIntegration.
+		items: {self Atticv021Next.
 				self branchMerged}.
 
 	^ release
