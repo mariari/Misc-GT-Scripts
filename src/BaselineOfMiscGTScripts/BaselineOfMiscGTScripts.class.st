@@ -22,7 +22,9 @@ BaselineOfMiscGTScripts class >> loadLepiter [
 { #category : #baseline }
 BaselineOfMiscGTScripts >> baseline: spec [
 	<baseline>
-		^ spec for: #common do: [
-			spec package: 'MiscGTScripts'
-		]
+	^ spec
+		for: #common
+		do: [ spec
+				package: 'SmaCC_Nock';
+				package: 'MiscGTScripts' ]
 ]
