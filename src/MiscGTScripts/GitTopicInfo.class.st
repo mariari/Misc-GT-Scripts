@@ -67,15 +67,14 @@ GitTopicInfo >> allChildrenIn: topics andCache: aDictionary andIgnore: ignoreSet
 { #category : #accessing }
 GitTopicInfo >> gitRepository: aRepo [
 	| possibleRemotes res |
-	possibleRemotes := (aRepo remotes collect: #name)
-			collect: [ :upstream | 
+	possibleRemotes := aRepo remotes
+			collect: [ :remote | 
 				IceGitRemoteBranch
-					named: upstream , '/' , self item contents refName
+					named: remote name , '/' , self item contents refName
 					inRepository: aRepo ].
-	res := (possibleRemotes
-			select: [ :possible | (aRepo lookupCommit: possible fullname ifAbsent: [ false ]) isBoolean not ])
-			at: 1
-			ifAbsent: (possibleRemotes at: 1).
+	res := possibleRemotes
+			detect: [ :remote | (aRepo lookupCommit: remote fullname ifAbsent: [ false ]) isBoolean not ]
+			ifNone: [ possibleRemotes first ].
 	self topic: res
 ]
 
