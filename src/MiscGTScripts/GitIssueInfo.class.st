@@ -5,7 +5,7 @@ Class {
 }
 
 { #category : #accessing }
-GitIssueInfo >> gitRepository: aRepo andRemoteName: upstream [
+GitIssueInfo >> gitRepository: aRepo [
 	"do nothing, as issues aren't real"
 
 	

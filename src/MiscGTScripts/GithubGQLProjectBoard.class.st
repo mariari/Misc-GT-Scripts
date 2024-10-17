@@ -65,7 +65,7 @@ GithubGQLProjectBoard >> populateEverything [
 { #category : #stream }
 GithubGQLProjectBoard >> projectValueStream [
 	^ queryContext itemsWithSurroundingKnowledge
-		collect: [ :v2Item | v2Item gitRepository: self repo andRemoteName: remoteName ]
+		collect: [ :v2Item | v2Item gitRepository: self repo ]
 ]
 
 { #category : #accessing }

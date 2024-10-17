@@ -32,7 +32,7 @@ ProjectBoardItem >> currentLabels [
 ]
 
 { #category : #accessing }
-ProjectBoardItem >> gitRepository: aRepo andRemoteName: aRemoteName [
+ProjectBoardItem >> gitRepository: aRepo [
 	^ self subclassResponsibility
 ]
 

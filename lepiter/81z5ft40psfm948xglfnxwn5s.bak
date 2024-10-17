@@ -142,7 +142,7 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2024-08-09T18:52:50.496058+08:00"
+									"dateAndTimeString" : "2024-08-09T18:53:03.177381+08:00"
 								}
 							},
 							"uid" : {
@@ -152,7 +152,7 @@
 							"paragraphStyle" : {
 								"__type" : "textStyle"
 							},
-							"string" : "I run this c"
+							"string" : "I run this command myself, feel free to customize it for your own needs."
 						},
 						{
 							"__type" : "pharoSnippet",

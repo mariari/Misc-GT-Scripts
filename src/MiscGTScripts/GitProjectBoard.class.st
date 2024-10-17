@@ -12,9 +12,9 @@ Class {
 	#instVars : [
 		'repo',
 		'candidate',
-		'remoteName',
 		'items',
-		'depCache'
+		'depCache',
+		'remoteNames'
 	],
 	#category : #'MiscGTScripts-git'
 }
@@ -58,7 +58,8 @@ GitProjectBoard >> depCache [
 { #category : #setting }
 GitProjectBoard >> gitLocation: aPath [
 	<argument: #aPath isKindOf: #FileLocator>
-	repo := IceLibgitRepository new location: aPath
+	repo := IceLibgitRepository new location: aPath.
+	remoteNames := repo remotes collect: #name
 ]
 
 { #category : #visualization }
@@ -160,12 +161,12 @@ GitProjectBoard >> loadAllItems [
 
 { #category : #accessing }
 GitProjectBoard >> remoteName [
-	^ remoteName
+	^ remoteNames
 ]
 
 { #category : #accessing }
 GitProjectBoard >> remoteName: anObject [
-	remoteName := anObject
+	remoteNames := anObject
 ]
 
 { #category : #accessing }
