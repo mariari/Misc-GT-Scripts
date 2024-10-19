@@ -125,6 +125,7 @@ GitProjectBoard >> initialize [
 { #category : #accessing }
 GitProjectBoard >> isInReleaseColor: anItem [
 	<argument: #aValue isKindOf: #GitTopicInfo>
+	anItem isTopic & anItem isKnownCommit ifFalse: [ ^ Color lightBrown ].
 	self hasReleaseCandidate & anItem isTopic
 		ifTrue: [ (self candidate commit isParentOf: anItem topic commit)
 				ifTrue: [ ^ Color fromHexString: '087D91' ]

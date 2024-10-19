@@ -57,7 +57,7 @@ GitDepGraph >> gtTopicDependencyMorph: view [
 				border: aValue topic status color;
 				label: (aValue topic topicShortName , ' #'
 						, (aValue topic itemNumber printStringBase: 10)) asRopedText;
-				background: Color white;
+				background: (aValue topic isKnownCommit ifTrue: [Color white] ifFalse: [Color veryPaleRed]);
 				zIndex: 10 ];
 		with: items.
 	view edges

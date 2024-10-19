@@ -88,6 +88,13 @@ GitTopicInfo >> gtCommitsFor: aView [
 		view: #gtCommitsFor:
 ]
 
+{ #category : #accessing }
+GitTopicInfo >> isKnownCommit [
+	^ (self topic repositoryHandle
+		lookupRemoteBranch: self topic name
+		ifAbsent: [ nil ]) isNotNil
+]
+
 { #category : #predicates }
 GitTopicInfo >> isParentOf: anotherTopic [
 	<argument: #anotherTopic isKindOf: #GitTopicInfo>

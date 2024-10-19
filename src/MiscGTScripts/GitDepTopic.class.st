@@ -64,15 +64,16 @@ GitDepTopic >> computeRelationsWith: depGraph [
 	<argument: #depGraph isKindOf: #GitDepGraph>
 	| topics cache aNode |
 	self finalized ifTrue: [ ^ self ].
+	self topic isKnownCommit ifFalse: [^ self].
 	topics := depGraph rawTopics.
 	cache := depGraph itemNodeIndex.
 	topics
 		do: [ :aTopic | 
 			aNode := cache at: aTopic.
-
-			aNode finalized
-				ifTrue: [  " self learnFinalizedNode: aNode" ]
-				ifFalse: [ self learnUnfinalized: aNode withItsTopic: aTopic ] ].
+			aTopic isKnownCommit
+				ifTrue: [ aNode finalized
+						ifTrue: [  " self learnFinalizedNode: aNode" ]
+						ifFalse: [ self learnUnfinalized: aNode withItsTopic: aTopic ] ] ].
 	self finalized: true.
 	^ self
 ]
