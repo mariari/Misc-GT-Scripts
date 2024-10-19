@@ -13,8 +13,7 @@ Class {
 		'repo',
 		'candidate',
 		'items',
-		'depCache',
-		'remoteNames'
+		'depCache'
 	],
 	#category : #'MiscGTScripts-git'
 }
@@ -58,8 +57,7 @@ GitProjectBoard >> depCache [
 { #category : #setting }
 GitProjectBoard >> gitLocation: aPath [
 	<argument: #aPath isKindOf: #FileLocator>
-	repo := IceLibgitRepository new location: aPath.
-	remoteNames := repo remotes collect: #name
+	repo := IceLibgitRepository new location: aPath
 ]
 
 { #category : #visualization }
@@ -158,16 +156,6 @@ GitProjectBoard >> loadAllItems [
 	"Load all items from an asynchronous stream into an array if items is an asynchronous stream."
 
 	self items isAsyncStream ifTrue: [ items := self items toArray wait ]
-]
-
-{ #category : #accessing }
-GitProjectBoard >> remoteName [
-	^ remoteNames
-]
-
-{ #category : #accessing }
-GitProjectBoard >> remoteName: anObject [
-	remoteNames := anObject
 ]
 
 { #category : #accessing }

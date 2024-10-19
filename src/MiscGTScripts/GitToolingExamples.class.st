@@ -1066,7 +1066,6 @@ GitToolingExamples >> skunksGithubProjectBoard [
 		gitLocation: FileLocator home / 'Documents' / 'Work' / 'Repo' / 'anoma';
 		organisation: 'anoma';
 		board: 20;
-		remoteName: 'anoma';
 		yourself
 ]
 
