@@ -130,6 +130,16 @@ GitDepTopic >> gtRepositoryDependencies: aView [
 ]
 
 { #category : #accessing }
+GitDepTopic >> gtSameAuthorDependencies: aView [
+	<gtView>
+	^ aView forward
+		title: 'Same Author Subgraph';
+		priority: 9;
+		object: [ self nodesWithTheSameAuthor ];
+		view: #gtRepositoryDependencies:
+]
+
+{ #category : #accessing }
 GitDepTopic >> gtUnrelatedNodes: aView [
 	<gtView>
 	^ aView forward
@@ -210,6 +220,19 @@ GitDepTopic >> limitParents: aNode [
 		parentConsider: (self parentConsider
 				ifEmpty: [ ^ self parentConsider: aNode parents copy ]
 				ifNotEmpty: [ self parentConsider intersection: aNode parents ])
+]
+
+{ #category : #accessing }
+GitDepTopic >> nodesWithTheSameAuthor [
+	| set relatedNodes |
+	set := self relatedNodes.
+	relatedNodes := (self allNodes
+			select: [ :aNode | aNode topic author = self topic author ])
+			add: self;
+			yourself.
+	relatedNodes do: [ :aNode | aNode relatedNodesWith: set ].
+
+	^ (GitDepFocusedGraph newWithExistingNodes: set) focusedNodes: relatedNodes
 ]
 
 { #category : #accessing }
