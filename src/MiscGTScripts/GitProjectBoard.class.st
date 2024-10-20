@@ -82,11 +82,16 @@ GitProjectBoard >> gtRepositoryDependencies: aView [
 { #category : #visualization }
 GitProjectBoard >> gtRepositoryProjectBoard: aView [
 	<gtView>
+	^ self gtRepositoryProjectBoard: aView withItems: [ self computeItems ]
+]
+
+{ #category : #visualization }
+GitProjectBoard >> gtRepositoryProjectBoard: aView withItems: itemGen [
 	| topicName color columned |
 	columned := aView columnedList.
 	columned
 		title: 'Whats Cooking';
-		items: [ self computeItems ];
+		items: itemGen;
 		priority: 10;
 		column: 'Index'
 			text: [ :aValue :anIndex | anIndex asRopedText foreground: BrGlamorousColors disabledButtonTextColor ]
