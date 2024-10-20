@@ -39,6 +39,7 @@ GitProjectBoard >> computeDepCache [
 	| nodes |
 	self loadAllItems.
 	nodes := GitDepGraph freshNodes: self itemTopics.
+	depCache := GitDepGraph new.
 	depCache initalizeWith: nodes.
 	depCache computeRelations
 ]
@@ -52,6 +53,8 @@ GitProjectBoard >> computeItems [
 { #category : #accessing }
 GitProjectBoard >> depCache [
 	^ depCache
+		ifNil: [ depCache := GitDepGraph new.
+			self computeDepCache ]
 ]
 
 { #category : #setting }
@@ -66,8 +69,7 @@ GitProjectBoard >> gtRepositoryDependencies: aView [
 	^ aView forward
 		title: 'Topic Dependency Graph';
 		priority: 10;
-		object: [ self computeDepCache.
-			depCache ];
+		object: [ self depCache ];
 		view: #gtRepositoryDependencies:;
 		actionButtonIcon: BrGlamorousVectorIcons refresh
 			tooltip: 'Update'
@@ -112,12 +114,6 @@ GitProjectBoard >> gtRepositoryProjectBoard: aView [
 { #category : #accessing }
 GitProjectBoard >> hasReleaseCandidate [
 	^ candidate isNotNil
-]
-
-{ #category : #accessing }
-GitProjectBoard >> initialize [
-	super initialize.
-	depCache := GitDepGraph new
 ]
 
 { #category : #accessing }
