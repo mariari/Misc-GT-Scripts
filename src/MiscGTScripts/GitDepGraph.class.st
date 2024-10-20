@@ -33,6 +33,13 @@ GitDepGraph >> computeRelations [
 	nodes do: [ :node | node computeRelationsWith: self ]
 ]
 
+{ #category : #coloring }
+GitDepGraph >> decideBackgrondColor: aNode [
+	^ aNode topic isKnownCommit
+		ifTrue: [ Color white ]
+		ifFalse: [ Color veryPaleRed ]
+]
+
 { #category : #visualization }
 GitDepGraph >> gtRepositoryDependencies: aView [
 	<gtView>
@@ -41,7 +48,7 @@ GitDepGraph >> gtRepositoryDependencies: aView [
 		painting: [ :view | self gtTopicDependencyMorph: view ]
 ]
 
-{ #category : #accessing }
+{ #category : #visualization }
 GitDepGraph >> gtTopicDependencyMorph: view [
 	| color items |
 	items := self nodes.
@@ -57,7 +64,7 @@ GitDepGraph >> gtTopicDependencyMorph: view [
 				border: aValue topic status color;
 				label: (aValue topic topicShortName , ' #'
 						, (aValue topic itemNumber printStringBase: 10)) asRopedText;
-				background: (aValue topic isKnownCommit ifTrue: [Color white] ifFalse: [Color veryPaleRed]);
+				background: (self decideBackgrondColor: aValue);
 				zIndex: 10 ];
 		with: items.
 	view edges
