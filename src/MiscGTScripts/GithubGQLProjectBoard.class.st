@@ -7,6 +7,14 @@ Class {
 	#category : #'MiscGTScripts-git'
 }
 
+{ #category : #view }
+GithubGQLProjectBoard >> authorsBoard [
+	self loadAllItems.
+	^ (self items collectAsSet: [ :item | item author ])
+		collect: [ :author | self sliceByAuthor: author ]
+		as: Array
+]
+
 { #category : #accessing }
 GithubGQLProjectBoard >> board [
 	^ queryContext board
@@ -39,6 +47,16 @@ GithubGQLProjectBoard >> context [
 GithubGQLProjectBoard >> context: aContext [
 	<argument: #aContext isKindOf: #GtGQLContext>
 	queryContext context: aContext
+]
+
+{ #category : #visualization }
+GithubGQLProjectBoard >> gtAuthorsView: aView [
+	<gtView>
+	^ aView columnedList
+		title: 'Authors View';
+		priority: 10;
+		items: [ self authorsBoard ];
+		column: 'Authors' text: [ :item | item author asRopedText ]
 ]
 
 { #category : #initalization }
@@ -76,4 +94,11 @@ GithubGQLProjectBoard >> queryContext [
 { #category : #setting }
 GithubGQLProjectBoard >> queryContext: anObject [
 	queryContext := anObject
+]
+
+{ #category : #accessing }
+GithubGQLProjectBoard >> sliceByAuthor: author [
+	^ GitProjectBoardAuthor new
+		author: author;
+		projectBoard: self
 ]
