@@ -11,10 +11,26 @@ Class {
 	#instVars : [
 		'refName',
 		'repo',
-		'prNumber'
+		'prNumber',
+		'author'
 	],
 	#category : #'MiscGTScripts-git'
 }
+
+{ #category : #accessing }
+GithubPR >> author [
+	^ author
+]
+
+{ #category : #accessing }
+GithubPR >> author: anObject [
+	author := anObject
+]
+
+{ #category : #setting }
+GithubPR >> authorNumberFromJson: ajson [
+	self author: (ajson atPath: #(author login)) jsonObject
+]
 
 { #category : #setting }
 GithubPR >> fromJson: ajson [
@@ -22,6 +38,7 @@ GithubPR >> fromJson: ajson [
 		refNameFromJSON: ajson;
 		prNumberFromJson: ajson;
 		repositoryInfoFromJson: ajson;
+		authorNumberFromJson: ajson;
 		labelsFromJson: ajson
 ]
 

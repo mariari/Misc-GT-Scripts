@@ -236,6 +236,9 @@ query WhatsCooking($board: Int!, $login: String!, $after: String){'
 						... on Issue {
 							id
 							number
+							author {
+								login
+							}
 							closed
 							title
 							labels(first: 99) { edges { node { color name description } } }
@@ -244,6 +247,9 @@ query WhatsCooking($board: Int!, $login: String!, $after: String){'
 							id
 							headRefName 
 							number
+							author {
+								login
+							}
 							labels(first: 99) { edges { node { color name description } } }
 							repository { name } } }
 

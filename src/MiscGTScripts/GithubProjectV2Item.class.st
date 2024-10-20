@@ -16,6 +16,11 @@ Class {
 	#category : #'MiscGTScripts-git'
 }
 
+{ #category : #'as yet unclassified' }
+GithubProjectV2Item >> author [
+	^ contents author
+]
+
 { #category : #'json  - queries' }
 GithubProjectV2Item >> contentFromJson: projectBoardItem [
 	" update later to handle WIP Issues, need to match off the __typename"

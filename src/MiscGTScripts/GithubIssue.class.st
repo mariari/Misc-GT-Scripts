@@ -6,10 +6,26 @@ Class {
 	#instVars : [
 		'title',
 		'itemNumber',
-		'repo'
+		'repo',
+		'author'
 	],
 	#category : #'MiscGTScripts-git'
 }
+
+{ #category : #accessing }
+GithubIssue >> author [
+	^ author
+]
+
+{ #category : #accessing }
+GithubIssue >> author: anObject [
+	author := anObject
+]
+
+{ #category : #'as yet unclassified' }
+GithubIssue >> authorNumberFromJson: ajson [
+	self author: (ajson atPath: #(author login)) jsonObject
+]
 
 { #category : #setting }
 GithubIssue >> fromJson: ajson [
@@ -17,6 +33,7 @@ GithubIssue >> fromJson: ajson [
 		titleFromJSON: ajson;
 		itemNumberFromJson: ajson;
 		repositoryInfoFromJson: ajson;
+		fromJson: ajson;
 		labelsFromJson: ajson
 ]
 

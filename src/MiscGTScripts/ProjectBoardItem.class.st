@@ -16,6 +16,11 @@ Class {
 }
 
 { #category : #accessing }
+ProjectBoardItem >> author [
+	^ item contents author
+]
+
+{ #category : #accessing }
 ProjectBoardItem >> borderStatusColoredAptitude [
 	^ self borderStatusColoredAptitudeWithStatus: self status
 ]
