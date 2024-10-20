@@ -47,6 +47,11 @@ GitDepTopic >> allNodes [
 ]
 
 { #category : #accessing }
+GitDepTopic >> author [
+	^ self topic author
+]
+
+{ #category : #accessing }
 GitDepTopic >> childConsider [
 	^ childConsider
 ]
@@ -133,7 +138,7 @@ GitDepTopic >> gtRepositoryDependencies: aView [
 GitDepTopic >> gtSameAuthorDependencies: aView [
 	<gtView>
 	^ aView forward
-		title: 'Same Author Subgraph';
+		title: (self author , '''s Topics') capitalized;
 		priority: 9;
 		object: [ self nodesWithTheSameAuthor ];
 		view: #gtRepositoryDependencies:
@@ -226,8 +231,7 @@ GitDepTopic >> limitParents: aNode [
 GitDepTopic >> nodesWithTheSameAuthor [
 	| set relatedNodes |
 	set := self relatedNodes.
-	relatedNodes := (self allNodes
-			select: [ :aNode | aNode topic author = self topic author ])
+	relatedNodes := (self allNodes select: [ :aNode | aNode author = self author ])
 			add: self;
 			yourself.
 	relatedNodes do: [ :aNode | aNode relatedNodesWith: set ].
