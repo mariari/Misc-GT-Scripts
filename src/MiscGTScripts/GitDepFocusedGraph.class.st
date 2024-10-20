@@ -9,7 +9,8 @@ Class {
 
 { #category : #coloring }
 GitDepFocusedGraph >> decideBackgrondColor: aNode [
-	(focusedNodes includes: aNode) ifTrue: [ ^ Color paleGreen asBlBackground opacity: 0.3 ].
+	(focusedNodes includes: aNode)
+		ifTrue: [ ^ (Color fromHexString: '#e8f4f8') asBlBackground ].
 	^ super decideBackgrondColor: aNode
 ]
 
