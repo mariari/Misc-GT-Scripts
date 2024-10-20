@@ -36,12 +36,8 @@ GitProjectBoard >> candidateBranch: aBranch [
 
 { #category : #visualization }
 GitProjectBoard >> computeDepCache [
-	| nodes |
 	self loadAllItems.
-	nodes := GitDepGraph freshNodes: self itemTopics.
-	depCache := GitDepGraph new.
-	depCache initalizeWith: nodes.
-	depCache computeRelations
+	depCache := GitDepGraph new: self itemTopics
 ]
 
 { #category : #accessing }
@@ -52,9 +48,7 @@ GitProjectBoard >> computeItems [
 
 { #category : #accessing }
 GitProjectBoard >> depCache [
-	^ depCache
-		ifNil: [ depCache := GitDepGraph new.
-			self computeDepCache ]
+	^ depCache ifNil: [ self computeDepCache ]
 ]
 
 { #category : #setting }
@@ -144,6 +138,7 @@ GitProjectBoard >> items [
 
 	<return: #Collection of: #ProjectBoardItem>
 	items isNil ifTrue: [ ^ self computeItems ].
+	items isAsyncStream ifFalse: [ items isEmpty ifTrue: [ ^ self computeItems ] ].
 	^ items
 ]
 

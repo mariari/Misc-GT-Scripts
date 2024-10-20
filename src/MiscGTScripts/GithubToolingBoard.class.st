@@ -117,7 +117,6 @@ GithubToolingBoard >> loadAllItems [
 GithubToolingBoard >> loadEverything [
 	"like queryEverything, but we turn the asynchronous values into being concrete"
 
-	self loadAllItems.
 	self loadAllItemRepos
 ]
 

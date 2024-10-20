@@ -19,7 +19,9 @@ GitDepGraph class >> new: topics [
 	"We try to preserve order"
 
 	<argument: #topics isKindOf: #GitTopicInfo>
-	^ self basicNew initalizeWith: (self freshNodes: topics)
+	^ self basicNew
+		initalizeWith: (self freshNodes: topics);
+		computeRelations
 ]
 
 { #category : #creating }
