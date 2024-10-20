@@ -64,16 +64,14 @@ GitDepTopic >> computeRelationsWith: depGraph [
 	<argument: #depGraph isKindOf: #GitDepGraph>
 	| topics cache aNode |
 	self finalized ifTrue: [ ^ self ].
-	self topic isKnownCommit ifFalse: [^ self].
 	topics := depGraph rawTopics.
 	cache := depGraph itemNodeIndex.
 	topics
 		do: [ :aTopic | 
 			aNode := cache at: aTopic.
-			aTopic isKnownCommit
-				ifTrue: [ aNode finalized
-						ifTrue: [  " self learnFinalizedNode: aNode" ]
-						ifFalse: [ self learnUnfinalized: aNode withItsTopic: aTopic ] ] ].
+			aNode finalized
+				ifTrue: [  " self learnFinalizedNode: aNode" ]
+				ifFalse: [ self learnUnfinalized: aNode withItsTopic: aTopic ] ].
 	self finalized: true.
 	^ self
 ]
@@ -174,6 +172,12 @@ GitDepTopic >> learnFinalizedNode: aNode [
 { #category : #graph }
 GitDepTopic >> learnUnfinalized: aNode withItsTopic: aTopic [
 	| inPopulatedChildCache inPopulatedParentCache |
+	self topic isKnownCommit & aTopic isKnownCommit
+		ifFalse: [ self = aTopic ifTrue: [ ^ self ].
+			self unrelated add: aNode.
+			aNode unrelated add: self.
+			^ self ].
+
 	(self knowsOf: aNode) ifTrue: [ ^ self ].
 	inPopulatedChildCache := self inPopulatedChildCache: aNode.
 	inPopulatedParentCache := self inPopulatedParentCache: aNode.
