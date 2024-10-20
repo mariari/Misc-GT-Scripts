@@ -39,6 +39,13 @@ GitDepTopic >> addParents: aNode [
 	self parents addAll: aNode parents
 ]
 
+{ #category : #nodes }
+GitDepTopic >> allNodes [
+	^ self relatedNodes
+		addAll: self unrelated;
+		yourself
+]
+
 { #category : #accessing }
 GitDepTopic >> childConsider [
 	^ childConsider
@@ -89,13 +96,7 @@ GitDepTopic >> finalized: anObject [
 
 { #category : #accessing }
 GitDepTopic >> fullGraph [
-	^ GitDepGraph
-		newWithExistingNodes: (Set new
-				addAll: self children;
-				addAll: self parents;
-				addAll: self unrelated;
-				add: self;
-				yourself)
+	^ GitDepGraph newWithExistingNodes: self allNodes
 ]
 
 { #category : #visualization }
@@ -237,13 +238,22 @@ GitDepTopic >> printOn: stream [
 ]
 
 { #category : #accessing }
+GitDepTopic >> relatedNodes [
+	^ self relatedNodesWith: Set new
+]
+
+{ #category : #accessing }
+GitDepTopic >> relatedNodesWith: set [
+	^ set
+		addAll: self children;
+		addAll: self parents;
+		add: self;
+		yourself
+]
+
+{ #category : #accessing }
 GitDepTopic >> releventSubgraph [
-	^ GitDepGraph
-		newWithExistingNodes: (Set new
-				addAll: self children;
-				addAll: self parents;
-				add: self;
-				yourself)
+	^ GitDepGraph newWithExistingNodes: self relatedNodes
 ]
 
 { #category : #accessing }
