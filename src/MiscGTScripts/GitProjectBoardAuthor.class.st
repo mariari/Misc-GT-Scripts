@@ -20,9 +20,9 @@ GitProjectBoardAuthor >> author: anObject [
 
 { #category : #graph }
 GitProjectBoardAuthor >> authorDependencyGraph [
-	| graph |
-	graph := GitDepFocusedGraph newWithExistingNodes: projectBoard depCache nodes.
-	^ graph focusedNodes: (self authorTopics: graph nodes)
+	^ ((self authorTopics: projectBoard depCache nodes)
+		detect: [ :anItem | anItem author = author ]
+		ifNone: [ ^ projectBoard depCache ]) nodesWithTheSameAuthor
 ]
 
 { #category : #visualization }
