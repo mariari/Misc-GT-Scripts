@@ -66,13 +66,13 @@ GithubGQLProjectBoard >> initialize [
 ]
 
 { #category : #accessing }
-GithubGQLProjectBoard >> organisation [
-	^ queryContext organization
+GithubGQLProjectBoard >> organization: anObject [
+	queryContext organization: anObject
 ]
 
 { #category : #accessing }
-GithubGQLProjectBoard >> organisation: anObject [
-	queryContext organization: anObject
+GithubGQLProjectBoard >> owner [
+	^ queryContext owner
 ]
 
 { #category : #accessing }
@@ -101,4 +101,9 @@ GithubGQLProjectBoard >> sliceByAuthor: author [
 	^ GitProjectBoardAuthor new
 		author: author;
 		projectBoard: self
+]
+
+{ #category : #accessing }
+GithubGQLProjectBoard >> user: anObject [
+	queryContext user: anObject
 ]

@@ -1064,7 +1064,7 @@ GitToolingExamples >> skunksGithubProjectBoard [
 	^ GithubGQLProjectBoard new
 		context: self graphQLContext;
 		gitLocation: FileLocator home / 'Documents' / 'Work' / 'Repo' / 'anoma';
-		organisation: 'anoma';
+		organization: 'anoma';
 		board: 20;
 		yourself
 ]

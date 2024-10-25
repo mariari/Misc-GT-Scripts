@@ -71,14 +71,14 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2024-08-09T18:49:39.973631+08:00"
+									"dateAndTimeString" : "2024-10-18T00:52:30.101749+08:00"
 								}
 							},
 							"uid" : {
 								"__type" : "uid",
 								"uidString" : "qvOwlJ/bDQCGLUvVBaDPMA=="
 							},
-							"code" : "board := 20.\rorganization := 'anoma'.\rremoteName := 'origin'.\t\"I call mine anoma\"\rrepoDir := FileLocator home / 'Documents' / 'Work' / 'Repo' / 'anoma'"
+							"code" : "board := 20.\rorganization := 'anoma'.\rrepoDir := FileLocator home / 'Documents' / 'Work' / 'Repo' / 'anoma'"
 						},
 						{
 							"__type" : "textSnippet",
@@ -224,40 +224,6 @@
 								"__type" : "textStyle"
 							},
 							"string" : "####Customized values"
-						},
-						{
-							"__type" : "pharoSnippet",
-							"children" : {
-								"__type" : "snippets",
-								"items" : [ ]
-							},
-							"createEmail" : {
-								"__type" : "email",
-								"emailString" : "<unknown>"
-							},
-							"createTime" : {
-								"__type" : "time",
-								"time" : {
-									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2024-08-09T18:50:59.112561+08:00"
-								}
-							},
-							"editEmail" : {
-								"__type" : "email",
-								"emailString" : "<unknown>"
-							},
-							"editTime" : {
-								"__type" : "time",
-								"time" : {
-									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2024-08-09T18:51:16.708475+08:00"
-								}
-							},
-							"uid" : {
-								"__type" : "uid",
-								"uidString" : "toDSp5/bDQCS3wPkBaDPMA=="
-							},
-							"code" : "remoteName := 'anoma'"
 						}
 					]
 				},
@@ -430,14 +396,14 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2024-08-09T18:49:59.046587+08:00"
+									"dateAndTimeString" : "2024-10-18T00:52:25.557006+08:00"
 								}
 							},
 							"uid" : {
 								"__type" : "uid",
 								"uidString" : "ShhIjp/bDQCFk1kkBaDPMA=="
 							},
-							"code" : "GithubGQLProjectBoard new\r\tcontext: context;\r\tgitLocation: repoDir;\r\torganisation: organization;\r\tboard: board;\r\tremoteName: remoteName;\r\tcandidate: 'next';\r\tcomputeStatus;\r\tyourself"
+							"code" : "GithubGQLProjectBoard new\r\tcontext: context;\r\tgitLocation: repoDir;\r\torganisation: organization;\r\tboard: board;\r\tcandidate: 'next';\r\tcomputeStatus;\r\tyourself"
 						}
 					]
 				},
