@@ -28,7 +28,7 @@ GithubPR >> author: anObject [
 ]
 
 { #category : #setting }
-GithubPR >> authorNumberFromJson: ajson [
+GithubPR >> authorNameFromJson: ajson [
 	self author: (ajson atPath: #(author login)) jsonObject
 ]
 
@@ -38,7 +38,7 @@ GithubPR >> fromJson: ajson [
 		refNameFromJSON: ajson;
 		prNumberFromJson: ajson;
 		repositoryInfoFromJson: ajson;
-		authorNumberFromJson: ajson;
+		authorNameFromJson: ajson;
 		labelsFromJson: ajson
 ]
 

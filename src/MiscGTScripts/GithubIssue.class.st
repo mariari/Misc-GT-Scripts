@@ -23,7 +23,7 @@ GithubIssue >> author: anObject [
 ]
 
 { #category : #'as yet unclassified' }
-GithubIssue >> authorNumberFromJson: ajson [
+GithubIssue >> authorNameFromJson: ajson [
 	self author: (ajson atPath: #(author login)) jsonObject
 ]
 
@@ -33,7 +33,7 @@ GithubIssue >> fromJson: ajson [
 		titleFromJSON: ajson;
 		itemNumberFromJson: ajson;
 		repositoryInfoFromJson: ajson;
-		fromJson: ajson;
+		authorNameFromJson: ajson;
 		labelsFromJson: ajson
 ]
 
