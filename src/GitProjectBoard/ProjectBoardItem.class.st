@@ -12,7 +12,7 @@ Class {
 		'projectBoard',
 		'repo'
 	],
-	#category : #'MiscGTScripts-git'
+	#category : #'GitProjectBoard-git'
 }
 
 { #category : #accessing }

@@ -6,7 +6,7 @@ Class {
 		'projectBoard',
 		'itemRepos'
 	],
-	#category : #'MiscGTScripts-git - query'
+	#category : #'GitProjectBoard-git - query'
 }
 
 { #category : #accessing }

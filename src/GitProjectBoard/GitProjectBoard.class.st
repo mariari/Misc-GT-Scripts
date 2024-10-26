@@ -15,7 +15,7 @@ Class {
 		'items',
 		'depCache'
 	],
-	#category : #'MiscGTScripts-git'
+	#category : #'GitProjectBoard-git'
 }
 
 { #category : #accessing }

@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'queryContext'
 	],
-	#category : #'MiscGTScripts-git'
+	#category : #'GitProjectBoard-git'
 }
 
 { #category : #view }

@@ -5,7 +5,7 @@ Class {
 		'author',
 		'projectBoard'
 	],
-	#category : #'MiscGTScripts-git'
+	#category : #'GitProjectBoard-git'
 }
 
 { #category : #accessing }

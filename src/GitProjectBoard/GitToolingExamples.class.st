@@ -1,7 +1,7 @@
 Class {
 	#name : #GitToolingExamples,
 	#superclass : #Object,
-	#category : #'MiscGTScripts-Examples'
+	#category : #'GitProjectBoard-Examples'
 }
 
 { #category : #accessing }

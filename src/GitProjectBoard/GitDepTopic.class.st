@@ -10,7 +10,7 @@ Class {
 		'childConsider',
 		'unrelated'
 	],
-	#category : #'MiscGTScripts-git  - graph'
+	#category : #'GitProjectBoard-git - graph'
 }
 
 { #category : #creation }

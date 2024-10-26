@@ -1,6 +1,6 @@
 Trait {
 	#name : #GitToQueryMixin,
-	#category : #'MiscGTScripts-git'
+	#category : #'GitProjectBoard-git'
 }
 
 { #category : #accessing }

@@ -5,7 +5,7 @@ Class {
 		'owner',
 		'kind'
 	],
-	#category : #'MiscGTScripts-git - query'
+	#category : #'GitProjectBoard-git - query'
 }
 
 { #category : #accessing }

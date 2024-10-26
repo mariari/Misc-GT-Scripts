@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'context'
 	],
-	#category : #'MiscGTScripts-git - query'
+	#category : #'GitProjectBoard-git - query'
 }
 
 { #category : #accessing }

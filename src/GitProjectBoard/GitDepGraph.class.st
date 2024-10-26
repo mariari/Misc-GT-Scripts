@@ -6,7 +6,7 @@ Class {
 		'nodes',
 		'rawTopics'
 	],
-	#category : #'MiscGTScripts-git  - graph'
+	#category : #'GitProjectBoard-git - graph'
 }
 
 { #category : #creating }

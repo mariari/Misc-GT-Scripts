@@ -1,6 +1,6 @@
 Trait {
 	#name : #GithubJSON,
-	#category : #'MiscGTScripts-git'
+	#category : #'GitProjectBoard-git'
 }
 
 { #category : #setting }

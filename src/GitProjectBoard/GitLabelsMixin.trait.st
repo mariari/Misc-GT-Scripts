@@ -3,7 +3,7 @@ Trait {
 	#instVars : [
 		'allLabels'
 	],
-	#category : #'MiscGTScripts-git'
+	#category : #'GitProjectBoard-git'
 }
 
 { #category : #accessing }

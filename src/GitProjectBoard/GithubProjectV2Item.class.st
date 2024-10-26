@@ -13,7 +13,7 @@ Class {
 		'contents',
 		'status'
 	],
-	#category : #'MiscGTScripts-git'
+	#category : #'GitProjectBoard-git'
 }
 
 { #category : #'as yet unclassified' }

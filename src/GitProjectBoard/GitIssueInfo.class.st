@@ -1,7 +1,7 @@
 Class {
 	#name : #GitIssueInfo,
 	#superclass : #ProjectBoardItem,
-	#category : #'MiscGTScripts-git'
+	#category : #'GitProjectBoard-git'
 }
 
 { #category : #accessing }

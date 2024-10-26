@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'focusedNodes'
 	],
-	#category : #'MiscGTScripts-git  - graph'
+	#category : #'GitProjectBoard-git - graph'
 }
 
 { #category : #coloring }

@@ -14,7 +14,7 @@ Class {
 		'prNumber',
 		'author'
 	],
-	#category : #'MiscGTScripts-git'
+	#category : #'GitProjectBoard-git'
 }
 
 { #category : #accessing }

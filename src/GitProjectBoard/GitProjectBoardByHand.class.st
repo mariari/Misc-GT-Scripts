@@ -1,7 +1,7 @@
 Class {
 	#name : #GitProjectBoardByHand,
 	#superclass : #GitProjectBoard,
-	#category : #'MiscGTScripts-git'
+	#category : #'GitProjectBoard-git'
 }
 
 { #category : #accessing }

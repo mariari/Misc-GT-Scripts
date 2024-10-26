@@ -10,7 +10,7 @@ Class {
 		'id',
 		'board'
 	],
-	#category : #'MiscGTScripts-git'
+	#category : #'GitProjectBoard-git'
 }
 
 { #category : #accessing }

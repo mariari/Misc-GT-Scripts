@@ -8,7 +8,7 @@ Class {
 		'name',
 		'description'
 	],
-	#category : #'MiscGTScripts-git'
+	#category : #'GitProjectBoard-git'
 }
 
 { #category : #accessing }

@@ -8,7 +8,7 @@ Class {
 	#superclass : #GithubRepoMinimal,
 	#traits : 'GitLabelsMixin',
 	#classTraits : 'GitLabelsMixin classTrait',
-	#category : #'MiscGTScripts-git'
+	#category : #'GitProjectBoard-git'
 }
 
 { #category : #setting }

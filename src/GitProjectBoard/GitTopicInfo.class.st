@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'topic'
 	],
-	#category : #'MiscGTScripts-git'
+	#category : #'GitProjectBoard-git'
 }
 
 { #category : #queries }
