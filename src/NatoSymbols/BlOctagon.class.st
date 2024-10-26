@@ -1,7 +1,7 @@
 Class {
 	#name : #BlOctagon,
 	#superclass : #BlElement,
-	#category : #'MiscGTScripts-Graphics'
+	#category : #'NatoSymbols-Graphics'
 }
 
 { #category : #initialization }

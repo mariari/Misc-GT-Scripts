@@ -11,7 +11,7 @@ Class {
 		'right',
 		'container'
 	],
-	#category : #'MiscGTScripts-Graphics'
+	#category : #'NatoSymbols-Graphics'
 }
 
 { #category : #accessing }

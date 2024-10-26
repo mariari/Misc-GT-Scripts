@@ -28,5 +28,6 @@ BaselineOfMiscGTScripts >> baseline: spec [
 				package: 'SmaCC_Nock';
 				package: 'MiscGTScripts';
 				package: 'GitProjectBoard';
-				package: 'MahjongModel' ]
+				package: 'MahjongModel';
+				package: 'NatoSymbols' ]
 ]

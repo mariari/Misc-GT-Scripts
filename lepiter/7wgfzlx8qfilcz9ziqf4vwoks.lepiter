@@ -639,20 +639,20 @@
 							},
 							"editEmail" : {
 								"__type" : "email",
-								"emailString" : "mariari@protonmail.ch"
+								"emailString" : "<unknown>"
 							},
 							"editTime" : {
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2024-10-26T10:47:58.100341+08:00"
+									"dateAndTimeString" : "2024-10-26T15:07:29.449266+08:00"
 								}
 							},
 							"uid" : {
 								"__type" : "uid",
 								"uidString" : "HHywpLnhDQC1y71hAJZ3hQ=="
 							},
-							"code" : "fromPackage := 'MiscGTScripts' asPackage.\rtoPackage := 'GitProjectBoard' asPackage.\rtags := {'git' . 'git - graph' . 'git - query'}."
+							"code" : "fromPackage := 'MiscGTScripts' asPackage.\rtoPackage := 'NatoSymbols' asPackage.\rtags := {'Graphics'}."
 						},
 						{
 							"__type" : "pharoSnippet",

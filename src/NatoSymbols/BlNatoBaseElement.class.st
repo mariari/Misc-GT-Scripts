@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'bounding'
 	],
-	#category : #'MiscGTScripts-Graphics'
+	#category : #'NatoSymbols-Graphics'
 }
 
 { #category : #accessing }
