@@ -1,0 +1,110 @@
+{
+	"__schema" : "4.1",
+	"__type" : "page",
+	"children" : {
+		"__type" : "snippets",
+		"items" : [
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-10-26T14:15:20.007755+08:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-10-26T14:15:20.007755+08:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "ieBd5bzhDQC5NYUbAJZ3hQ=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : ""
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-10-26T14:15:32.067416+08:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-10-26T14:15:47.568539+08:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "Ngpb5rzhDQC5QShoAJZ3hQ=="
+				},
+				"code" : "page := thisSnippet page.\r\rsequencer := LeExportUUIDSequencer new.\r\rpageLinks := LeExportPageLinksBuilder new\r\t\tdatabase: page database;\r\t\thtml;\r\t\tsequencer: sequencer;\r\t\tbuild;\r\t\tlinks.\r\rourPageLink := pageLinks\r\t\tlinkForPage: page\r\t\tifFound: #yourself\r\t\tifNone: [ self error: 'This should not happen' ].\r\r\raContext := LeHtmlContext new\r\t\tpage: page;\r\t\tpageLinks: pageLinks;\r\t\tdate: (Date today printFormat: #(1 2 3 $/ 1 1));\r\t\tsequencer: sequencer.\r\rLeHtmlAssetsUtility addGtBookAssetsInto: aContext resources.\r\t\ranExporter := LeHtmlBookExporter new\r\t\tdatabase: page database;\r\t\tsequencer: sequencer;\r\t\tmainPage: 'Notes TOC';\r\t\tpiece: LeHtmlGtBookPiece gtBook;\r\t\tresources: aContext resources.\r\t\t\r\r\ranExporter export.\ranExporter saveToRootDirectory: (FileLocator imageDirectory / 'Lepiter') createDirectory.\r\"htmlString := a contents.\r\r\raContext resources.\r\raContext assembler assemble.\r\rLeExportResourcesDirectorySaver new\r\tresources: aContext resources;\r\trootDirectory: FileLocator imageDirectory / 'foo';\r\tsave.\r\r\rFileLocator imageDirectory / 'foo'.\r\rFileLocator imageDirectory / 'foo'\r\t/ ((page title asString copyReplaceAll: ' ' with: '_') , '.html')\r\twriteStreamDo: [ :aStream | aStream nextPutAll: htmlString ]\""
+			}
+		]
+	},
+	"createEmail" : {
+		"__type" : "email",
+		"emailString" : "<unknown>"
+	},
+	"createTime" : {
+		"__type" : "time",
+		"time" : {
+			"__type" : "dateAndTime",
+			"dateAndTimeString" : "2024-10-26T14:15:19.510352+08:00"
+		}
+	},
+	"editEmail" : {
+		"__type" : "email",
+		"emailString" : "<unknown>"
+	},
+	"editTime" : {
+		"__type" : "time",
+		"time" : {
+			"__type" : "dateAndTime",
+			"dateAndTimeString" : "2024-10-26T14:15:28.363999+08:00"
+		}
+	},
+	"pageType" : {
+		"__type" : "namedPage",
+		"title" : "Dumping the Database"
+	},
+	"uid" : {
+		"__type" : "uuid",
+		"uuid" : "024a5de5-bce1-0d00-b934-66a300967785"
+	}
+}

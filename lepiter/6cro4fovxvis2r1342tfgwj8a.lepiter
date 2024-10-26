@@ -1,0 +1,1939 @@
+{
+	"__schema" : "4.1",
+	"__type" : "page",
+	"children" : {
+		"__type" : "snippets",
+		"items" : [
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-09-24T20:49:49.030163+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-09-24T20:50:01.371122+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "E6h/rT7fDQCw15yeB5dWaw=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Nato uses quite extensive symbology when making maps."
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-09-24T20:50:01.53543+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-09-24T20:50:18.425093+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "w3k+rj7fDQCx6I1/B5dWaw=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "I find this interesting from a graphics POV. So I will attempt to recreate some of the diagrams in GT"
+						}
+					]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-09-24T20:49:45.321597+08:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "mariari@protonmail.ch"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-10-03T14:03:00.199838+08:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "9rs7rD7fDQCvUjYmB5dWaw=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "###Introduction"
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-09-24T20:50:28.317174+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-09-24T20:51:02.838569+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "2yLXrz7fDQC000fIB5dWaw=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Let us start our experiment by getting the basic faction's shapes and colors down"
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [
+									{
+										"__type" : "pharoSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-09-24T20:44:46.866416+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-09-24T20:53:45.366592+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "FQB9mz7fDQCur1dKB5dWaw=="
+										},
+										"code" : "friendlyColor := (Color fromHexString: '#80E0FF') asBlBackground.\rhostileColor := Color red asBlBackground opacity: 0.5.\rneturalColor := Color green asBlBackground opacity: 0.335"
+									},
+									{
+										"__type" : "pharoSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-09-24T21:03:01.13311+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-10-04T16:14:13.411568+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "PS623D7fDQC7XI3xB5dWaw=="
+										},
+										"code" : "nodeBorder := BlBorder paint: Color black width: 2.\rnodeThick := BlBorder paint: Color black width: 10.\rdashedBorder := nodeBorder copyWithStyle: BlStrokeStyle dashed"
+									}
+								]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-09-25T16:26:21.873154+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-09-25T16:26:28.719632+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "sPQoHU/fDQCsi4lqB5dWaw=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Colors And Borders"
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [
+									{
+										"__type" : "pharoSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-09-25T10:51:04.519099+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-09-29T15:45:12.489779+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "TH4SbkrfDQCWk6p4B5dWaw=="
+										},
+										"code" : "leftToRight := [ BlElement new\r\t\tborder: nodeBorder;\r\t\tgeometry: (BlLine from: 0 @ 0 to: 100 @ 100);\r\t\tsize: 100 @ 100;\r\t\tbackground: Color black ] asStencil .\r\rrightToLeft := [ BlElement new\r\t\tborder: nodeBorder;\r\t\tgeometry: (BlLine from: 100 @ 0 to: 0 @ 100);\r\t\tsize: 100 @ 100;\r\t\tbackground: Color black ] asStencil"
+									}
+								]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-09-25T10:51:00.309175+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-09-25T10:51:02.546567+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "B2sFbUrfDQCV9OxpB5dWaw=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Crossing Lines"
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [
+									{
+										"__type" : "pharoSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-09-24T20:06:58.615568+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-09-29T15:32:02.80839+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "/j9KFD7fDQCimWFPB5dWaw=="
+										},
+										"code" : "BlElement new\r\tborder: nodeBorder;\r\tgeometry: BlRoundedRectangleGeometry new;\r\tsize: 150 @ 100;\r\tbackground: friendlyColor "
+									},
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-09-24T20:44:12.274195+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-09-24T20:44:14.387872+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "qVNKmT7fDQCtZpYcB5dWaw=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "Assumed Friendly"
+									},
+									{
+										"__type" : "pharoSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-09-24T20:39:21.66552+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-09-24T21:04:27.239976+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "gtUaiD7fDQCr2TtYB5dWaw=="
+										},
+										"code" : "BlElement new\r\tborder: dashedBorder;\r\tgeometry: BlRoundedRectangleGeometry new;\r\tsize: 150 @ 100;\r\tbackground: friendlyColor"
+									}
+								]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-09-24T20:31:12.370838+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-09-24T20:31:17.347053+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "qcrwaj7fDQCohW/QB5dWaw=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Friendly Shape and Color"
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [
+									{
+										"__type" : "pharoSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-09-25T11:16:23.018489+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-09-25T11:16:23.018489+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "h/OUyErfDQChr5IUB5dWaw=="
+										},
+										"code" : "hostile := BlElement new\r\t\tborder: nodeBorder;\r\t\tgeometry: BlSquare new;\r\t\tsize: 100 @ 100;\r\t\tbackground: hostileColor."
+									},
+									{
+										"__type" : "pharoSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-09-24T20:32:40.81545+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-10-04T15:44:19.637791+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "5Vc2cD7fDQCp6icqB5dWaw=="
+										},
+										"code" : "hostileInfantry := BlElement new\r\t\tborder: nodeBorder;\r\t\tgeometry: BlSquare new;\r\t\tsize: 100 @ 100;\r\t\tbackground: hostileColor;\r\t\taddChild: leftToRight asElement;\r\t\taddChild: rightToLeft asElement;\r\t\tyourself.\r\rhostileInfantry transform\r\trotateBy: 45;\r\tapply.\r\rhostileInfantry\r\tchildrenDo: [ :c | \r\t\tc transform\r\t\t\trotateBy: -45;\r\t\t\tapply ];\r\tyourself"
+									}
+								]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-09-24T20:31:20.158516+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-09-24T20:32:38.832737+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "FJtnaz7fDQCpEZWGB5dWaw=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Hostile Shape and Color"
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [
+									{
+										"__type" : "pharoSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-09-25T11:16:06.427381+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-09-25T11:16:06.427381+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "lcqXx0rfDQChk2BFB5dWaw=="
+										},
+										"code" : "neutral := BlElement new\r\t\tborder: nodeBorder;\r\t\tgeometry: BlSquare new;\r\t\tsize: 100 @ 100;\r\t\tbackground: neturalColor."
+									},
+									{
+										"__type" : "pharoSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-09-24T20:56:56.110017+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-09-29T15:48:59.096989+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "Zl/0xj7fDQC5QiziB5dWaw=="
+										},
+										"code" : "neutralLand := BlElement new\r\t\tborder: nodeBorder;\r\t\tgeometry: BlSquare new;\r\t\tsize: 100 @ 100;\r\t\tbackground: neturalColor;\r\t\taddChild: leftToRight asElement;\r\t\taddChild: rightToLeft asElement"
+									}
+								]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-09-24T20:57:02.575646+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-09-24T21:53:09.166017+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "+AhXxz7fDQC5SRlDB5dWaw=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Neutral Shape and Color"
+						}
+					]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-09-24T20:50:18.915836+08:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-09-24T20:50:27.94121+08:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "ca5Hrz7fDQC0GMjuB5dWaw=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "###Basic Colors and Shapes"
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-10-04T15:29:13.8533+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-10-04T15:29:33.139553+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "m+dOPZ/fDQCHmyTxDOh3xQ=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "{{gtClass:name=BlOctagon}} (Just the Octagon)"
+									},
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-09-29T16:02:01.337929+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-10-04T15:29:52.579459+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "EHd4PZ/fDQCH3vPeDOh3xQ=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "{{gtClass:name=BlVerticalOctagon}}"
+									},
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-10-04T15:29:58.146741+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-10-04T15:30:08.366703+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "SXNJwN/fDQCWmdZGDfvHdw=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "{{gtClass:name=BlHorizontalOctagon}}"
+									}
+								]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-09-29T16:01:50.502208+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-10-03T14:03:00.204814+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "Ph/TPJ/fDQCGx0P6DOh3xQ=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Octogons have 3 kinds of bounds inside."
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-10-04T14:11:13.319347+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-10-04T14:35:50.026649+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "1EyePZ/fDQCICmzwDOh3xQ=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "To do this, let us make a custom {{gtClass:name=BlElement}}, as we have seen we've been using that to create our structures."
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-10-04T14:51:43.144887+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-10-04T14:52:00.174582+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "RtFA1wLgDQCFzqvKCPr11g=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "{{gtMethod:name=BlOctagon>>initialize}}"
+									},
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-10-04T14:52:06.161984+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-10-04T14:52:14.234161+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "0Qeg2ALgDQCGKqtgCPr11g=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "{{gtMethod:name=BlOctagon>>defaultGeometry}}"
+									},
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [
+												{
+													"__type" : "textSnippet",
+													"children" : {
+														"__type" : "snippets",
+														"items" : [ ]
+													},
+													"createEmail" : {
+														"__type" : "email",
+														"emailString" : "mariari@protonmail.ch"
+													},
+													"createTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2024-10-04T15:24:41.440416+08:00"
+														}
+													},
+													"editEmail" : {
+														"__type" : "email",
+														"emailString" : "mariari@protonmail.ch"
+													},
+													"editTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2024-10-04T15:24:59.497881+08:00"
+														}
+													},
+													"uid" : {
+														"__type" : "uid",
+														"uidString" : "jjYrTQPgDQCKL+q1CPr11g=="
+													},
+													"paragraphStyle" : {
+														"__type" : "textStyle"
+													},
+													"string" : "The strategy chosen here came from Aliaskei Syrel"
+												}
+											]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-10-04T15:20:03.441854+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-10-04T15:24:36.250229+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "k0qZPAPgDQCJEx5uCPr11g=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "{{gtMethod:name=BlHorizontalOctagon>>initialize}}"
+									}
+								]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-10-04T14:35:51.392499+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-10-04T15:26:45.361003+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "xzqGngLgDQCBSmqfCPr11g=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Further it seems in {{gtClass:name=BlChicken}}, that a lot of the extension is had through overriding initalize and some default methods."
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [
+									{
+										"__type" : "pharoSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-10-04T15:44:24.030349+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-10-05T17:21:52.301757+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "pxqokwPgDQCVlareCPr11g=="
+										},
+										"code" : "armor := [ BlElement new\r\t\tgeometry: BlStadiumGeometry new;\r\t\tconstraintsDo: [ :c | \r\t\t\tc\r\t\t\t\tmargin: (BlInsets\r\t\t\t\t\t\ttop: 0\r\t\t\t\t\t\tbottom: 0\r\t\t\t\t\t\tleft: 20\r\t\t\t\t\t\tright: 20).\r\t\t\tc horizontal matchParent.\r\t\t\tc vertical matchParent ];\r\t\tborder: nodeThick ] asStencil.\r\rsize := 400.\r\rbounding := BlHorizontalOctagon new\r\t\tconstraintsDo: [ :c | \r\t\t\tc vertical matchParent.\r\t\t\tc horizontal fitContent ].\r\rbounding middle\r\tlayout: BlLinearLayout new;\r\taddChild: armor asElement.\r\rfriendlyTank := BlElement new\r\t\tlayout: BlLinearLayout vertical alignCenter;\r\t\tsize: (size * 1.5) @ size;\r\t\tgeometry: BlRectangleGeometry new;\r\t\tborder: nodeThick;\r\t\tbackground: friendlyColor;\r\t\taddChild: bounding"
+									},
+									{
+										"__type" : "pharoSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-10-04T15:25:11.524252+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-10-10T02:44:40.058456+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "ZkL2TgPgDQCLTsQzCPr11g=="
+										},
+										"code" : "res := BlHorizontalOctagon new\r\t\tconstraintsDo: [ :c | \r\t\t\tc vertical matchParent.\r\t\t\tc horizontal fitContent ];\r\t\tborder: nodeBorder.\r\rres top background: hostileColor.\rres bottom background: neturalColor.\rres middle\r\tbackground: friendlyColor;\r\taddChild: (BlTextElement new\r\t\t\ttext: ('EDF' asRopedText fontSize: 30);\r\t\t\tconstraintsDo: [ :c | \r\t\t\t\tc frame vertical alignCenter.\r\t\t\t\tc frame horizontal alignCenter ]).\r\t\t\t\t\rBlElement new\r\tlayout: BlLinearLayout vertical alignCenter;\r\tsize: 600 @ 400;\r\tgeometry: BlRectangleGeometry new;\r\tclipChildren: true;\r\tborder: nodeBorder;\r\taddChild: res"
+									}
+								]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-10-05T17:21:07.14847+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-10-05T17:21:16.45112+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "4QclChngDQCGqLWXBbx/8Q=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Let us Explore drawing with these shpaes"
+						}
+					]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-09-25T16:19:54.418687+08:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-09-29T16:13:48.41226+08:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "z98QBk/fDQCqHXjJB5dWaw=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "###Bounding Octagonal"
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-10-05T16:12:59.95408+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-10-05T16:12:59.956333+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "RMZGB0/fDQCrsJtvB5dWaw=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "BlNatoBaseElement"
+									},
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-09-25T16:20:25.216603+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-10-05T16:11:06.264946+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "+c/mB0/fDQCsECx2B5dWaw=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "BlAmplified Entity"
+									},
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-10-05T16:13:01.385048+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-10-05T16:13:03.27176+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "l5UNERjgDQC3tTJ7Bbx/8Q=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "NatoEntity"
+									}
+								]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-09-25T16:20:06.954119+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-09-25T16:20:11.502426+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "dSbQBk/fDQCq64GoB5dWaw=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "I think we should have a few things"
+						},
+						{
+							"__type" : "pharoSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-10-05T15:48:12.920574+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-10-26T14:24:37.929813+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "owwkvxfgDQCyxby+Bbx/8Q=="
+							},
+							"code" : "nato := BlNatoBaseElement new\r\t\tframe: BlRectangleGeometry new;\r\t\tfriendly;\r\t\tsize: 600 @ 400;\r\t\thorizontalBoundingOctagon.\r\rnato bounding middle addChild: armor asElement.\rnato"
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-09-25T16:20:21.238341+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-09-25T16:20:21.238341+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "5xyqB0/fDQCsCZedB5dWaw=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : ""
+						}
+					]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-09-25T16:19:54.580361+08:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-09-25T16:20:06.783232+08:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "ilcTBk/fDQCqIR/CB5dWaw=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "###Code Structure"
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-09-29T15:54:16.003454+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-09-29T15:54:31.637405+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "DmJSIZ/fDQCEBkMJDOh3xQ=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "[[Drawing Examples]]"
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [
+												{
+													"__type" : "textSnippet",
+													"children" : {
+														"__type" : "snippets",
+														"items" : [
+															{
+																"__type" : "textSnippet",
+																"children" : {
+																	"__type" : "snippets",
+																	"items" : [
+																		{
+																			"__type" : "pharoSnippet",
+																			"children" : {
+																				"__type" : "snippets",
+																				"items" : [ ]
+																			},
+																			"createEmail" : {
+																				"__type" : "email",
+																				"emailString" : "<unknown>"
+																			},
+																			"createTime" : {
+																				"__type" : "time",
+																				"time" : {
+																					"__type" : "dateAndTime",
+																					"dateAndTimeString" : "2024-09-29T17:08:35.917215+08:00"
+																				}
+																			},
+																			"editEmail" : {
+																				"__type" : "email",
+																				"emailString" : "<unknown>"
+																			},
+																			"editTime" : {
+																				"__type" : "time",
+																				"time" : {
+																					"__type" : "dateAndTime",
+																					"dateAndTimeString" : "2024-09-29T17:55:40.214607+08:00"
+																				}
+																			},
+																			"uid" : {
+																				"__type" : "uid",
+																				"uidString" : "nuSQK6DfDQCpn37MDOh3xQ=="
+																			},
+																			"code" : "radious := 100.\r\rverticalCircle := BlElement new\r\t\tgeometry: BlCircleGeometry new;\r\t\tsize: radious asPoint;\r\t\tlayout: BlLinearLayout horizontal alignCenter;\r\t\tconstraintsDo: [ :c | \r\t\t\tc frame horizontal alignCenter.\r\t\t\tc frame vertical alignCenter ];\r\t\tborder: nodeBorder.\r\rleft := BlElement new\r\t\tgeometry: BlRectangleGeometry new;\r\t\tsize: (radious * 0.3) @ radious;\r\t\tbackground: neturalColor.\r\rmiddle := BlElement new\r\t\tgeometry: BlRectangleGeometry new;\r\t\tsize: (radious * 0.4) @ radious;\r\t\tbackground: friendlyColor.\r\rright := BlElement new\r\t\tgeometry: BlRectangleGeometry new;\r\t\tsize: (radious * 0.3) @ radious;\r\t\tbackground: hostileColor.\r\rverticalCircle\r\taddChild: left;\r\taddChild: middle;\r\taddChild: right.\r\rrectangle := BlElement new\r\t\tborder: nodeBorder;\r\t\tgeometry: BlRoundedRectangleGeometry new;\r\t\tsize: 150 @ 100;\r\t\tbackground: friendlyColor;\r\t\taddChild: verticalCircle.\r\rrectangle layout: BlFrameLayout new"
+																		}
+																	]
+																},
+																"createEmail" : {
+																	"__type" : "email",
+																	"emailString" : "<unknown>"
+																},
+																"createTime" : {
+																	"__type" : "time",
+																	"time" : {
+																		"__type" : "dateAndTime",
+																		"dateAndTimeString" : "2024-09-29T18:02:23.102378+08:00"
+																	}
+																},
+																"editEmail" : {
+																	"__type" : "email",
+																	"emailString" : "<unknown>"
+																},
+																"editTime" : {
+																	"__type" : "time",
+																	"time" : {
+																		"__type" : "dateAndTime",
+																		"dateAndTimeString" : "2024-09-29T18:02:28.885307+08:00"
+																	}
+																},
+																"uid" : {
+																	"__type" : "uid",
+																	"uidString" : "OuXE66DfDQCz+U5eDOh3xQ=="
+																},
+																"paragraphStyle" : {
+																	"__type" : "textStyle"
+																},
+																"string" : "Vertical Circle"
+															},
+															{
+																"__type" : "textSnippet",
+																"children" : {
+																	"__type" : "snippets",
+																	"items" : [
+																		{
+																			"__type" : "pharoSnippet",
+																			"children" : {
+																				"__type" : "snippets",
+																				"items" : [ ]
+																			},
+																			"createEmail" : {
+																				"__type" : "email",
+																				"emailString" : "<unknown>"
+																			},
+																			"createTime" : {
+																				"__type" : "time",
+																				"time" : {
+																					"__type" : "dateAndTime",
+																					"dateAndTimeString" : "2024-09-29T17:31:50.873204+08:00"
+																				}
+																			},
+																			"editEmail" : {
+																				"__type" : "email",
+																				"emailString" : "<unknown>"
+																			},
+																			"editTime" : {
+																				"__type" : "time",
+																				"time" : {
+																					"__type" : "dateAndTime",
+																					"dateAndTimeString" : "2024-09-29T18:06:41.847846+08:00"
+																				}
+																			},
+																			"uid" : {
+																				"__type" : "uid",
+																				"uidString" : "xz62fqDfDQCwafVEDOh3xQ=="
+																			},
+																			"code" : "radious := 100.\r\rhorizontalCircle := BlElement new\r\t\tgeometry: BlCircleGeometry new;\r\t\tsize: radious asPoint;\r\t\tlayout: BlLinearLayout vertical alignCenter;\r\t\tconstraintsDo: [ :c | \r\t\t\tc frame horizontal alignCenter.\r\t\t\tc frame vertical alignCenter ];\r\t\tborder: nodeBorder.\r\rleft := BlElement new\r\t\tgeometry: BlRectangleGeometry new;\r\t\tsize: radious @ (radious * 0.3);\r\t\tbackground: neturalColor.\r\rmiddle := BlElement new\r\t\tgeometry: BlRectangleGeometry new;\r\t\tsize: radious @ (radious * 0.4);\r\t\tbackground: friendlyColor.\r\rright := BlElement new\r\t\tgeometry: BlRectangleGeometry new;\r\t\tsize: radious @ (radious * 0.3);\r\t\tbackground: hostileColor;\r\t\tborder: nodeBorder.\r\rhorizontalCircle\r\taddChild: left;\r\taddChild: middle;\r\taddChild: right.\r\rrectangle := BlElement new\r\t\tborder: nodeBorder;\r\t\tgeometry: BlRoundedRectangleGeometry new;\r\t\tsize: 150 @ 100;\r\t\tbackground: friendlyColor;\r\t\taddChild: horizontalCircle.\r\rrectangle layout: BlFrameLayout new"
+																		}
+																	]
+																},
+																"createEmail" : {
+																	"__type" : "email",
+																	"emailString" : "<unknown>"
+																},
+																"createTime" : {
+																	"__type" : "time",
+																	"time" : {
+																		"__type" : "dateAndTime",
+																		"dateAndTimeString" : "2024-09-29T18:02:34.137598+08:00"
+																	}
+																},
+																"editEmail" : {
+																	"__type" : "email",
+																	"emailString" : "<unknown>"
+																},
+																"editTime" : {
+																	"__type" : "time",
+																	"time" : {
+																		"__type" : "dateAndTime",
+																		"dateAndTimeString" : "2024-09-29T18:02:38.914789+08:00"
+																	}
+																},
+																"uid" : {
+																	"__type" : "uid",
+																	"uidString" : "YzWU7KDfDQC0c+1UDOh3xQ=="
+																},
+																"paragraphStyle" : {
+																	"__type" : "textStyle"
+																},
+																"string" : "Horizontal Circle"
+															},
+															{
+																"__type" : "textSnippet",
+																"children" : {
+																	"__type" : "snippets",
+																	"items" : [
+																		{
+																			"__type" : "pharoSnippet",
+																			"children" : {
+																				"__type" : "snippets",
+																				"items" : [ ]
+																			},
+																			"createEmail" : {
+																				"__type" : "email",
+																				"emailString" : "<unknown>"
+																			},
+																			"createTime" : {
+																				"__type" : "time",
+																				"time" : {
+																					"__type" : "dateAndTime",
+																					"dateAndTimeString" : "2024-09-29T17:08:43.099694+08:00"
+																				}
+																			},
+																			"editEmail" : {
+																				"__type" : "email",
+																				"emailString" : "mariari@protonmail.ch"
+																			},
+																			"editTime" : {
+																				"__type" : "time",
+																				"time" : {
+																					"__type" : "dateAndTime",
+																					"dateAndTimeString" : "2024-09-29T18:12:45.149647+08:00"
+																				}
+																			},
+																			"uid" : {
+																				"__type" : "uid",
+																				"uidString" : "/ID+K6DfDQCpt2KoDOh3xQ=="
+																			},
+																			"code" : "radious := 100.\r\rfullCircle := BlElement new\r\t\tgeometry: BlCircleGeometry new;\r\t\tsize: radious asPoint;\r\t\tconstraintsDo: [ :c | \r\t\t\tc frame horizontal alignCenter.\r\t\t\tc frame vertical alignCenter ];\r\t\tborder: nodeBorder.\r\rrectangle := BlElement new\r\t\tborder: nodeBorder;\r\t\tgeometry: BlRoundedRectangleGeometry new;\r\t\tsize: 150 @ 100;\r\t\tbackground: friendlyColor;\r\t\taddChild: fullCircle.\r\rfullCircle\r\taddChild: leftToRight asElement;\r\taddChild: rightToLeft asElement.\r\rrectangle layout: BlFrameLayout new"
+																		}
+																	]
+																},
+																"createEmail" : {
+																	"__type" : "email",
+																	"emailString" : "<unknown>"
+																},
+																"createTime" : {
+																	"__type" : "time",
+																	"time" : {
+																		"__type" : "dateAndTime",
+																		"dateAndTimeString" : "2024-09-29T17:15:27.065805+08:00"
+																	}
+																},
+																"editEmail" : {
+																	"__type" : "email",
+																	"emailString" : "<unknown>"
+																},
+																"editTime" : {
+																	"__type" : "time",
+																	"time" : {
+																		"__type" : "dateAndTime",
+																		"dateAndTimeString" : "2024-09-29T17:15:30.039811+08:00"
+																	}
+																},
+																"uid" : {
+																	"__type" : "uid",
+																	"uidString" : "UIgSRKDfDQCrDCMyDOh3xQ=="
+																},
+																"paragraphStyle" : {
+																	"__type" : "textStyle"
+																},
+																"string" : "Full Circle"
+															}
+														]
+													},
+													"createEmail" : {
+														"__type" : "email",
+														"emailString" : "<unknown>"
+													},
+													"createTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2024-09-29T16:23:03.601191+08:00"
+														}
+													},
+													"editEmail" : {
+														"__type" : "email",
+														"emailString" : "mariari@protonmail.ch"
+													},
+													"editTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2024-10-26T14:21:11.6321+08:00"
+														}
+													},
+													"uid" : {
+														"__type" : "uid",
+														"uidString" : "GhK1iJ/fDQCRa4OmDOh3xQ=="
+													},
+													"paragraphStyle" : {
+														"__type" : "textStyle"
+													},
+													"string" : "Namely we can try adding rectangles that slightly overfit the circle as children. I fear this would make drawing the chidlren a pain though"
+												}
+											]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-09-29T16:19:28.011441+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-09-29T16:19:52.109727+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "UL5je5/fDQCO+8LSDOh3xQ=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "What I think I can do is make a cirlce, then add some children that match certain bound informaiton"
+									}
+								]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-10-02T21:00:18.794722+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-10-02T21:00:34.560662+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "nBrEwd/fDQCWvZLHDfvHdw=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "####Drawing Octagons"
+						}
+					]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-09-24T20:44:33.691948+08:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-09-25T16:20:01.140585+08:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "Gvuzmj7fDQCt++bfB5dWaw=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "### Unsued Ends"
+			}
+		]
+	},
+	"createEmail" : {
+		"__type" : "email",
+		"emailString" : "<unknown>"
+	},
+	"createTime" : {
+		"__type" : "time",
+		"time" : {
+			"__type" : "dateAndTime",
+			"dateAndTimeString" : "2024-09-24T20:05:49.127614+08:00"
+		}
+	},
+	"editEmail" : {
+		"__type" : "email",
+		"emailString" : "<unknown>"
+	},
+	"editTime" : {
+		"__type" : "time",
+		"time" : {
+			"__type" : "dateAndTime",
+			"dateAndTimeString" : "2024-09-24T20:05:49.127614+08:00"
+		}
+	},
+	"pageType" : {
+		"__type" : "namedPage",
+		"title" : "NATO Visualization"
+	},
+	"uid" : {
+		"__type" : "uuid",
+		"uuid" : "5a256288-b3de-0d00-923e-6fa10797566b"
+	}
+}

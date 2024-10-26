@@ -1,0 +1,756 @@
+{
+	"__schema" : "4.1",
+	"__type" : "page",
+	"children" : {
+		"__type" : "snippets",
+		"items" : [
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-10-26T10:23:23.948103+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-10-26T10:24:27.796698+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "L6UKqLnhDQC2rEQfAJZ3hQ=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "In playing with Smalltalk I've lumped all classes into one package for convience for the basline. However I wish to change this habbit and move classes into their proper packages."
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-10-26T10:24:28.036476+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-10-26T10:24:58.840198+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "U7z+q7nhDQC7RxPoAJZ3hQ=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Thankfully I already categorized all the classes with a specific **tag** that will make moving them easier."
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-10-26T09:29:28.523368+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-10-26T10:25:58.453162+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "uSpU57jhDQCgu+2ZAJZ3hQ=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Let's try moving all classes of a specific **tag** to the new package. "
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-10-26T10:58:03.425785+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-10-26T10:58:56.268058+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "ACEfJLrhDQCWsH4UAJZ3hQ=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Since I want this code to be functional even in the future we bind over **frompackage** to be the same as **toPackage**."
+						},
+						{
+							"__type" : "pharoSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-10-26T09:27:45.409086+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-10-26T10:59:08.104262+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "WMQu4bjhDQCfOZg8AJZ3hQ=="
+							},
+							"code" : "fromPackage := 'MiscGTScripts' asPackage.\rtoPackage := 'GitProjectBoard' asPackage.\rfromPackage := toPackage."
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [
+									{
+										"__type" : "pharoSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-10-26T09:32:37.206453+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-10-26T10:04:02.284971+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "3jeT8rjhDQCmdyeEAJZ3hQ=="
+										},
+										"code" : "specificClass := GitIssueInfo."
+									},
+									{
+										"__type" : "pharoSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-10-26T09:57:57.908604+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-10-26T10:59:58.621298+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "QU43TbnhDQCt1r6RAJZ3hQ=="
+										},
+										"code" : "oldtag := fromPackage classTagForClass: specificClass"
+									},
+									{
+										"__type" : "pharoSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-10-26T09:48:04.431879+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-10-26T10:03:34.287336+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "w5HXKbnhDQCqYL5NAJZ3hQ=="
+										},
+										"code" : "newTag := toPackage addClassTag: oldtag name"
+									},
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-10-26T10:05:41.617676+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-10-26T10:06:15.518172+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "fPDaaLnhDQCxDsj1AJZ3hQ=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "It seems that to move a class completely, we need to change the category before hand, else it does not update properly"
+									},
+									{
+										"__type" : "pharoSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-10-26T09:56:21.900436+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-10-26T10:05:29.07417+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "elZ+R7nhDQCtcL8BAJZ3hQ=="
+										},
+										"code" : "newTag categoryName"
+									},
+									{
+										"__type" : "pharoSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-10-26T09:38:32.831427+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-10-26T10:03:21.508963+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "7KLFB7nhDQCnWuhNAJZ3hQ=="
+										},
+										"code" : "specificClass category: newTag categoryName.\rtoPackage moveClass: specificClass fromPackage: fromPackage toTag: newTag"
+									}
+								]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-10-26T09:31:10.609216+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-10-26T11:00:26.961563+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "j9tp7bjhDQCjqFpRAJZ3hQ=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Before running it on all values, let us try with a specific class."
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [
+									{
+										"__type" : "pharoSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-10-26T10:29:55.548839+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-10-26T10:41:09.73746+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "/ymEv7nhDQCDL6acAJZ3hQ=="
+										},
+										"code" : "tag := 'git'.\rnewTag := toPackage addClassTag: tag.\rclasses := fromPackage classTagNamed: tag.\rclass := classes classes asArray  at: 1."
+									}
+								]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-10-26T10:27:36.281785+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-10-26T10:29:52.774694+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "byA3t7nhDQCAF/ikAJZ3hQ=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Let's try extracting the information from the package itself now, as that is how we'll get the infromation when we try to automate this"
+						}
+					]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "mariari@protonmail.ch"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-10-26T10:22:37.375981+08:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "mariari@protonmail.ch"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-10-26T10:22:43.145228+08:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "PyVmpbnhDQC1z0KAAJZ3hQ=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "###Exploration"
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-10-26T10:06:24.422271+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-10-26T10:06:37.70611+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "5xVoa7nhDQC0IxqVAJZ3hQ=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Now that we have all the generic logic done, let us start scripting all the moves."
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-10-26T10:48:02.112726+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-10-26T10:48:27.64282+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "9tFHALrhDQCODF2EAJZ3hQ=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Note that we can only move them once"
+						},
+						{
+							"__type" : "pharoSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-10-26T10:22:25.471707+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-10-26T10:47:58.100341+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "HHywpLnhDQC1y71hAJZ3hQ=="
+							},
+							"code" : "fromPackage := 'MiscGTScripts' asPackage.\rtoPackage := 'GitProjectBoard' asPackage.\rtags := {'git' . 'git - graph' . 'git - query'}."
+						},
+						{
+							"__type" : "pharoSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-10-26T10:35:33.911727+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-10-26T10:43:00.446083+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "Ey+v07nhDQCGg/ucAJZ3hQ=="
+							},
+							"code" : "tags\r\tdo: [ :tag | \r\t\t| packageTag newTag |\r\t\tnewTag := toPackage addClassTag: tag.\r\t\tpackageTag := fromPackage classTagNamed: tag.\r\t\tpackageTag classes\r\t\t\tdo: [ :class | \r\t\t\t\tclass category: newTag categoryName.\r\t\t\t\ttoPackage\r\t\t\t\t\tmoveClass: class\r\t\t\t\t\tfromPackage: fromPackage\r\t\t\t\t\ttoTag: newTag ] ]"
+						}
+					]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "mariari@protonmail.ch"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-10-26T10:26:12.485178+08:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "mariari@protonmail.ch"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-10-26T10:26:19.846498+08:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "a304srnhDQC/GlAdAJZ3hQ=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "###Code Solution"
+			}
+		]
+	},
+	"createEmail" : {
+		"__type" : "email",
+		"emailString" : "mariari@protonmail.ch"
+	},
+	"createTime" : {
+		"__type" : "time",
+		"time" : {
+			"__type" : "dateAndTime",
+			"dateAndTimeString" : "2024-10-26T09:27:55.114348+08:00"
+		}
+	},
+	"editEmail" : {
+		"__type" : "email",
+		"emailString" : "<unknown>"
+	},
+	"editTime" : {
+		"__type" : "time",
+		"time" : {
+			"__type" : "dateAndTime",
+			"dateAndTimeString" : "2024-10-26T12:45:44.342438+08:00"
+		}
+	},
+	"pageType" : {
+		"__type" : "namedPage",
+		"title" : "Moving Classes From one Package to Another"
+	},
+	"uid" : {
+		"__type" : "uuid",
+		"uuid" : "6cc32ee1-b8e1-0d00-9f38-319a00967785"
+	}
+}

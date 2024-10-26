@@ -1,0 +1,3483 @@
+{
+	"__schema" : "4.1",
+	"__type" : "page",
+	"children" : {
+		"__type" : "snippets",
+		"items" : [
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T19:28:05.196731+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-21T22:52:14.080171+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "+QznNfTYDQCTH1FWB4R2Ow=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "There are many ways to run and maintain a [git](https://git-scm.com/) project. The projects under my maintenance tend to be ran in a similar style that both [git](https://git-scm.com/) and [linux](https://www.kernel.org/) maintains projects. The typical git style with those projects is that contributors send patches from the latest release to a maintainer via [git am](https://git-scm.com/docs/git-am). From there a maintainer takes the patches submited and forms patch sets to either prepare for a release or to send (via a PR) to another maintainer."
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-07-06T19:36:43.483905+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-07-21T22:52:14.080781+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "J3uVVPTYDQCiOC/2B4R2Ow=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "1. Instead of getting patches via [git am](https://git-scm.com/docs/git-am), users submit a [pull request (PR) on github](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
+									},
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-07-06T19:37:45.059619+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-07-06T19:40:31.947664+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "kRl3WPTYDQCjji1qB4R2Ow=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "2. Further, instead of having a [whats cooking](https://lore.kernel.org/git/?q=s%3A%22What%27s+cooking+in+git.git%22) mailing thread to show the progression of topics, I utilize a project board with a [kanban](https://en.wikipedia.org/wiki/Kanban) view to show the progression of topics."
+									},
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-07-06T20:00:46.613863+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-07-06T20:39:00.975153+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "au/PqvTYDQCvjF5HB4R2Ow=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "3. Instead of having users create pull requests off of the latest release, I create a branch/topic called `base` for users to base their changes against."
+									}
+								]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T19:31:42.472984+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T19:36:39.657627+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "VAmkQvTYDQCc2nwMB4R2Ow=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Where my style differs from both [git](https://git-scm.com/) and [linux](https://www.kernel.org/) is that my projects tend to be hosted on github and they utilize [Github's project boards](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects). This makes the style of git differ from the above project in the following way:"
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [
+												{
+													"__type" : "textSnippet",
+													"children" : {
+														"__type" : "snippets",
+														"items" : [ ]
+													},
+													"createEmail" : {
+														"__type" : "email",
+														"emailString" : "mariari@protonmail.ch"
+													},
+													"createTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2024-07-06T20:35:29.587163+08:00"
+														}
+													},
+													"editEmail" : {
+														"__type" : "email",
+														"emailString" : "mariari@protonmail.ch"
+													},
+													"editTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2024-07-06T20:37:30.306001+08:00"
+														}
+													},
+													"uid" : {
+														"__type" : "uid",
+														"uidString" : "HsC4JfXYDQCqkUOEB4R2Ow=="
+													},
+													"paragraphStyle" : {
+														"__type" : "textStyle"
+													},
+													"string" : "Pull requests by default target this default branch."
+												},
+												{
+													"__type" : "textSnippet",
+													"children" : {
+														"__type" : "snippets",
+														"items" : [ ]
+													},
+													"createEmail" : {
+														"__type" : "email",
+														"emailString" : "mariari@protonmail.ch"
+													},
+													"createTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2024-07-06T20:35:37.268527+08:00"
+														}
+													},
+													"editEmail" : {
+														"__type" : "email",
+														"emailString" : "<unknown>"
+													},
+													"editTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2024-07-21T22:52:14.081142+08:00"
+														}
+													},
+													"uid" : {
+														"__type" : "uid",
+														"uidString" : "xMxsJ/XYDQCsI48vB4R2Ow=="
+													},
+													"paragraphStyle" : {
+														"__type" : "textStyle"
+													},
+													"string" : "The repository default clone goes to the default branch by default. This means everyone uses this branch to contribute to the project."
+												}
+											]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-07-06T20:32:21.146456+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-07-06T20:35:07.75334+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "ujS8G/XYDQClQNSIB4R2Ow=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "1. Github has a notion of a [default branch](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/changing-the-default-branch), in which most every action happens to."
+									},
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [
+												{
+													"__type" : "textSnippet",
+													"children" : {
+														"__type" : "snippets",
+														"items" : [ ]
+													},
+													"createEmail" : {
+														"__type" : "email",
+														"emailString" : "mariari@protonmail.ch"
+													},
+													"createTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2024-07-06T20:45:38.284353+08:00"
+														}
+													},
+													"editEmail" : {
+														"__type" : "email",
+														"emailString" : "mariari@protonmail.ch"
+													},
+													"editTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2024-07-06T20:45:53.981662+08:00"
+														}
+													},
+													"uid" : {
+														"__type" : "uid",
+														"uidString" : "OJE/S/XYDQC/WbYaB4R2Ow=="
+													},
+													"paragraphStyle" : {
+														"__type" : "textStyle"
+													},
+													"string" : "If a maintainer does not do this, then a user may wonder if their work got accepted or if it is stuck in limbo."
+												}
+											]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-07-06T20:34:56.834358+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-07-21T22:52:14.081324+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "FcsDJfXYDQCqdJ2oB4R2Ow=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "2. Due to prs being against the default branch by default, and the state of a PR is either `merged`, `open`, or `closed`, this encourages maintainers to merge the users topic as soon as possible, to lower the number of open requests"
+									},
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [
+												{
+													"__type" : "textSnippet",
+													"children" : {
+														"__type" : "snippets",
+														"items" : [ ]
+													},
+													"createEmail" : {
+														"__type" : "email",
+														"emailString" : "mariari@protonmail.ch"
+													},
+													"createTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2024-07-06T20:45:07.69173+08:00"
+														}
+													},
+													"editEmail" : {
+														"__type" : "email",
+														"emailString" : "mariari@protonmail.ch"
+													},
+													"editTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2024-07-06T20:53:03.217658+08:00"
+														}
+													},
+													"uid" : {
+														"__type" : "uid",
+														"uidString" : "+8VsSfXYDQC+BgltB4R2Ow=="
+													},
+													"paragraphStyle" : {
+														"__type" : "textStyle"
+													},
+													"string" : "This has results in low visibility to the user on how the project is changing if they are not merging to the default branch"
+												}
+											]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-07-06T20:50:55.550122+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-07-06T20:50:55.550122+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "MK0oXvXYDQCPOF8NB4R2Ow=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "3. The UI on the main page only shows the defualt branch, views into other topics are not easily shown on the website"
+									},
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [
+												{
+													"__type" : "textSnippet",
+													"children" : {
+														"__type" : "snippets",
+														"items" : [ ]
+													},
+													"createEmail" : {
+														"__type" : "email",
+														"emailString" : "mariari@protonmail.ch"
+													},
+													"createTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2024-07-06T20:56:00.360042+08:00"
+														}
+													},
+													"editEmail" : {
+														"__type" : "email",
+														"emailString" : "mariari@protonmail.ch"
+													},
+													"editTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2024-07-06T20:59:37.545244+08:00"
+														}
+													},
+													"uid" : {
+														"__type" : "uid",
+														"uidString" : "i6ZTcPXYDQCdoLcKB4R2Ow=="
+													},
+													"paragraphStyle" : {
+														"__type" : "textStyle"
+													},
+													"string" : "`--first-parent` allows viewing a branch as if the commits have been squashed, without this linear history can look quite messy. This is why one of the [merging methods](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/about-merge-methods-on-github) github natively supports is `merge and squash`, as the history viewable on the website is not very clean without it."
+												}
+											]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-07-06T20:53:04.006464+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-07-06T20:54:13.458644+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "vMHQZfXYDQCWNePWB4R2Ow=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "4. The git history is only shown as a linear series of commits without `--first-parent` or displaying the graph"
+									}
+								]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T20:24:12.246938+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T20:32:20.815742+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "nTSY/vTYDQCUougVB4R2Ow=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "The git workflow I described tends to revolve around a stable base that gets updated as a new release comes out. However, this is in stark contrast with how `github` encourages projects to be run. There are many user experience barriers to running a project with a stable base:"
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T21:01:37.898293+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T21:25:46.221129+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "DkZA9vPYDQC2oX/LB4R2Ow=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "The assumption of a rapidly changing default branch also affects how project board workflows work. For example the workflow actions for issues and prs can only trigger automated actions when their states changes. Since the states are limited to `merged`, `open`, and `closed`, there are no automated way to see if a topic is included in a release candidate or not. For a typical project that merges things regularly to base, the user experience of this is not too painful as anything left that is not closed is minimal and can be manually handled."
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T21:31:16.735193+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T21:32:05.368134+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "RNzJ2vXYDQCMzYfsB4R2Ow=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Due to the relatively high friction in github's tooling for managing git projects in this way I wish to create a tool that can help me check releases."
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T21:38:24.274369+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T21:42:56.528889+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "RL8C+/XYDQCbC843B4R2Ow=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Thankfully for me, github offers a [graphql](https://graphql.org/) api that lets users write queries against both project boards and incoming pull requests. So the energy spent on maintaing a clean project board is not all wasted."
+						}
+					]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "mariari@protonmail.ch"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-07-06T21:29:07.878398+08:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "mariari@protonmail.ch"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-07-06T21:29:35.456923+08:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "BtDK5vXYDQCSy9ocB4R2Ow=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "###Git Maintainership: On git workflows"
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [
+												{
+													"__type" : "textSnippet",
+													"children" : {
+														"__type" : "snippets",
+														"items" : [ ]
+													},
+													"createEmail" : {
+														"__type" : "email",
+														"emailString" : "mariari@protonmail.ch"
+													},
+													"createTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2024-07-06T21:49:21.038519+08:00"
+														}
+													},
+													"editEmail" : {
+														"__type" : "email",
+														"emailString" : "<unknown>"
+													},
+													"editTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2024-07-21T22:52:14.081686+08:00"
+														}
+													},
+													"uid" : {
+														"__type" : "uid",
+														"uidString" : "Di4aL/bYDQCuheTEB4R2Ow=="
+													},
+													"paragraphStyle" : {
+														"__type" : "textStyle"
+													},
+													"string" : "This would allow me to quickly relate PR's to topics in a quick way."
+												}
+											]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-07-06T21:48:06.073226+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-07-06T21:54:25.583152+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "sUqiKvbYDQCrhpXtB4R2Ow=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "1. I'd like to be able to see the topic names of open pr's in the board view (oddly enough you can't do this with github natively!)."
+									},
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-07-06T21:49:51.570125+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-07-06T21:54:28.647565+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "iw7sMPbYDQCwA/TJB4R2Ow=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "2. I'd like to see if a topic is merged against some `release candidate` I have in mind. That way I can see without having to go through every topic name if I forgot anything."
+									},
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-07-06T21:50:23.473747+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-07-06T21:54:29.38196+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "b93SMvbYDQCzjlBAB4R2Ow=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "3. Ideally I'd be able to have a tool that can track dependencies between the open pr's and show me a graph view."
+									},
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-07-06T21:51:05.146404+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-07-06T21:54:30.09808+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "rr1ONfbYDQC3DKBfB4R2Ow=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "4. I'd like to cut topics by their tags."
+									},
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [
+												{
+													"__type" : "textSnippet",
+													"children" : {
+														"__type" : "snippets",
+														"items" : [ ]
+													},
+													"createEmail" : {
+														"__type" : "email",
+														"emailString" : "mariari@protonmail.ch"
+													},
+													"createTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2024-07-06T21:53:51.088074+08:00"
+														}
+													},
+													"editEmail" : {
+														"__type" : "email",
+														"emailString" : "mariari@protonmail.ch"
+													},
+													"editTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2024-07-06T21:54:17.69506+08:00"
+														}
+													},
+													"uid" : {
+														"__type" : "uid",
+														"uidString" : "Hc8yP/bYDQC7qyRkB4R2Ow=="
+													},
+													"paragraphStyle" : {
+														"__type" : "textStyle"
+													},
+													"string" : "I don't trust this to fully automate the decision on what to merge, but rather to give me ideas on what orders I can think about first."
+												}
+											]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-07-06T21:52:55.359588+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-07-06T21:54:30.92083+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "w3PgO/bYDQC40mXxB4R2Ow=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "5. Finally I'd like a tool to suggest to me a hypothetical ordering I can try to base work on."
+									}
+								]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T21:45:29.381511+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T21:48:05.828457+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "P0ck9PXYDQCaamU8B4R2Ow=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "With the difficencies of github's interface known, let me outline what would improve my maintainership experience:"
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T21:55:02.89171+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T21:55:39.38722+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "uVu7QvbYDQC/Xh8dB4R2Ow=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "To keep this post brief, I will implement `1.` and `2.` and leave `3.` through `5.` for a follow up post."
+						}
+					]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "mariari@protonmail.ch"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-07-06T21:32:07.777721+08:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "mariari@protonmail.ch"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-07-06T21:33:23.185081+08:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "uRgn1fXYDQCGYh74B4R2Ow=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "###The kind of project management tool that I want"
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T21:58:22.40279+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T22:01:23.862791+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "7LleT/bYDQCFD5NjB4R2Ow=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "With our objectives known, let us start the process by choosing a project and creating simple views that correspond to the solutions that I'd like to see."
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T22:02:20.042016+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T22:04:15.978951+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "P3D3WvbYDQCKwWXCB4R2Ow=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "For the sake of this document I will chose the [anoma](https://github.com/anoma/anoma) repo and project board as that is where most of my engineering effort has been going. Since the project board (and the repo of the time of this writing) is not public, you will not be able to run the code exactly like I have, however the code is fully general and you can change the specific paramemters to what you like."
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T22:04:27.5868+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T22:04:51.949253+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "3v4iZfbYDQCZEPeeB4R2Ow=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "With that said, let me load the [anoma](https://github.com/anoma/anoma) codebase into `GT`."
+						},
+						{
+							"__type" : "pharoSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T22:04:25.400187+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T22:05:03.344895+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "gp4BZfbYDQCZDFdnB4R2Ow=="
+							},
+							"code" : "anoma := FileLocator home / 'Documents' / 'Work' / 'Repo' / 'anoma'.\ranomaRepo := IceLibgitRepository new location: anoma"
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T22:05:53.958334+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T22:06:56.21944+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "u+tIavbYDQCa8cAsB4R2Ow=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Playing with smalltalk a bit we can see how to determine if a topic is merged in another branch or not."
+						},
+						{
+							"__type" : "pharoSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T22:07:03.009581+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T22:20:38.552239+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "q49mbvbYDQCdLgZLB4R2Ow=="
+							},
+							"code" : "base := IceGitLocalBranch named: 'base' inRepository: anomaRepo.\rexampleNock := IceGitRemoteBranch\r\t\tnamed: 'anoma/mariari/example-nock'\r\t\tinRepository: anomaRepo.\rexampleClosed := IceGitRemoteBranch\r\t\tnamed: 'anoma/mariari/node-from-base'\r\t\tinRepository: anomaRepo.\rbase commit isParentOf: exampleNock commit"
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T22:10:17.954749+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T22:10:58.79295+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "RME0cfbYDQCdWOCxB4R2Ow=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "With the general premise explored, let us start create example code that corresponds to precisely what we want!"
+						},
+						{
+							"__type" : "pharoSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T22:11:01.152396+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-10-26T13:26:56.758875+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "FVKYfPbYDQCk9pxZB4R2Ow=="
+							},
+							"code" : "exampleNockInclude := GitTopicInfo new\r\t\ttopic: exampleNock;\r\t\ttags: {};\r\t\tstatus: 'WIP';\r\t\tyourself.\rexampleClosedInclude := GitTopicInfo new\r\t\ttopic: exampleClosed;\r\t\ttags: {};\r\t\tstatus: 'Closed';\r\t\tyourself"
+						},
+						{
+							"__type" : "pharoSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T22:11:23.784826+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-10T22:11:55.366998+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "RK/xffbYDQClJ4MYB4R2Ow=="
+							},
+							"code" : "release := GitProjectBoardByHand new candidateBranch: base.\rrelease\r\titems: {exampleNockInclude.\r\t\t\texampleClosedInclude}"
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T22:13:34.182882+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-10T22:11:55.367059+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "YmO3hfbYDQCo36wEB4R2Ow=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "In these snipits we prepose we have classes named {{gtClass:name=GitTopicInfo}} and {{gtClass:name=GitProjectBoardByHand}}."
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-07T20:53:02.312656+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-07T21:08:09.604752+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "kkqOgwnZDQCAT7owB9RLxA=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Further since {{gtClass:name=GitProjectBoardByHand}} can also contain issues, I've made {{gtClass:name=ProjectBoardItem}} as a parent class and added {{gtClass:name=GitIssueInfo}} as a sister class. Later in the article we will define a parent class to {{gtClass:name=GitProjectBoardByHand}} called {{gtClass:name=GitProjectBoard}}. Since this document contains the live methods in the system, we will sometimes give the parent's methods rather than the methods defined above. "
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-07-06T22:09:13.062181+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-07-06T22:15:45.898201+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "FgQndvbYDQCfI1eWB4R2Ow=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : " {{gtMethod:name=GitTopicInfo>>topic:}}"
+									},
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-07-06T22:15:48.560468+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-10-26T13:17:42.405781+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "FNS5jfbYDQCslsv2B4R2Ow=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : " {{gtMethod:name=ProjectBoardItem>>status:}} (Was changed in a refactor)"
+									},
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-07-06T22:15:59.78572+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-10-26T13:17:51.143132+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "Ph9ljvbYDQCsx1gLB4R2Ow=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "and any  {{gtMethod:name=ProjectBoardItem>>tags:}} (Was changed in a refactor)"
+									}
+								]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T22:15:45.891654+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T22:17:25.811502+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "ohORjfbYDQCsjYw1B4R2Ow=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "The idea of {{gtClass:name=GitTopicInfo}}is to contain all the information we'd need inorder to effectively create our tool. For this we simply keep information about the:"
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-07-06T22:17:29.184878+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-07-10T22:11:55.368075+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "Lzy5k/bYDQCulI9RB4R2Ow=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "{{gtMethod:name=GitProjectBoard>>#candidateBranch:}}"
+									},
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-07-06T22:18:10.373947+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-07-10T22:11:55.368226+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "GbstlvbYDQCvI1XuB4R2Ow=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "{{gtMethod:name=GitProjectBoardByHand>>#items:}}"
+									}
+								]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T22:16:14.054919+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-10T22:11:55.367883+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "UtY+j/bYDQCtL7OGB4R2Ow=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Further {{gtClass:name=GitProjectBoardByHand}}, needs to only keep information about:"
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-07-06T22:23:51.108221+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-07-10T22:11:55.368494+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "Iex8qvbYDQC2sHcJB4R2Ow=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "The {{gtMethod:name=GitProjectBoard>>#isInReleaseColor:}} method, lets us pick a color depending on the status if a particular topic is merged with the `candidate` branch."
+									},
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [
+												{
+													"__type" : "textSnippet",
+													"children" : {
+														"__type" : "snippets",
+														"items" : [ ]
+													},
+													"createEmail" : {
+														"__type" : "email",
+														"emailString" : "mariari@protonmail.ch"
+													},
+													"createTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2024-07-07T21:30:15.046815+08:00"
+														}
+													},
+													"editEmail" : {
+														"__type" : "email",
+														"emailString" : "<unknown>"
+													},
+													"editTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2024-07-08T00:20:45.492435+08:00"
+														}
+													},
+													"uid" : {
+														"__type" : "uid",
+														"uidString" : "hhujCArZDQCo+yLXB9RLxA=="
+													},
+													"paragraphStyle" : {
+														"__type" : "textStyle"
+													},
+													"string" : "The `items: [ [ self ... ] ... ];` tells the columned list that the items we are going to represent are the outcome of this computation. The  computation may seem a bit complicated, however `self items` in this case is just the array literal we set with `items:`. We put it in a closure `[ ]` because we wish for the data to be recomputed fresh each time. Lastly the `select:` is a filter because the visualization we wish to do is only concerned with `topics`."
+												},
+												{
+													"__type" : "textSnippet",
+													"children" : {
+														"__type" : "snippets",
+														"items" : [ ]
+													},
+													"createEmail" : {
+														"__type" : "email",
+														"emailString" : "mariari@protonmail.ch"
+													},
+													"createTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2024-07-07T21:34:42.376131+08:00"
+														}
+													},
+													"editEmail" : {
+														"__type" : "email",
+														"emailString" : "mariari@protonmail.ch"
+													},
+													"editTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2024-07-07T21:35:12.258923+08:00"
+														}
+													},
+													"uid" : {
+														"__type" : "uid",
+														"uidString" : "/X1xFwrZDQCzeH8tB9RLxA=="
+													},
+													"paragraphStyle" : {
+														"__type" : "textStyle"
+													},
+													"string" : "Each `column:text:width` section just sets a new column in the list with some text and a set width."
+												},
+												{
+													"__type" : "textSnippet",
+													"children" : {
+														"__type" : "snippets",
+														"items" : [ ]
+													},
+													"createEmail" : {
+														"__type" : "email",
+														"emailString" : "mariari@protonmail.ch"
+													},
+													"createTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2024-07-07T21:33:39.951707+08:00"
+														}
+													},
+													"editEmail" : {
+														"__type" : "email",
+														"emailString" : "mariari@protonmail.ch"
+													},
+													"editTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2024-07-07T21:35:42.870429+08:00"
+														}
+													},
+													"uid" : {
+														"__type" : "uid",
+														"uidString" : "e7bZFArZDQCxVIgIB9RLxA=="
+													},
+													"paragraphStyle" : {
+														"__type" : "textStyle"
+													},
+													"string" : "For example the `'Topic Name'` section utilizes our `isInReleaseColor:` method above to set the color of the text."
+												},
+												{
+													"__type" : "textSnippet",
+													"children" : {
+														"__type" : "snippets",
+														"items" : [ ]
+													},
+													"createEmail" : {
+														"__type" : "email",
+														"emailString" : "mariari@protonmail.ch"
+													},
+													"createTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2024-07-07T21:36:26.30701+08:00"
+														}
+													},
+													"editEmail" : {
+														"__type" : "email",
+														"emailString" : "mariari@protonmail.ch"
+													},
+													"editTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2024-07-07T21:45:36.639759+08:00"
+														}
+													},
+													"uid" : {
+														"__type" : "uid",
+														"uidString" : "pYX8FgrZDQCzdF8+B9RLxA=="
+													},
+													"paragraphStyle" : {
+														"__type" : "textStyle"
+													},
+													"string" : "The only other intersting case is the `'State'` section, as this creates a drop down button. When writing this article the code is not done yet, but it will be a place for future exploration in allowing our project to change the data in github."
+												},
+												{
+													"__type" : "textSnippet",
+													"children" : {
+														"__type" : "snippets",
+														"items" : [ ]
+													},
+													"createEmail" : {
+														"__type" : "email",
+														"emailString" : "mariari@protonmail.ch"
+													},
+													"createTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2024-07-07T21:46:12.677252+08:00"
+														}
+													},
+													"editEmail" : {
+														"__type" : "email",
+														"emailString" : "mariari@protonmail.ch"
+													},
+													"editTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2024-07-07T21:46:48.551363+08:00"
+														}
+													},
+													"uid" : {
+														"__type" : "uid",
+														"uidString" : "wWC3QQrZDQCFQwBUB9RLxA=="
+													},
+													"paragraphStyle" : {
+														"__type" : "textStyle"
+													},
+													"string" : "Lastly `actionUpdateButton` let's us requery the data if the computation was grabbing data from somewhere."
+												}
+											]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-07-06T22:22:57.408305+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-07-10T22:11:55.368716+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "oIZJp/bYDQC2gYSBB4R2Ow=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "While {{gtMethod:name=GitProjectBoard>>#gtRepositoryProjectBoard:}} does the visuals. This is done via a `columnedList` view that breaks each items into their own columns."
+									}
+								]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T22:22:42.997886+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-10T22:11:55.368364+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "y9rrlvbYDQCvgeAOB4R2Ow=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Now that we have the data we wish to visualize let us quickly write some visualization code. Thankfully GT makes this part easy:"
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T22:26:18.284559+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T22:26:35.128948+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "5KtCs/bYDQC+2iu2B4R2Ow=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "A lot more can be done here, but let us see if we get the desired results."
+						},
+						{
+							"__type" : "exampleSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T22:18:42.494297+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T22:18:42.494297+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "u9oXmPbYDQCvvzRqB4R2Ow=="
+							},
+							"exampleSelector" : "exampleReleaseCheck",
+							"previewHeight" : 200,
+							"previewShowSelector" : "gtRepositoryProjectBoard:",
+							"exampleBehaviorName" : "GitToolingExamples",
+							"codeExpanded" : true,
+							"previewExpanded" : false,
+							"noCode" : true
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T22:40:20.229608+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T22:46:40.708063+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "561x5fbYDQCAcyPMB4R2Ow=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "As we can see, the results are what we expected, and look quite clean as we can clearly see that `anoma/mariari/node-from-base` is not merged, while `anoma/mariari/example-nock` is merged."
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T22:46:40.968448+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T22:48:37.204534+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "Jlkj/PbYDQCeqj1fCCeOSw=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Further the `State` shows if I ought to merge something, I can safely skip anything labeled `WIP`, while cutting a release. This satisfies my requirements for `1.` and `2.`."
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T22:48:38.101242+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T23:16:48.417998+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "caYeA/fYDQCiyybzCCeOSw=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "If this tool works, this means that I need not go down the entire project board to see if I missed merging anything."
+						}
+					]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "mariari@protonmail.ch"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-07-06T21:57:52.719791+08:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "mariari@protonmail.ch"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-07-06T21:58:21.500721+08:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "G9C7SPbYDQCB40gyB4R2Ow=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "###Designing the tool"
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T22:47:22.162475+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T23:01:51.275367+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "JuiX/vbYDQChVm6lCCeOSw=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Now that we have our data model setup, all that is left to do is to query data from github to populate this view."
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T23:02:00.962591+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T23:02:12.505202+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "WFeTMvfYDQCop2sYCCeOSw=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Before we can use github's graphql API, we have to get a github key."
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T23:02:14.294499+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T23:02:41.679633+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "kcLEM/fYDQCqRSgaCCeOSw=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "For the sake of this article I shall put a key in a local directory."
+						},
+						{
+							"__type" : "pharoSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T23:02:44.815988+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T23:02:57.989751+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "pXyWNffYDQCrp/TbCCeOSw=="
+							},
+							"code" : "githubAccessKeyFile := FileLocator home / '.emacs.d' / 'gh-key.txt'.\rgithubAccessKey := githubAccessKeyFile contents trimBoth"
+						},
+						{
+							"__type" : "pharoSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T23:03:02.613782+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T23:03:05.663896+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "OAqmNvfYDQCrsOe/CCeOSw=="
+							},
+							"code" : "aContext := GtGQLContext new\r\t\turl: 'https://api.github.com/graphql';\r\t\tbearerToken: githubAccessKey;\r\t\tbuildSchema."
+						},
+						{
+							"__type" : "pharoSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-10-07T15:03:38.978139+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-10-07T15:03:40.249377+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "HbJxWz/gDQC7/mHsCCk16g=="
+							},
+							"code" : "cooking"
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T23:03:25.569749+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T23:03:36.388212+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "XFUEOPfYDQCrvorCCCeOSw=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Now that we have a context up let us write a query that will get the data we desire."
+						},
+						{
+							"__type" : "GraphQL",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T23:03:39.972654+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T23:03:39.972654+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "vR7gOPfYDQCtjgFECCeOSw=="
+							},
+							"operation" : "query WhatsCooking($board: Int!, $organization: String!){\r\torganization(login: $organization) {\r\t\tlogin name url\r\t\tprojectV2 (number: $board) {\r\t\t\t__typename\r\t\t\ttitle\r\t\t\tnumber\r\t\t\tid\r\t\t\titems(first: 99) {\r\t\t\t\ttotalCount\r\t\t\t\tedges {\r\t\t\t\t\tcursor\r\t\t\t\t\tnode {  \r\t\t\t\t\tid\r\t\t\t\t\tcontent {\r\t\t\t\t\t\t... on PullRequest { headRefName } }\r\t\t\t\t\tlabels: fieldValueByName (name: \"Labels\") {\r\t\t\t\t\t\t... on ProjectV2ItemFieldLabelValue {\r\t\t\t\t\t\t\tlabels(first: 10) {\r\t\t\t\t\t\t\t\tedges { node { color name } } } } }\r\t\t\t\t\tstatus: fieldValueByName (name: \"Status\") {\r\t\t\t\t\t\t... on ProjectV2ItemFieldSingleSelectValue {\r\t\t\t\t\t\t\tname } } } } } } } } ",
+							"input" : "{ \"organization\": \"anoma\", \"board\": 20}",
+							"context" : "aContext",
+							"resultVariableName" : "cooking"
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-07-06T23:07:38.099695+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-07-06T23:07:48.689758+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "8aMRR/fYDQCzS8zKCCeOSw=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "1. all labels that may be on the topic"
+									},
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-07-06T23:07:48.882067+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-07-06T23:08:01.074691+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "vSq2R/fYDQC0ghRJCCeOSw=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "2. the ref name on the remote"
+									}
+								]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T23:07:07.648219+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T23:07:37.883795+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "gUB0Q/fYDQCtoo+aCCeOSw=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "This graphql query will grab `99` items from the project board, that has informaiton about:"
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T23:08:07.742226+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T23:15:05.968719+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "w3Z3SPfYDQC1IQhTCCeOSw=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "We will further pagenate more results, but first let us prepose a class that contains all the information required to run our task"
+						},
+						{
+							"__type" : "pharoSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T23:11:41.136528+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-10-26T13:18:08.890166+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "Ow+OVffYDQC6RpDbCCeOSw=="
+							},
+							"code" : "project := GithubGQLProjectBoard new\r\t\tcontext: aContext;\r\t\tgitLocation: FileLocator home / 'Documents' / 'Work' / 'Repo' / 'anoma';\r\t\torganization: 'anoma';\r\t\tboard: 20;\r\t\tyourself.\r\rproject candidate: 'v0.17.0-rc1'"
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-07T21:16:16.985877+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-07T21:16:16.985877+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "P1Gv1gnZDQCTro/oB9RLxA=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : ""
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-07-07T21:20:09.44052+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-07-07T21:24:04.113809+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "wm2o4QnZDQCW4CRqB9RLxA=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "Further, we have to fill in repository details with {{gtMethod:name=GitProjectBoard>>gitLocation:}}and {{gtMethod:name=GitProjectBoard>>candidate}} because creating proper {{gtClass:name=GitTopicInfo}}'s like we did above requires those details."
+									},
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [
+												{
+													"__type" : "textSnippet",
+													"children" : {
+														"__type" : "snippets",
+														"items" : [ ]
+													},
+													"createEmail" : {
+														"__type" : "email",
+														"emailString" : "mariari@protonmail.ch"
+													},
+													"createTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2024-07-07T21:49:02.169666+08:00"
+														}
+													},
+													"editEmail" : {
+														"__type" : "email",
+														"emailString" : "mariari@protonmail.ch"
+													},
+													"editTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2024-07-07T21:49:51.913419+08:00"
+														}
+													},
+													"uid" : {
+														"__type" : "uid",
+														"uidString" : "KQV0RgrZDQCH37PdB9RLxA=="
+													},
+													"paragraphStyle" : {
+														"__type" : "textStyle"
+													},
+													"string" : "The astute of you can see that we defined another class {{gtClass:name=GithubProjectV2Item}}. In reality we defined a few of these classes that are simple wrappers over the raw querying data we designed above."
+												},
+												{
+													"__type" : "textSnippet",
+													"children" : {
+														"__type" : "snippets",
+														"items" : [ ]
+													},
+													"createEmail" : {
+														"__type" : "email",
+														"emailString" : "mariari@protonmail.ch"
+													},
+													"createTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2024-07-07T21:50:08.116077+08:00"
+														}
+													},
+													"editEmail" : {
+														"__type" : "email",
+														"emailString" : "mariari@protonmail.ch"
+													},
+													"editTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2024-07-07T21:51:41.996546+08:00"
+														}
+													},
+													"uid" : {
+														"__type" : "uid",
+														"uidString" : "NuS/TwrZDQCNm9jtB9RLxA=="
+													},
+													"paragraphStyle" : {
+														"__type" : "textStyle"
+													},
+													"string" : "Further the `connectorPath:` let's the code query more item entries from github meaning that we can grab all the items if there happens to be more than `99` topics."
+												},
+												{
+													"__type" : "textSnippet",
+													"children" : {
+														"__type" : "snippets",
+														"items" : [ ]
+													},
+													"createEmail" : {
+														"__type" : "email",
+														"emailString" : "mariari@protonmail.ch"
+													},
+													"createTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2024-07-07T21:51:51.921447+08:00"
+														}
+													},
+													"editEmail" : {
+														"__type" : "email",
+														"emailString" : "mariari@protonmail.ch"
+													},
+													"editTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2024-07-07T21:52:06.709064+08:00"
+														}
+													},
+													"uid" : {
+														"__type" : "uid",
+														"uidString" : "Tk90VQrZDQCRLaG7B9RLxA=="
+													},
+													"paragraphStyle" : {
+														"__type" : "textStyle"
+													},
+													"string" : "Let us now post the intersting code that does the parsing"
+												},
+												{
+													"__type" : "textSnippet",
+													"children" : {
+														"__type" : "snippets",
+														"items" : [ ]
+													},
+													"createEmail" : {
+														"__type" : "email",
+														"emailString" : "mariari@protonmail.ch"
+													},
+													"createTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2024-07-06T23:17:25.994296+08:00"
+														}
+													},
+													"editEmail" : {
+														"__type" : "email",
+														"emailString" : "<unknown>"
+													},
+													"editTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2024-07-10T22:11:55.370084+08:00"
+														}
+													},
+													"uid" : {
+														"__type" : "uid",
+														"uidString" : "BzEcavfYDQCDnyFNCCeOSw=="
+													},
+													"paragraphStyle" : {
+														"__type" : "textStyle"
+													},
+													"string" : "{{gtMethod:name=GithubProjectV2Item>>#fromJson:}} takes the json stream and creates the object"
+												},
+												{
+													"__type" : "textSnippet",
+													"children" : {
+														"__type" : "snippets",
+														"items" : [ ]
+													},
+													"createEmail" : {
+														"__type" : "email",
+														"emailString" : "mariari@protonmail.ch"
+													},
+													"createTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2024-07-06T23:17:39.45056+08:00"
+														}
+													},
+													"editEmail" : {
+														"__type" : "email",
+														"emailString" : "<unknown>"
+													},
+													"editTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2024-08-05T00:27:57.266283+08:00"
+														}
+													},
+													"uid" : {
+														"__type" : "uid",
+														"uidString" : "d4TpavfYDQCEGy6DCCeOSw=="
+													},
+													"paragraphStyle" : {
+														"__type" : "textStyle"
+													},
+													"string" : "{{gtMethod:name=GithubProjectV2Item>>statusFromJson:}} grabs the status"
+												},
+												{
+													"__type" : "textSnippet",
+													"children" : {
+														"__type" : "snippets",
+														"items" : [ ]
+													},
+													"createEmail" : {
+														"__type" : "email",
+														"emailString" : "mariari@protonmail.ch"
+													},
+													"createTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2024-07-07T21:53:59.756955+08:00"
+														}
+													},
+													"editEmail" : {
+														"__type" : "email",
+														"emailString" : "<unknown>"
+													},
+													"editTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2024-08-05T00:29:49.250197+08:00"
+														}
+													},
+													"uid" : {
+														"__type" : "uid",
+														"uidString" : "TfZLb/fYDQCIxEc8CCeOSw=="
+													},
+													"paragraphStyle" : {
+														"__type" : "textStyle"
+													},
+													"string" : "{{gtMethod:name=GithubPR>>#fromJson:}} grabs the topic."
+												},
+												{
+													"__type" : "textSnippet",
+													"children" : {
+														"__type" : "snippets",
+														"items" : [ ]
+													},
+													"createEmail" : {
+														"__type" : "email",
+														"emailString" : "<unknown>"
+													},
+													"createTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2024-08-05T00:29:16.351422+08:00"
+														}
+													},
+													"editEmail" : {
+														"__type" : "email",
+														"emailString" : "<unknown>"
+													},
+													"editTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2024-08-05T00:30:18.764057+08:00"
+														}
+													},
+													"uid" : {
+														"__type" : "uid",
+														"uidString" : "8+hszD/bDQCyqqmLDEBJrA=="
+													},
+													"paragraphStyle" : {
+														"__type" : "textStyle"
+													},
+													"string" : "{{gtMethod:name=GithubPR>>#labelsFromJson:}} grabs the labels"
+												},
+												{
+													"__type" : "textSnippet",
+													"children" : {
+														"__type" : "snippets",
+														"items" : [ ]
+													},
+													"createEmail" : {
+														"__type" : "email",
+														"emailString" : "mariari@protonmail.ch"
+													},
+													"createTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2024-07-07T21:55:00.300586+08:00"
+														}
+													},
+													"editEmail" : {
+														"__type" : "email",
+														"emailString" : "<unknown>"
+													},
+													"editTime" : {
+														"__type" : "time",
+														"time" : {
+															"__type" : "dateAndTime",
+															"dateAndTimeString" : "2024-10-26T13:24:48.608932+08:00"
+														}
+													},
+													"uid" : {
+														"__type" : "uid",
+														"uidString" : "l4DhXwrZDQCXt45ZB9RLxA=="
+													},
+													"paragraphStyle" : {
+														"__type" : "textStyle"
+													},
+													"string" : "{{gtMethod:name=GithubToolingBoard>>#itemsWithSurroundingKnowledge}} is the last intersting bit as this converts the wrapper objects into our format. Thankfully the code is quite simple."
+												}
+											]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-07-07T21:47:25.108993+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-07-10T22:11:55.369811+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "0s3faffYDQCDlvsECCeOSw=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "In order to get our `WhatsCooking` board into a reasonable format, we need to write  {{gtMethod:name=GithubGQLProjectBoard>>#projectValueStream}}"
+									},
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "mariari@protonmail.ch"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-07-06T23:20:18.597171+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-07-10T22:11:55.370755+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "1ehldPfYDQCMzx6FCCeOSw=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "Now to make the visaulization work, we just need to point `items` to this method, we do this by setting {{gtMethod:name=GithubGQLProjectBoard>>computeItems}}. Now our visaulization should just work!"
+									}
+								]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T23:13:13.593414+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-10T22:11:55.369472+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "yPbgWvfYDQC7TjVcCCeOSw=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "In the above code snippit, we propose a class called {{gtClass:name=GithubGQLProjectBoard}} that is the sister to our previous {{gtClass:name=GitProjectBoardByHand}}. The class is very similar to it's sister, but instead of giving the `items` by hand, we instead have the items be computed from the `whatsCooking` query above."
+						},
+						{
+							"__type" : "exampleSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T23:13:46.467763+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T23:13:46.467763+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "Y3wGXffYDQC8AkvGCCeOSw=="
+							},
+							"exampleSelector" : "skunksProjectBoardRC17",
+							"previewHeight" : 500,
+							"previewShowSelector" : "gtRepositoryProjectBoard:",
+							"exampleBehaviorName" : "GitToolingExamples",
+							"codeExpanded" : true,
+							"previewExpanded" : false,
+							"noCode" : true
+						}
+					]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "mariari@protonmail.ch"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-07-06T22:01:26.200393+08:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "mariari@protonmail.ch"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-07-06T22:01:34.696707+08:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "ikVTWvbYDQCKC4gYB4R2Ow=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "###Getting data from Github"
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T23:24:36.082664+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T23:25:36.436709+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "eNG+g/fYDQCZ0/kxCCeOSw=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Overall creating the tool was satisfying, it solves a big user experience issue I have with github. Namely I don't have to click on every single item in the project board to see if I merged it against some release candidate."
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-07T21:57:45.629346+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-07T21:58:00.78329+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "cAAFawrZDQCdxTuDB9RLxA=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "This code can be found on my [](https://github.com/mariari/Misc-GT-Scripts) repository."
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "mariari@protonmail.ch"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-06T23:25:36.893457+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-07-10T22:11:55.37105+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "zLpeh/fYDQCfOmA2CCeOSw=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "This code is just the first stepping stone. Stay tuned for future posts where I improve this tool to better help me in my maintainership role."
+						}
+					]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "mariari@protonmail.ch"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-07-06T23:24:41.250607+08:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "mariari@protonmail.ch"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-07-06T23:24:47.894163+08:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "ThK9gvfYDQCYt3IrCCeOSw=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "###Closing Thoughts"
+			}
+		]
+	},
+	"createEmail" : {
+		"__type" : "email",
+		"emailString" : "<unknown>"
+	},
+	"createTime" : {
+		"__type" : "time",
+		"time" : {
+			"__type" : "dateAndTime",
+			"dateAndTimeString" : "2024-06-30T15:26:27.126022+08:00"
+		}
+	},
+	"editEmail" : {
+		"__type" : "email",
+		"emailString" : "mariari@protonmail.ch"
+	},
+	"editTime" : {
+		"__type" : "time",
+		"time" : {
+			"__type" : "dateAndTime",
+			"dateAndTimeString" : "2024-07-06T15:50:47.204414+08:00"
+		}
+	},
+	"pageType" : {
+		"__type" : "namedPage",
+		"title" : "Git Release Checker: With Github Data"
+	},
+	"uid" : {
+		"__type" : "uuid",
+		"uuid" : "1dee1822-78d8-0d00-8c40-628a059d0ebc"
+	}
+}
