@@ -180,7 +180,7 @@ MahjongExamples >> so23 [
 { #category : #example }
 MahjongExamples >> spreadTree: view [
 	| layout |
-	layout := view layout tree.
+	layout := view layout dominanceTree.
 	layout
 		levelDistance: 50;
 		nodeDistance: 50
