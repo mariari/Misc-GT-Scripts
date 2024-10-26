@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'tiles'
 	],
-	#category : #'MiscGTScripts-Tiles'
+	#category : #'MahjongModel-Tiles'
 }
 
 { #category : #accessing }

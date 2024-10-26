@@ -1,7 +1,7 @@
 Class {
 	#name : #MJHandP,
 	#superclass : #MJHand,
-	#category : #'MiscGTScripts-Tiles'
+	#category : #'MahjongModel-Tiles'
 }
 
 { #category : #accessing }

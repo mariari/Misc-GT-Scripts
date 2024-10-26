@@ -6,7 +6,7 @@ I am an abstract class and one should create instance of my children {{gtClass:n
 Class {
 	#name : #MJTile,
 	#superclass : #Object,
-	#category : #'MiscGTScripts-Tiles'
+	#category : #'MahjongModel-Tiles'
 }
 
 { #category : #representations }

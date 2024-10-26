@@ -1,7 +1,7 @@
 Class {
 	#name : #MJZhu,
 	#superclass : #MJNumber,
-	#category : #'MiscGTScripts-Tiles'
+	#category : #'MahjongModel-Tiles'
 }
 
 { #category : #representations }

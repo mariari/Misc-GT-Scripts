@@ -1,7 +1,7 @@
 Class {
 	#name : #MahjongExamples,
 	#superclass : #Object,
-	#category : #'MiscGTScripts-Examples'
+	#category : #'MahjongModel-Examples'
 }
 
 { #category : #tiles }

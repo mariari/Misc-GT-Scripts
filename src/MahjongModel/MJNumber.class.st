@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'number'
 	],
-	#category : #'MiscGTScripts-Tiles'
+	#category : #'MahjongModel-Tiles'
 }
 
 { #category : #creation }

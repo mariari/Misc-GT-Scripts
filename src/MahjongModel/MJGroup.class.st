@@ -5,7 +5,7 @@ Class {
 		'simpleTiles',
 		'kind'
 	],
-	#category : #'MiscGTScripts-Tiles'
+	#category : #'MahjongModel-Tiles'
 }
 
 { #category : #creation }

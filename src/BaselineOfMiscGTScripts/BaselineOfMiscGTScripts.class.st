@@ -26,6 +26,7 @@ BaselineOfMiscGTScripts >> baseline: spec [
 		for: #common
 		do: [ spec
 				package: 'SmaCC_Nock';
-				package: 'MiscGTScripts' ;
-				package: 'GitProjectBoard']
+				package: 'MiscGTScripts';
+				package: 'GitProjectBoard';
+				package: 'MahjongModel' ]
 ]

@@ -4,7 +4,7 @@ I am a generic Mahjong hand. I can serve most needs one may ask for, however
 Class {
 	#name : #MJHand,
 	#superclass : #MJTiles,
-	#category : #'MiscGTScripts-Tiles'
+	#category : #'MahjongModel-Tiles'
 }
 
 { #category : #instance }

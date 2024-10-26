@@ -1,7 +1,7 @@
 Class {
 	#name : #MJDoraPin,
 	#superclass : #MJPin,
-	#category : #'MiscGTScripts-Tiles'
+	#category : #'MahjongModel-Tiles'
 }
 
 { #category : #accessing }

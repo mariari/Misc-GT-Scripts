@@ -1,7 +1,7 @@
 Class {
 	#name : #MJTileVisualizerSmall,
 	#superclass : #MJTileVisualizer,
-	#category : #'MiscGTScripts-Graphics'
+	#category : #'MahjongModel-Graphics'
 }
 
 { #category : #accessing }

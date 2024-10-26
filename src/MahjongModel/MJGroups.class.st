@@ -4,7 +4,7 @@ I am the generic groups class. I cover most of the use case of groups one can im
 Class {
 	#name : #MJGroups,
 	#superclass : #MJTiles,
-	#category : #'MiscGTScripts-Tiles'
+	#category : #'MahjongModel-Tiles'
 }
 
 { #category : #creating }

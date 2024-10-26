@@ -4,7 +4,7 @@ Class {
 	#classInstVars : [
 		'cache'
 	],
-	#category : #'MiscGTScripts-Caching'
+	#category : #'MahjongModel-Caching'
 }
 
 { #category : #accessing }

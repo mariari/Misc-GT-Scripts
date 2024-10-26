@@ -5,7 +5,7 @@ Class {
 		'size',
 		'path'
 	],
-	#category : #'MiscGTScripts-Graphics'
+	#category : #'MahjongModel-Graphics'
 }
 
 { #category : #creation }
