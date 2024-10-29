@@ -115,6 +115,16 @@ GitDepTopic >> gtCommitsFor: aView [
 ]
 
 { #category : #accessing }
+GitDepTopic >> gtLabels: aView [
+	<gtView>
+	^ aView forward
+		title: 'Current Labels';
+		priority: 11;
+		object: [ self topic ];
+		view: #gtCurrentLabelsView:
+]
+
+{ #category : #accessing }
 GitDepTopic >> gtReleventDependencies: aView [
 	<gtView>
 	^ aView forward
