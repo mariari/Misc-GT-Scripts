@@ -61,18 +61,17 @@ GitProjectBoard >> gitLocation: aPath [
 
 { #category : #visualization }
 GitProjectBoard >> gtRepositoryDependencies: aView [
-	<gtView>
-	^ aView forward
-		title: 'Topic Dependency Graph';
-		priority: 10;
-		object: [ self depCache ];
-		view: #gtRepositoryDependencies:;
-		actionButtonIcon: BrGlamorousVectorIcons refresh
-			tooltip: 'Update'
-			action: [ :aButton :aTab | 
-				self computeItems.
-				self computeDepCache.
-				aTab viewContentElement phlow update ]
+    <gtView>
+    ^ aView mondrian
+        title: 'Topic Dependency Graph';
+        priority: 10;
+        painting: [ :view |  self depCache gtTopicDependencyMorph: view ];
+        actionButtonIcon: BrGlamorousVectorIcons refresh
+            tooltip: 'Updates'
+            action: [ :aButton :aTab | 
+                self computeItems.
+                self computeDepCache.
+                aTab viewContentElement phlow update ]
 ]
 
 { #category : #visualization }
