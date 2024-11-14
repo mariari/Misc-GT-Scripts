@@ -48,7 +48,9 @@ GitProjectBoard >> computeItems [
 
 { #category : #accessing }
 GitProjectBoard >> depCache [
-	^ depCache ifNil: [ self computeDepCache ]
+	^ depCache
+		ifNil: [ self computeDepCache.
+			depCache ]
 ]
 
 { #category : #setting }
