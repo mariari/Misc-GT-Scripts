@@ -33,11 +33,11 @@ GitProjectBoardAuthor >> authorTopics: items [
 { #category : #visualization }
 GitProjectBoardAuthor >> gtRepositoryDependencies: aView [
 	<gtView>
-	^ aView forward
+	^ aView mondrian
 		title: (author , '''s Dependency Graph') capitalized;
 		priority: 10;
-		object: [ self authorDependencyGraph ];
-		view: #gtRepositoryDependencies:
+		painting: [ :view | self authorDependencyGraph gtTopicDependencyMorph: view ];
+		in: [ :view | projectBoard gtUpdateDepCache: view ]
 ]
 
 { #category : #visualization }
@@ -45,7 +45,7 @@ GitProjectBoardAuthor >> gtRepositoryProjectBoard: aView [
 	<gtView>
 	^ projectBoard
 		gtRepositoryProjectBoard: aView
-		withItems: [ self authorTopics: projectBoard items ]
+		withItems: [ self authorTopics: projectBoard computeItems ]
 ]
 
 { #category : #accessing }
