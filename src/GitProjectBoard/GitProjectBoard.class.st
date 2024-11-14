@@ -66,12 +66,7 @@ GitProjectBoard >> gtRepositoryDependencies: aView [
         title: 'Topic Dependency Graph';
         priority: 10;
         painting: [ :view |  self depCache gtTopicDependencyMorph: view ];
-        actionButtonIcon: BrGlamorousVectorIcons refresh
-            tooltip: 'Updates'
-            action: [ :aButton :aTab | 
-                self computeItems.
-                self computeDepCache.
-                aTab viewContentElement phlow update ]
+        in: [:view | self gtUpdateDepCache: view]
 ]
 
 { #category : #visualization }
@@ -109,6 +104,17 @@ GitProjectBoard >> gtRepositoryProjectBoard: aView withItems: itemGen [
 					width: 300 ].
 
 	^ columned actionUpdateButton
+]
+
+{ #category : #visualization }
+GitProjectBoard >> gtUpdateDepCache: aView [
+	^ aView
+		actionButtonIcon: BrGlamorousVectorIcons refresh
+		tooltip: 'Update'
+		action: [ :aButton :aTab | 
+			self computeItems.
+			self computeDepCache.
+			aTab viewContentElement phlow update ]
 ]
 
 { #category : #accessing }
