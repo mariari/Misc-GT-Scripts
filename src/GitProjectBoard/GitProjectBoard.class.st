@@ -82,7 +82,7 @@ GitProjectBoard >> gtRepositoryProjectBoard: aView withItems: itemGen [
 	columned
 		title: 'Whats Cooking';
 		items: itemGen;
-		priority: 10;
+		priority: 11;
 		column: 'Index'
 			text: [ :aValue :anIndex | anIndex asRopedText foreground: BrGlamorousColors disabledButtonTextColor ]
 			width: 40;

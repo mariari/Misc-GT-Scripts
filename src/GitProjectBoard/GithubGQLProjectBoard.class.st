@@ -54,7 +54,7 @@ GithubGQLProjectBoard >> gtAuthorsView: aView [
 	<gtView>
 	^ aView columnedList
 		title: 'Authors View';
-		priority: 10;
+		priority: 11;
 		items: [ self authorsBoard ];
 		column: 'Authors' text: [ :item | item author asRopedText ]
 ]

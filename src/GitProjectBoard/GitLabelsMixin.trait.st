@@ -23,7 +23,7 @@ GitLabelsMixin >> gtLabelView: aView [
 	self allLabels ifNil: [ ^ aView empty ].
 	^ aView columnedList
 		title: self labelName;
-		priority: 11;
+		priority: 12;
 		items: self allLabels;
 		column: 'Col'
 			stencil: [ :label | BlElement new addChild: label smallVerticalColor ]
