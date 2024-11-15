@@ -2734,14 +2734,14 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2024-10-26T13:18:08.890166+08:00"
+									"dateAndTimeString" : "2024-11-15T14:47:02.340257+08:00"
 								}
 							},
 							"uid" : {
 								"__type" : "uid",
 								"uidString" : "Ow+OVffYDQC6RpDbCCeOSw=="
 							},
-							"code" : "project := GithubGQLProjectBoard new\r\t\tcontext: aContext;\r\t\tgitLocation: FileLocator home / 'Documents' / 'Work' / 'Repo' / 'anoma';\r\t\torganization: 'anoma';\r\t\tboard: 20;\r\t\tyourself.\r\rproject candidate: 'v0.17.0-rc1'"
+							"code" : "project := GithubGQLProjectBoard new\r\t\tcontext: aContext;\r\t\tgitLocation: FileLocator home / 'Documents' / 'Work' / 'Repo' / 'anoma';\r\t\torganization: 'anoma';\r\t\tboard: 20;\r\t\tyourself.\r\rproject candidate: 'next'"
 						},
 						{
 							"__type" : "textSnippet",
@@ -3258,7 +3258,7 @@
 								"__type" : "uid",
 								"uidString" : "Y3wGXffYDQC8AkvGCCeOSw=="
 							},
-							"exampleSelector" : "skunksProjectBoardRC17",
+							"exampleSelector" : "skunksProjectBoardNext",
 							"previewHeight" : 500,
 							"previewShowSelector" : "gtRepositoryProjectBoard:",
 							"exampleBehaviorName" : "GitToolingExamples",

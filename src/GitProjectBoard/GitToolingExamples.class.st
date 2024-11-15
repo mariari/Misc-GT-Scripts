@@ -419,7 +419,7 @@ GitToolingExamples >> dumperCounterPRJSON [
 GitToolingExamples >> exampleReleaseCheck [
 	<gtExample>
 	| release |
-	release := GitProjectBoardByHand new candidateBranch: self rcBranch.
+	release := GitProjectBoardByHand new candidateBranch: self mainBranch.
 	release
 		items: {self Atticv021Next.
 				self branchMerged}.
@@ -802,6 +802,12 @@ GitToolingExamples >> graphQLContext [
 ]
 
 { #category : #accessing }
+GitToolingExamples >> mainBranch [
+	<gtExample>
+	^ IceGitLocalBranch named: 'main' inRepository: self anomaRepo
+]
+
+{ #category : #accessing }
 GitToolingExamples >> mockGithubToolingBoard [
 	<gtExample>
 	^ GithubToolingBoard new projectBoard: self githubProjectBoardSkunksNoItems
@@ -1037,12 +1043,6 @@ GitToolingExamples >> queryRepoAnoma [
 		context: self graphQLContext;
 		organization: 'anoma';
 		repoName: 'anoma'
-]
-
-{ #category : #accessing }
-GitToolingExamples >> rcBranch [
-	<gtExample>
-	^ IceGitLocalBranch named: 'v0.17.0-rc1' inRepository: self anomaRepo
 ]
 
 { #category : #accessing }
