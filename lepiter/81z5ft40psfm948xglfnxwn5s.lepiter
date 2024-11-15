@@ -179,14 +179,14 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2024-08-09T18:52:43.869047+08:00"
+									"dateAndTimeString" : "2024-11-15T12:30:55.128263+08:00"
 								}
 							},
 							"uid" : {
 								"__type" : "uid",
 								"uidString" : "dCz7rZ/bDQCXhNO2BaDPMA=="
 							},
-							"code" : "GhTokenHolder exampleFromFile."
+							"code" : "GtGitHubTokenHolder exampleReadAndCacheTokenFromFile."
 						},
 						{
 							"__type" : "textSnippet",
