@@ -1,6 +1,9 @@
 Class {
 	#name : #GitToolingExamples,
 	#superclass : #Object,
+	#classVars : [
+		'context'
+	],
 	#category : #'GitProjectBoard-Examples'
 }
 
@@ -786,13 +789,15 @@ GitToolingExamples >> graphQLContext [
 
 	<gtExample>
 	| aContext |
-	self assert: GhTokenHolder hasToken.
+	context ifNotNil: [^ context].
+	self assert: GtGitHubTokenHolder hasToken.
 	aContext := GtGQLContext new
 			url: 'https://api.github.com/graphql';
-			bearerToken: GhTokenHolder token;
+			bearerToken: GtGitHubTokenHolder token;
 			buildSchema.
 
 	aContext reportClass: GhGQLReport.
+	context := aContext.	
 	^ aContext
 ]
 
