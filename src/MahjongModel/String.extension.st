@@ -1,30 +1,30 @@
 Extension { #name : #String }
 
-{ #category : #'*MiscGTScripts' }
+{ #category : #'*MahjongModel' }
 String >> asMJGroup [
 	^ MJGroup with: self asMJTiles
 ]
 
-{ #category : #'*MiscGTScripts' }
+{ #category : #'*MahjongModel' }
 String >> asMJHand [
 	^ MJHandNP with: self asMJTiles
 ]
 
-{ #category : #'*MiscGTScripts' }
+{ #category : #'*MahjongModel' }
 String >> asMJHandNP [
 	"Like asMJHand, but assume we don't have a pair we wish finish"
 
 	^ MJHandNP with: self asMJTiles
 ]
 
-{ #category : #'*MiscGTScripts' }
+{ #category : #'*MahjongModel' }
 String >> asMJHandP [
 	"Like asMJHand, but assume we have a pair we wish to finish"
 
 	^ MJHandP with: self asMJTiles
 ]
 
-{ #category : #'*MiscGTScripts' }
+{ #category : #'*MahjongModel' }
 String >> asMJTiles [
 	| stringArr indicies |
 	stringArr := self asArray.
