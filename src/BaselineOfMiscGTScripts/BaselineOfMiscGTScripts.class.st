@@ -29,5 +29,6 @@ BaselineOfMiscGTScripts >> baseline: spec [
 				package: 'MiscGTScripts';
 				package: 'GitProjectBoard';
 				package: 'MahjongModel';
-				package: 'NatoSymbols' ]
+				package: 'NatoSymbols';
+				package: 'Urbit-Core' ]
 ]
