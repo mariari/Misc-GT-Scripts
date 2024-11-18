@@ -8,3 +8,8 @@ Class {
 NockExpressionNode >> acceptVisitor: anExpressionVisitor [
 	^ anExpressionVisitor visitExpression: self
 ]
+
+{ #category : #'as yet unclassified' }
+NockExpressionNode >> asNock [
+	^ NockAstTransformation new accept: self
+]
