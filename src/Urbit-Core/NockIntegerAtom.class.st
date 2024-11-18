@@ -18,3 +18,13 @@ NockIntegerAtom >> data [
 NockIntegerAtom >> data: anObject [
 	data := anObject
 ]
+
+{ #category : #printing }
+NockIntegerAtom >> printOn: aStream [
+	data printOn: aStream
+]
+
+{ #category : #printing }
+NockIntegerAtom >> printString [
+	^ data printString
+]

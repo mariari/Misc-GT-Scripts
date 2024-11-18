@@ -6,13 +6,13 @@ Trait {
 }
 
 { #category : #generated }
-TNockExpressionNodeVisitor >> visitExpression: anExpression [
-	^ self visitSmaCCParseNode: anExpression
+TNockExpressionNodeVisitor >> visitCell: aCell [
+	^ self visitExpression: aCell
 ]
 
 { #category : #generated }
-TNockExpressionNodeVisitor >> visitNoun: aNoun [
-	^ self visitExpression: aNoun
+TNockExpressionNodeVisitor >> visitExpression: anExpression [
+	^ self visitSmaCCParseNode: anExpression
 ]
 
 { #category : #generated }
