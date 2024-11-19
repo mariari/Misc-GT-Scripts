@@ -12,7 +12,7 @@ NockBinaryAtom >> asBitString [
 			self
 				do: [ :each | 
 					each printOn: stream base: 2.
-					stream space ] ]
+					stream space. ]. stream ensureNoSpace ]
 ]
 
 { #category : #conversion }
@@ -32,21 +32,33 @@ NockBinaryAtom >> bitSize [
 { #category : #'as yet unclassified' }
 NockBinaryAtom >> gtJamInfo: aView [
 	<gtView>
+	| lenAtom lenLen |
 	^ aView columnedList
 		title: 'Atom Info';
 		priority: 10;
-		items: [ {{'Atom'.
+		items: [ lenAtom := (NockBinaryAtom newFromArray: self bitSize asByteArray) asBitString.
+			lenAtom := lenAtom copyFrom: 2 to: lenAtom size.
+			lenLen := '1' , ('0' repeat: self bitSize highBit).
+			{{'Atom'.
 					self asIntegerAtom.
-					self asBitString}.
+					self reversed asBitString}.
+				{'UTF8'.
+					[ ZnUTF8Encoder new decodeBytes: self ]
+						on: ZnCharacterEncodingError
+						do: [ :exception | exception ].
+					'N/A'}.
 				{'Number of bits'.
 					self bitSize.
-					(NockBinaryAtom newFromArray: self bitSize asByteArray) asBitString}.
-				{'bit length'.
+					lenAtom}.
+				{'bits length'.
 					self bitSize highBit.
-					(NockBinaryAtom newFromArray: self bitSize highBit asByteArray) asBitString}} ];
+					lenLen}.
+				{'Jam'.
+					self reversed asBitString , '-' , lenAtom , '-' , lenLen.
+					'Endian Reverse'}} ];
 		column: 'Key' text: #first;
 		column: 'Value' text: #second;
-		column: 'Bits' text: #third;
+		column: 'Jammed Layout' text: #third;
 		send: #second
 ]
 
