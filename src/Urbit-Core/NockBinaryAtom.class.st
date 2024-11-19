@@ -12,7 +12,8 @@ NockBinaryAtom >> asBitString [
 			self
 				do: [ :each | 
 					each printOn: stream base: 2.
-					stream space. ]. stream ensureNoSpace ]
+					stream space ].
+			stream ensureNoSpace ]
 ]
 
 { #category : #conversion }

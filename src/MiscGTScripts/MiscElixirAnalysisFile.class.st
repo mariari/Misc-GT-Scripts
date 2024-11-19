@@ -68,20 +68,10 @@ MiscElixirAnalysisFile >> gtShortDocumentationWith: aMondrian [
 				margin: (BlInsets all: 7);
 				size: 15 asPoint;
 				background: (length > 3
-						ifTrue: [ length > 5 ifTrue: [ Color gray ] ifFalse: [ Color orange ] ]
-						ifFalse: [ Color red ]) ];
+						ifTrue: [ length > 5 ifTrue: [ Color gray ] ifFalse: [ Color fromHexString: '#ffa73b' ] ]
+						ifFalse: [ Color fromHexString: '#ff453b' ]) ];
 		with: self docs.
 	^ aMondrian layout grid
-]
-
-{ #category : #visualization }
-MiscElixirAnalysisFile >> nodeDocumentationShape: node [
-	| length |
-	length := node source lines size - 2.
-	^ BlElement new
-		margin: (BlInsets all: 7);
-		size: 15 asPoint;
-		background: (length > 3 ifTrue: [ Color gray ] ifFalse: [ Color red ])
 ]
 
 { #category : #printing }

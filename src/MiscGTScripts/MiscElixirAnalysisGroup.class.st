@@ -52,9 +52,9 @@ MiscElixirAnalysisGroup >> gtMissingDocumentationViewFor: aView [
 				topicName := aValue basename asRopedText.
 				topicName
 					foreground: (aValue docs asCollection size = 0
-							ifTrue: [ Color fromHexString: '911c08' ]
-							ifFalse: [ Color lightBrown ]) ];
-		column: 'Amount of Docs' text: [ :aValue | aValue docs asCollection size ]
+							ifTrue: [ Color fromHexString: '#d80b00' ]
+							ifFalse: [ Color fromHexString: '#d87700' ]) ];
+		column: 'Number of Docs' text: [ :aValue | aValue docs asCollection size ]
 ]
 
 { #category : #visualization }
