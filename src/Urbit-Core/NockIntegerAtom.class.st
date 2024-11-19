@@ -9,6 +9,16 @@ Class {
 	#category : #'Urbit-Core-Nock'
 }
 
+{ #category : #conversion }
+NockIntegerAtom >> asBinary [
+	^ NockBinaryAtom newFromArray: data asByteArray reversed
+]
+
+{ #category : #bits }
+NockIntegerAtom >> bitSize [
+	^ data highBit
+]
+
 { #category : #accessing }
 NockIntegerAtom >> data [
 	^ data
@@ -17,6 +27,16 @@ NockIntegerAtom >> data [
 { #category : #accessing }
 NockIntegerAtom >> data: anObject [
 	data := anObject
+]
+
+{ #category : #predicates }
+NockIntegerAtom >> isAtom [
+	^ true
+]
+
+{ #category : #predicates }
+NockIntegerAtom >> isCell [
+	^ false
 ]
 
 { #category : #printing }
