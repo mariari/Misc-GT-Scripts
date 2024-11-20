@@ -22,6 +22,15 @@ MiscElixirAnalysisFile >> docs [
 ]
 
 { #category : #accessing }
+MiscElixirAnalysisFile >> editableDocs [
+	^ self docs
+		collect: [ :aDoc | 
+			MiscElixirEditableSnippet new
+				file: self fileName asFileReference;
+				section: aDoc ]
+]
+
+{ #category : #accessing }
 MiscElixirAnalysisFile >> fileName [
 	^ rawAst filename
 ]
@@ -63,15 +72,24 @@ MiscElixirAnalysisFile >> gtShortDocumentationWith: aMondrian [
 	aMondrian nodes
 		shape: [ :node | 
 			| length |
-			length := node source lines size - 2.
+			length := node section source lines size - 2.
 			BlElement new
 				margin: (BlInsets all: 7);
 				size: 15 asPoint;
 				background: (length > 3
 						ifTrue: [ length > 5 ifTrue: [ Color gray ] ifFalse: [ Color fromHexString: '#ffa73b' ] ]
 						ifFalse: [ Color fromHexString: '#ff453b' ]) ];
-		with: self docs.
+		with: self editableDocs.
 	^ aMondrian layout grid
+]
+
+{ #category : #loading }
+MiscElixirAnalysisFile >> parseAST [
+	| fileName |
+	fileName := self fileName.
+	rawAst := (ElixirParser parseWithErrors: fileName asFileReference contents)
+			filename: fileName;
+			yourself
 ]
 
 { #category : #printing }
