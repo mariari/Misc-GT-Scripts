@@ -36,6 +36,17 @@ MiscElixirAnalysisFile >> fileName [
 ]
 
 { #category : #visualization }
+MiscElixirAnalysisFile >> gtCodeFor: aView [
+	<gtView>
+	rawAst ifNil: [ ^ aView empty ].
+	^ aView forward
+		title: 'Code';
+		priority: 15;
+		object: [ self fileName asFileReference ];
+		view: #gtStyledCodeFor:
+]
+
+{ #category : #visualization }
 MiscElixirAnalysisFile >> gtDocumentationBoundingBox [
 	self docs asCollection ifEmpty: [ ^ BlElement new ].
 	^ BrVerticalPane new
@@ -59,6 +70,7 @@ MiscElixirAnalysisFile >> gtDocumentationFor: aView [
 	self docs asCollection isEmpty ifTrue: [ ^ aView empty ].
 	^ aView mondrian
 		title: 'Short Documentation View';
+		priority: 13;
 		painting: [ :mondrian | 
 			mondrian nodes
 				shape: [ self gtDocumentationBoundingBox ];
