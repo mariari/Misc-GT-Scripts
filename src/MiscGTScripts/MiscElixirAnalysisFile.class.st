@@ -63,8 +63,12 @@ MiscElixirAnalysisFile >> gtDocumentationFor: aView [
 			mondrian nodes
 				shape: [ self gtDocumentationBoundingBox ];
 				with: {self};
-				forEach: [ :_ | self gtShortDocumentationWith: mondrian ].
-			mondrian ]
+				forEach: [ :_ | self gtShortDocumentationWith: mondrian ] ];
+		actionButtonIcon: BrGlamorousVectorIcons refresh
+			tooltip: 'Reparse the file'
+			action: [ :aButton :aTab | 
+				self parseAST.
+				aTab viewContentElement phlow update ]
 ]
 
 { #category : #visualization }
