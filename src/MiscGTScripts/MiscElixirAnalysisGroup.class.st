@@ -36,7 +36,15 @@ MiscElixirAnalysisGroup >> gtDocumentationFor: aView [
 	^ aView mondrian
 		title: 'Short Documentation View';
 		priority: 15;
-		painting: [ :aMondrian | self gtShortDocumentationWith: aMondrian ]
+		painting: [ :aMondrian | self gtShortDocumentationWith: aMondrian ];
+		actionButtonIcon: BrGlamorousVectorIcons refresh
+			tooltip: 'Reparse the directories'
+			action: [ :aButton :aTab | 
+				self repopulateFromDir.
+				aTab viewContentElement phlow update ];
+		actionButtonIcon: BrGlamorousVectorIcons play
+			tooltip: 'Refresh'
+			action: [ :aButton :aTab | aTab viewContentElement phlow update ]
 ]
 
 { #category : #'as yet unclassified' }

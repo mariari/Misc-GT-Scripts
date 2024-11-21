@@ -49,5 +49,13 @@ MiscElixirAnalysis >> gtDocumentationFor: aView [
 										c vertical fitContent ]} ];
 				with: groups
 					forEach: [ :group | group gtShortDocumentationWith: aMondrian ].
-			aMondrian layout rectanglePack ]
+			aMondrian layout rectanglePack ];
+		actionButtonIcon: BrGlamorousVectorIcons refresh
+			tooltip: 'Reparse the directories'
+			action: [ :aButton :aTab | 
+				groups do: #repopulateFromDir.
+				aTab viewContentElement phlow update ];
+		actionButtonIcon: BrGlamorousVectorIcons play
+			tooltip: 'Refresh'
+			action: [ :aButton :aTab | aTab viewContentElement phlow update ]
 ]
