@@ -45,6 +45,43 @@
 								"__type" : "textStyle"
 							},
 							"string" : "[[Using the Git Management Tool]]"
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-11-21T20:26:34.235376+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-11-21T20:26:45.663483+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "HIcoHc3jDQCeEV+aDhWTOQ=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "[[Using the Elixir Analysis Tool]]"
 						}
 					]
 				},

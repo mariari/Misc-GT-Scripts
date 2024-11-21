@@ -45,6 +45,43 @@
 								"__type" : "textStyle"
 							},
 							"string" : "[[Using the Git Management Tool]]"
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-11-21T20:26:34.235376+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-11-21T20:26:34.997199+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "HIcoHc3jDQCeEV+aDhWTOQ=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "[["
 						}
 					]
 				},
@@ -382,6 +419,43 @@
 								"__type" : "textStyle"
 							},
 							"string" : "[[Moving Classes From one Package to Another]]"
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-10-26T14:28:29.296449+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-10-26T14:28:29.30479+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "jsV8FL3hDQC3IS0vC447Pg=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "[[NATO Visualization]]"
 						}
 					]
 				},
