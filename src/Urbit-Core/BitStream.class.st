@@ -28,6 +28,19 @@ BitStream >> ingestBit: aBit [
 ]
 
 { #category : #writing }
+BitStream >> nextBitsPutAll: aCollection [
+	" TODO combine all the bits into bytes then write those bytes, should be more efficient"
+
+	aCollection do: [ :aBit | self nextPutBit: aBit ].
+	^ aCollection
+]
+
+{ #category : #writing }
+BitStream >> nextBytesPutAll: aCollection [
+	^ self nextPutAll: aCollection
+]
+
+{ #category : #writing }
 BitStream >> nextPut: anInteger [
 	"We assume the object coming in is byte paded, so we inject our bits into the front before
 	calling the write that should be there.

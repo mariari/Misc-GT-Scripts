@@ -5,6 +5,11 @@ Class {
 	#category : #'Urbit-Core-Nock'
 }
 
+{ #category : #conversion }
+NockBinaryAtom >> asBinary [
+	^ self
+]
+
 { #category : #'as yet unclassified' }
 NockBinaryAtom >> asBitString [
 	^ String
