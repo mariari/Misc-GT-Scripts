@@ -17,9 +17,8 @@ NockBinaryAtom >> asBitString [
 	^ String
 		streamContents: [ :stream | 
 			self
-				do: [ :each | 
-					each printOn: stream base: 2.
-					stream space ].
+				bitsDo: [ :aBit | stream nextPutAll: aBit asString ]
+				afterByte: [ stream space ].
 			stream ensureNoSpace ]
 ]
 
@@ -56,6 +55,20 @@ NockBinaryAtom >> bitsDo: aBlock [
 		to: 1
 		by: -1
 		do: [ :anIndex | self processByteAsBits: (self at: anIndex) do: aBlock ]
+]
+
+{ #category : #tranforming }
+NockBinaryAtom >> bitsDo: aBlock afterByte: anotherBlock [
+	"Process the bits from the highest bit to the lowest. No padding on the first byte"
+
+	self processByteAsBitsNoPadding: self last do: aBlock.
+	anotherBlock value.
+	self size - 1
+		to: 1
+		by: -1
+		do: [ :anIndex | 
+			self processByteAsBits: (self at: anIndex) do: aBlock.
+			anotherBlock value ]
 ]
 
 { #category : #'as yet unclassified' }
