@@ -44,7 +44,7 @@ NockBinaryAtom >> gtJamInfo: aView [
 	^ aView columnedList
 		title: 'Atom Info';
 		priority: 10;
-		items: [ lenAtom := (NockBinaryAtom newFromArray: self bitSize asByteArray) asBitString.
+		items: [ lenAtom := self bitSize asNock asBinary asBitString.
 			lenAtom := lenAtom copyFrom: 2 to: lenAtom size.
 			lenLen := '1' , ('0' repeat: self bitSize highBit).
 			{{'Atom'.
