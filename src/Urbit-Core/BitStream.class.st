@@ -20,6 +20,35 @@ BitStream class >> empty [
 	^ self on: ByteArray new
 ]
 
+{ #category : #converting }
+BitStream >> finalizeWithBytePaddingStart [
+	"pad the byte array to having bits at the front"
+
+	"We should figure out a better way to write between byte boundaries. 
+	As this is very slow"
+
+	"This copies the data 3 times, which is quite bad. 
+	
+	1. for making a new array but shifting every bytes
+	2. for calling self contents for getting the appropriate array
+	3. for calling newStream contents for getting the end stream.
+	
+	With a bit of work we can remove 2. and 3. but a new structure is needed to remove 1."
+
+	| newStream newContents |
+	bitOffset = 0 ifTrue: [ ^ self contents ].
+	newContents := collection species new: collection size + 1.
+	newStream := BitStream on: newContents.
+	8 - bitOffset timesRepeat: [ newStream nextPutBit: 0 ].
+	newStream << self contents.
+	bitOffset
+		to: 1
+		by: -1
+		do: [ :index | newStream nextPutBit: (bitBuffer bitAt: index) ].
+	newStream.
+	^ newStream contents
+]
+
 { #category : #'private - writing' }
 BitStream >> ingestBit: aBit [
 	(0 = aBit or: 1 = aBit) ifFalse: [ ^ self error: 'A bit must be given' ].
