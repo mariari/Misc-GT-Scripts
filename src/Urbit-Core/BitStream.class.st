@@ -66,7 +66,7 @@ BitStream >> nextPutAll: aCollection [
 BitStream >> nextPutBit: aBit [
 	self ingestBit: aBit.
 	bitOffset = 8
-		ifTrue: [ self nextPut: bitBuffer.
+		ifTrue: [ super nextPut: bitBuffer.
 			self onByteBoundary ].
 	^ aBit
 ]
