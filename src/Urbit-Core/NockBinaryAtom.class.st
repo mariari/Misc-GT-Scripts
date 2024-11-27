@@ -2,6 +2,8 @@ Class {
 	#name : #NockBinaryAtom,
 	#superclass : #ByteArray,
 	#type : #bytes,
+	#traits : 'NockBehavior',
+	#classTraits : 'NockBehavior classTrait',
 	#category : #'Urbit-Core-Nock'
 }
 
