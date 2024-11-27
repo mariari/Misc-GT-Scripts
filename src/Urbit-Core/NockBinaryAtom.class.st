@@ -74,16 +74,17 @@ NockBinaryAtom >> bitsDo: aBlock afterByte: anotherBlock [
 { #category : #'as yet unclassified' }
 NockBinaryAtom >> gtJamInfo: aView [
 	<gtView>
-	| lenAtom lenLen |
+	| lenAtom lenLen bitString |
 	^ aView columnedList
 		title: 'Atom Info';
 		priority: 10;
-		items: [ lenAtom := self bitSize asNock asBinary asBitString.
+		items: [ bitString := self asBitString.
+			lenAtom := self bitSize asNock asBinary asBitString.
 			lenAtom := lenAtom copyFrom: 2 to: lenAtom size.
 			lenLen := '1' , ('0' repeat: self bitSize highBit).
 			{{'Atom'.
 					self asIntegerAtom.
-					self reversed asBitString}.
+					bitString asRopedText underlineColor: Color red}.
 				{'UTF8'.
 					[ ZnUTF8Encoder new decodeBytes: self ]
 						on: ZnCharacterEncodingError
@@ -91,13 +92,20 @@ NockBinaryAtom >> gtJamInfo: aView [
 					'N/A'}.
 				{'Number of bits'.
 					self bitSize.
-					lenAtom}.
+					lenAtom asRopedText underlineColor: Color blue}.
 				{'bits length'.
 					self bitSize highBit.
-					lenLen}.
+					lenLen asRopedText underlineColor: Color green}.
 				{'Jam'.
-					self reversed asBitString , '-' , lenAtom , '-' , lenLen.
-					'Endian Reverse'}} ];
+					self jam asBitString asRopedText
+						in: [ :t | 
+							(t from: 1 to: bitString size) underlineColor: Color red.
+							(t from: bitString size + 1 to: t size - self bitSize highBit - 2)
+								underlineColor: Color blue.
+							(t from: t size - self bitSize highBit - 1 to: t size - 1)
+								underlineColor: Color green ];
+						yourself.
+					self jam asBitString reversed}} ];
 		column: 'Key' text: #first;
 		column: 'Value' text: #second;
 		column: 'Jammed Layout' text: #third;

@@ -42,7 +42,6 @@ BitStream >> finalizeWithBytePaddingStart [
 		to: 1
 		by: -1
 		do: [ :index | newStream nextPutBit: (bitBuffer bitAt: index) ].
-	newStream.
 	^ newContents
 ]
 
