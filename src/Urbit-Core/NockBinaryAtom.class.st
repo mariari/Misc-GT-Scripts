@@ -30,9 +30,9 @@ NockBinaryAtom >> asIntegerAtom [
 
 { #category : #bits }
 NockBinaryAtom >> bitSize [
-	"Gets the bitSize of the byteArray assuming a bigEndian encoding"
+	"Gets the bitSize of the byteArray assuming a littleEndian encoding"
 
-	^ (self at: 1) highBit + ((self size - 1) * 8)
+	^ (self at: self size) highBit + ((self size - 1) * 8)
 ]
 
 { #category : #'as yet unclassified' }
