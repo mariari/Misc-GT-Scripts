@@ -75,7 +75,7 @@ BitStream >> nextPut: anInteger [
 
 	| byteToPut return |
 	bitOffset isZero ifTrue: [ ^ super nextPut: anInteger ].
-	byteToPut := (anInteger >> bitOffset) + (bitBuffer << bitOffset).
+	byteToPut := (anInteger >> bitOffset) + (bitBuffer << (8 - bitOffset)).
 	return := super nextPut: byteToPut.	"We try putting the byte first in case it errors"
 	bitBuffer := (2 raisedTo: bitOffset) - 1 bitAnd: anInteger.
 	^ return
