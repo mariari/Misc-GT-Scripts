@@ -3,7 +3,7 @@ I am a bit stream.
 
 I work only on streams backed by an {{gtClass:name=ByteArray}}.
 
-Since we only work on ByteArrays an {{gtMethod:name=BitStream>>empty}} is given
+Since we only work on ByteArrays an {{gtMethod:name=BitStream class>>empty}} is given
 "
 Class {
 	#name : #BitStream,
@@ -49,7 +49,7 @@ BitStream >> nextPut: anInteger [
 
 	| byteToPut return |
 	bitOffset isZero ifTrue: [ ^ super nextPut: anInteger ].
-	byteToPut := (anInteger >> bitOffset << bitOffset) + bitBuffer.
+	byteToPut := (anInteger >> bitOffset) + (bitBuffer << bitOffset).
 	return := super nextPut: byteToPut.	"We try putting the byte first in case it errors"
 	bitBuffer := (2 raisedTo: bitOffset) - 1 bitAnd: anInteger.
 	^ return
