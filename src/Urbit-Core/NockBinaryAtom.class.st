@@ -23,6 +23,16 @@ NockBinaryAtom >> asBitString [
 			stream ensureNoSpace ]
 ]
 
+{ #category : #tranforming }
+NockBinaryAtom >> asBits [
+	^ ByteArray streamContents: [ :aStream | self asBitsOn: aStream ]
+]
+
+{ #category : #tranforming }
+NockBinaryAtom >> asBitsOn: aStream [
+	self bitsDo: [ :aBit | aStream nextPut: aBit ]
+]
+
 { #category : #conversion }
 NockBinaryAtom >> asIntegerAtom [
 	"Find a better name, asInteger is taken and I'd rather not override it"
@@ -35,6 +45,17 @@ NockBinaryAtom >> bitSize [
 	"Gets the bitSize of the byteArray assuming a littleEndian encoding"
 
 	^ (self at: self size) highBit + ((self size - 1) * 8)
+]
+
+{ #category : #tranforming }
+NockBinaryAtom >> bitsDo: aBlock [
+	"Process the bits from the highest bit to the lowest. No padding on the first byte"
+
+	self processByteAsBitsNoPadding: self last do: aBlock.
+	self size - 1
+		to: 1
+		by: -1
+		do: [ :anIndex | self processByteAsBits: (self at: anIndex) do: aBlock ]
 ]
 
 { #category : #'as yet unclassified' }
@@ -78,4 +99,39 @@ NockBinaryAtom >> isAtom [
 { #category : #predicates }
 NockBinaryAtom >> isCell [
 	^ false
+]
+
+{ #category : #encoding }
+NockBinaryAtom >> jamWith: aContext and: aBitStream [
+	"ingoring backrefs for now"
+
+	"The bitSize calculation could be done with less allocation by doing a workaround to make the first bitsDo: skip the first element"
+
+	<argument: #aContext isKindOf: #Dictionary>
+	<argument: #bitBuffer isKindOf: #BitStream>
+	self bitsDo: [ :aBit | aBitStream nextPutBit: aBit ].	"write the atom"
+	self bitSize asNock asBinary asBits
+		allButFirstDo: [ :aBit | aBitStream nextPutBit: aBit ].	"write the len"
+	aBitStream nextPutBit: 1.
+	self bitSize highBit timesRepeat: [ aBitStream nextPutBit: 0 ].	"write len of len"
+	aBitStream nextPutBit: 0.	"add the atom tag"
+	^ {aContext.
+		aBitStream}
+]
+
+{ #category : #tranforming }
+NockBinaryAtom >> processByteAsBits: byte do: aBlock [
+	"Process a byte from the highest bit digit to the lowest digit"
+	^ 8
+		to: 1
+		by: -1
+		do: [ :aBit | aBlock value: (byte bitAt: aBit) ]
+]
+
+{ #category : #tranforming }
+NockBinaryAtom >> processByteAsBitsNoPadding: byte do: aBlock [
+	^ byte highBit
+		to: 1
+		by: -1
+		do: [ :aBit | aBlock value: (byte bitAt: aBit) ]
 ]
