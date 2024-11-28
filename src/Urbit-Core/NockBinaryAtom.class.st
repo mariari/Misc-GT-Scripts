@@ -100,14 +100,22 @@ NockBinaryAtom >> gtJamInfo: aView [
 					self jam asBitString asRopedText
 						in: [ :t | 
 							(t from: 1 to: bitString size) underlineColor: Color red.
-							(t from: bitString size + 1 to: t size - self bitSize highBit - 2)
+							(t from: bitString size + 1 to: t size - self bitSize highBit - 1)
 								underlineColor: Color blue.
 							(t from: t size - self bitSize highBit - 1 to: t size - 1)
 								underlineColor: Color green ];
 						yourself.
 					self jam asBitString reversed}} ];
-		column: 'Key' text: #first;
-		column: 'Value' text: #second;
+		column: 'Key'
+			text: #first
+			width: 90;
+		column: 'Value'
+			stencil: [ :item | 
+				BrEditor new
+					text: item second;
+					aptitude: BrGlamorousRegularEditorAptitude new;
+					vFitContent;
+					yourself ];
 		column: 'Jammed Layout' text: #third;
 		send: #second
 ]
