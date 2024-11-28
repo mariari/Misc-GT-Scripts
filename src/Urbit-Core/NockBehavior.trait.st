@@ -20,12 +20,29 @@ NockBehavior >> isCell [
 
 { #category : #encoding }
 NockBehavior >> jam [
-	^ ((self jamWith: Dictionary new) at: 2) finalizeWithBytePaddingStart reversed
+	^ ((self jamWith: JamContextFast new and: (BitStream on: NockBinaryAtom new))
+		at: 2) finalizeWithBytePaddingStart reversed
 ]
 
 { #category : #encoding }
-NockBehavior >> jamWith: aContext [
-	^ self jamWith: aContext and: (BitStream on: NockBinaryAtom new)
+NockBehavior >> jamAnnotated [
+	| aResult |
+	aResult := self
+			jamWith: JamContextAnnotated new
+			and: (BitStream on: NockBinaryAtom new).
+	^ {aResult at: 1.
+		(aResult at: 2) finalizeWithBytePaddingStart reversed}
+]
+
+{ #category : #presentation }
+NockBehavior >> jamAnnotatedText [
+	| annotation text jam |
+	annotation := self jamAnnotated.
+	jam := annotation at: 2.
+	text := jam asBitString asRopedText.
+	(annotation at: 1) annotations
+		do: [ :jamStar | jamStar annotateFullJam: text paddingAdded: 8 - (jam bitSize rem: 8) ].
+	^ text
 ]
 
 { #category : #encoding }

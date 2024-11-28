@@ -97,14 +97,7 @@ NockBinaryAtom >> gtJamInfo: aView [
 					self bitSize highBit.
 					lenLen asRopedText underlineColor: Color green}.
 				{'Jam'.
-					self jam asBitString asRopedText
-						in: [ :t | 
-							(t from: 1 to: bitString size) underlineColor: Color red.
-							(t from: bitString size + 1 to: t size - self bitSize highBit - 1)
-								underlineColor: Color blue.
-							(t from: t size - self bitSize highBit - 1 to: t size - 1)
-								underlineColor: Color green ];
-						yourself.
+					self jamAnnotatedText.
 					self jam asBitString reversed}} ];
 		column: 'Key'
 			text: #first
@@ -144,6 +137,10 @@ NockBinaryAtom >> jamWith: aContext and: aBitStream [
 	aBitStream nextPutBit: 1.
 	self bitSize highBit timesRepeat: [ aBitStream nextPutBit: 0 ].	"write len of len"
 	aBitStream nextPutBit: 0.	"add the atom tag"
+	aContext
+		addAtom: self
+		size: self bitSize
+		lenSize: self bitSize highBit.
 	^ {aContext.
 		aBitStream}
 ]
