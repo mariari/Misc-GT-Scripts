@@ -47,7 +47,7 @@ NockBehavior >> jamAnnotatedText [
 
 { #category : #encoding }
 NockBehavior >> jamWith: aContext and: aBitStream [
-	<argument: #aContext isKindOf: #Dictionary>
+	<argument: #aContext isKindOf: #JamContextAbstract>
 	<argument: #bitBuffer isKindOf: #BitStream>
 	^ self explicitRequirement
 ]

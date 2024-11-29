@@ -50,7 +50,7 @@ NockIntegerAtom >> isCell [
 
 { #category : #encoding }
 NockIntegerAtom >> jamWith: aContext and: aBitStream [
-	<argument: #aContext isKindOf: #Dictionary>
+	<argument: #aContext isKindOf: #JamContextAbstract>
 	<argument: #bitBuffer isKindOf: #BitStream>
 	^ self asBinary jamWith: aContext and: aBitStream
 ]

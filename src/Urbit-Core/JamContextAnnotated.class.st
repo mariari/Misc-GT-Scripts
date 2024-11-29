@@ -22,19 +22,23 @@ JamContextAnnotated >> addAtom: atom size: atomSize lenSize: atomLenSize [
 ]
 
 { #category : #add }
-JamContextAnnotated >> addNoun: noun withSize: aSize [
-	| newOffset |
-	newOffset := offset + aSize + 2.
+JamContextAnnotated >> addCell: cell [
 	dictionary
-		at: noun
+		at: cell
 		put: (JamNoun new
-				data: noun;
-				start: offset;
-				end: newOffset).
-	offset := newOffset
+				data: cell;
+				start: offset).
+	offset := offset + 2
 ]
 
 { #category : #'as yet unclassified' }
 JamContextAnnotated >> annotations [
 	^ dictionary values
+]
+
+{ #category : #add }
+JamContextAnnotated >> finalizeCell: noun [
+	"The offset has been mutated so this should be enough info to know when the cell is over"
+
+	(dictionary at: noun) end: offset
 ]

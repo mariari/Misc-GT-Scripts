@@ -129,7 +129,7 @@ NockBinaryAtom >> jamWith: aContext and: aBitStream [
 
 	"The bitSize calculation could be done with less allocation by doing a workaround to make the first bitsDo: skip the first element"
 
-	<argument: #aContext isKindOf: #Dictionary>
+	<argument: #aContext isKindOf: #JamContextAbstract>
 	<argument: #bitBuffer isKindOf: #BitStream>
 	self bitsDo: [ :aBit | aBitStream nextPutBit: aBit ].	"write the atom"
 	self bitSize asNock asBinary asBits

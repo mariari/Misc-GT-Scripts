@@ -19,13 +19,18 @@ JamContextAbstract >> addBackref: location originalAtom: atom LocationSize: locS
 ]
 
 { #category : #add }
-JamContextAbstract >> addNoun: noun withSize: aSize [
+JamContextAbstract >> addCell: aCell [
 	^ self subclassResponsibility
 ]
 
 { #category : #accesing }
 JamContextAbstract >> at: aNoun [
 	^ self subclassResponsibility
+]
+
+{ #category : #add }
+JamContextAbstract >> finalizeCell: aCell [
+	^ SubclassResponsibility
 ]
 
 { #category : #initalization }

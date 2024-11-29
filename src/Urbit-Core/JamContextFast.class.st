@@ -23,12 +23,19 @@ JamContextFast >> addBackref: location originalAtom: atom LocationSize: locSize 
 ]
 
 { #category : #add }
-JamContextFast >> addNoun: noun withSize: aSize [
-	dictionary at: noun put: offset.
-	offset := offset + aSize + 2
+JamContextFast >> addCell: cell [
+	dictionary at: cell put: offset.
+	offset := offset + 2
 ]
 
 { #category : #accesing }
 JamContextFast >> at: aNoun [
 	^ dictionary at: aNoun
+]
+
+{ #category : #add }
+JamContextFast >> finalizeCell: noun [
+	"no op, no need to store this information"
+
+	
 ]
