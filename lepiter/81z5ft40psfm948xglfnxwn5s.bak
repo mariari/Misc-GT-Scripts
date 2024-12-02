@@ -105,7 +105,7 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2024-08-09T18:52:20.779705+08:00"
+									"dateAndTimeString" : "2024-11-29T21:15:30.084265+08:00"
 								}
 							},
 							"uid" : {
@@ -115,7 +115,7 @@
 							"paragraphStyle" : {
 								"__type" : "textStyle"
 							},
-							"string" : "Lastly one needs to setup their {{gtClass:name=GhTokenHolder}} value."
+							"string" : "Lastly one needs to setup their {{gtClass:name=GtGitHubTokenHolder}} value."
 						},
 						{
 							"__type" : "textSnippet",
@@ -142,7 +142,7 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2024-08-09T18:53:03.177381+08:00"
+									"dateAndTimeString" : "2024-11-29T22:03:02.461153+08:00"
 								}
 							},
 							"uid" : {
@@ -152,7 +152,7 @@
 							"paragraphStyle" : {
 								"__type" : "textStyle"
 							},
-							"string" : "I run this command myself, feel free to customize it for your own needs."
+							"string" : "I run this command myself, feel free tocustomize it for your own needs."
 						},
 						{
 							"__type" : "pharoSnippet",
@@ -179,14 +179,14 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2024-11-15T12:30:28.190341+08:00"
+									"dateAndTimeString" : "2024-11-15T12:30:55.128263+08:00"
 								}
 							},
 							"uid" : {
 								"__type" : "uid",
 								"uidString" : "dCz7rZ/bDQCXhNO2BaDPMA=="
 							},
-							"code" : "GtGitHubTokenHolder exampleFromFile."
+							"code" : "GtGitHubTokenHolder exampleReadAndCacheTokenFromFile."
 						},
 						{
 							"__type" : "textSnippet",
