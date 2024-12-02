@@ -23,77 +23,6 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2024-08-09T18:46:50.046556+08:00"
-								}
-							},
-							"editEmail" : {
-								"__type" : "email",
-								"emailString" : "<unknown>"
-							},
-							"editTime" : {
-								"__type" : "time",
-								"time" : {
-									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2024-08-09T18:47:02.315724+08:00"
-								}
-							},
-							"uid" : {
-								"__type" : "uid",
-								"uidString" : "DCXKlZ/bDQCG8KLLBaDPMA=="
-							},
-							"paragraphStyle" : {
-								"__type" : "textStyle"
-							},
-							"string" : "Using the git managmenet tool requires one to set the values to the project board they are interested in."
-						},
-						{
-							"__type" : "pharoSnippet",
-							"children" : {
-								"__type" : "snippets",
-								"items" : [ ]
-							},
-							"createEmail" : {
-								"__type" : "email",
-								"emailString" : "<unknown>"
-							},
-							"createTime" : {
-								"__type" : "time",
-								"time" : {
-									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2024-08-09T18:45:38.147105+08:00"
-								}
-							},
-							"editEmail" : {
-								"__type" : "email",
-								"emailString" : "<unknown>"
-							},
-							"editTime" : {
-								"__type" : "time",
-								"time" : {
-									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2024-11-13T14:12:56.217415+08:00"
-								}
-							},
-							"uid" : {
-								"__type" : "uid",
-								"uidString" : "qvOwlJ/bDQCGLUvVBaDPMA=="
-							},
-							"code" : "board := 20.\rorganization := 'anoma'.\rrepoDir := FileLocator home / 'Documents' / 'Work' / 'Repo' / 'anoma'"
-						},
-						{
-							"__type" : "textSnippet",
-							"children" : {
-								"__type" : "snippets",
-								"items" : [ ]
-							},
-							"createEmail" : {
-								"__type" : "email",
-								"emailString" : "<unknown>"
-							},
-							"createTime" : {
-								"__type" : "time",
-								"time" : {
-									"__type" : "dateAndTime",
 									"dateAndTimeString" : "2024-08-09T18:51:58.8842+08:00"
 								}
 							},
@@ -105,7 +34,7 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2024-11-29T21:15:30.084265+08:00"
+									"dateAndTimeString" : "2024-12-02T14:59:49.375341+08:00"
 								}
 							},
 							"uid" : {
@@ -115,7 +44,7 @@
 							"paragraphStyle" : {
 								"__type" : "textStyle"
 							},
-							"string" : "Lastly one needs to setup their {{gtClass:name=GtGitHubTokenHolder}} value."
+							"string" : "To use the Git Management tool, the tool needs  a{{gtClass:name=GtGitHubTokenHolder}} value to be registered with the system."
 						},
 						{
 							"__type" : "textSnippet",
@@ -131,7 +60,7 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2024-08-09T18:52:45.350461+08:00"
+									"dateAndTimeString" : "2024-12-02T14:30:43.202831+08:00"
 								}
 							},
 							"editEmail" : {
@@ -142,17 +71,129 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2024-12-02T14:25:59.509766+08:00"
+									"dateAndTimeString" : "2024-12-02T15:00:11.583717+08:00"
 								}
 							},
 							"uid" : {
 								"__type" : "uid",
-								"uidString" : "xY8nrp/bDQCXkuTXBaDPMA=="
+								"uidString" : "Sb/KbKXkDQCsQlZtDOhyyw=="
 							},
 							"paragraphStyle" : {
 								"__type" : "textStyle"
 							},
-							"string" : "I run this command myself, feel free to customize it for your own needs."
+							"string" : "[You can create a new token here](https://github.com/settings/tokens)."
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-12-02T14:46:04.899304+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-12-02T14:47:05.464388+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "jrq6o6XkDQC4dUoXDOhyyw=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "project, repo,  workflow, user admin:org."
+									}
+								]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-12-02T15:00:12.777043+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-12-02T15:00:46.73482+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "i09E1qXkDQCI/iO1DOhyyw=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "The token needs the following permissions:"
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-12-02T14:49:42.255574+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-12-02T14:52:26.496336+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "EUevsKXkDQC88rIqDOhyyw=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Once you have created the key you should copy it and place it in a file. I recommend placing it in `~/.secrets/gh_token.txt` and then running:"
 						},
 						{
 							"__type" : "pharoSnippet",
@@ -179,7 +220,7 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2024-11-15T12:30:55.128263+08:00"
+									"dateAndTimeString" : "2024-12-02T14:30:41.489477+08:00"
 								}
 							},
 							"uid" : {
@@ -188,6 +229,116 @@
 							},
 							"code" : "GtGitHubTokenHolder exampleReadAndCacheTokenFromFile."
 						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [
+									{
+										"__type" : "pharoSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-12-02T14:33:18.957901+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-12-02T14:33:26.917531+08:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "A1cTdqXkDQCxdvWDDOhyyw=="
+										},
+										"code" : "exampleFilePath := FileLocator home / '.secrets' / 'gh_token.txt'.\rGtGitHubTokenHolder clearToken.\rGtGitHubTokenHolder readAndCacheTokenFrom: exampleFilePath.\rGtGitHubTokenHolder assert: GtGitHubTokenHolder hasToken.\rGtGitHubTokenHolder token"
+									}
+								]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-12-02T14:31:44.486576+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-12-02T14:55:55.735305+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "kt1xcKXkDQCu8aiSDOhyyw=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "If you want to change where the token value is stored, then I recommend editing the section below."
+						}
+					]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-12-02T14:58:15.523105+08:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-12-02T14:58:53.60838+08:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "wyZHz6XkDQCFf+U9DOhyyw=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "###Github Token Setup"
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [
 						{
 							"__type" : "textSnippet",
 							"children" : {
@@ -202,7 +353,7 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2024-08-09T18:51:02.945375+08:00"
+									"dateAndTimeString" : "2024-12-02T15:03:44.257141+08:00"
 								}
 							},
 							"editEmail" : {
@@ -213,17 +364,51 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2024-08-09T18:51:10.716167+08:00"
+									"dateAndTimeString" : "2024-12-02T15:04:30.541261+08:00"
 								}
 							},
 							"uid" : {
 								"__type" : "uid",
-								"uidString" : "VPcMqJ/bDQCS5FR6BaDPMA=="
+								"uidString" : "DCXKlZ/bDQCG8KLLBaDPMA=="
 							},
 							"paragraphStyle" : {
 								"__type" : "textStyle"
 							},
-							"string" : "####Customized values"
+							"string" : "The tool requires some values to be set before use."
+						},
+						{
+							"__type" : "pharoSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-08-09T18:45:38.147105+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-12-02T15:04:49.213744+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "qvOwlJ/bDQCGLUvVBaDPMA=="
+							},
+							"code" : "board := 20.\t\" The org project board one is interested in \"\rorganization := 'anoma'.\t\"The org or user the board exists in\"\rrepoDir := FileLocator home / 'Documents' / 'Work' / 'Repo' / 'anoma'"
 						}
 					]
 				},
@@ -246,7 +431,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-08-09T18:45:54.864716+08:00"
+						"dateAndTimeString" : "2024-12-02T15:03:26.770399+08:00"
 					}
 				},
 				"uid" : {
@@ -256,7 +441,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "###Setting up the Tool"
+				"string" : "###Configuring the Tool"
 			},
 			{
 				"__type" : "textSnippet",
@@ -277,7 +462,7 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2024-08-09T18:50:01.938729+08:00"
+									"dateAndTimeString" : "2024-12-02T15:05:12.813425+08:00"
 								}
 							},
 							"editEmail" : {
@@ -288,78 +473,7 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2024-08-09T18:50:30.685717+08:00"
-								}
-							},
-							"uid" : {
-								"__type" : "uid",
-								"uidString" : "mRhqpJ/bDQCQSn1WBaDPMA=="
-							},
-							"paragraphStyle" : {
-								"__type" : "textStyle"
-							},
-							"string" : "The Context is slow to setup so we want to evaluate this once in  a different block."
-						},
-						{
-							"__type" : "pharoSnippet",
-							"children" : {
-								"__type" : "snippets",
-								"items" : [ ]
-							},
-							"createEmail" : {
-								"__type" : "email",
-								"emailString" : "<unknown>"
-							},
-							"createTime" : {
-								"__type" : "time",
-								"time" : {
-									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2024-08-09T18:49:47.379106+08:00"
-								}
-							},
-							"editEmail" : {
-								"__type" : "email",
-								"emailString" : "<unknown>"
-							},
-							"editTime" : {
-								"__type" : "time",
-								"time" : {
-									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2024-08-09T18:49:54.75235+08:00"
-								}
-							},
-							"uid" : {
-								"__type" : "uid",
-								"uidString" : "7e+Lo5/bDQCP3S6ABaDPMA=="
-							},
-							"code" : "context := GitToolingExamples new graphQLContext"
-						},
-						{
-							"__type" : "textSnippet",
-							"children" : {
-								"__type" : "snippets",
-								"items" : [ ]
-							},
-							"createEmail" : {
-								"__type" : "email",
-								"emailString" : "<unknown>"
-							},
-							"createTime" : {
-								"__type" : "time",
-								"time" : {
-									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2024-08-09T18:51:34.067252+08:00"
-								}
-							},
-							"editEmail" : {
-								"__type" : "email",
-								"emailString" : "<unknown>"
-							},
-							"editTime" : {
-								"__type" : "time",
-								"time" : {
-									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2024-08-09T18:51:53.751807+08:00"
+									"dateAndTimeString" : "2024-12-02T15:06:13.248579+08:00"
 								}
 							},
 							"uid" : {
@@ -369,7 +483,7 @@
 							"paragraphStyle" : {
 								"__type" : "textStyle"
 							},
-							"string" : "Now we can use the tool. Note if there are errors in the view, consider fetching on your local repository."
+							"string" : "Now the tool can be ran. If the tool is pointed at a user's board change {{gtMethod:GithubGQLProjectBoard>>organization:}}, to {{gtMethod:GithubGQLProjectBoard>>user:}}"
 						},
 						{
 							"__type" : "pharoSnippet",
@@ -396,14 +510,51 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2024-10-26T01:13:04.222158+08:00"
+									"dateAndTimeString" : "2024-12-02T15:06:23.100544+08:00"
 								}
 							},
 							"uid" : {
 								"__type" : "uid",
 								"uidString" : "ShhIjp/bDQCFk1kkBaDPMA=="
 							},
-							"code" : "GithubGQLProjectBoard new\r\tcontext: context;\r\tgitLocation: repoDir;\r\torganization: organization;\r\tboard: board;\r\tcandidate: 'next';\r\tcomputeStatus;\r\tyourself"
+							"code" : "context := GitToolingExamples new graphQLContext.\rGithubGQLProjectBoard new\r\tcontext: context;\r\tgitLocation: repoDir;\r\torganization: organization;\r\tboard: board;\r\tcandidate: 'next';\r\tcomputeStatus;\r\tyourself"
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-12-02T14:57:48.641822+08:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-12-02T15:07:00.081088+08:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "jbMszaXkDQCD5SghDOhyyw=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Note that some errors may occur due to async view of `Whats Cooking`, if that's the case reveluate the section above and look at the other view"
 						}
 					]
 				},
