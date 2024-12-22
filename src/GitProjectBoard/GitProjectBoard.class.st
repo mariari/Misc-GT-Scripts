@@ -91,7 +91,8 @@ GitProjectBoard >> gtRepositoryProjectBoard: aView withItems: itemGen [
 		column: 'Topic Name'
 			text: [ :aValue | 
 				color := self isInReleaseColor: aValue.
-				topicName := aValue itemName asRopedText.
+				topicName := (aValue itemName , ' #' , aValue itemNumber asString)
+						asRopedText.
 				topicName foreground: color ]
 			width: 300;
 		column: 'State'
