@@ -39,6 +39,7 @@ GithubPR >> fromJson: ajson [
 		prNumberFromJson: ajson;
 		repositoryInfoFromJson: ajson;
 		authorNameFromJson: ajson;
+		idFromJson: ajson;
 		labelsFromJson: ajson
 ]
 

@@ -9,7 +9,6 @@ Class {
 	#traits : 'GithubJSON',
 	#classTraits : 'GithubJSON classTrait',
 	#instVars : [
-		'id',
 		'contents',
 		'status'
 	],
@@ -59,21 +58,6 @@ GithubProjectV2Item >> gtCurrentLbelsView: aView [
 		priority: 11;
 		title: 'current labels';
 		view: #gtLabelView:
-]
-
-{ #category : #accessing }
-GithubProjectV2Item >> id [
-	^ id
-]
-
-{ #category : #accessing }
-GithubProjectV2Item >> id: anObject [
-	id := anObject
-]
-
-{ #category : #setting }
-GithubProjectV2Item >> idFromJson: jsonData [
-	self id: (jsonData at: #id) jsonObject
 ]
 
 { #category : #accessing }

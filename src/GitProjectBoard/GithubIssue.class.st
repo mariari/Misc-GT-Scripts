@@ -34,6 +34,7 @@ GithubIssue >> fromJson: ajson [
 		itemNumberFromJson: ajson;
 		repositoryInfoFromJson: ajson;
 		authorNameFromJson: ajson;
+		idFromJson: ajson;
 		labelsFromJson: ajson
 ]
 

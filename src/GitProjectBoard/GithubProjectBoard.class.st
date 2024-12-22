@@ -7,7 +7,6 @@ Class {
 		'items',
 		'org',
 		'title',
-		'id',
 		'board'
 	],
 	#category : #'GitProjectBoard-git'
@@ -69,21 +68,6 @@ GithubProjectBoard >> gtProjectView: aView [
 				aColumn
 					stencil: [ :aValue | aValue contents labelsCrumbList ];
 					width: 300 ]
-]
-
-{ #category : #accessing }
-GithubProjectBoard >> id [
-	^ id
-]
-
-{ #category : #accessing }
-GithubProjectBoard >> id: anObject [
-	id := anObject
-]
-
-{ #category : #setting }
-GithubProjectBoard >> idFromJson: ajson [ 
-	self id: (ajson at: #id) jsonObject
 ]
 
 { #category : #accessing }
