@@ -81,6 +81,7 @@ GitTopicInfo >> gitRepository: aRepo [
 { #category : #accessing }
 GitTopicInfo >> gtCommitsFor: aView [
 	<gtView>
+	topic ifNil: [ ^ aView empty ].
 	^ aView forward
 		title: 'commits';
 		priority: 10;
@@ -90,19 +91,21 @@ GitTopicInfo >> gtCommitsFor: aView [
 
 { #category : #accessing }
 GitTopicInfo >> isKnownCommit [
-	^ (self topic repositoryHandle
-		lookupRemoteBranch: self topic name
-		ifAbsent: [ nil ]) isNotNil
+	^ self topic
+		ifNil: [ false ]
+		ifNotNil: [ :aTop | (aTop repositoryHandle lookupRemoteBranch: aTop name ifAbsent: [ nil ]) isNotNil ]
 ]
 
 { #category : #predicates }
 GitTopicInfo >> isParentOf: anotherTopic [
 	<argument: #anotherTopic isKindOf: #GitTopicInfo>
 	<return: #Boolean>
-	^ self topic commit id
-		= (self topic repository
-				mergeBaseBetween: self topic commit id
-				and: anotherTopic topic commit id)
+	^ self topic repository location = anotherTopic topic repository location
+		ifFalse: [ false ]
+		ifTrue: [ self topic commit id
+				= (self topic repository
+						mergeBaseBetween: self topic commit id
+						and: anotherTopic topic commit id) ]
 ]
 
 { #category : #accessing }
@@ -118,7 +121,7 @@ GitTopicInfo >> itemName [
 { #category : #printing }
 GitTopicInfo >> printOn: stream [
 	stream
-		nextPutAll: self topic name;
+		nextPutAll: self topicName;
 		nextPutAll: ' #'.
 
 	self itemNumber printOn: stream base: 10.
@@ -137,10 +140,10 @@ GitTopicInfo >> topic: atopic [
 
 { #category : #accessing }
 GitTopicInfo >> topicName [
-	^ self topic name
+	^ self topic ifNil: [ item itemName ] ifNotNil: [ :top | top name ]
 ]
 
 { #category : #accessing }
 GitTopicInfo >> topicShortName [
-	^ self topic shortName
+	^ self topic ifNil: [ item itemName ] ifNotNil: [ :top | top shortName ]
 ]

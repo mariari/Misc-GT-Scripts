@@ -1068,7 +1068,8 @@ GitToolingExamples >> skunksGithubProjectBoard [
 	<gtExample>
 	^ GithubGQLProjectBoard new
 		context: self graphQLContext;
-		gitLocation: FileLocator home / 'Documents' / 'Work' / 'Repo' / 'anoma';
+		gitLocation: {'anoma' ->( FileLocator home / 'Documents' / 'Work' / 'Repo' / 'anoma')}
+				asDictionary;
 		organization: 'anoma';
 		board: 20;
 		yourself
@@ -1077,13 +1078,13 @@ GitToolingExamples >> skunksGithubProjectBoard [
 { #category : #accessing }
 GitToolingExamples >> skunksProjectBoardNext [
 	<gtExample>
-	^ self skunksGithubProjectBoard candidate: 'next'; computeStatus; yourself
+	^ self skunksGithubProjectBoard candidate: 'anoma' ->'next'; computeStatus; yourself
 ]
 
 { #category : #accessing }
 GitToolingExamples >> skunksProjectBoardRC17 [
 	<gtExample>
-	^ self skunksGithubProjectBoard candidate: 'v0.17.0-rc1'
+	^ self skunksGithubProjectBoard candidate: 'anoma' -> 'v0.17.0-rc1'
 ]
 
 { #category : #accessing }

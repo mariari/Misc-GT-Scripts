@@ -83,7 +83,10 @@ GithubGQLProjectBoard >> populateEverything [
 { #category : #stream }
 GithubGQLProjectBoard >> projectValueStream [
 	^ queryContext itemsWithSurroundingKnowledge
-		collect: [ :v2Item | v2Item gitRepository: self repo ]
+		collect: [ :v2Item | 
+			(repo at: v2Item repo repoName ifAbsent: nil)
+				ifNil: [ v2Item ]
+				ifNotNil: [ :aRepo | v2Item gitRepository: aRepo ] ]
 ]
 
 { #category : #accessing }

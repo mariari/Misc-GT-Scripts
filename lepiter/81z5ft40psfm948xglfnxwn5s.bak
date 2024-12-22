@@ -401,14 +401,14 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2024-12-02T15:04:49.213744+08:00"
+									"dateAndTimeString" : "2024-12-22T20:03:50.443794+08:00"
 								}
 							},
 							"uid" : {
 								"__type" : "uid",
 								"uidString" : "qvOwlJ/bDQCGLUvVBaDPMA=="
 							},
-							"code" : "board := 20.\t\" The org project board one is interested in \"\rorganization := 'anoma'.\t\"The org or user the board exists in\"\rrepoDir := FileLocator home / 'Documents' / 'Work' / 'Repo' / 'anoma'"
+							"code" : "board := 20.\t\" The org project board one is interested in \"\rorganization := 'anoma'.\t\"The org or user the board exists in\"\rrepoDir := FileLocator home / 'Documents' / 'Work' / 'Repo' / 'anoma'."
 						}
 					]
 				},
@@ -510,14 +510,14 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2024-12-02T15:06:23.100544+08:00"
+									"dateAndTimeString" : "2024-12-22T20:03:54.422963+08:00"
 								}
 							},
 							"uid" : {
 								"__type" : "uid",
 								"uidString" : "ShhIjp/bDQCFk1kkBaDPMA=="
 							},
-							"code" : "context := GitToolingExamples new graphQLContext.\rGithubGQLProjectBoard new\r\tcontext: context;\r\tgitLocation: repoDir;\r\torganization: organization;\r\tboard: board;\r\tcandidate: 'next';\r\tcomputeStatus;\r\tyourself"
+							"code" : "context := GitToolingExamples new graphQLContext.\rGithubGQLProjectBoard new\r\tcontext: context;\r\tgitLocation: {'anoma' -> repoDir} asDictionary;\r\torganization: organization;\r\tboard: board;\r\tcandidate: 'anoma' -> 'next';\r\tcomputeStatus;\r\tyourself"
 						},
 						{
 							"__type" : "textSnippet",
@@ -544,7 +544,7 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2024-12-02T15:06:48.331135+08:00"
+									"dateAndTimeString" : "2024-12-02T15:07:00.081088+08:00"
 								}
 							},
 							"uid" : {
@@ -554,7 +554,7 @@
 							"paragraphStyle" : {
 								"__type" : "textStyle"
 							},
-							"string" : "Note that some errors may occur due to async view of `Whats Cooking`, if that's the c"
+							"string" : "Note that some errors may occur due to async view of `Whats Cooking`, if that's the case reveluate the section above and look at the other view"
 						}
 					]
 				},

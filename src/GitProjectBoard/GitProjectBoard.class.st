@@ -24,8 +24,10 @@ GitProjectBoard >> candidate [
 ]
 
 { #category : #accessing }
-GitProjectBoard >> candidate: aString [
-	candidate := IceGitLocalBranch named: aString inRepository: self repo
+GitProjectBoard >> candidate: anAssoc [
+	candidate := IceGitLocalBranch
+			named: anAssoc value
+			inRepository: (self repo at: anAssoc key)
 ]
 
 { #category : #accessing }
@@ -54,9 +56,9 @@ GitProjectBoard >> depCache [
 ]
 
 { #category : #setting }
-GitProjectBoard >> gitLocation: aPath [
-	<argument: #aPath isKindOf: #FileLocator>
-	repo := IceLibgitRepository new location: aPath
+GitProjectBoard >> gitLocation: paths [
+	<argument: #paths isKindOf: #Dictionary>
+	repo := paths collect: [ :aPath | IceLibgitRepository new location: aPath ]
 ]
 
 { #category : #visualization }
