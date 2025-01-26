@@ -1160,7 +1160,7 @@
 										},
 										"editEmail" : {
 											"__type" : "email",
-											"emailString" : "<unknown>"
+											"emailString" : "mariari@protonmail.ch"
 										},
 										"editTime" : {
 											"__type" : "time",
@@ -1200,14 +1200,14 @@
 											"__type" : "time",
 											"time" : {
 												"__type" : "dateAndTime",
-												"dateAndTimeString" : "2024-11-09T22:14:27.469506+08:00"
+												"dateAndTimeString" : "2024-11-09T22:14:43.075094+08:00"
 											}
 										},
 										"uid" : {
 											"__type" : "uid",
 											"uidString" : "9KaVStziDQCKST+cBW44Rg=="
 										},
-										"code" : "topText := BlTextElement new\r\t\ttext: ('Panzer' asRopedText\r\t\t\t\tfontName: 'Source Code Pro';\r\t\t\t\tfontSize: 70);\r\t\tconstraintsDo: [ :c | \r\t\t\tc frame vertical alignCenter.\r\t\t\tc frame horizontal alignCenter ].\r\rtopAmplifier := BrFrame new\r\t\taddChild: topText;\r\t\tborder: Color black;\r\t\tbackground: Color veryVeryLightGray;\r\t\t\t\tmargin: (BlInsets top: 10 bottom: 10);\r\t\tconstraintsDo: [ :c | \r\t\t\tc linear weight: 0.17.\r\t\t\tc horizontal matchParent.\r\t\t\tc vertical matchParent ].\r\rbottomAmplifier := BlElement new\r\t\tbackground: Color green;\r\t\tborder: Color black;\r\t\tmargin: (BlInsets top: 10);\r\t\tconstraintsDo: [ :c | \r\t\t\tc linear weight: 0.17.\r\t\t\tc horizontal matchParent.\r\t\t\tc vertical matchParent ].\r\r\rbounding := BlHorizontalOctagon new\r\t\tconstraintsDo: [ :c | \r\t\t\tc vertical matchParent.\r\t\t\tc horizontal fitContent ].\r\rbounding middle\r\tlayout: BlLinearLayout new;\r\taddChild: armor asElement.\r\rfriendlyTank := BlElement new\r\t\tlayout: BlLinearLayout vertical alignCenter;\r\t\tconstraintsDo: [ :c | \r\t\t\tc vertical matchParent.\r\t\t\tc horizontal matchParent.\r\t\t\tc linear weight: 0.6 ];\r\t\tsize: 600 @ 400;\r\t\tgeometry: BlRectangleGeometry new;\r\t\tborder: nodeThick;\r\t\tbackground: friendlyColor;\r\t\taddChild: bounding.\r\rBrVerticalPane new\r\tvFitContent;\r\thMatchParent;\r\thFitContent;\r\tsize: 600 @ 600;\r\taddChildren: {topAmplifier.\r\t\t\tfriendlyTank.\r\t\t\tbottomAmplifier}"
+										"code" : "topText := BlTextElement new\r\t\ttext: ('Panzer' asRopedText\r\t\t\t\tfontName: 'Source Code Pro';\r\t\t\t\tfontSize: 70);\r\t\tconstraintsDo: [ :c | \r\t\t\tc frame vertical alignCenter.\r\t\t\tc frame horizontal alignCenter ].\r\rtopAmplifier := BrFrame new\r\t\taddChild: topText;\r\t\tborder: Color black;\r\t\tbackground: Color veryVeryLightGray;\r\t\tmargin: (BlInsets top: 10 bottom: 10);\r\t\tconstraintsDo: [ :c | \r\t\t\tc linear weight: 0.17.\r\t\t\tc horizontal matchParent.\r\t\t\tc vertical matchParent ].\r\rbottomAmplifier := BlElement new\r\t\tbackground: Color green;\r\t\tborder: Color black;\r\t\tmargin: (BlInsets top: 10);\r\t\tconstraintsDo: [ :c | \r\t\t\tc linear weight: 0.17.\r\t\t\tc horizontal matchParent.\r\t\t\tc vertical matchParent ].\r\r\rbounding := BlHorizontalOctagon new\r\t\tconstraintsDo: [ :c | \r\t\t\tc vertical matchParent.\r\t\t\tc horizontal fitContent ].\r\rbounding middle\r\tlayout: BlLinearLayout new;\r\taddChild: armor asElement.\r\rfriendlyTank := BlElement new\r\t\tlayout: BlLinearLayout vertical alignCenter;\r\t\tconstraintsDo: [ :c | \r\t\t\tc vertical matchParent.\r\t\t\tc horizontal matchParent.\r\t\t\tc linear weight: 0.6 ];\r\t\tsize: 600 @ 400;\r\t\tgeometry: BlRectangleGeometry new;\r\t\tborder: nodeThick;\r\t\tbackground: friendlyColor;\r\t\taddChild: bounding.\r\rBrVerticalPane new\r\tvFitContent;\r\thMatchParent;\r\thFitContent;\r\tsize: 600 @ 600;\r\taddChildren: {topAmplifier.\r\t\t\tfriendlyTank.\r\t\t\tbottomAmplifier}"
 									}
 								]
 							},
