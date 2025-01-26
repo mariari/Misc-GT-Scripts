@@ -20,6 +20,16 @@ BitStream class >> empty [
 	^ self on: ByteArray new
 ]
 
+{ #category : #accessing }
+BitStream >> currentOffset [
+	^ bitOffset
+]
+
+{ #category : #accessing }
+BitStream >> currentOffsetWord [
+	^ bitBuffer
+]
+
 { #category : #converting }
 BitStream >> finalizeWithBytePaddingStart [
 	"pad the byte array to having bits at the front"
@@ -50,6 +60,11 @@ BitStream >> ingestBit: aBit [
 	(0 = aBit or: 1 = aBit) ifFalse: [ ^ self error: 'A bit must be given' ].
 	bitOffset := 1 + bitOffset.
 	bitBuffer := (bitBuffer << 1) + aBit
+]
+
+{ #category : #'as yet unclassified' }
+BitStream >> isEmpty [
+	^ super isEmpty and: [ bitOffset = 0 ]
 ]
 
 { #category : #writing }
@@ -94,6 +109,16 @@ BitStream >> nextPutBit: aBit [
 		ifTrue: [ super nextPut: bitBuffer.
 			self onByteBoundary ].
 	^ aBit
+]
+
+{ #category : #writing }
+BitStream >> nextPutBitStream: aBitStream [
+	<argument: #aBitStream isKindOf: #BitStream>
+	self nextPutAll: aBitStream contents.
+	aBitStream currentOffset
+		to: 1
+		by: -1
+		do: [ :i | self nextPutBit: (aBitStream currentOffsetWord bitAt: i) ]
 ]
 
 { #category : #'instance creation' }
