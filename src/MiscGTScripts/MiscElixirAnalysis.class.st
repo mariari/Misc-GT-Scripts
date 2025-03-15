@@ -36,6 +36,7 @@ MiscElixirAnalysis >> gtDocumentationFor: aView [
 	<gtView>
 	^ aView mondrian
 		title: 'Short Documentation View';
+		priority: 10;
 		painting: [ :aMondrian | 
 			aMondrian nodes
 				shape: [ :folder | 
@@ -73,6 +74,7 @@ MiscElixirAnalysis >> gtMissingDepsView: aView [
 	<gtView>
 	^ aView mondrian
 		title: 'Dependency Structure';
+		priority: 15;
 		painting: [ :mondrian | 
 			| mixDeps implicitDeps |
 			mixDeps := self declaredDepdencyMap.
