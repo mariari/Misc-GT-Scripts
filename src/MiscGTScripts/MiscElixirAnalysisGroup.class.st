@@ -139,6 +139,11 @@ MiscElixirAnalysisGroup >> modules [
 	^ asts flatCollect: #modules
 ]
 
+{ #category : #'as yet unclassified' }
+MiscElixirAnalysisGroup >> printOn: aStream [
+	aStream nextPutAll: self dir basename
+]
+
 { #category : #instantiation }
 MiscElixirAnalysisGroup >> repopulateFromDir [
 	asts := (ElixirParser sourceFilesIn: dir)
