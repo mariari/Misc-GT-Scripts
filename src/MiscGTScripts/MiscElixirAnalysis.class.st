@@ -7,6 +7,14 @@ Class {
 	#category : #'MiscGTScripts-Elixir'
 }
 
+{ #category : #'as yet unclassified' }
+MiscElixirAnalysis >> declaredDepdencyMap [
+	| mixDeps |
+	mixDeps := Dictionary new.
+	self groups do: [ :x | mixDeps at: x mixName put: x ].
+	^ mixDeps
+]
+
 { #category : #instantiation }
 MiscElixirAnalysis >> groupBy: directories [
 	groups := directories
@@ -60,6 +68,35 @@ MiscElixirAnalysis >> gtDocumentationFor: aView [
 			action: [ :aButton :aTab | aTab viewContentElement phlow update ]
 ]
 
+{ #category : #'as yet unclassified' }
+MiscElixirAnalysis >> gtMissingDepsView: aView [
+	<gtView>
+	| useageDeps |
+	^ aView mondrian
+		title: 'Dependency Structure';
+		painting: [ :mondrian | 
+			| mixDeps |
+			mixDeps := self declaredDepdencyMap.
+			useageDeps := self useageDependncyMap.
+			mondrian nodes
+				stencil: #brModuleNamePane;
+				with: groups.
+			mondrian edges
+				toCenterTop;
+				stencil: [ :ele :fromElement :toElement | 
+					| lineEle |
+					lineEle := BlBezierElement new
+							toHead: (BlArrowheadSimpleArrow new background: Color black).
+					((ele mixUmbrella collect: [ :dep | mixDeps at: dep ])
+						includes: toElement graph model)
+						ifTrue: [ lineEle border: (BlBorder paint: (Color gray alpha: 0.5)) ]
+						ifFalse: [ lineEle border: (BlBorder paint: (Color red alpha: 0.5)) ] ];
+				connectFrom: #yourself
+					toAll: [ :x | (x mixUmbrella collect: [ :dep | mixDeps at: dep ]) union: (useageDeps at: x) ].
+			mondrian layout force charge: -5000.
+			mondrian ]
+]
+
 { #category : #views }
 MiscElixirAnalysis >> gtViewFor: aView [
 	<gtView>
@@ -67,24 +104,31 @@ MiscElixirAnalysis >> gtViewFor: aView [
 		title: 'Explicit Mix Dependnecy Structure';
 		painting: [ :mondrian | 
 			| deps |
-			deps := Dictionary new.
-			self groups do: [ :x | deps at: x mixName put: x ].
-			deps.
-
+			deps := self declaredDepdencyMap.
 			mondrian nodes
-				stencil: [ :x | 
-					BrVerticalPane new
-						addChild: (BrLabel new
-								aptitude: (BrGlamorousLabelAptitude new fontSize: 10);
-								text: x mixName);
-						border: (BlBorder paint: Color gray width: 1);
-						fitContent;
-						padding: (BlInsets left: 1 right: 1);
-						margin: (BlInsets all: 3) ];
+				stencil: #brModuleNamePane;
 				with: groups.
-			mondrian layout sugiyama.
 			mondrian edges
+				toCenterTop;
 				connectFrom: #yourself
-				toAll: [ :x | x mixUmbrella collect: [ :dep | deps at: dep ] ].
+					toAll: [ :x | x mixUmbrella collect: [ :dep | deps at: dep ] ].
+			mondrian layout sugiyama.
 			mondrian ]
+]
+
+{ #category : #'as yet unclassified' }
+MiscElixirAnalysis >> useageDependncyMap [
+	| useageDeps |
+	useageDeps := Dictionary new.
+	self groups
+		do: [ :current | 
+			| modules set |
+			modules := current explicitlyReferencedModules.
+			set := IdentitySet new.
+			self groups
+				do: [ :other | 
+					(other modules asSet includesAny: modules) & (other ~= current) ifTrue: [ set add: other ].
+					useageDeps at: current put: set ] ].
+	useageDeps at: self put: self groups.
+	^ useageDeps
 ]

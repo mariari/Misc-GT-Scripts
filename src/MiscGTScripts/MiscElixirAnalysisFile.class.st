@@ -31,6 +31,20 @@ MiscElixirAnalysisFile >> editableDocs [
 ]
 
 { #category : #accessing }
+MiscElixirAnalysisFile >> explicitModuleDeps [
+	^ ((rawAst // 'dotIdentifier') @ 'identifier' <- 'alias'
+		| ((rawAst // 'dotIdentifier') @ 'identifier' <- 'require')
+		| ((rawAst // 'dotIdentifier') @ 'identifier' <- 'use')
+		select: [ :y | 
+			| source |
+			source := y source.
+			source = 'require' | (source = 'use') | (source = 'alias') ])
+		collect: [ :x | 
+			((x parent // 'dot') asOrderedCollection
+				sort: [ :x1 :x2 | x1 startPosition < x2 startPosition ]) second source ]
+]
+
+{ #category : #accessing }
 MiscElixirAnalysisFile >> fileName [
 	^ rawAst filename
 ]

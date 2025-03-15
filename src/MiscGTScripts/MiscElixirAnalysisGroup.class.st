@@ -28,6 +28,18 @@ MiscElixirAnalysisGroup >> basename [
 	^ dir basename
 ]
 
+{ #category : #visualization }
+MiscElixirAnalysisGroup >> brModuleNamePane [
+	^ BrVerticalPane new
+		addChild: (BrLabel new
+				aptitude: (BrGlamorousLabelAptitude new fontSize: 10);
+				text: self mixName);
+		border: (BlBorder paint: Color gray width: 1);
+		fitContent;
+		padding: (BlInsets left: 1 right: 1);
+		margin: (BlInsets all: 3)
+]
+
 { #category : #mix }
 MiscElixirAnalysisGroup >> computeMixName [
 	| deps listUmbreallaDeps elixirDeps |
@@ -54,6 +66,11 @@ MiscElixirAnalysisGroup >> dir [
 { #category : #accessing }
 MiscElixirAnalysisGroup >> dir: anObject [
 	dir := anObject
+]
+
+{ #category : #accessing }
+MiscElixirAnalysisGroup >> explicitlyReferencedModules [
+	^ asts flatCollect: #explicitModuleDeps
 ]
 
 { #category : #path }
