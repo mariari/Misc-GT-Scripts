@@ -117,6 +117,11 @@ MiscElixirAnalysisGroup >> mixUmbrella [
 	^ mixUmbrella ifNil: [ self computeMixUmbrellaDeps ]
 ]
 
+{ #category : #accessing }
+MiscElixirAnalysisGroup >> modules [
+	^ asts flatCollect: #modules
+]
+
 { #category : #instantiation }
 MiscElixirAnalysisGroup >> repopulateFromDir [
 	asts := (ElixirParser sourceFilesIn: dir)

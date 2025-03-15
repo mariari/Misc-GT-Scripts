@@ -99,6 +99,12 @@ MiscElixirAnalysisFile >> gtShortDocumentationWith: aMondrian [
 	^ aMondrian layout grid
 ]
 
+{ #category : #accessing }
+MiscElixirAnalysisFile >> modules [
+	^ ((rawAst // 'dot') @ 'identifier' <- 'defmodule') \\ 'expr'
+		collect: [ :x | x call source ]
+]
+
 { #category : #loading }
 MiscElixirAnalysisFile >> parseAST [
 	| fileName |
