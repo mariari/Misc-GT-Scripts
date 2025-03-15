@@ -1,9 +1,17 @@
+"
+I am an MiscElixirAnalysisGroup, my main function is to parse a direcotry and offer analysis.
+
+
+Note to refactor: Remove any mix fields and make a mix object we populate information with, it is cleaner
+"
 Class {
 	#name : #MiscElixirAnalysisGroup,
 	#superclass : #Object,
 	#instVars : [
 		'asts',
-		'dir'
+		'dir',
+		'mixName',
+		'mixUmbrella'
 	],
 	#category : #'MiscGTScripts-Elixir'
 }
@@ -20,6 +28,24 @@ MiscElixirAnalysisGroup >> basename [
 	^ dir basename
 ]
 
+{ #category : #mix }
+MiscElixirAnalysisGroup >> computeMixName [
+	| deps listUmbreallaDeps elixirDeps |
+	listUmbreallaDeps := 'mix run -e "IO.inspect(Mix.Project.get.project()[:app])"'.
+	deps := self runMixCommand: listUmbreallaDeps.
+	elixirDeps := ElixirParser parse: deps.
+	^ mixName := (elixirDeps // 'atomNode') anyOne source
+]
+
+{ #category : #mix }
+MiscElixirAnalysisGroup >> computeMixUmbrellaDeps [
+	| listUmbreallaDeps deps elixirDeps |
+	listUmbreallaDeps := 'mix run -e "IO.inspect(Mix.Project.get.project()[:deps] |> Enum.filter(fn {_, info} when is_list(info) -> List.keymember?(info, :in_umbrella, 0); _ -> false end) |> Enum.map(fn {a, _} -> a end))"'.
+	deps := self runMixCommand: listUmbreallaDeps.
+	elixirDeps := ElixirParser parse: deps.
+	^ mixUmbrella := elixirDeps // 'atomNode' collect: #source
+]
+
 { #category : #accessing }
 MiscElixirAnalysisGroup >> dir [
 	^ dir
@@ -28,6 +54,13 @@ MiscElixirAnalysisGroup >> dir [
 { #category : #accessing }
 MiscElixirAnalysisGroup >> dir: anObject [
 	dir := anObject
+]
+
+{ #category : #path }
+MiscElixirAnalysisGroup >> fullPath [
+	| path |
+	path := self dir fullName.
+	^ path
 ]
 
 { #category : #visualization }
@@ -74,6 +107,16 @@ MiscElixirAnalysisGroup >> gtShortDocumentationWith: aMondrian [
 	^ aMondrian layout rectanglePack
 ]
 
+{ #category : #accessing }
+MiscElixirAnalysisGroup >> mixName [
+	^ mixName ifNil: [ self computeMixName ]
+]
+
+{ #category : #accessing }
+MiscElixirAnalysisGroup >> mixUmbrella [
+	^ mixUmbrella ifNil: [ self computeMixUmbrellaDeps ]
+]
+
 { #category : #instantiation }
 MiscElixirAnalysisGroup >> repopulateFromDir [
 	asts := (ElixirParser sourceFilesIn: dir)
@@ -82,4 +125,9 @@ MiscElixirAnalysisGroup >> repopulateFromDir [
 					rawAst: ((ElixirParser parseWithErrors: each contents)
 							filename: each pathString;
 							yourself) ]
+]
+
+{ #category : #mix }
+MiscElixirAnalysisGroup >> runMixCommand: string [
+	^ OSPlatform current resultOfCommand: 'cd ' , self fullPath , '&& ' , string
 ]
