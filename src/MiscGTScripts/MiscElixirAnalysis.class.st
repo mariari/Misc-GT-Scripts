@@ -59,3 +59,32 @@ MiscElixirAnalysis >> gtDocumentationFor: aView [
 			tooltip: 'Refresh'
 			action: [ :aButton :aTab | aTab viewContentElement phlow update ]
 ]
+
+{ #category : #views }
+MiscElixirAnalysis >> gtViewFor: aView [
+	<gtView>
+	^ aView mondrian
+		title: 'Explicit Mix Dependnecy Structure';
+		painting: [ :mondrian | 
+			| deps |
+			deps := Dictionary new.
+			self groups do: [ :x | deps at: x mixName put: x ].
+			deps.
+
+			mondrian nodes
+				stencil: [ :x | 
+					BrVerticalPane new
+						addChild: (BrLabel new
+								aptitude: (BrGlamorousLabelAptitude new fontSize: 10);
+								text: x mixName);
+						border: (BlBorder paint: Color gray width: 1);
+						fitContent;
+						padding: (BlInsets left: 1 right: 1);
+						margin: (BlInsets all: 3) ];
+				with: groups.
+			mondrian layout sugiyama.
+			mondrian edges
+				connectFrom: #yourself
+				toAll: [ :x | x mixUmbrella collect: [ :dep | deps at: dep ] ].
+			mondrian ]
+]
