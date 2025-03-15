@@ -71,26 +71,39 @@ MiscElixirAnalysis >> gtDocumentationFor: aView [
 { #category : #'as yet unclassified' }
 MiscElixirAnalysis >> gtMissingDepsView: aView [
 	<gtView>
-	| useageDeps |
 	^ aView mondrian
 		title: 'Dependency Structure';
 		painting: [ :mondrian | 
-			| mixDeps |
+			| mixDeps useageDeps |
 			mixDeps := self declaredDepdencyMap.
 			useageDeps := self useageDependncyMap.
 			mondrian nodes
 				stencil: #brModuleNamePane;
 				with: groups.
 			mondrian edges
-				toCenterTop;
 				stencil: [ :ele :fromElement :toElement | 
 					| lineEle |
-					lineEle := BlBezierElement new
+					lineEle := BlParabollaArcElement new
+							zIndex: 0;
+							curvatureFraction: 0.08;
 							toHead: (BlArrowheadSimpleArrow new background: Color black).
 					((ele mixUmbrella collect: [ :dep | mixDeps at: dep ])
 						includes: toElement graph model)
 						ifTrue: [ lineEle border: (BlBorder paint: (Color gray alpha: 0.5)) ]
-						ifFalse: [ lineEle border: (BlBorder paint: (Color red alpha: 0.5)) ] ];
+						ifFalse: [ | red |
+							red := BlBorder paint: (Color red alpha: 0.5).
+							lineEle border: red.
+
+							lineEle
+								when: BlMouseEnterEvent
+								do: [ :anEvent | lineEle border: (BlBorder paint: (Color blue alpha: 0.5)) ].
+							lineEle when: BlMouseLeaveEvent do: [ :anEvent | lineEle border: red ].
+
+							lineEle
+								when: BlClickEvent
+								do: [ :anEvent | 
+									anEvent consumed: true.
+									anEvent currentTarget phlow spawnObject: 1 ] ] ];
 				connectFrom: #yourself
 					toAll: [ :x | (x mixUmbrella collect: [ :dep | mixDeps at: dep ]) union: (useageDeps at: x) ].
 			mondrian layout force charge: -5000.
@@ -101,7 +114,7 @@ MiscElixirAnalysis >> gtMissingDepsView: aView [
 MiscElixirAnalysis >> gtViewFor: aView [
 	<gtView>
 	^ aView mondrian
-		title: 'Explicit Mix Dependnecy Structure';
+		title: 'Explicit Mix Dependency Structure';
 		painting: [ :mondrian | 
 			| deps |
 			deps := self declaredDepdencyMap.
