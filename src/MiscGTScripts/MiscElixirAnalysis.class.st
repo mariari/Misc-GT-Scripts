@@ -82,27 +82,30 @@ MiscElixirAnalysis >> gtMissingDepsView: aView [
 				with: groups.
 			mondrian edges
 				stencil: [ :ele :fromElement :toElement | 
-					| lineEle |
+					| lineEle color references |
+					references := MiscElixirAnalysisReferences new
+							modules: toElement graph model modules asSet;
+							group: ele.
 					lineEle := BlParabollaArcElement new
 							zIndex: 0;
 							curvatureFraction: 0.08;
 							toHead: (BlArrowheadSimpleArrow new background: Color black).
-					((implicitDeps at: ele) includes: toElement graph model)
-						ifFalse: [ lineEle border: (BlBorder paint: (Color gray alpha: 0.5)) ]
-						ifTrue: [ | red |
-							red := BlBorder paint: (Color red alpha: 0.5).
-							lineEle border: red.
+					color := ((implicitDeps at: ele) includes: toElement graph model)
+							ifFalse: [ references allReferences
+									ifEmpty: [ BlBorder paint: (Color colorFrom: '#0a6f4a') ]
+									ifNotEmpty: [ BlBorder paint: (Color gray alpha: 0.5) ] ]
+							ifTrue: [ BlBorder paint: (Color red alpha: 0.5) ].
+					lineEle border: color.
+					lineEle
+						when: BlMouseEnterEvent
+						do: [ :anEvent | lineEle border: (BlBorder paint: (Color blue alpha: 0.5)) ].
+					lineEle when: BlMouseLeaveEvent do: [ :anEvent | lineEle border: color ].
 
-							lineEle
-								when: BlMouseEnterEvent
-								do: [ :anEvent | lineEle border: (BlBorder paint: (Color blue alpha: 0.5)) ].
-							lineEle when: BlMouseLeaveEvent do: [ :anEvent | lineEle border: red ].
-
-							lineEle
-								when: BlClickEvent
-								do: [ :anEvent | 
-									anEvent consumed: true.
-									anEvent currentTarget phlow spawnObject: 1 ] ] ];
+					lineEle
+						when: BlClickEvent
+						do: [ :anEvent | 
+							anEvent consumed: true.
+							anEvent currentTarget phlow spawnObject: references ] ];
 				connectFrom: #yourself
 					toAll: [ :x | (x mixUmbrella collect: [ :dep | mixDeps at: dep ]) union: (implicitDeps at: x) ].
 			mondrian layout force charge: -5000.
@@ -148,7 +151,7 @@ MiscElixirAnalysis >> useageDependncyMap [
 	self groups
 		do: [ :current | 
 			| modules set |
-			modules := current explicitlyReferencedModules.
+			modules := current allReferencedModules.
 			set := Set new.
 			self groups
 				do: [ :other | 

@@ -7,7 +7,7 @@ Class {
 	#category : #'MiscGTScripts-Elixir'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #printing }
 MiscElixirAnalysisFile >> basename [
 	^ rawAst
 		ifNil: [ 'MiscElixirAnalysisFile' ]
@@ -31,22 +31,25 @@ MiscElixirAnalysisFile >> editableDocs [
 ]
 
 { #category : #accessing }
-MiscElixirAnalysisFile >> explicitModuleDeps [
-	^ ((rawAst // 'dotIdentifier') @ 'identifier' <- 'alias'
-		| ((rawAst // 'dotIdentifier') @ 'identifier' <- 'require')
-		| ((rawAst // 'dotIdentifier') @ 'identifier' <- 'use')
-		select: [ :y | 
-			| source |
-			source := y source.
-			source = 'require' | (source = 'use') | (source = 'alias') ])
-		collect: [ :x | 
-			((x parent // 'dot') asOrderedCollection
-				sort: [ :x1 :x2 | x1 startPosition < x2 startPosition ]) second source ]
-]
-
-{ #category : #accessing }
 MiscElixirAnalysisFile >> fileName [
 	^ rawAst filename
+]
+
+{ #category : #visualization }
+MiscElixirAnalysisFile >> gtBoundingBox [
+	^ BrVerticalPane new
+		alignTopCenter;
+		fitContent;
+		border: (BlBorder paint: Color gray width: 1);
+		padding: (BlInsets left: 1 right: 1);
+		margin: (BlInsets all: 3);
+		addChildren: {BrLabel new
+					aptitude: (BrGlamorousLabelAptitude new fontSize: 10);
+					text: self basename.
+				BlElement new
+					in: [ :e | e graph beChildrenContainer: #default ];
+					border: Color black;
+					constraintsDo: [ :c | c margin: (BlInsets all: 5) ]}
 ]
 
 { #category : #visualization }
@@ -63,19 +66,7 @@ MiscElixirAnalysisFile >> gtCodeFor: aView [
 { #category : #visualization }
 MiscElixirAnalysisFile >> gtDocumentationBoundingBox [
 	self docs asCollection ifEmpty: [ ^ BlElement new ].
-	^ BrVerticalPane new
-		alignTopCenter;
-		fitContent;
-		border: (BlBorder paint: Color gray width: 1);
-		padding: (BlInsets left: 1 right: 1);
-		margin: (BlInsets all: 3);
-		addChildren: {BrLabel new
-					aptitude: (BrGlamorousLabelAptitude new fontSize: 10);
-					text: self basename.
-				BlElement new
-					in: [ :e | e graph beChildrenContainer: #default ];
-					border: Color black;
-					constraintsDo: [ :c | c margin: (BlInsets all: 5) ]}
+	^ self gtBoundingBox
 ]
 
 { #category : #visualization }
@@ -95,6 +86,22 @@ MiscElixirAnalysisFile >> gtDocumentationFor: aView [
 			action: [ :aButton :aTab | 
 				self parseAST.
 				aTab viewContentElement phlow update ]
+]
+
+{ #category : #visualization }
+MiscElixirAnalysisFile >> gtHighlightedNodes: aMondrian with: nodes [
+	aMondrian nodes
+		shape: [ :node | 
+			BlElement new
+				margin: (BlInsets all: 7);
+				size: 15 asPoint;
+				background: Color gray ];
+		with: (nodes
+				collect: [ :aDoc | 
+					MiscElixirEditableSnippet new
+						file: self fileName asFileReference;
+						section: aDoc ]).
+	^ aMondrian layout grid
 ]
 
 { #category : #visualization }
@@ -141,4 +148,26 @@ MiscElixirAnalysisFile >> rawAst [
 { #category : #accessing }
 MiscElixirAnalysisFile >> rawAst: anObject [
 	rawAst := anObject
+]
+
+{ #category : #accessing }
+MiscElixirAnalysisFile >> referencedModules [
+	^ self referencedModulesAST collect: #source
+]
+
+{ #category : #parsing }
+MiscElixirAnalysisFile >> referencedModulesAST [
+	^ ((rawAst // 'dotIdentifier') @ 'identifier' <- 'alias'
+		| ((rawAst // 'dotIdentifier') @ 'identifier' <- 'require')
+		| ((rawAst // 'dotIdentifier') @ 'identifier' <- 'use')
+		select: [ :y | 
+			| source |
+			source := y source.
+			source = 'require' | (source = 'use') | (source = 'alias') ])
+		collect: [ :x | 
+			((x parent // 'dot') asOrderedCollection
+				sort: [ :x1 :x2 | 
+					x1 startPosition = x2 startPosition
+						ifTrue: [ x1 stopPosition > x2 stopPosition ]
+						ifFalse: [ x1 startPosition < x2 startPosition ] ]) second ]
 ]

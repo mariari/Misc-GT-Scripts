@@ -23,6 +23,11 @@ MiscElixirAnalysisGroup class >> parseFromDir: aDirectory [
 		repopulateFromDir
 ]
 
+{ #category : #parsing }
+MiscElixirAnalysisGroup >> allReferencedModules [
+	^ asts flatCollect: #referencedModules
+]
+
 { #category : #accessing }
 MiscElixirAnalysisGroup >> basename [
 	^ dir basename
@@ -66,11 +71,6 @@ MiscElixirAnalysisGroup >> dir [
 { #category : #accessing }
 MiscElixirAnalysisGroup >> dir: anObject [
 	dir := anObject
-]
-
-{ #category : #accessing }
-MiscElixirAnalysisGroup >> explicitlyReferencedModules [
-	^ asts flatCollect: #explicitModuleDeps
 ]
 
 { #category : #path }
@@ -142,6 +142,11 @@ MiscElixirAnalysisGroup >> modules [
 { #category : #'as yet unclassified' }
 MiscElixirAnalysisGroup >> printOn: aStream [
 	aStream nextPutAll: self dir basename
+]
+
+{ #category : #accessing }
+MiscElixirAnalysisGroup >> referencedModulesASTMap [
+	^ asts collect: [ :x | x -> x referencedModulesAST ] as: Dictionary
 ]
 
 { #category : #instantiation }
