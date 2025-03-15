@@ -137,11 +137,11 @@ MiscElixirAnalysis >> useageDependncyMap [
 		do: [ :current | 
 			| modules set |
 			modules := current explicitlyReferencedModules.
-			set := IdentitySet new.
+			set := Set new.
 			self groups
 				do: [ :other | 
-					(other modules asSet includesAny: modules) & (other ~= current) ifTrue: [ set add: other ].
+					(other modules asSet includesAny: modules) & (other ~= current)
+						ifTrue: [ set add: other ].
 					useageDeps at: current put: set ] ].
-	useageDeps at: self put: self groups.
 	^ useageDeps
 ]
