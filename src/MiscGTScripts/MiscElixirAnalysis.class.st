@@ -74,9 +74,9 @@ MiscElixirAnalysis >> gtMissingDepsView: aView [
 	^ aView mondrian
 		title: 'Dependency Structure';
 		painting: [ :mondrian | 
-			| mixDeps useageDeps |
+			| mixDeps implicitDeps |
 			mixDeps := self declaredDepdencyMap.
-			useageDeps := self useageDependncyMap.
+			implicitDeps := self implicitMixReferences.
 			mondrian nodes
 				stencil: #brModuleNamePane;
 				with: groups.
@@ -87,10 +87,9 @@ MiscElixirAnalysis >> gtMissingDepsView: aView [
 							zIndex: 0;
 							curvatureFraction: 0.08;
 							toHead: (BlArrowheadSimpleArrow new background: Color black).
-					((ele mixUmbrella collect: [ :dep | mixDeps at: dep ])
-						includes: toElement graph model)
-						ifTrue: [ lineEle border: (BlBorder paint: (Color gray alpha: 0.5)) ]
-						ifFalse: [ | red |
+					((implicitDeps at: ele) includes: toElement graph model)
+						ifFalse: [ lineEle border: (BlBorder paint: (Color gray alpha: 0.5)) ]
+						ifTrue: [ | red |
 							red := BlBorder paint: (Color red alpha: 0.5).
 							lineEle border: red.
 
@@ -105,7 +104,7 @@ MiscElixirAnalysis >> gtMissingDepsView: aView [
 									anEvent consumed: true.
 									anEvent currentTarget phlow spawnObject: 1 ] ] ];
 				connectFrom: #yourself
-					toAll: [ :x | (x mixUmbrella collect: [ :dep | mixDeps at: dep ]) union: (useageDeps at: x) ].
+					toAll: [ :x | (x mixUmbrella collect: [ :dep | mixDeps at: dep ]) union: (implicitDeps at: x) ].
 			mondrian layout force charge: -5000.
 			mondrian ]
 ]
@@ -127,6 +126,19 @@ MiscElixirAnalysis >> gtViewFor: aView [
 					toAll: [ :x | x mixUmbrella collect: [ :dep | deps at: dep ] ].
 			mondrian layout sugiyama.
 			mondrian ]
+]
+
+{ #category : #accessing }
+MiscElixirAnalysis >> implicitMixReferences [
+	| mixDeps useageDeps |
+	mixDeps := self declaredDepdencyMap.
+	useageDeps := self useageDependncyMap.
+	self groups
+		do: [ :item | 
+			useageDeps
+				at: item
+				update: [ :set | set difference: (item mixUmbrella collect: [ :dep | mixDeps at: dep ]) ] ].
+	^ useageDeps
 ]
 
 { #category : #'as yet unclassified' }
