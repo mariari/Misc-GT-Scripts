@@ -7,6 +7,20 @@ Class {
 	#category : #'MiscGTScripts-Elixir'
 }
 
+{ #category : #visualization }
+MiscElixirAnalysis >> clickDiff: lineEle withReference: references andColor: color [
+	lineEle
+		when: BlMouseEnterEvent
+		do: [ :anEvent | lineEle border: (BlBorder paint: (Color blue alpha: 0.5)) ].
+	lineEle when: BlMouseLeaveEvent do: [ :anEvent | lineEle border: color ].
+
+	^ lineEle
+		when: BlClickEvent
+		do: [ :anEvent | 
+			anEvent consumed: true.
+			anEvent currentTarget phlow spawnObject: references ]
+]
+
 { #category : #'as yet unclassified' }
 MiscElixirAnalysis >> declaredDepdencyMap [
 	| mixDeps |
@@ -69,7 +83,7 @@ MiscElixirAnalysis >> gtDocumentationFor: aView [
 			action: [ :aButton :aTab | aTab viewContentElement phlow update ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #visualization }
 MiscElixirAnalysis >> gtMissingDepsView: aView [
 	<gtView>
 	^ aView mondrian
@@ -94,24 +108,17 @@ MiscElixirAnalysis >> gtMissingDepsView: aView [
 							toHead: (BlArrowheadSimpleArrow new background: Color black).
 					color := ((implicitDeps at: ele) includes: toElement graph model)
 							ifFalse: [ references allReferences
-									ifEmpty: [ BlBorder paint: (Color colorFrom: '#0a6f4a') ]
+									ifEmpty: [ BlBorder paint: (Color fromHexString: '#0a6f4a') ]
 									ifNotEmpty: [ BlBorder paint: (Color gray alpha: 0.5) ] ]
 							ifTrue: [ BlBorder paint: (Color red alpha: 0.5) ].
 					lineEle border: color.
-					lineEle
-						when: BlMouseEnterEvent
-						do: [ :anEvent | lineEle border: (BlBorder paint: (Color blue alpha: 0.5)) ].
-					lineEle when: BlMouseLeaveEvent do: [ :anEvent | lineEle border: color ].
-
-					lineEle
-						when: BlClickEvent
-						do: [ :anEvent | 
-							anEvent consumed: true.
-							anEvent currentTarget phlow spawnObject: references ] ];
+					self
+						clickDiff: lineEle
+						withReference: references
+						andColor: color ];
 				connectFrom: #yourself
 					toAll: [ :x | (x mixUmbrella collect: [ :dep | mixDeps at: dep ]) union: (implicitDeps at: x) ].
-			mondrian layout force charge: -5000.
-			mondrian ]
+			mondrian layout force charge: -5000 ]
 ]
 
 { #category : #views }
