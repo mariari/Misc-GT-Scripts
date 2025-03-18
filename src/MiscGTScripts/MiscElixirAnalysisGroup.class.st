@@ -81,6 +81,39 @@ MiscElixirAnalysisGroup >> fullPath [
 ]
 
 { #category : #visualization }
+MiscElixirAnalysisGroup >> gtDependenceFor: aView [
+	<gtView>
+	| lineEle dict |
+	dict := Dictionary new.
+	asts do: [ :file | file modules do: [ :module | dict at: module put: file ] ].
+
+	^ aView mondrian
+		title: 'Inter Module Dependence View';
+		priority: 19;
+		painting: [ :aMondrian | 
+			aMondrian nodes
+				shape: [ :module | 
+					BrVerticalPane new
+						addChild: (BrLabel new
+								aptitude: (BrGlamorousLabelAptitude new fontSize: 10);
+								text: module basename);
+						border: (BlBorder paint: Color gray width: 1);
+						fitContent;
+						padding: (BlInsets all: 3) ];
+				with: asts.
+			aMondrian edges
+				stencil: [ :ele :fromElement :toElement | 
+					lineEle := BlParabollaArcElement new
+							zIndex: 0;
+							curvatureFraction: 0.08;
+							toHead: (BlArrowheadSimpleArrow new background: Color black).
+					lineEle border: (BlBorder paint: (Color gray alpha: 0.5)) ];
+				connectFrom: #yourself
+					toAll: [ :file | file referencedModules collect: [ :module | dict at: module ifAbsent: nil ] ].
+			aMondrian layout force charge: -5000 ]
+]
+
+{ #category : #visualization }
 MiscElixirAnalysisGroup >> gtDocumentationFor: aView [
 	<gtView>
 	^ aView mondrian
