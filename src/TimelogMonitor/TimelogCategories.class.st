@@ -23,6 +23,12 @@ TimelogCategories class >> parseWord [
 	^ (#space asPParser / $) asPParser / $( asPParser) negate plus flatten trim
 ]
 
+{ #category : #comparing }
+TimelogCategories >> = anObject [
+	self == anObject ifTrue: [ ^ true ].
+	^ self class == anObject class and: [ self tags = anObject tags ]
+]
+
 { #category : #adding }
 TimelogCategories >> add: anItem [ 
 	self tags add: anItem.
@@ -41,6 +47,11 @@ TimelogCategories >> gtTagsFor: aView [
 		title: 'Tags';
 		items: [ tags asOrderedCollection ];
 		column: 'Value' text: [ :each | each gtDisplayString ]
+]
+
+{ #category : #comparing }
+TimelogCategories >> hash [
+	^ self tags hash
 ]
 
 { #category : #initialization }
