@@ -33,11 +33,28 @@ TimelogClocked >> gtDurationView: aView [
 ]
 
 { #category : #'as yet unclassified' }
+TimelogClocked >> gtEditviewFor: aView [
+	<gtView>
+	^ aView textEditor
+		title: 'Edit' translated;
+		aptitude: BrGlamorousCodeEditorAptitude;
+		text: [ self asString ];
+		priority: 10;
+		fontSize: 20;
+		actionButtonIcon: BrGlamorousVectorIcons play
+			action: [ :aButton :aTab | 
+				| string result |
+				string := aButton phlow textViewContent asString.
+				result := [ self reparseFromString: string ] on: Error do: [ :ex | ex emit ].
+				aTab viewContentElement phlow update ]
+]
+
+{ #category : #'as yet unclassified' }
 TimelogClocked >> gtPreview: aView [
 	<gtView>
 	^ aView explicit
 		title: 'Preview';
-		priority: 1;
+		priority: 12;
 		stencil: [ | container |
 			container := BlElement new
 					layout: BlLinearLayout horizontal;
