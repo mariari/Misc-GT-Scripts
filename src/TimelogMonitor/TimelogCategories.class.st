@@ -7,6 +7,22 @@ Class {
 	#category : #'TimelogMonitor-Tags'
 }
 
+{ #category : #parsing }
+TimelogCategories class >> asPParser [
+	^ ($( asPParser , self parseWord star , $) asPParser trim)
+		==> [ :words | self new tags: (words at: 2) asSet ]
+]
+
+{ #category : #factory }
+TimelogCategories class >> fromString: aString [
+	^ self asPParser parse: aString
+]
+
+{ #category : #parsing }
+TimelogCategories class >> parseWord [
+	^ (#space asPParser / $) asPParser / $( asPParser) negate plus flatten trim
+]
+
 { #category : #adding }
 TimelogCategories >> add: anItem [ 
 	self tags add: anItem.

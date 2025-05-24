@@ -8,6 +8,21 @@ Class {
 	#category : #TimelogMonitor
 }
 
+{ #category : #parsing }
+TimeLogPage class >> asPParser [
+	^ (TimelogClocked asPParser , TimelogClocked dateSeperator trim
+		, TimelogCategories asPParser)
+		==> [ :col | 
+			self new
+				clock: (col at: 1);
+				tags: (col at: 3) ]
+]
+
+{ #category : #factory }
+TimeLogPage class >> fromString: aString [
+	^ self asPParser parse: aString
+]
+
 { #category : #accessing }
 TimeLogPage >> addTag: anItem [
 	self tags add: anItem
