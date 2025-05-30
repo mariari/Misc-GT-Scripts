@@ -50,7 +50,7 @@ MiscElixirAnalysisGroup >> computeMixName [
 	| deps listUmbreallaDeps elixirDeps |
 	listUmbreallaDeps := 'mix run -e "IO.inspect(Mix.Project.get.project()[:app])"'.
 	deps := self runMixCommand: listUmbreallaDeps.
-	elixirDeps := ElixirParser parse: deps.
+	elixirDeps := ElixirParser parse: (self removeStartupLines: deps).
 	^ mixName := (elixirDeps // 'atomNode') anyOne source
 ]
 
@@ -59,7 +59,7 @@ MiscElixirAnalysisGroup >> computeMixUmbrellaDeps [
 	| listUmbreallaDeps deps elixirDeps |
 	listUmbreallaDeps := 'mix run -e "IO.inspect(Mix.Project.get.project()[:deps] |> Enum.filter(fn {_, info} when is_list(info) -> List.keymember?(info, :in_umbrella, 0); _ -> false end) |> Enum.map(fn {a, _} -> a end))"'.
 	deps := self runMixCommand: listUmbreallaDeps.
-	elixirDeps := ElixirParser parse: deps.
+	elixirDeps := ElixirParser parse: (self removeStartupLines: deps).
 	^ mixUmbrella := elixirDeps // 'atomNode' collect: #source
 ]
 
@@ -180,6 +180,16 @@ MiscElixirAnalysisGroup >> printOn: aStream [
 { #category : #accessing }
 MiscElixirAnalysisGroup >> referencedModulesASTMap [
 	^ asts collect: [ :x | x -> x referencedModulesAST ] as: Dictionary
+]
+
+{ #category : #mix }
+MiscElixirAnalysisGroup >> removeStartupLines: deps [
+	^ String cr
+		join: (deps lines
+				select: [ :str | 
+					((str beginsWith: '==>')
+						or: [ (str beginsWith: 'Generated') or: [ str beginsWith: 'Compiling' ] ])
+						not ])
 ]
 
 { #category : #instantiation }
