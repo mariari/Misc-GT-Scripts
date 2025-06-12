@@ -47,7 +47,7 @@ TimeLogPage >> clock: anObject [
 TimeLogPage >> gtViewDurationFor: aView [
 	<gtView>
 	^ aView forward
-		priority: 14;
+		priority: 7;
 		title: 'Duration';
 		object: [ self clock ];
 		view: #gtDurationView:
@@ -56,11 +56,18 @@ TimeLogPage >> gtViewDurationFor: aView [
 { #category : #views }
 TimeLogPage >> gtViewEditFor: aView [
 	<gtView>
-	^ aView forward
-		title: 'Edit View';
+	^ aView textEditor
+		title: 'Edit' translated;
 		priority: 9;
-		object: [ self clock ];
-		view: #gtEditviewFor:
+		aptitude: BrGlamorousCodeEditorAptitude;
+		text: [ self asString ];
+		fontSize: 20;
+		actionButtonIcon: BrGlamorousVectorIcons play
+			action: [ :aButton :aTab | 
+				| string result |
+				string := aButton phlow textViewContent asString.
+				result := [ self reparseFromString: string ] on: Error do: [ :ex | ex emit ].
+				aTab viewContentElement phlow update ]
 ]
 
 { #category : #views }
@@ -88,6 +95,15 @@ TimeLogPage >> printOn: aStream [
 	self clock printOn: aStream.
 	aStream << ' -- '.
 	self tags printOn: aStream
+]
+
+{ #category : #'as yet unclassified' }
+TimeLogPage >> reparseFromString: aString [
+	| other |
+	other := self class fromString: aString.
+
+	self tags: other tags.
+	self clock: other clock
 ]
 
 { #category : #accessing }
