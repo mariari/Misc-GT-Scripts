@@ -30,5 +30,6 @@ BaselineOfMiscGTScripts >> baseline: spec [
 				package: 'GitProjectBoard';
 				package: 'MahjongModel';
 				package: 'NatoSymbols';
-				package: 'Urbit-Core' ]
+				package: 'Urbit-Core';
+				package: 'TimelogMonitor' ]
 ]
