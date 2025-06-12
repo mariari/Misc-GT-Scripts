@@ -10,6 +10,7 @@ TimelogExamples >> forumReadingCat [
 	| res again |
 	res := TimelogCategories new addAll: #(forums reading).
 	again := TimelogCategories fromString: res asString.
+	res addAll: #(forums).
 	self assert: again equals: res.
 	^ res
 ]
