@@ -11,8 +11,3 @@ Class {
 LeTimelogSnippet class >> leJsonV4Name [
 	^ #timelogSnippet
 ]
-
-{ #category : #'lepiter-store' }
-LeTimelogSnippet >> leJsonV4Name [
-	^ #timelogSnippet
-]
