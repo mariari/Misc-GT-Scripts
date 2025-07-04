@@ -24,6 +24,8 @@ GithubPR class >> rawQueryString [
 		id
 		headRefName 
 		number
+		state
+		isDraft
 		author {
 			login
 		}

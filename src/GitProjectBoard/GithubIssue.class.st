@@ -18,6 +18,7 @@ GithubIssue class >> rawQueryString [
 	^ '
 		id
 		number
+		state
 		author {
 			login
 		}
