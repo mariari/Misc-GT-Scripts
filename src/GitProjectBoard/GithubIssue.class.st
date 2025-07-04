@@ -43,6 +43,13 @@ GithubIssue >> authorNameFromJson: ajson [
 	self author: (ajson atPath: #(author login)) jsonObject
 ]
 
+{ #category : #'as yet unclassified' }
+GithubIssue >> determineStatusCard: aString [
+	^ aString = 'OPEN'
+		ifTrue: [ GitLabelInfo openLabel ]
+		ifFalse: [ GitLabelInfo closedLabel ]
+]
+
 { #category : #setting }
 GithubIssue >> fromJson: ajson [
 	self
@@ -51,6 +58,7 @@ GithubIssue >> fromJson: ajson [
 		repositoryInfoFromJson: ajson;
 		authorNameFromJson: ajson;
 		idFromJson: ajson;
+		statusFromJson: ajson;
 		labelsFromJson: ajson
 ]
 
@@ -120,6 +128,21 @@ GithubIssue >> repo: anObject [
 { #category : #setting }
 GithubIssue >> repositoryInfoFromJson: ajson [
 	self repo fromJson: (ajson at: #repository)
+]
+
+{ #category : #accessing }
+GithubIssue >> status [
+	^ status
+]
+
+{ #category : #accessing }
+GithubIssue >> status: aString [
+	status := self determineStatusCard: aString
+]
+
+{ #category : #'json - configuration' }
+GithubIssue >> statusFromJson: aJSON [
+	^ self status: (aJSON at: #state) jsonObject
 ]
 
 { #category : #accessing }

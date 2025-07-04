@@ -46,6 +46,14 @@ GitLabelInfo class >> openLabel [
 		color: (Color fromString: 'green')
 ]
 
+{ #category : #equality }
+GitLabelInfo >> = anObject [
+	^ super = anObject
+		or: [ self class = anObject class ifFalse: [ ^ false ].
+			self name = anObject name & (self description = anObject description)
+				& (self color = anObject color) ]
+]
+
 { #category : #accessing }
 GitLabelInfo >> color [
 	<return: #Color>
@@ -123,6 +131,11 @@ GitLabelInfo >> gtPreviewCard: aView [
 						layout: BlLinearLayout horizontal;
 						addChild: self smallVerticalColor;
 						addChild: list) ]
+]
+
+{ #category : #'as yet unclassified' }
+GitLabelInfo >> hash [
+	^ (name hash bitXor: description hash) bitXor: color hash
 ]
 
 { #category : #accessing }

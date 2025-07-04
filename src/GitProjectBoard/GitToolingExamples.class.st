@@ -706,6 +706,36 @@ GitToolingExamples >> genesisFileIssueJson [
 ]
 
 { #category : #accessing }
+GitToolingExamples >> githubPRClosed [
+	<gtExample>
+	| ret |
+	ret := self githubPRPubSub status: 'CLOSED'.
+
+	self assert: ret status equals: GitLabelInfo closedLabel.
+	^ ret
+]
+
+{ #category : #accessing }
+GitToolingExamples >> githubPRDraft [
+	<gtExample>
+	| ret |
+	ret := self githubPROpen draft.
+
+	self assert: ret status equals: GitLabelInfo draftLabel.
+	^ ret
+]
+
+{ #category : #accessing }
+GitToolingExamples >> githubPRMerged [
+	<gtExample>
+	| ret |
+	ret := self githubPRPubSub status: 'MERGED'.
+
+	self assert: ret status equals: GitLabelInfo mergedLabel.
+	^ ret
+]
+
+{ #category : #accessing }
 GitToolingExamples >> githubPRNifIntegration [
 	<gtExample>
 	^ GithubPR new
@@ -726,6 +756,16 @@ GitToolingExamples >> githubPRNodeFromBase [
 		refName: 'mariari/node-from-base';
 		author: 'mariari';
 		itemNumber: 230
+]
+
+{ #category : #accessing }
+GitToolingExamples >> githubPROpen [
+	<gtExample>
+	| ret |
+	ret := self githubPRPubSub status: 'OPEN'.
+
+	self assert: ret status equals: GitLabelInfo openLabel.
+	^ ret
 ]
 
 { #category : #accessing }

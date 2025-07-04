@@ -48,6 +48,20 @@ GithubPR >> authorNameFromJson: ajson [
 	self author: (ajson atPath: #(author login)) jsonObject
 ]
 
+{ #category : #accessing }
+GithubPR >> determineStatusCard: aString [
+	^ aString = 'OPEN'
+		ifTrue: [ GitLabelInfo openLabel ]
+		ifFalse: [ aString = 'MERGED'
+				ifTrue: [ GitLabelInfo mergedLabel ]
+				ifFalse: [ GitLabelInfo closedLabel ] ]
+]
+
+{ #category : #accessing }
+GithubPR >> draft [
+	status := GitLabelInfo draftLabel
+]
+
 { #category : #setting }
 GithubPR >> fromJson: ajson [
 	self
@@ -56,6 +70,7 @@ GithubPR >> fromJson: ajson [
 		repositoryInfoFromJson: ajson;
 		authorNameFromJson: ajson;
 		idFromJson: ajson;
+		statusFromJSON: ajson;
 		labelsFromJson: ajson
 ]
 
@@ -142,6 +157,22 @@ GithubPR >> repo: anObject [
 { #category : #setting }
 GithubPR >> repositoryInfoFromJson: ajson [
 	self repo fromJson: (ajson at: #repository)
+]
+
+{ #category : #accessing }
+GithubPR >> status [
+	^ status
+]
+
+{ #category : #accessing }
+GithubPR >> status: aString [
+	status := self determineStatusCard: aString
+]
+
+{ #category : #'json - configuration' }
+GithubPR >> statusFromJSON: prJSON [
+	(prJSON at: #draft) jsonObject ifTrue: [ ^ self draft ].
+	^ self status: (prJSON at: #state) jsonObject
 ]
 
 { #category : #accessing }
