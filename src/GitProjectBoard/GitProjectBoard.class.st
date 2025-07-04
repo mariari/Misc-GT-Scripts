@@ -18,6 +18,14 @@ Class {
 	#category : #'GitProjectBoard-git'
 }
 
+{ #category : #view }
+GitProjectBoard >> authorsBoard [
+	self loadAllItems.
+	^ (self items collectAsSet: [ :item | item author ])
+		collect: [ :author | self sliceByAuthor: author ]
+		as: Array
+]
+
 { #category : #accessing }
 GitProjectBoard >> candidate [
 	^ candidate
@@ -59,6 +67,16 @@ GitProjectBoard >> depCache [
 GitProjectBoard >> gitLocation: paths [
 	<argument: #paths isKindOf: #Dictionary>
 	repo := paths collect: [ :aPath | IceLibgitRepository new location: aPath ]
+]
+
+{ #category : #visualization }
+GitProjectBoard >> gtAuthorsView: aView [
+	<gtView>
+	^ aView columnedList
+		title: 'Authors View';
+		priority: 11;
+		items: [ self authorsBoard ];
+		column: 'Authors' text: [ :item | item author asRopedText ]
 ]
 
 { #category : #visualization }
@@ -172,4 +190,11 @@ GitProjectBoard >> repo [
 { #category : #accessing }
 GitProjectBoard >> repo: anObject [
 	repo := anObject
+]
+
+{ #category : #accessing }
+GitProjectBoard >> sliceByAuthor: author [
+	^ GitProjectBoardAuthor new
+		author: author;
+		projectBoard: self
 ]
