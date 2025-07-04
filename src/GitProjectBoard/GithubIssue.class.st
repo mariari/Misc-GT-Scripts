@@ -7,10 +7,25 @@ Class {
 		'title',
 		'itemNumber',
 		'repo',
-		'author'
+		'author',
+		'status'
 	],
 	#category : #'GitProjectBoard-git'
 }
+
+{ #category : #'querying - github' }
+GithubIssue class >> rawQueryString [
+	^ '
+		id
+		number
+		author {
+			login
+		}
+		closed
+		title
+		labels(first: 99) { edges { node { color name description } } }
+		repository { name }'
+]
 
 { #category : #accessing }
 GithubIssue >> author [

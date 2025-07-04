@@ -231,31 +231,15 @@ query WhatsCooking($board: Int!, $login: String!, $after: String){'
 			items(first: 99, after: $after) {
 				edges { node {
 					id
-					content {
-						... on Issue {
-							id
-							number
-							author {
-								login
-							}
-							closed
-							title
-							labels(first: 99) { edges { node { color name description } } }
-							repository { name } }
-						... on PullRequest {
-							id
-							headRefName 
-							number
-							author {
-								login
-							}
-							labels(first: 99) { edges { node { color name description } } }
-							repository { name } } }
-
 					status: fieldValueByName (name: "Status") {
 
 						... on ProjectV2ItemFieldSingleSelectValue {
-							color name description } } } } } } }')
+							color name description } }
+					content {
+						... on Issue {
+							' , GithubIssue rawQueryString
+								, ' }
+						... on PullRequest {' , GithubPR rawQueryString , '} } } } } }')
 		input: self projectBoardArguments
 ]
 

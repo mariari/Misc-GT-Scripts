@@ -12,10 +12,24 @@ Class {
 		'refName',
 		'repo',
 		'prNumber',
-		'author'
+		'author',
+		'status'
 	],
 	#category : #'GitProjectBoard-git'
 }
+
+{ #category : #'querying - github' }
+GithubPR class >> rawQueryString [
+	^ '
+		id
+		headRefName 
+		number
+		author {
+			login
+		}
+		labels(first: 99) { edges { node { color name description } } }
+		repository { name } }'
+]
 
 { #category : #accessing }
 GithubPR >> author [
