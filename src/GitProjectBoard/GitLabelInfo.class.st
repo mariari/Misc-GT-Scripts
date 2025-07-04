@@ -11,6 +11,41 @@ Class {
 	#category : #'GitProjectBoard-git'
 }
 
+{ #category : #status }
+GitLabelInfo class >> closedLabel [
+	<gtExample>
+	^ self new
+		name: 'Closed';
+		color: (Color fromString: 'red')
+]
+
+{ #category : #status }
+GitLabelInfo class >> draftLabel [
+	<gtExample>
+	^ self new
+		name: 'Draft';
+		description: 'This item is open but still in a draft state';
+		color: (Color fromString: 'gray')
+]
+
+{ #category : #status }
+GitLabelInfo class >> mergedLabel [
+	<gtExample>
+	^ self new
+		name: 'Merged';
+		description: 'This item has been merged';
+		color: (Color fromString: 'purple')
+]
+
+{ #category : #status }
+GitLabelInfo class >> openLabel [
+	<gtExample>
+	^ self new
+		name: 'Open';
+		description: 'This item is still open';
+		color: (Color fromString: 'green')
+]
+
 { #category : #accessing }
 GitLabelInfo >> color [
 	<return: #Color>
