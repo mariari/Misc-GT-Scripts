@@ -121,7 +121,7 @@ GitProjectBoard >> gtRepositoryProjectBoard: aView withItems: itemGen [
 		column: 'Tags'
 			do: [ :aColumn | 
 				aColumn
-					stencil: [ :aValue | aValue item contents labelsCrumbList ];
+					stencil: [ :aValue | aValue item labelsCrumbList ];
 					width: 300 ].
 
 	^ columned actionUpdateButton

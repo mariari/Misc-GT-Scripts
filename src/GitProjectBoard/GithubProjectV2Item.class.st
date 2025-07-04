@@ -15,6 +15,11 @@ Class {
 	#category : #'GitProjectBoard-git'
 }
 
+{ #category : #accessing }
+GithubProjectV2Item >> allLabels [
+	^ self contents allLabels
+]
+
 { #category : #'as yet unclassified' }
 GithubProjectV2Item >> author [
 	^ contents author
@@ -50,7 +55,7 @@ GithubProjectV2Item >> fromJson: jsonData [
 ]
 
 { #category : #accessing }
-GithubProjectV2Item >> gtCurrentLbelsView: aView [
+GithubProjectV2Item >> gtLabelView: aView [
 	<gtView>
 	contents allLabels ifNil: [ ^ aView empty ].
 	^ aView forward
@@ -68,6 +73,16 @@ GithubProjectV2Item >> isTopic [
 { #category : #accessing }
 GithubProjectV2Item >> itemName [
 	^ self contents name
+]
+
+{ #category : #accessing }
+GithubProjectV2Item >> itemNumber [
+	^ self contents itemNumber
+]
+
+{ #category : #accessing }
+GithubProjectV2Item >> labelsCrumbList [
+	^ self contents labelsCrumbList
 ]
 
 { #category : #stream }

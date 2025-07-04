@@ -17,7 +17,7 @@ Class {
 
 { #category : #accessing }
 ProjectBoardItem >> author [
-	^ item contents author
+	^ item author
 ]
 
 { #category : #accessing }
@@ -33,7 +33,7 @@ ProjectBoardItem >> borderStatusColoredAptitudeWithStatus: aStatus [
 
 { #category : #accessing }
 ProjectBoardItem >> currentLabels [
-	^ item contents allLabels
+	^ item allLabels
 ]
 
 { #category : #accessing }
@@ -50,7 +50,7 @@ ProjectBoardItem >> gtCurrentLabelsView: aView [
 		object: [ item ];
 		priority: 12;
 		title: 'Current Labels';
-		view: #gtCurrentLbelsView:
+		view: #gtLabelView:
 ]
 
 { #category : #accessing }
@@ -102,7 +102,7 @@ ProjectBoardItem >> itemName [
 
 { #category : #accessing }
 ProjectBoardItem >> itemNumber [
-	^ item contents itemNumber
+	^ item itemNumber
 ]
 
 { #category : #accessing }
