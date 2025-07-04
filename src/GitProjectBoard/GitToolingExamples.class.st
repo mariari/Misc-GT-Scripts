@@ -450,6 +450,23 @@ GitToolingExamples >> exampleReleaseCheck [
 ]
 
 { #category : #accessing }
+GitToolingExamples >> exampleReleaseCheckPRMixed [
+	<gtExample>
+	| release initialCount |
+	release := self exampleReleaseCheck.
+	initialCount := release items size.
+
+	release items: release items , {self branchMergedPR}.
+
+	self assert: release items size equals: initialCount + 1.
+	
+	"Even in refactoring all views should work"
+	self assertObjectPhlowViewsFor: release.
+
+	^ release
+]
+
+{ #category : #accessing }
 GitToolingExamples >> executionLabel [
 	<gtExample>
 	| label |
@@ -759,6 +776,7 @@ GitToolingExamples >> githubPRNodeFromBase [
 				self allLabels at: 19};
 		refName: 'mariari/node-from-base';
 		author: 'mariari';
+		status: 'OPEN';
 		itemNumber: 230
 ]
 
