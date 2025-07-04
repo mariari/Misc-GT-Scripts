@@ -388,6 +388,7 @@ GitToolingExamples >> dumperCounterPR [
 	| item |
 	item := GithubPR new fromJson: self dumperCounterPRJSON.
 	self assert: item refName equals: 'mariari/dumper-counter'.
+	self assert: item status equals: GitLabelInfo openLabel.
 	^ item
 ]
 
@@ -399,6 +400,9 @@ GitToolingExamples >> dumperCounterPRJSON [
 			fromString: '{
 			"headRefName" : "mariari/dumper-counter",
 			"number" : 626,
+			"state" : "OPEN",
+			"draft": true,
+			"author" : { "login" : "mariari"},
 			"repository" : {
 				"name" : "anoma",
 				"labels" : {
@@ -888,6 +892,7 @@ GitToolingExamples >> projectBoardDumperCounterPR [
 	item := GithubProjectV2Item new
 		fromJson: (self projectBoardDumperCounterPRJSON at: #node).
 	self assert: item status name equals: 'Next'.
+	self assert: item contents status equals: GitLabelInfo closedLabel.
 	^ item
 ]
 
@@ -903,6 +908,7 @@ GitToolingExamples >> projectBoardDumperCounterPRJSON [
 		"content" : {
 			"headRefName" : "mariari/dumper-counter",
 			"number" : 626,
+			"state" : "CLOSED",
 			"repository" : {
 				"labels" : {
 					"edges" : [

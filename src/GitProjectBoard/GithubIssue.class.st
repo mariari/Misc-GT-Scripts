@@ -137,6 +137,7 @@ GithubIssue >> status [
 
 { #category : #accessing }
 GithubIssue >> status: aString [
+	aString isNil ifTrue: [ ^ self ].
 	status := self determineStatusCard: aString
 ]
 

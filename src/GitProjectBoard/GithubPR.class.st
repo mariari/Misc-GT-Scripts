@@ -166,12 +166,15 @@ GithubPR >> status [
 
 { #category : #accessing }
 GithubPR >> status: aString [
+	aString isNil ifTrue: [ ^ self ].
 	status := self determineStatusCard: aString
 ]
 
 { #category : #'json - configuration' }
 GithubPR >> statusFromJSON: prJSON [
-	(prJSON at: #draft) jsonObject ifTrue: [ ^ self draft ].
+	(prJSON at: #draft) isNotNil
+		or: [ (prJSON at: #draft) jsonObject ifTrue: [ ^ self draft ] ].
+
 	^ self status: (prJSON at: #state) jsonObject
 ]
 
