@@ -694,6 +694,7 @@ GitToolingExamples >> githubPRNifIntegration [
 		allLabels: {self allLabels at: 18.
 				self allLabels at: 25};
 		refName: 'attic/mariari/nif-integration';
+		author: 'mariari';
 		itemNumber: 25
 ]
 
@@ -705,6 +706,7 @@ GitToolingExamples >> githubPRNodeFromBase [
 				self allLabels at: 8.
 				self allLabels at: 19};
 		refName: 'mariari/node-from-base';
+		author: 'mariari';
 		itemNumber: 230
 ]
 
