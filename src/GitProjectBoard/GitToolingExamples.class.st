@@ -351,6 +351,23 @@ GitToolingExamples >> branchMerged [
 ]
 
 { #category : #accessing }
+GitToolingExamples >> branchMergedPR [
+	<gtExample>
+	| branch topic |
+	branch := IceGitRemoteBranch
+			named: 'anoma/Attic/v0.15.0'
+			inRepository: self anomaRepo.
+
+
+	topic := GitTopicInfo new
+			topic: branch;
+			repo: self mockGithubToolingRepoAnoma;
+			projectBoard: self mockGithubToolingBoard;
+			item: self githubPRNodeFromBase.
+	^ topic
+]
+
+{ #category : #accessing }
 GitToolingExamples >> branchV16 [
 	<gtExample>
 	| branch topic |
@@ -424,6 +441,7 @@ GitToolingExamples >> exampleReleaseCheck [
 		items: {self Atticv021Next.
 				self branchMerged}.
 
+	self assert: release items size equals: 2.
 	^ release
 ]
 
@@ -717,6 +735,7 @@ GitToolingExamples >> githubPRPubSub [
 		allLabels: {self allLabels at: 27.
 				self allLabels at: 6};
 		refName: 'pubsub';
+		author: 'mariari';
 		itemNumber: 762
 ]
 
