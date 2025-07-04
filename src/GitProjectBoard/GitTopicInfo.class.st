@@ -102,10 +102,10 @@ GitTopicInfo >> isParentOf: anotherTopic [
 	<return: #Boolean>
 	^ self topic repository location = anotherTopic topic repository location
 		ifFalse: [ false ]
-		ifTrue: [ self topic commit id
+		ifTrue: [ [ self topic commit id
 				= (self topic repository
 						mergeBaseBetween: self topic commit id
-						and: anotherTopic topic commit id) ]
+						and: anotherTopic topic commit id) ] on: Error do: [ :ex | false ] ]
 ]
 
 { #category : #accessing }
