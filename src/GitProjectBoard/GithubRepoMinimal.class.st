@@ -17,7 +17,9 @@ GithubRepoMinimal class >> queryClass [
 
 { #category : #setting }
 GithubRepoMinimal >> fromJson: jsonData [
-	self nameFromJson: jsonData
+	self idFromJson: jsonData.
+	self nameFromJson: jsonData.
+	self ownerFromJson: jsonData
 ]
 
 { #category : #accessing }
@@ -43,6 +45,11 @@ GithubRepoMinimal >> owner [
 { #category : #accessing }
 GithubRepoMinimal >> owner: anObject [
 	owner := anObject
+]
+
+{ #category : #setting }
+GithubRepoMinimal >> ownerFromJson: jsonData [
+	self name: (jsonData atPath: #(owner login)) jsonObject
 ]
 
 { #category : #accessing }

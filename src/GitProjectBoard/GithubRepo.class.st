@@ -8,16 +8,32 @@ Class {
 	#superclass : #GithubRepoMinimal,
 	#traits : 'GitLabelsMixin',
 	#classTraits : 'GitLabelsMixin classTrait',
+	#instVars : [
+		'issues',
+		'prs'
+	],
 	#category : #'GitProjectBoard-git'
 }
 
-{ #category : #setting }
+{ #category : #'as yet unclassified' }
+GithubRepo class >> queryClass [
+	^ GithubToolingRepo
+]
+
+{ #category : #'json ' }
 GithubRepo >> fromJson: ajson [
+	"Queries all set data. Not repos and Issues"
+
 	super fromJson: ajson.
+	self labelFromJson: ajson.
+	^ self
+]
+
+{ #category : #'json ' }
+GithubRepo >> labelFromJson: ajson [
 	self
 		allLabels: ((ajson atPath: #(labels edges))
-				collect: [ :node | GitLabelInfo new fromJson: (node at: #node) ]).
-	^ self
+				collect: [ :node | GitLabelInfo new fromJson: (node at: #node) ])
 ]
 
 { #category : #accessing }
