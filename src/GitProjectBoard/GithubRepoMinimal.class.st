@@ -49,7 +49,7 @@ GithubRepoMinimal >> owner: anObject [
 
 { #category : #setting }
 GithubRepoMinimal >> ownerFromJson: jsonData [
-	self name: (jsonData atPath: #(owner login)) jsonObject
+	self owner: (jsonData atPath: #(owner login)) jsonObject
 ]
 
 { #category : #accessing }
