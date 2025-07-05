@@ -37,6 +37,24 @@ GithubToolingRepo >> issuePagination [
 ]
 
 { #category : #accessing }
+GithubToolingRepo >> issues [
+	"TODO factor this out"
+
+	repository issues ifNil: [ self queryIssues ].
+	repository issues isAsyncStream ifTrue: [ ^ repository issues asAsyncStream ].
+	^ repository issues
+]
+
+{ #category : #'as yet unclassified' }
+GithubToolingRepo >> items [
+	"I prove issues and prs together"
+
+	"TODO use pagination instead of loading all"
+
+	^ self loadIssues , self loadPrs
+]
+
+{ #category : #accessing }
 GithubToolingRepo >> labels [
 	repository allLabels ifNil: [ self queryEssential ].
 	repository allLabels isAsyncStream
@@ -53,6 +71,30 @@ GithubToolingRepo >> labelsPagination [
 		connectorPath: #(repository labels);
 		collect: [ :item | 
 			GitLabelInfo new fromJson: (item asGtJson at: #node) ]
+]
+
+{ #category : #loading }
+GithubToolingRepo >> loadIssues [
+	"TODO factor this out"
+
+	| issues |
+	issues := self issues.
+	issues isAsyncStream
+		ifTrue: [ issues := issues toArray wait.
+			repository issues: issues ].
+	^ issues
+]
+
+{ #category : #loading }
+GithubToolingRepo >> loadPrs [
+	"TODO factor this out"
+
+	| prs |
+	prs := self prs.
+	prs isAsyncStream
+		ifTrue: [ prs := prs toArray wait.
+			repository prs: prs ].
+	^ prs
 ]
 
 { #category : #'private - accessing' }
@@ -79,6 +121,15 @@ GithubToolingRepo >> prPagination [
 			GithubPR new
 				fromJson: (item asGtJson at: #node);
 				repo: self repository ]
+]
+
+{ #category : #accessing }
+GithubToolingRepo >> prs [
+	"TODO factor this out"
+
+	repository prs ifNil: [ self queryPrs ].
+	repository prs isAsyncStream ifTrue: [ ^ repository prs asAsyncStream ].
+	^ repository prs
 ]
 
 { #category : #building }

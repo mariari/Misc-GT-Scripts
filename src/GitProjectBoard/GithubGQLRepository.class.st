@@ -7,6 +7,12 @@ Class {
 	#category : #'GitProjectBoard-git'
 }
 
+{ #category : #'as yet unclassified' }
+GithubGQLRepository >> computeItems [
+	items := queryContext items.
+	^ items
+]
+
 { #category : #accessing }
 GithubGQLRepository >> context [ 
 	<return: #GtGQLContext>
