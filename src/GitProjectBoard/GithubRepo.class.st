@@ -29,6 +29,16 @@ GithubRepo >> fromJson: ajson [
 	^ self
 ]
 
+{ #category : #accessing }
+GithubRepo >> issues [
+	^ issues
+]
+
+{ #category : #accessing }
+GithubRepo >> issues: anObject [
+	issues := anObject
+]
+
 { #category : #'json ' }
 GithubRepo >> labelFromJson: ajson [
 	self
@@ -39,4 +49,14 @@ GithubRepo >> labelFromJson: ajson [
 { #category : #accessing }
 GithubRepo >> labelName [
 	^ 'Labels'
+]
+
+{ #category : #accessing }
+GithubRepo >> prs [
+	^ prs
+]
+
+{ #category : #accessing }
+GithubRepo >> prs: anObject [
+	prs := anObject
 ]
