@@ -27,7 +27,7 @@ GithubToolingRepo >> initialize [
 
 { #category : #accessing }
 GithubToolingRepo >> labels [
-	repository allLabels ifNil: [ self queryLabels ].
+	repository allLabels ifNil: [ self queryEssential ].
 	repository allLabels isAsyncStream
 		ifTrue: [ ^ repository allLabels asyncSimilarCopy ].
 	^ repository allLabels
@@ -37,16 +37,7 @@ GithubToolingRepo >> labels [
 GithubToolingRepo >> labelsPagination [
 	"much slower than labelsPagination, but we should keep it around when
 	pagination isn't so slow"
-
-	^ (self rawQueryRepoLabels data asGtJson atPath: #(repository labels edges))
-		collect: [ :item | GitLabelInfo new fromJson: (item asGtJson at: #node) ]
-]
-
-{ #category : #stream }
-GithubToolingRepo >> labelsPaginationProper [
-	"much slower than labelsPagination, but we should keep it around when
-	pagination isn't so slow"
-	^ self rawQueryRepoLabels paginator
+	^ self rawQueryRepoInfo paginator
 		cursorInputName: #after;
 		connectorPath: #(repository labels);
 		collect: [ :item | 
@@ -70,7 +61,7 @@ GithubToolingRepo >> prIssueArguments [
 
 { #category : #building }
 GithubToolingRepo >> queryEssential [
-
+	^ repository fromJson: (self rawQueryRepoInfo data atPath: #(repository))
 ]
 
 { #category : #accessing }
@@ -103,29 +94,22 @@ query PullRequests($repo: String!, $login: String!, $after: String) {
 ]
 
 { #category : #querying }
-GithubToolingRepo >> rawQueryRepoLabels [
+GithubToolingRepo >> rawQueryRepoInfo [
 	^ self context client
-		operation: 'query Labels($login: String!, $name : String!, $after: String) {
-	repository(owner: $login, name: $name) {
+		operation: '
+query Info($login: String!, $repo : String!, $after: String) {
+	repository(owner: $login, name: $repo) {
 		__typename
 		description
 		name
 		id
+		owner { login }
 		labels(first: 99, after: $after) {
 			edges { node { color name description id } }
 		}
 	}
 }'
-		input: self repoArguments
-]
-
-{ #category : #accessing }
-GithubToolingRepo >> repoArguments [
-	^ Dictionary new
-		at: #login put: self owner;
-		at: #name put: self repoName;
-		at: #after put: nil;
-		yourself
+		input: self prIssueArguments
 ]
 
 { #category : #stream }
