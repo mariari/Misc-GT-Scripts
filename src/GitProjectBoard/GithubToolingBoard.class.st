@@ -239,7 +239,7 @@ query WhatsCooking($board: Int!, $login: String!, $after: String){'
 						... on Issue {
 							' , GithubIssue rawQueryString
 								, ' }
-						... on PullRequest {' , GithubPR rawQueryString , '} } } } } }')
+						... on PullRequest {' , GithubPR rawQueryString , '} } } } } } }')
 		input: self projectBoardArguments
 ]
 

@@ -30,7 +30,7 @@ GithubPR class >> rawQueryString [
 			login
 		}
 		labels(first: 99) { edges { node { color name description } } }
-		repository { name } }'
+		repository { name }'
 ]
 
 { #category : #accessing }
