@@ -135,7 +135,7 @@ GithubToolingBoard >> projectBoard: aProjectBoard [
 	projectBoard := aProjectBoard
 ]
 
-{ #category : #querying }
+{ #category : #arguments }
 GithubToolingBoard >> projectBoardArguments [
 	^ Dictionary new
 		at: #login put: self owner;

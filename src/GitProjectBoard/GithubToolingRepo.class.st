@@ -59,6 +59,15 @@ GithubToolingRepo >> owner: aString [
 	repository owner: aString
 ]
 
+{ #category : #arguments }
+GithubToolingRepo >> prIssueArguments [
+	^ Dictionary new
+		at: #login put: self owner;
+		at: #repo put: self repoName;
+		at: #after put: nil;
+		yourself
+]
+
 { #category : #building }
 GithubToolingRepo >> queryEssential [
 
@@ -69,7 +78,31 @@ GithubToolingRepo >> queryLabels [
 	repository allLabels: self labelsPagination
 ]
 
-{ #category : #accessing }
+{ #category : #querying }
+GithubToolingRepo >> rawQueryIssues [
+	^ self context client
+		operation: '
+query Issues($repo: String!, $login: String!, $after: String) {
+	repository(name: $repo, owner: $login) {
+		issues (after: $after, states: OPEN, first: 99 ) {
+			edges { node {
+		' , GithubIssue rawQueryString , '} } } } }'
+		input: self prIssueArguments
+]
+
+{ #category : #querying }
+GithubToolingRepo >> rawQueryPRs [
+	^ self context client
+		operation: '
+query PullRequests($repo: String!, $login: String!, $after: String) {
+	repository(name: $repo, owner: $login) {
+		pullRequests (after: $after, states: OPEN, first: 99 ) {
+			edges { node {
+		' , GithubPR rawQueryString , '} } } } }'
+		input: self prIssueArguments
+]
+
+{ #category : #querying }
 GithubToolingRepo >> rawQueryRepoLabels [
 	^ self context client
 		operation: 'query Labels($login: String!, $name : String!, $after: String) {
@@ -95,6 +128,14 @@ GithubToolingRepo >> repoArguments [
 		yourself
 ]
 
+{ #category : #stream }
+GithubToolingRepo >> repoIssuess [
+	^ self rawQueryIssues paginator
+		cursorInputName: #after;
+		connectorPath: #(repository issues);
+		collect: [ :item | GithubIssue new fromJson: (item asGtJson at: #node) ]
+]
+
 { #category : #accessing }
 GithubToolingRepo >> repoName [
 	^ repoName
@@ -104,6 +145,14 @@ GithubToolingRepo >> repoName [
 GithubToolingRepo >> repoName: anObject [
 	repository name: anObject.
 	repoName := anObject.
+]
+
+{ #category : #stream }
+GithubToolingRepo >> repoPRs [
+	^ self rawQueryPRs paginator
+		cursorInputName: #after;
+		connectorPath: #(repository pullRequests);
+		collect: [ :item | GithubPR new fromJson: (item asGtJson at: #node) ]
 ]
 
 { #category : #accessing }
