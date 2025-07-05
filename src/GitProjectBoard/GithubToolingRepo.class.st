@@ -25,6 +25,17 @@ GithubToolingRepo >> initialize [
 	repository := GithubRepo new.
 ]
 
+{ #category : #stream }
+GithubToolingRepo >> issuePagination [
+	^ self rawQueryIssues paginator
+		cursorInputName: #after;
+		connectorPath: #(repository issues);
+		collect: [ :item | 
+			GithubIssue new
+				fromJson: (item asGtJson at: #node);
+				repo: self repository ]
+]
+
 { #category : #accessing }
 GithubToolingRepo >> labels [
 	repository allLabels ifNil: [ self queryEssential ].
@@ -59,14 +70,35 @@ GithubToolingRepo >> prIssueArguments [
 		yourself
 ]
 
+{ #category : #stream }
+GithubToolingRepo >> prPagination [
+	^ self rawQueryPRs paginator
+		cursorInputName: #after;
+		connectorPath: #(repository pullRequests);
+		collect: [ :item | 
+			GithubPR new
+				fromJson: (item asGtJson at: #node);
+				repo: self repository ]
+]
+
 { #category : #building }
 GithubToolingRepo >> queryEssential [
 	^ repository fromJson: (self rawQueryRepoInfo data atPath: #(repository))
 ]
 
-{ #category : #accessing }
+{ #category : #building }
+GithubToolingRepo >> queryIssues [
+	repository issues: self prPagination
+]
+
+{ #category : #building }
 GithubToolingRepo >> queryLabels [
 	repository allLabels: self labelsPagination
+]
+
+{ #category : #building }
+GithubToolingRepo >> queryPrs [
+	repository prs: self prPagination
 ]
 
 { #category : #querying }

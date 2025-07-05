@@ -62,6 +62,25 @@ GithubIssue >> fromJson: ajson [
 		labelsFromJson: ajson
 ]
 
+{ #category : #views }
+GithubIssue >> gtSummaryColumnedListFor: aView [
+	<gtView>
+	^ aView columnedList
+		title: 'Issue Summary';
+		priority: 5;
+		items: [ {'Title' -> self title.
+				'Number' -> self itemNumber asString.
+				'Author' -> self author.
+				'Repo' -> self repo asString.
+				'Status' -> self status asString.
+				'Labels'
+					-> (self allLabels
+							ifNil: [ 'None' ]
+							ifNotNil: [ :labels | labels ])} ];
+		column: 'Property' text: #key;
+		column: 'Value' text: #value
+]
+
 { #category : #initalization }
 GithubIssue >> initialize [
 	super initialize.

@@ -74,6 +74,23 @@ GithubPR >> fromJson: ajson [
 		labelsFromJson: ajson
 ]
 
+{ #category : #views }
+GithubPR >> gtSummaryViewFor: aView [
+	<gtView>
+	^ aView columnedList
+		title: 'Pull Request Summary';
+		priority: 5;
+		items: [ {
+			'Number' -> self itemNumber.
+			'Title' -> (self refName ifNil: ['']).
+			'Author' -> self author.
+			'Status' -> (self status ifNil: ['']).
+			'Labels' -> (self allLabels ifNil: ['']) asString
+		} ];
+		column: 'Property' text: #key;
+		column: 'Value' text: #value
+]
+
 { #category : #initalization }
 GithubPR >> initialize [
 	super initialize.

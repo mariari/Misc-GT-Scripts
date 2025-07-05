@@ -15,11 +15,6 @@ Class {
 	#category : #'GitProjectBoard-git'
 }
 
-{ #category : #'as yet unclassified' }
-GithubRepo class >> queryClass [
-	^ GithubToolingRepo
-]
-
 { #category : #'json ' }
 GithubRepo >> fromJson: ajson [
 	"Queries all set data. Not repos and Issues"
