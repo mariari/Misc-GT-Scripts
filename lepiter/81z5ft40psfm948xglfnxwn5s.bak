@@ -322,7 +322,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-12-02T14:58:53.60838+08:00"
+						"dateAndTimeString" : "2025-07-05T20:32:16.023955-07:00"
 					}
 				},
 				"uid" : {
@@ -401,14 +401,14 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2024-12-22T20:11:18.520851+08:00"
+									"dateAndTimeString" : "2025-07-05T20:34:43.537476-07:00"
 								}
 							},
 							"uid" : {
 								"__type" : "uid",
 								"uidString" : "qvOwlJ/bDQCGLUvVBaDPMA=="
 							},
-							"code" : "board := 19.\t\" The org project board one is interested in \"\rorganization := 'anoma'.\t\"The org or user the board exists in\"\rrepoDir := FileLocator home / 'Documents' / 'Work' / 'Repo' / 'anoma'."
+							"code" : "board := 20.\t\" The org project board one is interested in\"\rrepo := 'anoma'.\t\" Or a repository one is interested in\"\rorganization := 'anoma'.\t\"The org or user the board exists in\"\rrepoDir := FileLocator home / 'Documents' / 'Work' / 'Repo' / 'anoma'"
 						}
 					]
 				},
@@ -510,7 +510,7 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2024-12-22T20:03:54.926529+08:00"
+									"dateAndTimeString" : "2025-07-04T11:57:10.900693-07:00"
 								}
 							},
 							"uid" : {
@@ -533,7 +533,7 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2024-12-02T14:57:48.641822+08:00"
+									"dateAndTimeString" : "2025-07-05T20:32:08.061398-07:00"
 								}
 							},
 							"editEmail" : {
@@ -544,17 +544,126 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2024-12-02T15:07:00.081088+08:00"
+									"dateAndTimeString" : "2025-07-05T20:33:05.098963-07:00"
 								}
 							},
 							"uid" : {
 								"__type" : "uid",
-								"uidString" : "jbMszaXkDQCD5SghDOhyyw=="
+								"uidString" : "/E8JGZz1DQC6uNixDwz6KQ=="
 							},
 							"paragraphStyle" : {
 								"__type" : "textStyle"
 							},
-							"string" : "Note that some errors may occur due to async view of `Whats Cooking`, if that's the case reveluate the section above and look at the other view"
+							"string" : "Also one can run this on a repository without any project board"
+						},
+						{
+							"__type" : "pharoSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2025-07-05T20:33:06.978654-07:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2025-07-05T20:34:52.560953-07:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "8qxaH5z1DQC9b8TGDwz6KQ=="
+							},
+							"code" : "context := GitToolingExamples new graphQLContext.\rGithubGQLRepository new\r\tcontext: context;\r\tgitLocation: {'anoma' -> repoDir} asDictionary;\r\torganization: organization;\r\tcandidate: 'anoma' -> 'next';\r\trepoName: repo\r\tyourself"
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-12-02T14:57:48.641822+08:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2025-07-05T20:31:14.267005-07:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "jbMszaXkDQCD5SghDOhyyw=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "Note that some errors may occur due to async view of `Whats Cooking`, if that's the case reveluate the section above and look at the other view"
+									}
+								]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2025-07-05T20:31:14.263998-07:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2025-07-05T20:31:16.976081-07:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "AsiiGJz1DQC6qprHDwz6KQ=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "###Known Issues"
 						}
 					]
 				},
