@@ -364,7 +364,7 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2024-12-02T15:04:30.541261+08:00"
+									"dateAndTimeString" : "2025-07-06T07:28:04.009703-07:00"
 								}
 							},
 							"uid" : {
@@ -374,7 +374,7 @@
 							"paragraphStyle" : {
 								"__type" : "textStyle"
 							},
-							"string" : "The tool requires some values to be set before use."
+							"string" : "The tool requires some values to be set before use.\nI recommend creating your own page with your own values"
 						},
 						{
 							"__type" : "pharoSnippet",
@@ -401,14 +401,14 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2025-07-05T20:34:43.537476-07:00"
+									"dateAndTimeString" : "2025-07-06T07:27:35.183698-07:00"
 								}
 							},
 							"uid" : {
 								"__type" : "uid",
 								"uidString" : "qvOwlJ/bDQCGLUvVBaDPMA=="
 							},
-							"code" : "board := 20.\t\" The org project board one is interested in\"\rrepo := 'anoma'.\t\" Or a repository one is interested in\"\rorganization := 'anoma'.\t\"The org or user the board exists in\"\rrepoDir := FileLocator home / 'Documents' / 'Work' / 'Repo' / 'anoma'"
+							"code" : "board := 20.\t\" The org project board one is interested in\"\rrepo := 'anoma'.\t\" Or a repository one is interested in\"\rorganization := 'anoma'.\t\"The org or user the board exists in\"\ranomaDir := FileLocator home / 'Documents' / 'Work' / 'Repo' / 'anoma'.\rdirs := {'anoma' -> repoDir} asDictionary"
 						}
 					]
 				},
@@ -510,14 +510,14 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2025-07-04T11:57:10.900693-07:00"
+									"dateAndTimeString" : "2025-07-06T07:27:38.254281-07:00"
 								}
 							},
 							"uid" : {
 								"__type" : "uid",
 								"uidString" : "ShhIjp/bDQCFk1kkBaDPMA=="
 							},
-							"code" : "context := GitToolingExamples new graphQLContext.\rGithubGQLProjectBoard new\r\tcontext: context;\r\tgitLocation: {'anoma' -> repoDir} asDictionary;\r\torganization: organization;\r\tboard: board;\r\tcandidate: 'anoma' -> 'next';\r\tcomputeStatus;\r\tyourself"
+							"code" : "context := GitToolingExamples new graphQLContext.\rGithubGQLProjectBoard new\r\tcontext: context;\r\tgitLocation: dirs;\r\torganization: organization;\r\tboard: board;\r\tcandidate: 'anoma' -> 'next';\r\tcomputeStatus;\r\tyourself"
 						},
 						{
 							"__type" : "textSnippet",
@@ -581,14 +581,14 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2025-07-05T20:34:52.560953-07:00"
+									"dateAndTimeString" : "2025-07-06T07:27:43.204691-07:00"
 								}
 							},
 							"uid" : {
 								"__type" : "uid",
 								"uidString" : "8qxaH5z1DQC9b8TGDwz6KQ=="
 							},
-							"code" : "context := GitToolingExamples new graphQLContext.\rGithubGQLRepository new\r\tcontext: context;\r\tgitLocation: {'anoma' -> repoDir} asDictionary;\r\torganization: organization;\r\tcandidate: 'anoma' -> 'next';\r\trepoName: repo\r\tyourself"
+							"code" : "context := GitToolingExamples new graphQLContext.\rGithubGQLRepository new\r\tcontext: context;\r\tgitLocation: dirs;\r\torganization: organization;\r\tcandidate: 'anoma' -> 'next';\r\trepoName: repo;\r\tcomputeStatus;\r\tyourself"
 						},
 						{
 							"__type" : "textSnippet",

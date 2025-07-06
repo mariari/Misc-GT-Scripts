@@ -13,6 +13,11 @@ GithubGQLRepository >> computeItems [
 	^ items
 ]
 
+{ #category : #'as yet unclassified' }
+GithubGQLRepository >> computeStatus [
+	self allLabels: queryContext labels
+]
+
 { #category : #accessing }
 GithubGQLRepository >> context [ 
 	<return: #GtGQLContext>
