@@ -66,7 +66,8 @@ GithubGQLProjectBoard >> populateEverything [
 GithubGQLProjectBoard >> projectValueStream [
 	^ queryContext itemsWithSurroundingKnowledge
 		collect: [ :v2Item | 
-			(repo at: v2Item repo repoName ifAbsent: nil)
+			v2Item repos: repo.
+			(repo at: v2Item context repoName ifAbsent: nil)
 				ifNil: [ v2Item ]
 				ifNotNil: [ :aRepo | v2Item gitRepository: aRepo ] ]
 ]

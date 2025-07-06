@@ -10,10 +10,26 @@ Class {
 	#instVars : [
 		'item',
 		'projectBoard',
-		'repo'
+		'repos',
+		'context'
 	],
 	#category : #'GitProjectBoard-git'
 }
+
+{ #category : #'as yet unclassified' }
+ProjectBoardItem >> asGithubGQLRepo [
+	| gqlRepo |
+	gqlRepo := GithubGQLRepository new
+			context: self context context;
+			repo: repos;
+			organization: self context owner;
+			repoName: self context repoName;
+			computeStatus;
+			yourself.
+	self isTopic
+		ifTrue: [ gqlRepo candidate: self context repoName -> self topic shortName ].
+	^ gqlRepo
+]
 
 { #category : #accessing }
 ProjectBoardItem >> author [
@@ -29,6 +45,16 @@ ProjectBoardItem >> borderStatusColoredAptitude [
 ProjectBoardItem >> borderStatusColoredAptitudeWithStatus: aStatus [
 	^ BrStyleCommonAptitude new
 		default: [ :aStyle | aStyle border:  aStatus color ]
+]
+
+{ #category : #accessing }
+ProjectBoardItem >> context [
+	^ context
+]
+
+{ #category : #accessing }
+ProjectBoardItem >> context: anObject [
+	context := anObject
 ]
 
 { #category : #accessing }
@@ -56,9 +82,9 @@ ProjectBoardItem >> gtCurrentLabelsView: aView [
 { #category : #accessing }
 ProjectBoardItem >> gtLabelsView: aView [
 	<gtView>
-	self repo ifNil: [ ^ aView empty ].
+	self context ifNil: [ ^ aView empty ].
 	^ aView forward
-		object: [ repo ];
+		object: [ context ];
 		priority: 13;
 		title: 'Repository labels';
 		view: #gtLabelView:
@@ -73,6 +99,19 @@ ProjectBoardItem >> gtStatusView: aView [
 		priority: 13;
 		title: 'Statuses';
 		view: #gtLabelView:
+]
+
+{ #category : #'as yet unclassified' }
+ProjectBoardItem >> gtTransformToGQLRepoActionFor: anAction [
+	<gtAction>
+	^ anAction button
+		icon: BrGlamorousVectorIcons inspect;
+		label: 'Browse Repository';
+		priority: 10;
+		action: [ :aButton | 
+			| gqlRepo |
+			gqlRepo := self asGithubGQLRepo.
+			aButton phlow spawnObject: gqlRepo ]
 ]
 
 { #category : #accessing }
@@ -131,13 +170,13 @@ ProjectBoardItem >> projectBoard: anObject [
 ]
 
 { #category : #accessing }
-ProjectBoardItem >> repo [
-	^ repo
+ProjectBoardItem >> repos [
+	^ repos
 ]
 
 { #category : #accessing }
-ProjectBoardItem >> repo: anObject [
-	repo := anObject
+ProjectBoardItem >> repos: anObject [
+	repos := anObject
 ]
 
 { #category : #accessing }

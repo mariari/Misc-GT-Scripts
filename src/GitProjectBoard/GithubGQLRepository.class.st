@@ -48,7 +48,8 @@ GithubGQLRepository >> promoteItems [
 	^ queryContext items
 		collect: [ :item | 
 			item projectAwareItem
-				repo: queryContext;
+				context: queryContext;
+				repos: repo;
 				gitRepository: (self repo at: item repo name ifAbsent: nil);
 				yourself ]
 ]

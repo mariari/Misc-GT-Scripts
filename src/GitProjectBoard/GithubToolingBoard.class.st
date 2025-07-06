@@ -81,7 +81,7 @@ GithubToolingBoard >> itemsWithSurroundingKnowledge [
 			v2Item id ifNil: [ self queryEssential ].
 			v2Item projectAwareItem
 				projectBoard: self;
-				repo: (self githubToolingRepoAt: v2Item repo) ]
+				context:  (self githubToolingRepoAt: v2Item repo) ]
 ]
 
 { #category : #accessing }
