@@ -101,6 +101,16 @@ GithubProjectV2Item >> printOn: aStream [
 ]
 
 { #category : #accessing }
+GithubProjectV2Item >> projectAwareItem [
+	^ contents projectAwareItem item: self
+]
+
+{ #category : #accessing }
+GithubProjectV2Item >> refName [
+	^ self contents refName
+]
+
+{ #category : #accessing }
 GithubProjectV2Item >> repo [
 	^ contents repo
 ]
@@ -118,9 +128,4 @@ GithubProjectV2Item >> status: anObject [
 { #category : #'json  - queries' }
 GithubProjectV2Item >> statusFromJson: projectBoardItem [
 	self status: (GitLabelInfo new fromJson: (projectBoardItem atPath: #(status)))
-]
-
-{ #category : #accessing }
-GithubProjectV2Item >> toProjectAwareItem [
-	^ contents projectAwareItem item: self
 ]

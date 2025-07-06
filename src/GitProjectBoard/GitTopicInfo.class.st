@@ -70,7 +70,7 @@ GitTopicInfo >> gitRepository: aRepo [
 	possibleRemotes := aRepo remotes
 			collect: [ :remote | 
 				IceGitRemoteBranch
-					named: remote name , '/' , self item contents refName
+					named: remote name , '/' , self item refName
 					inRepository: aRepo ].
 	res := possibleRemotes
 			detect: [ :remote | (aRepo lookupCommit: remote fullname ifAbsent: [ false ]) isBoolean not ]

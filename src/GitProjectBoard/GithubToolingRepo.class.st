@@ -139,7 +139,7 @@ GithubToolingRepo >> queryEssential [
 
 { #category : #building }
 GithubToolingRepo >> queryIssues [
-	repository issues: self prPagination
+	repository issues: self issuePagination
 ]
 
 { #category : #building }

@@ -131,7 +131,7 @@ GithubIssue >> owner: aString [
 
 { #category : #accessing }
 GithubIssue >> projectAwareItem [
-	^ GitIssueInfo new
+	^ GitIssueInfo new item: self
 ]
 
 { #category : #accessing }

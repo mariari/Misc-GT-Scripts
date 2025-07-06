@@ -18,5 +18,5 @@ GitIssueInfo >> isTopic [
 
 { #category : #accessing }
 GitIssueInfo >> itemName [
-	^ self item itemName
+	^ self item name
 ]

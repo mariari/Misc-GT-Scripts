@@ -79,7 +79,7 @@ GithubToolingBoard >> itemsWithSurroundingKnowledge [
 	^ self items
 		collect: [ :v2Item | 
 			v2Item id ifNil: [ self queryEssential ].
-			v2Item toProjectAwareItem
+			v2Item projectAwareItem
 				projectBoard: self;
 				repo: (self githubToolingRepoAt: v2Item repo) ]
 ]

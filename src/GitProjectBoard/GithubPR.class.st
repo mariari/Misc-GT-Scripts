@@ -141,7 +141,7 @@ GithubPR >> prNumberFromJson: ajson [
 
 { #category : #accessing }
 GithubPR >> projectAwareItem [
-	^ GitTopicInfo new
+	^ GitTopicInfo new item: self
 ]
 
 { #category : #accessing }

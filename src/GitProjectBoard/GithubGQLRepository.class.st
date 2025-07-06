@@ -7,9 +7,9 @@ Class {
 	#category : #'GitProjectBoard-git'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 GithubGQLRepository >> computeItems [
-	items := queryContext items.
+	items := self promoteItems.
 	^ items
 ]
 
@@ -34,6 +34,18 @@ GithubGQLRepository >> initialize [
 { #category : #accessing }
 GithubGQLRepository >> organization: organization [
 	queryContext organization: organization
+]
+
+{ #category : #accessing }
+GithubGQLRepository >> promoteItems [
+	"TODO: Figure out if we should query some boards"
+
+	^ queryContext items
+		collect: [ :item | 
+			item projectAwareItem
+				repo: queryContext;
+				gitRepository: (self repo at: item repo name ifAbsent: nil);
+				yourself ]
 ]
 
 { #category : #accessing }
