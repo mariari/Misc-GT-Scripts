@@ -154,6 +154,12 @@ GitDepTopic >> gtSameAuthorDependencies: aView [
 		view: #gtRepositoryDependencies:
 ]
 
+{ #category : #visualization }
+GitDepTopic >> gtTransformToGQLRepoActionFor: anAction [
+    <gtAction>
+    ^ self topic gtTransformToGQLRepoActionFor: anAction
+]
+
 { #category : #accessing }
 GitDepTopic >> gtUnrelatedNodes: aView [
 	<gtView>
