@@ -229,18 +229,26 @@ GitDepTopic >> learnUnfinalized: aNode withItsTopic: aTopic [
 
 { #category : #graph }
 GitDepTopic >> limitChildren: aNode [
+	| chiln |
+	chiln := aNode children copy
+			add: aNode;
+			yourself.
 	self
 		childConsider: (self childConsider
-				ifEmpty: [ ^ self childConsider: aNode children copy ]
-				ifNotEmpty: [ self childConsider intersection: aNode children ])
+				ifEmpty: [ chiln ]
+				ifNotEmpty: [ self childConsider intersection: chiln ])
 ]
 
 { #category : #graph }
 GitDepTopic >> limitParents: aNode [
+	| parent |
+	parent := aNode parents copy
+			add: aNode;
+			yourself.
 	self
 		parentConsider: (self parentConsider
-				ifEmpty: [ ^ self parentConsider: aNode parents copy ]
-				ifNotEmpty: [ self parentConsider intersection: aNode parents ])
+				ifEmpty: [ parent ]
+				ifNotEmpty: [ self parentConsider intersection: parent ])
 ]
 
 { #category : #accessing }
