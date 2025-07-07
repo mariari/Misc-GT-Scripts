@@ -182,8 +182,8 @@ GitDepTopic >> inPopulatedParentCache: aNode [
 
 { #category : #graph }
 GitDepTopic >> knowsOf: aNode [
-	^ ((self children includes: aNode) | (self parents includes: aNode)
-		| (self unrelated includes: aNode) | aNode) = self
+	^ (self children includes: aNode) | (self parents includes: aNode)
+		| (self unrelated includes: aNode) | (aNode = self)
 ]
 
 { #category : #graph }
