@@ -19,5 +19,5 @@ HealthComponent >> health: anObject [
 
 { #category : #'as yet unclassified' }
 HealthComponent >> takeDmg: amount [
-	health - amount max: 0
+	health := health - amount max: 0
 ]
