@@ -344,7 +344,7 @@ GitToolingExamples >> branchMerged [
 
 	topic := GitTopicInfo new
 			topic: branch;
-			repo: self mockGithubToolingRepoAnoma;
+			repos: self mockGithubToolingRepoAnoma;
 			projectBoard: self mockGithubToolingBoard;
 			item: self githubProjectV2ItemNodeFromBase.
 	^ topic
@@ -361,7 +361,7 @@ GitToolingExamples >> branchMergedPR [
 
 	topic := GitTopicInfo new
 			topic: branch;
-			repo: self mockGithubToolingRepoAnoma;
+			repos: self mockGithubToolingRepoAnoma;
 			projectBoard: self mockGithubToolingBoard;
 			item: self githubPRNodeFromBase.
 	^ topic
