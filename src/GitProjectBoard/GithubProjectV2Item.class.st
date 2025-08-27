@@ -85,6 +85,11 @@ GithubProjectV2Item >> labelsCrumbList [
 	^ self contents labelsCrumbList
 ]
 
+{ #category : #accessing }
+GithubProjectV2Item >> name [
+	^ self contents name
+]
+
 { #category : #stream }
 GithubProjectV2Item >> owner: aString [
 	self contents owner: aString

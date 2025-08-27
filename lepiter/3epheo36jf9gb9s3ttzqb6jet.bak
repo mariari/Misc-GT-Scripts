@@ -210,7 +210,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-11-21T20:30:37.073433+08:00"
+						"dateAndTimeString" : "2025-08-25T08:20:25.309578-07:00"
 					}
 				},
 				"uid" : {
@@ -220,7 +220,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "###Using"
+				"string" : "i###Usin"
 			},
 			{
 				"__type" : "textSnippet",
@@ -252,7 +252,7 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2024-11-21T20:31:28.666259+08:00"
+									"dateAndTimeString" : "2024-11-21T20:31:53.345133+08:00"
 								}
 							},
 							"uid" : {
@@ -262,7 +262,7 @@
 							"paragraphStyle" : {
 								"__type" : "textStyle"
 							},
-							"string" : "Currently the tool just had documentation views. The tool composes itself of many layers, double clicking on a box should "
+							"string" : "Currently the tool just had documentation views. The tool composes itself of many layers, double clicking on a box should give you that layer's view which may have more tools than the very top one. Clicking on a square will bring you to edit that specific part."
 						}
 					]
 				},
