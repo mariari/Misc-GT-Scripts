@@ -87,7 +87,7 @@ MahjongExamples >> pairGet [
 	<gtExample>
 	| z1 groups z2 |
 	z1 := self so23.
-	z2 := '45s' asMJGroup.
+	z2 := '56s' asMJGroup.
 
 	groups := MJGroups new.
 
@@ -125,9 +125,7 @@ MahjongExamples >> safeTiles [
 			(tiles at: 5) -> (tiles at: 2).
 			(tiles at: 5) -> (tiles at: 8).
 			(tiles at: 4) -> (tiles at: 1).
-			(tiles at: 4) -> (tiles at: 7).
-			(tiles at: 4) -> (tiles at: 5).
-			(tiles at: 4) -> (tiles at: 2)}.
+			(tiles at: 4) -> (tiles at: 7)}.
 
 	^ self basicGraph: tiles edges: pairs
 ]
