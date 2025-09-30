@@ -83,6 +83,15 @@ MahjongExamples >> mans [
 ]
 
 { #category : #example }
+MahjongExamples >> nakabukure2334 [
+	<gtExample>
+	| groups |
+	groups := self protoRunNext334.
+	groups addGroupIndependently: '23m' asMJGroup.
+	^ groups
+]
+
+{ #category : #example }
 MahjongExamples >> pairGet [
 	<gtExample>
 	| z1 groups z2 |
@@ -103,6 +112,28 @@ MahjongExamples >> pairGet [
 MahjongExamples >> pins [
 	<gtExample>
 	^ self allSuits: [ :each | MJPin new: each ]
+]
+
+{ #category : #example }
+MahjongExamples >> protoRunNext334 [
+	<gtExample>
+	|  groups |
+	groups := MJGroups new.
+	groups
+		addGroupIndependently: '33m' asMJGroup;
+		addGroupIndependently: '34m' asMJGroup.
+	^ groups
+]
+
+{ #category : #example }
+MahjongExamples >> protoRunNext335 [
+	<gtExample>
+	|  groups |
+	groups := MJGroups new.
+	groups
+		addGroupIndependently: '33m' asMJGroup;
+		addGroupIndependently: '35m' asMJGroup.
+	^ groups
 ]
 
 { #category : #example }
