@@ -401,14 +401,14 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2025-07-06T07:27:35.183698-07:00"
+									"dateAndTimeString" : "2025-10-01T20:33:57.293319+08:00"
 								}
 							},
 							"uid" : {
 								"__type" : "uid",
 								"uidString" : "qvOwlJ/bDQCGLUvVBaDPMA=="
 							},
-							"code" : "board := 20.\t\" The org project board one is interested in\"\rrepo := 'anoma'.\t\" Or a repository one is interested in\"\rorganization := 'anoma'.\t\"The org or user the board exists in\"\ranomaDir := FileLocator home / 'Documents' / 'Work' / 'Repo' / 'anoma'.\rdirs := {'anoma' -> repoDir} asDictionary"
+							"code" : "board := 20.\t\" The org project board one is interested in\"\rrepo := 'anoma'.\t\" Or a repository one is interested in\"\rorganization := 'anoma'.\t\"The org or user the board exists in\"\ranomaDir := FileLocator home / 'Documents' / 'Work' / 'Repo' / 'anoma'.\rdirs := {'anoma' -> anomaDir} asDictionary"
 						}
 					]
 				},
